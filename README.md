@@ -12,7 +12,8 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 - Producción y costos: producción, consumo, costo directo parcial.
 
 ## Funcionalidad
-- Tres niveles de detalle: básico, técnico, avanzado; cada uno activa nuevas entradas.
+- Tres niveles de detalle: básico, técnico, avanzado; cada uno activa nuevas entradas. Los datos ocultos no participan en el cálculo.
+- Las propiedades de materiales y los parámetros de máquina sin fuente permanecen vacíos; las dimensiones y cantidades precargadas son ejemplos editables.
 - Explicaciones de cada parámetro y fórmulas en los resultados.
 - Resultados pendientes si faltan datos: **no se inventan propiedades**.
 - Advertencias y limitaciones del modelo.
@@ -23,17 +24,25 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 ## Ejecutar
 Usa un servidor estático, por ejemplo `python -m http.server 8000`, y abre `http://localhost:8000`. Los módulos JavaScript necesitan servidor local y no deben abrirse con `file://`.
 
-Para ejecutar comprobaciones iniciales: `npm test` (requiere Node.js 18 o superior).
+Para ejecutar las pruebas del motor, niveles, entradas e historial: `npm test` (requiere Node.js 18 o superior; no requiere instalar paquetes).
 
-Para publicar en GitHub Pages una vez incorporada la rama de desarrollo: **Settings → Pages → Deploy from a branch → main → /(root)**.
+Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install playwright`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cuatro tamaños, además de edición, historial y exportación.
+
+Los cambios de esta auditoría se preparan en `feature/web-v1-modular`. La publicación en GitHub Pages y la fusión a `main` quedan pendientes de una decisión posterior; no son parte de la verificación local.
 
 ## Estructura
 - `index.html`: HTML de entrada.
 - `src/app.js`: navegación, controles y almacenamiento local.
 - `src/schema.js`: catálogo de parámetros, niveles y descripciones.
-- `src/engine.js`: motor de cálculo y notas técnicas.
+- `src/engine.js`: registro de modelos y validación de entradas.
+- `src/models/`: motor independiente de cada proceso y notas técnicas.
+- `src/math.js`: conversiones numéricas y división segura.
+- `src/history.js`: lectura validada del historial.
 - `src/styles.css`: estilos responsivos.
-- `tests/engine.test.js`: pruebas automatizadas de referencia.
+- `tests/`: pruebas de referencia, dominios/niveles, historial e integración de navegador.
+- `docs/modelos.md`: ecuaciones, unidades, dominios, límites y validación técnica necesaria.
+- `docs/arquitectura.md`: contrato y extensión de calculadoras.
+- `docs/auditoria.md`: hallazgos y resultados de verificación.
 
 ## Limitaciones técnicas
 Los cálculos **son modelos simplificados y no están validados para operación industrial**. La precisión depende del grado comercial, las mediciones y las condiciones de proceso. La densidad del fundido no se puede sustituir automáticamente por la densidad del sólido. La capacidad de inyección calculada es geométrica ideal, no una homologación de máquina; el margen de shot no equivale al colchón residual.
@@ -48,3 +57,5 @@ La película supone dos paredes uniformes sin pérdidas. El DDR geométrico no c
 5. Obtener conformidad para identidad gráfica institucional definitiva.
 
 **Importante:** la app Flutter será otro proyecto; ambos pueden compartir especificaciones matemáticas y pruebas, no el mismo código JavaScript.
+
+Consulta [modelos y validación técnica](docs/modelos.md), [arquitectura modular](docs/arquitectura.md) y [auditoría y pruebas](docs/auditoria.md) antes de utilizar resultados fuera de un ejercicio académico.
