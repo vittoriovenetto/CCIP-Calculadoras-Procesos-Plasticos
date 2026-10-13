@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {calculate} from '../src/engine.js';
+const result=(id,values,label)=>calculate(id,values).metrics.find(m=>m.label===label).value;
+const close=(actual,expected)=>assert.ok(Math.abs(actual-expected)<1e-7,`Esperado ${expected}, obtenido ${actual}`);
+test("shot por masa: dos piezas de 30 g, 5 g de canales",()=>close(result("inyeccion",{method:"mass",partMass:30,cavities:2,runnerMass:5,meltDensity:0.8,shotMargin:0},"Shot calculado (masa)"),65));
+test("área de husillo D=20, L=100",()=>close(result("inyeccion",{method:"mass",partMass:10,cavities:1,meltDensity:1,screwD:20,screwMaxStroke:100},"Capacidad volumétrica teórica del husillo"),Math.PI*10));
+test("película soplada 500 mm, 50 µm, 18 m/min, rho 0.92",()=>close(result("pelicula",{layflat:500,filmGauge:50,lineSpeed:18,density:0.92},"Producción ideal"),49.68));
+test("lámina 500×1 mm a 10 m/min y rho 0.92",()=>close(result("extrusion",{shape:"sheet",width:500,thickness:1,lineSpeed:10,density:0.92},"Producción neta ideal"),276));
+test("soplado cilindro D80, H200",()=>close(result("soplado",{bodyD:80,bodyH:200},"Volumen geométrico cilíndrico"),Math.PI*80*80*200/4000));
+test("secado: 50 kg/h durante 3 h",()=>close(result("secado",{throughput:50,residence:3},"Masa mínima de material en tolva"),150));
+test("termoformado 20 s ciclo 2 cavidades",()=>close(result("termoformado",{cycleSec:20,cavities:2},"Piezas teóricas por hora"),360));
+test("sin parámetros no inventa resultados",()=>assert.equal(result("inyeccion",{},"Shot calculado (masa)"),null));
+test("densidad sólida ausente no permite convertir shot por masa",()=>assert.equal(result("inyeccion",{method:"mass",partMass:30,cavities:1,runnerMass:0},"Shot calculado (volumen)"),null));
+test("rechazo 10% reduce unidades buenas",()=>close(result("costos",{cycleSec:30,cavities:2,partMass:30,scrapPct:10},"Piezas buenas teóricas"),216));
