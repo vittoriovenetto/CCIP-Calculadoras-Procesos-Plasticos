@@ -1,5 +1,5 @@
 import { modules, activeFields } from "./schema.js";
-import { initI18n, getLanguage } from "./i18n.js";
+import { initI18n, getLanguage, t } from "./i18n.js";
 import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
 import { calculate } from "./engine.js";
 import { readHistory, storageKey } from "./history.js";
@@ -53,22 +53,34 @@ function draw() {
   applyMaterial(state.material, mod(), state.values, state.level);
   drawFields();
   drawMaterials();
-  renderCustomEditor($("custom-material-editor"), { lang: getLanguage(),
-    onSave: record => {
-      if (catalogBase) library = validateLibrary(mergeCustomMaterials(catalogBase));
-      selectMaterial(library, state.material, state.values, record.id);
-      state.filters = { family: record.family, manufacturer: record.manufacturer };
-      draw();
-    },
-    onDelete: () => {
-      if (catalogBase) library = validateLibrary(mergeCustomMaterials(catalogBase));
-      state.material = createMaterialState();
-      state.filters = { family: "", manufacturer: "" };
-      draw();
-    }
-  });
+  if (!$("custom-material-editor").children.length) drawCustomEditor();
   invalidate();
   renderHistory();
+}
+
+function refreshPersonalCatalog() {
+  const base = catalogBase || {schema_version:"1.3.0",dataset_name:"Personal materials",retrieved_on:new Date().toISOString().slice(0,10),sources:{},materials:[]};
+  const merged = mergeCustomMaterials(base);
+  library = merged.materials.length ? validateLibrary(merged) : null;
+  if (library) loadStatus = `${library.materials.length} opciones · catálogo ${library.catalog_revision || library.schema_version} · revisión ${library.retrieved_on}`;
+}
+function drawCustomEditor() {
+  renderCustomEditor($("custom-material-editor"), {
+    onSave: record => {
+      refreshPersonalCatalog();
+      for (const session of sessions.values()) if (session.material.grade_snapshot?.id === record.id) selectMaterial(library,session.material,session.values,record.id);
+      selectMaterial(library,state.material,state.values,record.id);
+      state.filters = {family:record.family,manufacturer:record.manufacturer};
+      drawCustomEditor();draw();
+    },
+    onDelete: id => {
+      refreshPersonalCatalog();
+      for (const session of sessions.values()) if (session.material.grade_snapshot?.id === id) {selectMaterial(library,session.material,session.values,null);session.filters={family:"",manufacturer:""};}
+      if (state.material.grade_snapshot?.id === id) {selectMaterial(library,state.material,state.values,null);state.filters={family:"",manufacturer:""};}
+      drawCustomEditor();draw();
+    },
+    onImport: () => {refreshPersonalCatalog();drawCustomEditor();draw();$("custom-panel").open=true;}
+  });
 }
 
 function drawMaterials() {
@@ -180,7 +192,7 @@ $("save").addEventListener("click", () => {
   try {
     localStorage.setItem(storageKey, JSON.stringify(history.slice(0, 60)));
     renderHistory();
-  } catch { alert("No se pudo guardar el historial en este navegador."); }
+  } catch { alert(t("No se pudo guardar el historial en este navegador.")); }
 });
 $("export").addEventListener("click", () => {
   const item = compute();
@@ -194,7 +206,7 @@ $("export").addEventListener("click", () => {
 state.values = initialValues();
 draw();
 initI18n();
-$("language")?.addEventListener("change", () => { renderCustomEditor($("custom-material-editor"), {lang: getLanguage(), onSave: record => { if(catalogBase)library=validateLibrary(mergeCustomMaterials(catalogBase)); selectMaterial(library,state.material,state.values,record.id);state.filters={family:record.family,manufacturer:record.manufacturer};draw(); }, onDelete: () => {if(catalogBase)library=validateLibrary(mergeCustomMaterials(catalogBase));state.material=createMaterialState();draw();}}); });
+
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
 fetch(new URL("./data/materials.v1.3.json", import.meta.url))

@@ -35,7 +35,7 @@ export const safeSourceUrl = value => {
   try { const url = new URL(value); return url.protocol === "https:" ? url.href : null; } catch { return null; }
 };
 export function validateLibrary(data) {
-  if (!data || !["1.0.0", "1.1.0", "1.2.0"].includes(data.schema_version) || !data.sources || !Array.isArray(data.materials) || !data.materials.length) throw Error("Formato de biblioteca no válido");
+  if (!data || !["1.0.0", "1.1.0", "1.2.0", "1.3.0"].includes(data.schema_version) || !data.sources || !Array.isArray(data.materials) || !data.materials.length) throw Error("Formato de biblioteca no válido");
   const ids = new Set();
   for (const material of data.materials) {
     if (!material.id || ids.has(material.id) || !material.family || !material.manufacturer || !material.grade ||
@@ -57,7 +57,7 @@ export const grades = (data, family, manufacturer) => data.materials.filter(m =>
 export const contextDefaults = () => ({ compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "", pvtTemperatureC: "", pvtPressureMPa: "", meltDensitySource: "", cpMinC: "", cpMaxC: "", cpPhase: "", specificHeatSource: "" });
 export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, references_snapshot: null, provenance: {}, context: contextDefaults() });
 export const outsideProcess = (material, moduleId) => !!material && !["generic_unverified", "user_entered_unverified", "grade_identity_referenced_properties_partial", "catalog_identity_pending_grade_data_verification"].includes(material.record_status) && !!processTags[moduleId] && !material.process_tags.some(tag => tag.includes(processTags[moduleId]));
-export const expectedForm = material => material.family === "PVC" ? "powder" : "pellets";
+export const expectedForm = material => material.record_status === "user_entered_unverified" ? (material.properties.bulk_density?.physical_form || null) : material.family === "PVC" ? "powder" : "pellets";
 
 // Una selección invalida únicamente valores automáticos previos; nunca valores manuales.
 export function clearAutomatic(materialState, values) {
@@ -72,7 +72,7 @@ export function selectMaterial(data, materialState, values, gradeId) {
   clearAutomatic(materialState, values);
   const material = data?.materials.find(m => m.id === gradeId);
   materialState.grade_snapshot = material ? clone(material) : null;
-  materialState.dataset = material ? { name: data.dataset_name, version: data.schema_version, retrieved_on: data.retrieved_on } : null;
+  materialState.dataset = material ? { name: data.dataset_name, version: data.catalog_revision || data.schema_version, retrieved_on: data.retrieved_on } : null;
   materialState.source = material ? clone(data.sources[material.source_id]) : null;
   materialState.references_snapshot = material ? captureReferences(data, material) : null;
   materialState.context = contextDefaults();
@@ -99,8 +99,13 @@ export function materialCandidates(materialState, module, values, level) {
     if (key === "melt_density" && material.pvt?.calculator_autofill_allowed === false && material.record_status !== "user_entered_unverified") return [];
     if (!property || property.unit !== unit || !["manufacturer_typical", "manufacturer_recommendation", "user_entered"].includes(property.status)) return [];
     let value = property.value, reason = "";
+    const requiredPhase = ({solid_density:"solid",melt_density:"melt",bulk_density:"bulk",specific_heat:"solid"})[key];
+    if (property.phase && requiredPhase && property.phase !== requiredPhase) {
+      return [{field:field.key,property_key:key,property,unit,phase,value,reason:"La fase documentada no corresponde a este cálculo; requiere validación técnica."}];
+    }
     if (module.id === "secado" && key === "bulk_density") {
-      if (materialState.context.physicalForm !== expectedForm(material)) reason = "Confirma pellets/polvo compatibles con la ficha.";
+      if (!expectedForm(material)) reason = "Documenta la presentación de esta propiedad antes de autocompletar.";
+      else if (materialState.context.physicalForm !== expectedForm(material)) reason = "Confirma pellets/polvo compatibles con la ficha.";
       else if (!materialState.context.bulkCompatible) reason = "Confirma método y condiciones de densidad aparente, incluida presentación/tamaño del material.";
     } else if (key.startsWith("drying_")) {
       if (!materialState.context.dryingCompatible) reason = "Confirma secador, humedad, punto de rocío y almacenamiento.";
@@ -128,7 +133,7 @@ export function applyMaterial(materialState, module, values, level) {
       property_key: candidate.property_key, unit: candidate.unit, phase: candidate.phase,
       origin: candidate.property.status === "user_entered" ? "user_custom" : (candidate.property.range ? "range_selection" : "library"),
       value: candidate.value, grade_id: materialState.grade_snapshot.id,
-      source_id: candidate.property.source_id, source: clone(materialState.source), reference: clone(candidate.property),
+      source_id: candidate.property.source_id, source: clone(candidate.property.evidence || materialState.source), reference: clone(candidate.property),
       original_value: candidate.property.value,
       selection_reason: candidate.property.range ? "Valor elegido explícitamente dentro del rango de ficha tras confirmar condiciones" : null
     };

@@ -1,44 +1,58 @@
-import { modules } from "./schema.js";
-import { calculate } from "./engine.js";
-import { t } from "./i18n.js";
-function renderIndex(){
-  const root=document.querySelector("#formulas-exact-index");
-  if(!root)return;
-  const lang=document.querySelector("#language")?.value==="en"?"en":"es";
-  root.replaceChildren();
-  const h=document.createElement("h2");
-  h.textContent=lang==="en"?"Complete output-to-formula index":"Índice completo de resultados y fórmulas";
-  root.append(h);
-  const intro=document.createElement("p");
-  intro.className="muted";
-  intro.textContent=lang==="en"?"These equations and units come directly from the installed calculation engine. They are not certified plant models.":"Estas ecuaciones y unidades se leen del motor matemático de la aplicación. No sustituyen modelos validados de planta.";
-  root.append(intro);
-  let total=0;
-  for(const m of modules){
-    const entry=document.createElement("section");
-    entry.className="formula-topic";
-    const heading=document.createElement("h3");heading.textContent=t(m.name,lang);entry.append(heading);
-    const table=document.createElement("table");table.className="formula-full-index";
-    const tr=document.createElement("tr");
-    for(const name of (lang==="en"?["Calculated output","Equation used","Unit"]:["Resultado calculado","Ecuación utilizada","Unidad"])){
-      const th=document.createElement("th");th.textContent=name;tr.append(th);
-    }
-    const header=document.createElement("thead");header.append(tr);table.append(header);
-    const tbody=document.createElement("tbody");
-    for(const value of calculate(m.id,{}, "advanced").metrics){
-      total++;
-      const row=document.createElement("tr");
-      for(const item of [t(value.label,lang),value.formula,value.unit]){
-        const cell=document.createElement("td");cell.textContent=String(item??"");row.append(cell);
-      }
-      tbody.append(row);
-    }
-    table.append(tbody);entry.append(table);root.append(entry);
+import { modules } from './schema.js';
+import { calculate } from './engine.js';
+import { initI18n, getLanguage, t } from './i18n.js';
+import { lessons, examples, symbols } from './formulas-data.js';
+import { safe } from './materials-view.js';
+const copy = (es,en) => getLanguage() === 'en' ? en : es;
+const local = value => getLanguage() !== 'en' ? String(value) : t(value,getLanguage()).replaceAll('(tubo)','(tube)').replaceAll('moneda/','currency/').replaceAll('ciclos/h','cycles/h').replaceAll('pzas/h','parts/h');
+const numbers = value => Number(value).toLocaleString(getLanguage()==='en'?'en-US':'es-DO',{maximumFractionDigits:6});
+const glossary = {
+  inyeccion: [['m₀','Masa total sin reserva','g'],['mₛ','Shot calculado (masa)','g'],['Vₛ','Shot calculado (volumen)','cm³'],['Vₘₐₓ','Capacidad volumétrica teórica del husillo','cm³'],['A','Área del husillo','mm²'],['Lₛ','Carrera calculada del husillo','mm'],['F','Fuerza de cierre teórica','tf']],
+  extrusion:[['A','Área transversal','mm²'],['m′','Masa por metro de producto','g/m'],['Qₙ','Producción neta ideal','kg/h'],['Qᶠ','Alimentación con pérdida indicada','kg/h']],
+  pelicula:[['A','Área transversal total de la película','mm²'],['Dᵦ','Diámetro ideal de burbuja','mm'],['BUR','Relación de soplado (BUR)','—']],
+  soplado:[['S','Superficie de cilindro cerrado','mm²'],['m','Masa de pared ideal','g']],
+  termoformado:[['A','Superficie de lámina consumida','mm²'],['m','Masa de lámina por ciclo','g'],['C','Ciclos teóricos por hora','ciclos/h']],
+  secado:[['M','Masa mínima de material en tolva','kg']],
+  costos:[['Q','Consumo de material','kg/h'],['Nᵍ','Piezas buenas teóricas','pzas/h'],['Cₘ','Costo de material','moneda/h'],['Cₑ','Costo energético','moneda/h'],['Cₕ','Costo horario directo parcial','moneda/h']]
+};
+function renderIndex() {
+  const root = document.getElementById('formulas-exact-index');root.replaceChildren();
+  root.innerHTML = `<p class="muted">${copy('42 salidas calculadas en 7 procesos. Las expresiones se leen directamente del motor.','42 calculated outputs across 7 processes. Expressions are read directly from the engine.')}</p>`;
+  for (const module of modules) {
+    const outputs = calculate(module.id,{},'advanced').metrics;
+    root.insertAdjacentHTML('beforeend',`<section><h3>${safe(t(module.name))}</h3><table class="formula-full-index"><thead><tr>${[copy('Resultado','Output'),copy('Ecuación utilizada','Equation used'),copy('Unidad','Unit')].map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${outputs.map(m=>`<tr><td>${safe(t(m.label))}</td><td>${safe(t(m.formula))}</td><td>${safe(local(m.unit))}</td></tr>`).join('')}</tbody></table></section>`);
   }
-  const count=document.createElement("p");
-  count.className="muted";
-  count.textContent=lang==="en"?total+" calculation outputs across "+modules.length+" processes.":total+" resultados calculados en "+modules.length+" procesos.";
-  root.prepend(count);
 }
-renderIndex();
-document.getElementById("language")?.addEventListener("change",renderIndex);
+function renderLessons() {
+  document.getElementById('formula-nav').innerHTML = modules.map(m=>`<a href="#guide-${m.id}">${safe(t(m.name))}</a>`).join('');
+  document.getElementById('formula-lessons').innerHTML = modules.map(module=>{
+    const inputs = examples.find(([id])=>id===module.id)[1], model = calculate(module.id,inputs,'advanced');
+    const cards = lessons.filter(x=>x.module===module.id).map(lesson=>{
+      const output = model.metrics.find(x=>x.label===lesson.label), lhs = lesson.equation.split('=')[0].trim();
+      const variableRows = lesson.fields.map(key=>{
+        const field = module.fields.find(f=>f.key===key);
+        return [symbols[key],t(field.label),local(field.unit || '—'),`${inputs[key]} ${local(field.unit || '')}`,t(field.description)];
+      });
+      variableRows.push([lhs,t(lesson.label),local(output.unit),'—',copy('Resultado buscado.','Calculated output.')]);
+      for (const [symbol,label,unit] of glossary[module.id]) if (new RegExp('(?<![\\p{L}\\p{N}])'+symbol+'(?![\\p{L}\\p{N}])','u').test(lesson.equation) && symbol!==lhs && !variableRows.some(row=>row[0]===symbol)) variableRows.push([symbol,t(label),local(unit),'—',copy('Resultado intermedio; véase su explicación en este proceso.','Intermediate output; see its explanation in this process.')]);
+      return `<article class="equation" id="${lesson.id}" data-lesson="${lesson.id}"><h3>${safe(t(lesson.label))}</h3><p>${copy('Finalidad: estimar','Purpose: estimate')} ${safe(t(lesson.label).toLowerCase())} [${safe(local(output.unit))}].</p><div class="eq-math">${safe(local(lesson.equation))}</div>
+        <details><summary>${copy('Variables, unidades y datos del ejemplo','Variables, units and example inputs')}</summary><div class="formula-variables">${variableRows.map(([symbol,name,unit,value,description])=>`<div><b>${safe(symbol)} · ${safe(name)}</b><p>${safe(description)}</p><small>${copy('Unidad','Unit')}: ${safe(unit)} · ${copy('Ejemplo','Example')}: ${safe(value)}</small></div>`).join('')}</div></details>
+        <details class="worked-example"><summary>${copy('Ejemplo resuelto paso a paso','Worked example, step by step')}</summary><p class="muted">${copy('Valores sintéticos, sin asignación a un grado o máquina.','Synthetic values, not assigned to a grade or machine.')}</p><ol>${lesson.steps.map(step=>`<li><code>${safe(local(step))}</code></li>`).join('')}</ol><p><b>${copy('Resultado','Result')}: <span data-example-value="${lesson.expected}">${numbers(lesson.expected)} ${safe(local(output.unit))}</span></b></p></details>
+        <details><summary>${copy('Conversiones, hipótesis, límites y referencias','Conversions, assumptions, limits and references')}</summary><p>${safe(lesson.conversions[getLanguage()])}</p>${model.notes.map(note=>`<p class="note">${safe(t(note))}</p>`).join('')}
+          <p>${copy('Sin entradas válidas, los resultados dependientes quedan pendientes. No utilizar como validación industrial.','Without valid inputs, dependent outputs remain pending. Do not use as industrial validation.')}</p>
+          <p>${copy('Referencia: derivación geométrica, conservación de masa o balance sensible del modelo implementado. Conversiones según unidades SI; fuerza convencional con g₀ = 9.80665 m/s².','Reference: geometric derivation, mass conservation or sensible balance of the implemented model. SI unit conversions; conventional force uses g₀ = 9.80665 m/s².')}</p>
+          <a href="./src/models/${module.id}.js">${copy('Consultar el modelo implementado','Read the implemented model')}</a> · <a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener noreferrer">${copy('Referencia de unidades SI: BIPM','SI unit reference: BIPM')}</a>
+        </details></article>`;
+    }).join('');
+    const alternatives = module.id==='inyeccion' || module.id==='extrusion' ? alternateExample(module.id) : '';
+    const auxiliary = module.id==='inyeccion' ? `<article class="equation" data-auxiliary="screw-area"><h3>${copy('Área del husillo (variable auxiliar)','Screw area (auxiliary variable)')}</h3><p>${copy('Sección transversal geométrica para capacidad y carrera; no es el área del canal helicoidal.','Geometric cross section for capacity and stroke; not helical channel area.')}</p><div class="eq-math">A = π D² / 4</div><p>D [mm]; A [mm²]. D = 20 mm → A = π × 20² / 4 ≈ 314.159265 mm².</p></article>` : '';
+    return `<section class="formula-topic" id="guide-${module.id}"><h2>${safe(t(module.name))}</h2><p>${safe(t(module.description))}</p>${auxiliary}${cards}${alternatives}</section>`;
+  }).join('');
+}
+function alternateExample(id) {
+  const inputs = examples.slice(7).find(([module])=>module===id)[1], output = calculate(id,inputs,'advanced');
+  const equation = id==='inyeccion' ? 'V₀ = n Vₚ + Vᵣ = 2 × 35 + 5 = 75 cm³; Vₛ = 75 × 1.1 = 82.5 cm³; m₀ = 75 × 0.8 = 60 g; mₛ = 82.5 × 0.8 = 66 g.' : 'A = π (Dₒ² − Dᵢ²)/4 = π (20² − 10²)/4 ≈ 235.619449 mm²; m′ = A × 0.92 ≈ 216.769893 g/m; Qₙ ≈ 130.061936 kg/h.';
+  return `<details class="alternate-example"><summary>${id==='inyeccion'?copy('Alternativa: dosificación por volumen','Alternative: volume metering'):copy('Alternativa: extrusión de tubo','Alternative: tube extrusion')}</summary><p>${safe(equation)}</p><p>${id==='inyeccion'?copy('Vₚ: volumen de fundido por pieza; Vᵣ: volumen de canales, ambos en cm³. ρₘ = 0.8 g/cm³ es un dato sintético manual.','Vₚ: melt-equivalent volume per part; Vᵣ: runner volume, both in cm³. ρₘ = 0.8 g/cm³ is synthetic manual data.'):copy('Dₒ y Dᵢ son diámetros exterior e interior en mm, con 0 ≤ Dᵢ < Dₒ. Los demás datos son los del ejemplo de lámina.','Dₒ and Dᵢ are outer and inner diameters in mm, with 0 ≤ Dᵢ < Dₒ. Other inputs match the sheet example.')}</p><div>${output.metrics.map(m=>`<p>${safe(t(m.label))}: ${numbers(m.value)} ${safe(local(m.unit))}</p>`).join('')}</div></details>`;
+}
+initI18n();renderIndex();renderLessons();
+document.addEventListener('ccip-language-change',()=>{renderIndex();renderLessons();});

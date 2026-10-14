@@ -30,3 +30,7 @@ Las confirmaciones de estas capturas ilustran el flujo de uso; no prueban compat
 Capturas reales de Chromium con ficha ABS contraída e inyección avanzada. Los datos de `tests/fixtures.js`, incluida la densidad fundida manual **0.8 g/cm³**, son ejemplos sintéticos: no corresponden a una propiedad verificada del Terluran GP-22 seleccionado. La ficha sigue indicando densidad/Cp pendientes y las advertencias permanecen visibles. Las imágenes muestran página completa, más alta que el viewport.
 
 La nueva cabecera permite abrir la V1 anterior o descargar sus archivos. Los paneles de ecuaciones y ficha permanecen accesibles mediante sus controles desplegables.
+
+## V1.3 — catálogo, idiomas, materiales propios y guía
+
+[Capturas reales y resultados de pruebas V1.3](v1.3/README.md). La V1.3 es una rama de revisión; estas capturas no sustituyen el sitio publicado.

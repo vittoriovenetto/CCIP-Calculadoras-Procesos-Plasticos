@@ -1,4 +1,6 @@
-# Auditoría de la página publicada y alcance de la ampliación
+# Auditoría inicial de la página publicada y alcance de la ampliación
+
+> Este documento conserva el estado inicial del PR. Los resultados y pendientes actuales se detallan en [auditoría final V1.3](auditoria-v1.3-final.md). La publicación no se autoriza en esta tarea.
 
 Fecha: 2026-10-14 · repositorio: `vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos`.
 

@@ -82,3 +82,13 @@ button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-vis
 #custom-material-editor .material-editor-actions{display:flex;align-items:center;gap:6px}
 #custom-feedback:not(:empty){padding:8px 10px;border-radius:8px;background:#fff6e8;color:#704414}
 @media(max-width:780px){.version-links{justify-content:flex-start}.version-links label{margin:4px 0}.version-links #language{max-width:125px}}
+/* Formula lessons and the local editor adapt without hiding required inputs. */
+.formula-list{max-width:1120px}.formula-nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.formula-nav a{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;text-decoration:none;min-height:44px}
+.formula-topic{scroll-margin-top:15px;background:#fff;border:1px solid var(--border);border-radius:12px;margin:24px 0;padding:20px;min-width:0}
+.equation{border-top:1px solid var(--border);padding:18px 0;overflow-wrap:anywhere}.equation h3{color:var(--navy);font-size:18px}.equation p{font-size:13px;line-height:1.6}
+.eq-math{font:19px Cambria,Georgia,serif;background:#f3f5f8;padding:14px;border-radius:8px;overflow-wrap:anywhere;white-space:normal}
+.formula-variables{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:12px}.formula-variables>div{background:#f5f6f8;padding:12px;border-radius:8px;min-width:0;overflow-wrap:anywhere}.formula-variables b{font-size:12px}.formula-variables small{font-size:11px}
+.worked-example li{padding:10px 0;font-size:13px;overflow-wrap:anywhere}.formula-full-index{border-collapse:collapse;width:100%;font-size:12px;table-layout:fixed}.formula-full-index th,.formula-full-index td{padding:10px 5px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+#custom-form fieldset{margin-top:12px}#custom-form label{font-size:12px;display:grid;gap:6px;overflow-wrap:anywhere}.import-label{display:block;margin-top:20px;font-size:13px}.import-label input{margin-top:8px}#custom-list span{overflow-wrap:anywhere}.material-editor-actions{display:flex;gap:6px;flex-wrap:wrap}
+@media(max-width:540px){.formula-topic{padding:14px}.eq-math{font-size:16px}.formula-topic h2{overflow-wrap:anywhere}}

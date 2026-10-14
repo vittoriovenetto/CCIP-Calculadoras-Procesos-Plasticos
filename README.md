@@ -2,7 +2,7 @@
 
 Proyecto académico independiente para **Procesos de Transformación I (CCIP / INTEC)**. Código web completamente nuevo; no se ha modificado el repositorio de la calculadora original.
 
-## Módulos incluidos en la V1 experimental
+## Modelos incluidos
 - Moldeo por inyección: shot por masa o volumen; capacidad geométrica, utilización, carrera, fuerza de cierre, llenado y plastificación.
 - Extrusión: caudal de láminas y tubos, productividad, tiempo de residencia nominal y potencia con energía específica ingresada.
 - Película soplada: BUR, DDR geométrico ideal y producción.
@@ -16,12 +16,12 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 - Las propiedades y los parámetros de máquina sin fuente permanecen vacíos; los datos de catálogo se aplican solo a campos compatibles y tras confirmar condiciones; las dimensiones y cantidades precargadas son ejemplos editables.
 - Ayudas «?» al pasar el cursor, enfocar o tocar; fórmulas completas en resultados desplegables.
 - Logo CCIP, ficha de materiales compacta y acceso a la V1 anterior conservada como web y ZIP.
-- Biblioteca de nueve grados comerciales con selección familia → fabricante → grado, fuentes y condiciones locales.
+- Catálogo V1.3 con 90 identidades comerciales propuestas y 9 genéricos (99 perfiles), selección familia → fabricante → grado, fuentes y condiciones locales. **La confirmación oficial de las 90 identidades sigue pendiente por bloqueo de red**; nueve perfiles conservan la documentación aportada en V1.2.
 - Autocompletado condicionado de propiedades compatibles, rangos elegidos explícitamente y overrides manuales trazables.
 - Historial/JSON conserva identidad del grado, fuente, auditoría, referencias pVT y snapshot de propiedades utilizadas.
 - Gráfica pVT orientativa de ABS, fuentes de PC y referencia B3S para PA6: densidad automática deshabilitada.
 - Modo avanzado para registrar T/P y fuente de densidad manual, o fase/intervalo/fuente de Cp.
-- Resultados pendientes si faltan datos: **no se inventan propiedades**. Densidad fundida y calor específico siguen pendientes en los nueve grados.
+- Resultados pendientes si faltan datos: **no se inventan propiedades**. Densidad fundida y calor específico siguen pendientes en los 90 perfiles comerciales; los datos propios requieren declaración de fase, fuente y condiciones.
 - Advertencias y limitaciones del modelo.
 - Historial de hasta 60 resultados en el navegador (localStorage).
 - Exportación JSON con entradas, resultados, fórmulas y fecha; útil para futura app Flutter.
@@ -32,9 +32,9 @@ Usa un servidor estático, por ejemplo `python -m http.server 8000`, y abre `htt
 
 Para ejecutar las pruebas del motor, niveles, entradas e historial: `npm test` (requiere Node.js 18 o superior; no requiere instalar paquetes).
 
-Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install playwright`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cuatro tamaños, más nueve grados × tres procesos × tres niveles × escritorio/móvil; también edición, fuentes, rangos, overrides, historial, JSON y cálculo offline tras cargar recursos.
+Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install -r tests/requirements.txt`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cinco tamaños, más nueve perfiles documentados × tres procesos × tres niveles × escritorio/móvil; los 99 perfiles, cambios de idioma y materiales propios también se comprueban; también edición, fuentes, rangos, overrides, historial, JSON y cálculo offline tras cargar recursos.
 
-El desarrollo se mantiene en `feature/web-v1-modular`, sin fusionar a `main`. La publicación autorizada utiliza `gh-pages`; consulta [despliegue](docs/despliegue.md).
+La V1.3 se prepara en `feature/catalogo-90-i18n-formulas`, [PR #2](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pull/2) hacia `feature/web-v1-modular`. **Esta entrega no publica ni actualiza `main` o `gh-pages`.** Los enlaces siguientes abren la versión ya publicada y la copia histórica, no una vista pública de V1.3. Véase el [despliegue anterior](docs/despliegue.md).
 
 [Aplicación actual](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/) · [Abrir V1 conservada](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/versions/v1/) · [Descargar archivos V1](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/downloads/CCIP-Web-V1.zip)
 
@@ -47,7 +47,10 @@ La [documentación del rediseño y conservación](docs/rediseno-y-versiones.md) 
 - `src/engine.js`: registro de modelos y validación de entradas.
 - `src/models/`: motor independiente de cada proceso y notas técnicas.
 - `src/math.js`: conversiones numéricas y división segura.
-- `src/data/materials.v1.2.json`: biblioteca activa con auditoría y referencias pVT; archivos V1.0/V1.1 conservados sin cambios.
+- `src/data/materials.v1.3.json`: catálogo activo con 99 perfiles y estado documental explícito. V1.0/V1.1/V1.2 permanecen conservadas.
+- `src/custom-materials.js`: propiedades personales, conversiones, importación/exportación y almacenamiento validado.
+- `src/i18n*.js`: presentación ES/EN, separada de entradas y cálculo.
+- `src/formulas-data.js`, `src/formulas-index.js` y `formulas.html`: 42 salidas explicadas, área auxiliar y ejemplos sintéticos de las nueve variantes.
 - `src/pvt.js`: validación y copia de referencias documentales, sin lookup de densidad.
 - `src/materials-audit-view.js`: referencias bloqueadas, gráfica orientativa y controles manuales.
 - `src/materials.js`: selección, compatibilidad, autocompletado y snapshots.
@@ -82,17 +85,23 @@ Consulta [biblioteca de materiales y reglas de aplicación](docs/materiales.md) 
 
 La [auditoría V1.1 / referencias pVT V1.2](docs/auditoria-materiales-v1.2.md) detalla datos incorporados, controles de calidad, pruebas y validaciones pendientes.
 
-## Propuesta V1.3 — catálogo, idioma y aprendizaje (rama de revisión)
+## V1.3 — finalización y revisión
 
-La ampliación V1.3 se desarrolla en `feature/catalogo-90-i18n-formulas` y **no reemplaza automáticamente la versión publicada `gh-pages`**.
+- 10 referencias comerciales propuestas por familia HDPE, LDPE, LLDPE, PP, PET, PVC, ABS, PA6 y PC, más 9 genéricos sin propiedades supuestas. Las 90 identidades no se presentan como fichas verificadas.
+- Crear, editar, eliminar, seleccionar, exportar e importar materiales propios. Cada propiedad mantiene unidad introducida y canónica, fase, fuente, método y condiciones. Para densidad aparente propia también se declara pellets/polvo: no se deduce de la familia PVC. Datos no verificados por CCIP, guardados solo localmente.
+- Validación de JSON, versión, nombres/ID duplicados, unidades, límites, fases y URLs. Importación atómica; registros corruptos no impiden usar los válidos ni calcular. Los materiales propios no pueden sobrescribir fichas originales.
+- ES/EN en controles, ayudas, fichas, ecuaciones, resultados, errores y límites. Cambiar idioma conserva parámetros, resultados y borradores. La preferencia se guarda cuando el navegador permite almacenamiento. Los nombres comerciales y textos escritos por el usuario conservan su contenido original.
+- Guía con 42 explicaciones de resultados y área auxiliar del husillo: variables, unidades, conversiones, ejemplos paso a paso, límites y referencias. Incluye dosificación por volumen y extrusión de tubo, ampliando las 26 explicaciones iniciales.
+- Pruebas finales: **500 Node + 24 Playwright**, 135 estados de cálculo, 162 de biblioteca inicial, 99 perfiles y 27 casos ES/EN/ES; validación adicional del historial V1.3 recuperado desde V1 congelada. Véase [informe](docs/auditoria-v1.3-final.md) para resultados ejecutados y alcance.
 
-- Catálogo `src/data/materials.v1.3.json` con **90 registros comerciales (10 por cada familia HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6, PC) y 9 perfiles genéricos**. El registro comercial es una referencia de identidad; muchas propiedades individuales siguen sin verificarse. No presentar el conjunto como 90 fichas completas.
-- Selección de familia sin marca: activa **Genérico**. No autocompleta densidad del fundido, calor específico, MFR o secado sin fundamento.
-- Panel desplegable **Agregar / editar material propio**: ingreso de propiedades, fuente, método y condiciones; editar, eliminar, seleccionar y exportar registros personales. Se guarda solo en `localStorage`, sin sincronización. Confirmar condiciones antes de aplicar propiedades a resultados.
-- Cambio de idioma ES/EN con preferencia persistente; prioriza navegación, etiquetas, ayudas y la biblioteca de fórmulas. Algunos avisos dinámicos técnicos requieren revisión de localización adicional.
-- `formulas.html` explica 26 grupos de ecuaciones y muestra un índice de **todas las 42 salidas matemáticas**, leído directamente del motor, con unidades.
-- Pruebas de catálogo, material personalizado, idioma, navegación, fórmulas y casos anteriores en Node y Playwright.
+[Capturas V1.3](docs/capturas/v1.3/README.md) · [Auditoría individual de fuentes](docs/auditoria-fuentes-v1.3.json)
 
-Ver [auditoría de ampliación](docs/auditoria-web-y-ampliacion-2026-10-14.md).
+Reconsulta documental reproducible, sin modificar el catálogo:
 
-**Publicación segura:** comprobar GitHub Actions en verde, aprobar fuentes y funcionamiento en móvil, revisar PR hacia `feature/web-v1-modular`, y solo entonces actualizar `gh-pages` preservando la versión original.
+```sh
+python3 scripts/audit-material-sources.py --output /tmp/ccip-sources.json
+```
+
+Las 61 consultas declaradas (incluidas referencias pVT y SI) quedaron bloqueadas por el túnel de red 403. Esto no prueba que los sitios respondan 404. Los dos valores nuevos Dow sin comprobación directa se conservan como referencias históricas sin autocompletado; las 34 propiedades aportadas en los nueve perfiles V1.2 mantienen su procedencia documental, sin recertificación oficial actual. No se cambió ninguna ecuación del motor.
+
+Antes de publicar: confirmar las fuentes/identidades pendientes, completar datos con condiciones admisibles, revisar los casos reales y aprobar este PR. Safari/Firefox, dispositivos físicos y validación industrial siguen pendientes. **No ejecutar publicación ni fusionar sin esa revisión y autorización.**
