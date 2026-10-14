@@ -43,7 +43,7 @@ export function validateLibrary(data) {
     ids.add(material.id);
     for (const property of Object.values(material.properties).filter(Boolean)) {
       if (!data.sources[property.source_id] || !property.unit ||
-        !["manufacturer_typical", "manufacturer_recommendation"].includes(property.status) ||
+        !["manufacturer_typical", "manufacturer_recommendation", "user_entered"].includes(property.status) ||
         (property.value !== null && !Number.isFinite(property.value)) ||
         (property.range !== null && (!Array.isArray(property.range) || property.range.length !== 2 || !property.range.every(Number.isFinite) || property.range[0] > property.range[1]))) throw Error("Propiedad no válida");
     }
@@ -56,13 +56,13 @@ export const manufacturers = (data, family) => [...new Set(data.materials.filter
 export const grades = (data, family, manufacturer) => data.materials.filter(m => m.family === family && m.manufacturer === manufacturer);
 export const contextDefaults = () => ({ compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "", pvtTemperatureC: "", pvtPressureMPa: "", meltDensitySource: "", cpMinC: "", cpMaxC: "", cpPhase: "", specificHeatSource: "" });
 export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, references_snapshot: null, provenance: {}, context: contextDefaults() });
-export const outsideProcess = (material, moduleId) => !!processTags[moduleId] && !material.process_tags.some(tag => tag.includes(processTags[moduleId]));
+export const outsideProcess = (material, moduleId) => !!material && !["generic_unverified", "user_entered_unverified", "grade_identity_referenced_properties_partial"].includes(material.record_status) && !!processTags[moduleId] && !material.process_tags.some(tag => tag.includes(processTags[moduleId]));
 export const expectedForm = material => material.family === "PVC" ? "powder" : "pellets";
 
 // Una selección invalida únicamente valores automáticos previos; nunca valores manuales.
 export function clearAutomatic(materialState, values) {
   for (const [field, entry] of Object.entries(materialState.provenance)) {
-    if (["library", "range_selection"].includes(entry.origin)) {
+    if (["library", "range_selection", "user_custom"].includes(entry.origin)) {
       values[field] = "";
       delete materialState.provenance[field];
     }
@@ -97,7 +97,7 @@ export function materialCandidates(materialState, module, values, level) {
     if (!map) return [];
     const [key, unit, phase] = map, property = material.properties[key];
     if (key === "melt_density" && material.pvt?.calculator_autofill_allowed === false) return [];
-    if (!property || property.unit !== unit || !["manufacturer_typical", "manufacturer_recommendation"].includes(property.status)) return [];
+    if (!property || property.unit !== unit || !["manufacturer_typical", "manufacturer_recommendation", "user_entered"].includes(property.status)) return [];
     let value = property.value, reason = "";
     if (module.id === "secado" && key === "bulk_density") {
       if (materialState.context.physicalForm !== expectedForm(material)) reason = "Confirma pellets/polvo compatibles con la ficha.";
@@ -122,11 +122,11 @@ export function applyMaterial(materialState, module, values, level) {
     if (candidate.reason) continue;
     const previous = materialState.provenance[candidate.field];
     if (["manual", "user_override"].includes(previous?.origin)) continue;
-    if (!isBlank(values[candidate.field]) && !["library", "range_selection"].includes(previous?.origin)) continue;
+    if (!isBlank(values[candidate.field]) && !["library", "range_selection", "user_custom"].includes(previous?.origin)) continue;
     values[candidate.field] = candidate.value;
     materialState.provenance[candidate.field] = {
       property_key: candidate.property_key, unit: candidate.unit, phase: candidate.phase,
-      origin: candidate.property.range ? "range_selection" : "library",
+      origin: candidate.property.status === "user_entered" ? "user_custom" : (candidate.property.range ? "range_selection" : "library"),
       value: candidate.value, grade_id: materialState.grade_snapshot.id,
       source_id: candidate.property.source_id, source: clone(materialState.source), reference: clone(candidate.property),
       original_value: candidate.property.value,
@@ -150,7 +150,9 @@ export function materialWarnings(materialState, moduleId, values = {}, level = "
     else if ([n(values.startT), n(values.targetT)].some(t => Number.isFinite(t) && (t < lo || t > hi))) warnings.push("Temperatura de cálculo fuera del intervalo documentado de Cp: extrapolación no validada; revisa el dato antes de utilizar el resultado.");
   }
   if (!material) return warnings;
-  warnings.push("Datos típicos/recomendados: no son certificación de lote ni validación industrial.");
+  if (material.record_status === "generic_unverified") warnings.push("Material GENÉRICO: no se conoce grado, formulación ni lote. No se asignan propiedades típicas; las entradas manuales requieren fuente o medición.");
+  else if (material.record_status === "user_entered_unverified") warnings.push("Material creado por usuario: propiedades no verificadas por el CCIP; confirme fuente, fase y método.");
+  else warnings.push("Datos típicos/recomendados: no son certificación de lote ni validación industrial.");
   if (material.incoming_product_moisture) warnings.push("PET: 0.15 % objetivo / 0.30 % máximo son humedad del producto recibido, no objetivo ni límite después de secado.");
   if (Array.isArray(material.reference_properties_not_for_autofill) && material.reference_properties_not_for_autofill.some(ref => ref?.property === 'specific_heat')) warnings.push("Cp histórico 1.172 kJ/(kg K) agrupado 2405/2407/2456: no identifica fase/intervalo y no autocompleta secado.");
   if (material.pvt) warnings.push(material.pvt.status === 'related_base_grade_chart_only' ? "Referencia pVT de B3S — no validada para R03; no calcular densidad automática." : "pVT: las figuras/reconstrucciones son referencias; densidad automática deshabilitada y extrapolación prohibida.");
