@@ -97,6 +97,13 @@ function materialChanged(action, value) {
     invalidate();
     return;
   }
+  if (action === "family" && value && library) {
+    const generic = library.materials.find(m => m.family === value && m.record_status === "generic_unverified");
+    selectMaterial(library, state.material, state.values, generic?.id || null);
+    state.filters = { family: value, manufacturer: generic?.manufacturer || "" };
+    draw();
+    return;
+  }
   selectMaterial(library, state.material, state.values, action === "grade" ? value : null);
   if (action === "family") state.filters = { family: value, manufacturer: "" };
   if (action === "manufacturer") state.filters.manufacturer = value;
