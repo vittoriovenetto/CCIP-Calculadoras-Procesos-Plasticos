@@ -13,7 +13,7 @@ export const propertyLabels = {
 };
 export const statusLabels = {
   manufacturer_typical: "Valor típico", manufacturer_recommendation: "Recomendación",
-  library: "De ficha", range_selection: "Rango seleccionado por usuario",
+  library: "De ficha", user_custom: "Dato ingresado por usuario", user_entered: "Dato ingresado por usuario", range_selection: "Rango seleccionado por usuario",
   user_override: "Modificado por usuario", manual: "Manual"
 };
 const mappings = {
@@ -96,7 +96,7 @@ export function materialCandidates(materialState, module, values, level) {
     const map = mappings[module.id]?.[field.key];
     if (!map) return [];
     const [key, unit, phase] = map, property = material.properties[key];
-    if (key === "melt_density" && material.pvt?.calculator_autofill_allowed === false) return [];
+    if (key === "melt_density" && material.pvt?.calculator_autofill_allowed === false && material.record_status !== "user_entered_unverified") return [];
     if (!property || property.unit !== unit || !["manufacturer_typical", "manufacturer_recommendation", "user_entered"].includes(property.status)) return [];
     let value = property.value, reason = "";
     if (module.id === "secado" && key === "bulk_density") {
@@ -158,14 +158,14 @@ export function materialWarnings(materialState, moduleId, values = {}, level = "
   if (material.pvt) warnings.push(material.pvt.status === 'related_base_grade_chart_only' ? "Referencia pVT de B3S — no validada para R03; no calcular densidad automática." : "pVT: las figuras/reconstrucciones son referencias; densidad automática deshabilitada y extrapolación prohibida.");
   if (outsideProcess(material, moduleId)) warnings.push("El proceso activo no está indicado en las aplicaciones de este grado; cualquier extrapolación requiere validación técnica.");
   if (material.revision_review_required) warnings.push("La ficha PET es de 2017: comprueba su vigencia. Humedad de suministro no equivale a humedad máxima de proceso. No hay secado documentado aquí.");
-  if (material.family === "PVC") warnings.push("PVC 1195 es resina en polvo, no pellets ni compuesto final. Su densidad aparente no es densidad sólida.");
+  if (material.id === "westlake-westlake-pvc-1195") warnings.push("PVC 1195 es resina en polvo, no pellets ni compuesto final. Su densidad aparente no es densidad sólida.");
   if (material.id === "dow-dow-ldpe-132g") warnings.push("170–230 °C es intervalo de procesado de película; no es temperatura de fusión DSC.");
   if (moduleId === "inyeccion" && !material.properties.melt_density) warnings.push("Densidad del fundido no documentada en la ficha: solicita pVT o medición a temperatura/presión de proceso. La densidad sólida no se aplica al shot.");
   if (moduleId === "secado") {
     if (!material.properties.specific_heat) warnings.push("Calor específico no documentado en la ficha: solicita cp del grado y del intervalo térmico. La potencia sensible queda pendiente si no introduces ese dato.");
     if (!material.properties.drying_time || !material.properties.drying_temperature) warnings.push("No hay instrucciones completas de secado para este grado; no se deducen de Tg o fusión.");
     if (material.properties.drying_time || material.properties.drying_temperature) warnings.push("Secado condicionado por equipo, humedad inicial, punto de rocío y almacenamiento; confirma compatibilidad antes de aplicar recomendaciones.");
-    if (material.family === "PET") warnings.push("Densidad aparente 0.9 kg/L corresponde a 80 pellets/g; la ficha indica 0.88 kg/L para 60 pellets/g. Confirma presentación y condición.");
+    if (material.id === "indorama-ventures-polyclear-refresh-pet-1101") warnings.push("Densidad aparente 0.9 kg/L corresponde a 80 pellets/g; la ficha indica 0.88 kg/L para 60 pellets/g. Confirma presentación y condición.");
   }
   if (Object.values(materialState.provenance).some(p => p.origin === "user_override" || (p.grade_id && p.grade_id !== material.id))) warnings.push("Hay datos manuales o de otro grado conservados: revisa su compatibilidad y registra la justificación.");
   for (const entry of Object.values(materialState.provenance)) {
