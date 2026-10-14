@@ -1,4 +1,6 @@
 import { modules, activeFields } from "./schema.js";
+import { initI18n, getLanguage, t } from "./i18n.js";
+import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
 import { calculate } from "./engine.js";
 import { readHistory, storageKey } from "./history.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
@@ -9,7 +11,7 @@ import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from ".
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
 const sessions = new Map();
-let library = null, loadStatus = "Cargando catálogo local…";
+let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
@@ -51,8 +53,34 @@ function draw() {
   applyMaterial(state.material, mod(), state.values, state.level);
   drawFields();
   drawMaterials();
+  if (!$("custom-material-editor").children.length) drawCustomEditor();
   invalidate();
   renderHistory();
+}
+
+function refreshPersonalCatalog() {
+  const base = catalogBase || {schema_version:"1.3.0",dataset_name:"Personal materials",retrieved_on:new Date().toISOString().slice(0,10),sources:{},materials:[]};
+  const merged = mergeCustomMaterials(base);
+  library = merged.materials.length ? validateLibrary(merged) : null;
+  if (library) loadStatus = `${library.materials.length} opciones · catálogo ${library.catalog_revision || library.schema_version} · revisión ${library.retrieved_on}`;
+}
+function drawCustomEditor() {
+  renderCustomEditor($("custom-material-editor"), {
+    onSave: record => {
+      refreshPersonalCatalog();
+      for (const session of sessions.values()) if (session.material.grade_snapshot?.id === record.id) selectMaterial(library,session.material,session.values,record.id);
+      selectMaterial(library,state.material,state.values,record.id);
+      state.filters = {family:record.family,manufacturer:record.manufacturer};
+      drawCustomEditor();draw();
+    },
+    onDelete: id => {
+      refreshPersonalCatalog();
+      for (const session of sessions.values()) if (session.material.grade_snapshot?.id === id) {selectMaterial(library,session.material,session.values,null);session.filters={family:"",manufacturer:""};}
+      if (state.material.grade_snapshot?.id === id) {selectMaterial(library,state.material,state.values,null);state.filters={family:"",manufacturer:""};}
+      drawCustomEditor();draw();
+    },
+    onImport: () => {refreshPersonalCatalog();drawCustomEditor();draw();$("custom-panel").open=true;}
+  });
 }
 
 function drawMaterials() {
@@ -79,6 +107,13 @@ function materialChanged(action, value) {
     }
     else renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
     invalidate();
+    return;
+  }
+  if (action === "family" && value && library) {
+    const generic = library.materials.find(m => m.family === value && m.record_status === "generic_unverified");
+    selectMaterial(library, state.material, state.values, generic?.id || null);
+    state.filters = { family: value, manufacturer: generic?.manufacturer || "" };
+    draw();
     return;
   }
   selectMaterial(library, state.material, state.values, action === "grade" ? value : null);
@@ -157,7 +192,7 @@ $("save").addEventListener("click", () => {
   try {
     localStorage.setItem(storageKey, JSON.stringify(history.slice(0, 60)));
     renderHistory();
-  } catch { alert("No se pudo guardar el historial en este navegador."); }
+  } catch { alert(t("No se pudo guardar el historial en este navegador.")); }
 });
 $("export").addEventListener("click", () => {
   const item = compute();
@@ -170,10 +205,12 @@ $("export").addEventListener("click", () => {
 });
 state.values = initialValues();
 draw();
+initI18n();
+
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
-fetch(new URL("./data/materials.v1.2.json", import.meta.url))
+fetch(new URL("./data/materials.v1.3.json", import.meta.url))
   .then(response => { if (!response.ok) throw Error(`HTTP ${response.status}`); return response.json(); })
-  .then(data => { library = validateLibrary(data); loadStatus = `${library.materials.length} grados · biblioteca ${library.schema_version} · revisión ${library.retrieved_on}`; })
+  .then(data => { catalogBase = validateLibrary(data); library = validateLibrary(mergeCustomMaterials(catalogBase)); loadStatus = `${library.materials.length} opciones · catálogo ${data.catalog_revision || data.schema_version} · revisión ${library.retrieved_on}`; })
   .catch(() => { loadStatus = "Catálogo no disponible: puedes continuar con material personalizado y datos manuales."; })
   .finally(drawMaterials);
