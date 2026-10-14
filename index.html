@@ -1,1 +1,34 @@
-<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#970e20"><title>CCIP | Calculadoras de procesos plásticos</title><link rel="icon" href="./src/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./src/styles.css"></head><body><header><div class="shell top"><div class="brand"><div class="mark">CCIP</div><div><b>Calculadoras de Procesos Plásticos</b><small>Procesos de Transformación I · Herramientas de ingeniería</small></div></div><span class="version">WEB · V1 EXPERIMENTAL</span></div></header><main class="shell"><section class="hero"><p class="kicker">LABORATORIO · TRANSFORMACIÓN DE POLÍMEROS</p><h1>Calcula, compara y comprende tu proceso.</h1><p>Modelos de estimación para moldeo, extrusión y otros procesos. Selecciona el nivel de detalle y consulta las ecuaciones y sus límites.</p></section><div class="layout"><aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><p class="muted">Los resultados son orientativos. Verifica cada modelo con mediciones, fichas de materiales y especificaciones del equipo.</p></aside><section class="work"><div class="bar"><div><p class="kicker">MÓDULO ACTIVO</p><h2 id="module-title"></h2><p id="module-desc" class="muted"></p></div><label class="level">Detalle técnico<select id="level"><option value="basic">Básico</option><option value="technical" selected>Técnico</option><option value="advanced">Avanzado</option></select></label></div><section id="materials" class="panel" aria-labelledby="materials-title"></section><section class="panel"><p class="muted">Las dimensiones y cantidades precargadas son ejemplos editables, no datos de material ni de máquina. Introduce propiedades y condiciones verificadas para tu caso.</p><div id="fields" class="fields"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section><section class="panel"><div class="bar"><h2>Resultados</h2><small id="result-date" class="muted">Pendientes</small></div><div id="calculation-output" aria-live="polite" aria-atomic="true"><div id="metrics"></div><div id="messages"></div></div></section><section class="panel"><h2>Historial local</h2><div id="history"></div></section></section></div><footer>CCIP · Proyecto académico — INTEC · Versión de desarrollo, no validada para ajuste de producción</footer></main><script type="module" src="./src/app.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c8102e">
+  <title>CCIP | Calculadoras de procesos plásticos</title>
+  <link rel="icon" href="./src/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <header><div class="shell top">
+    <a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a>
+    <div class="version-links"><span class="version">WEB · EXPERIMENTAL</span><a href="./versions/v1/">Abrir V1 conservada</a><a href="./downloads/CCIP-Web-V1.zip" download>Descargar archivos V1</a></div>
+  </div></header>
+  <main class="shell">
+    <section class="hero"><p class="kicker">CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS</p><h1>Calculadoras de procesos plásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></section>
+    <div class="layout">
+      <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
+      <section class="work">
+        <div class="bar"><div><p class="kicker">MÓDULO ACTIVO</p><h2 id="module-title"></h2><p id="module-desc" class="muted"></p></div><label class="level" for="level">Nivel de cálculo<select id="level"><option value="basic">Básico</option><option value="technical" selected>Técnico</option><option value="advanced">Avanzado</option></select></label></div>
+        <section id="materials" class="panel material-panel" aria-labelledby="materials-title"></section>
+        <div class="calculation-grid">
+          <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section>
+          <section class="panel results-panel"><div class="results-heading"><h2>Resultados principales</h2><small id="result-date" class="muted">Pendientes</small></div><div id="calculation-output" aria-live="polite" aria-atomic="true"><div id="summary-metrics"></div><div id="usage"></div><details id="results-details"><summary>Todos los resultados y ecuaciones</summary><div id="metrics"></div></details><details id="result-notes"><summary>Advertencias, hipótesis y límites</summary><div id="messages"></div></details></div></section>
+        </div>
+        <section class="panel"><h2>Historial local</h2><div id="history"></div></section>
+      </section>
+    </div>
+    <footer>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</footer>
+  </main>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
