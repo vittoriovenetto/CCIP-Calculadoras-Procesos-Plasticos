@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#c8102e">
   <title>CCIP | Calculadoras de procesos plásticos</title>
   <link rel="icon" href="./src/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./src/styles.css">
+  <link rel="stylesheet" href="./src/styles.css?v=20261014-formulas">
 </head>
 <body>
   <header><div class="shell top">
@@ -19,6 +19,7 @@
       <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
       <section class="work">
         <div class="bar"><div><p class="kicker">MÓDULO ACTIVO</p><h2 id="module-title"></h2><p id="module-desc" class="muted"></p></div><label class="level" for="level">Nivel de cálculo<select id="level"><option value="basic">Básico</option><option value="technical" selected>Técnico</option><option value="advanced">Avanzado</option></select></label></div>
+        <section class="panel learning-panel" aria-labelledby="learning-title"><div><h2 id="learning-title">Aprende las fórmulas</h2><p>Consulta qué significa cada variable, las conversiones y un ejemplo resuelto paso a paso.</p></div><div class="learning-links"><a id="learn-current" class="learning-primary" href="./formulas.html" target="_blank" rel="noopener">Aprender este proceso y nivel</a><a id="learn-technical" href="./formulas.html?level=technical" target="_blank" rel="noopener">Fórmulas del nivel técnico</a><a id="learn-advanced" href="./formulas.html?level=advanced" target="_blank" rel="noopener">Fórmulas del nivel avanzado</a></div></section>
         <section id="materials" class="panel material-panel" aria-labelledby="materials-title"></section><section id="custom-material-editor" class="panel" aria-label="Agregar material / Add custom material"></section>
         <div class="calculation-grid">
           <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section>
@@ -29,6 +30,6 @@
     </div>
     <footer>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</footer>
   </main>
-  <script type="module" src="./src/app.js"></script>
+  <script type="module" src="./src/app.js?v=20261014-formulas"></script>
 </body>
 </html>

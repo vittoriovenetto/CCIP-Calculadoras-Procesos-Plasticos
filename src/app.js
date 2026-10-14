@@ -7,6 +7,7 @@ import { validateLibrary, createMaterialState, selectMaterial, markManual, clear
 import { fieldGroups, primaryLabels } from "./presentation.js";
 import { bindParameterHelp } from "./tooltips.js";
 import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from "./materials-view.js";
+import { guideHref } from "./formula-learning.js";
 
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
@@ -46,6 +47,7 @@ function nav() {
 }
 
 function draw() {
+  drawLearningLinks();
   nav();
   $("level").value = state.level;
   $("module-title").textContent = mod().name;
@@ -57,6 +59,14 @@ function draw() {
   invalidate();
   renderHistory();
 }
+
+function drawLearningLinks() {
+  $("learn-current").href = guideHref(state.id, state.level);
+  $("learn-technical").href = guideHref(state.id, "technical");
+  $("learn-advanced").href = guideHref(state.id, "advanced");
+}
+
+const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}" target="_blank" rel="noopener">Ver fórmula y ejemplo</a>`;
 
 function refreshPersonalCatalog() {
   const base = catalogBase || {schema_version:"1.3.0",dataset_name:"Personal materials",retrieved_on:new Date().toISOString().slice(0,10),sources:{},materials:[]};
@@ -150,10 +160,10 @@ function compute() {
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => a.metrics.find(m => m.label === label)).filter(Boolean);
-  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small></article>`).join("");
+  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small>${learningLink(m.label)}</article>`).join("");
   const usage = a.metrics.find(m => m.label === "Utilización volumétrica teórica");
   $("usage").innerHTML = usage ? `<div class="usage"><b>Utilización geométrica del husillo</b><p>${safe(format(usage))}</p>${usage.value === null ? '<p class="muted">Pendiente: requiere volumen de shot, diámetro y carrera disponibles.</p>' : `<div class="usage-track" role="meter" aria-label="Utilización geométrica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100, Math.max(0, usage.value))}" aria-valuetext="${safe(format(usage))}${usage.value > 100 ? "; supera la capacidad teórica" : ""}"><span style="width:${Math.min(100, Math.max(0, usage.value))}%"></span></div><small>${usage.value > 100 ? "Supera la capacidad geométrica indicada. " : ""}Verifica los límites reales del equipo; el porcentaje no certifica idoneidad.</small>`}</div>` : "";
-  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small></div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
+  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small>${learningLink(m.label)}</div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
   $("messages").innerHTML = a.warnings.map(t => `<div class="warning">⚠ ${safe(t)}</div>`).join("") + a.notes.map(t => `<div class="note">${safe(t)}</div>`).join("");
   $("result-notes").querySelector("summary").textContent = a.warnings.length ? `Advertencias (${a.warnings.length}), hipótesis y límites` : "Hipótesis y límites";
   if (a.warnings.length) $("result-notes").open = true;
@@ -175,6 +185,7 @@ function renderHistory() {
     $("level").value = state.level;
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
+    drawLearningLinks();
     drawFields();
     drawMaterials();
     renderHistory();
