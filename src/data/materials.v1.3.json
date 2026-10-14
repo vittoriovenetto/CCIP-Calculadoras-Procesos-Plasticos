@@ -2,7 +2,7 @@
   "schema_version": "1.2.0",
   "dataset_name": "ccip-90-verified-grade-identities-and-9-generic-families",
   "retrieved_on": "2026-10-14",
-  "publication_notice": "90 grados comerciales identificados con fuentes de fabricantes + 9 perfiles genéricos sin parámetros presuntos. Las propiedades de cada grado pueden estar incompletas; no son certificados de lote.",
+  "publication_notice": "Índice preliminar de 90 identidades comerciales y 9 familias genéricas. Las referencias deben verificarse contra la ficha concreta y vigente de cada grado; valores no comprobados se dejan null. No interpretar el catálogo como nueve series de propiedades certificadas.",
   "null_policy": "Mantener NULL si no está en fuente; nunca usar densidad sólida como fundida, ni aparente como sólida.",
   "sources": {
     "S01": {
@@ -117,7 +117,7 @@
       "manufacturer": "Unknown / No definido",
       "grade": "Familia genérica",
       "url": null,
-      "description": "Sin grado ni fabricante; todas las propiedades quedan a cargo del usuario."
+      "description": "Sin grado comercial ni datos de fabricante; requiere medición o entrada manual con trazabilidad."
     },
     "CAT201": {
       "manufacturer": "Dow",
@@ -1383,16 +1383,7 @@
       "process_tags": [],
       "source_id": "CAT201",
       "properties": {
-        "solid_density": {
-          "value": 0.96,
-          "unit": "g/cm3",
-          "source_id": "CAT201",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1407,7 +1398,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1435,16 +1426,7 @@
       "process_tags": [],
       "source_id": "CAT202",
       "properties": {
-        "solid_density": {
-          "value": 0.945,
-          "unit": "g/cm3",
-          "source_id": "CAT202",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1459,7 +1441,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1487,16 +1469,7 @@
       "process_tags": [],
       "source_id": "CAT203",
       "properties": {
-        "solid_density": {
-          "value": 0.944,
-          "unit": "g/cm3",
-          "source_id": "CAT203",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1511,7 +1484,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1539,16 +1512,7 @@
       "process_tags": [],
       "source_id": "CAT204",
       "properties": {
-        "solid_density": {
-          "value": 0.958,
-          "unit": "g/cm3",
-          "source_id": "CAT204",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1563,7 +1527,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1591,16 +1555,7 @@
       "process_tags": [],
       "source_id": "CAT205",
       "properties": {
-        "solid_density": {
-          "value": 0.965,
-          "unit": "g/cm3",
-          "source_id": "CAT205",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1615,7 +1570,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1643,16 +1598,7 @@
       "process_tags": [],
       "source_id": "CAT206",
       "properties": {
-        "solid_density": {
-          "value": 0.961,
-          "unit": "g/cm3",
-          "source_id": "CAT206",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1667,7 +1613,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1695,16 +1641,7 @@
       "process_tags": [],
       "source_id": "CAT207",
       "properties": {
-        "solid_density": {
-          "value": 0.952,
-          "unit": "g/cm3",
-          "source_id": "CAT207",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1719,7 +1656,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1747,16 +1684,7 @@
       "process_tags": [],
       "source_id": "CAT208",
       "properties": {
-        "solid_density": {
-          "value": 0.949,
-          "unit": "g/cm3",
-          "source_id": "CAT208",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1771,7 +1699,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1799,16 +1727,7 @@
       "process_tags": [],
       "source_id": "CAT209",
       "properties": {
-        "solid_density": {
-          "value": 0.944,
-          "unit": "g/cm3",
-          "source_id": "CAT209",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1823,7 +1742,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1894,16 +1813,7 @@
       "process_tags": [],
       "source_id": "CAT210",
       "properties": {
-        "solid_density": {
-          "value": 0.926,
-          "unit": "g/cm3",
-          "source_id": "CAT210",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1918,7 +1828,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1950,11 +1860,11 @@
           "value": 0.922,
           "unit": "g/cm3",
           "source_id": "CAT211",
-          "method": "Ver fuente",
+          "method": "ASTM D792",
           "condition": null,
           "range": null,
           "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
+          "note": "Dato explícito de la página oficial Dow para este grado; densidad sólida, no fundida."
         },
         "melt_density": null,
         "bulk_density": null,
@@ -1970,7 +1880,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -1998,16 +1908,7 @@
       "process_tags": [],
       "source_id": "CAT212",
       "properties": {
-        "solid_density": {
-          "value": 0.919,
-          "unit": "g/cm3",
-          "source_id": "CAT212",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2022,7 +1923,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2050,16 +1951,7 @@
       "process_tags": [],
       "source_id": "CAT213",
       "properties": {
-        "solid_density": {
-          "value": 0.92,
-          "unit": "g/cm3",
-          "source_id": "CAT213",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2074,7 +1966,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2106,11 +1998,11 @@
           "value": 0.922,
           "unit": "g/cm3",
           "source_id": "CAT214",
-          "method": "Ver fuente",
+          "method": "ASTM D792",
           "condition": null,
           "range": null,
           "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
+          "note": "Dato explícito de la página oficial Dow para este grado; densidad sólida, no fundida."
         },
         "melt_density": null,
         "bulk_density": null,
@@ -2126,7 +2018,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2154,16 +2046,7 @@
       "process_tags": [],
       "source_id": "CAT215",
       "properties": {
-        "solid_density": {
-          "value": 0.92,
-          "unit": "g/cm3",
-          "source_id": "CAT215",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2178,7 +2061,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2206,16 +2089,7 @@
       "process_tags": [],
       "source_id": "CAT216",
       "properties": {
-        "solid_density": {
-          "value": 0.919,
-          "unit": "g/cm3",
-          "source_id": "CAT216",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2230,7 +2104,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2258,16 +2132,7 @@
       "process_tags": [],
       "source_id": "CAT217",
       "properties": {
-        "solid_density": {
-          "value": 0.933,
-          "unit": "g/cm3",
-          "source_id": "CAT217",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2282,7 +2147,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2310,16 +2175,7 @@
       "process_tags": [],
       "source_id": "CAT218",
       "properties": {
-        "solid_density": {
-          "value": 0.918,
-          "unit": "g/cm3",
-          "source_id": "CAT218",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2334,7 +2190,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2405,16 +2261,7 @@
       "process_tags": [],
       "source_id": "CAT219",
       "properties": {
-        "solid_density": {
-          "value": 0.921,
-          "unit": "g/cm3",
-          "source_id": "CAT219",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2429,7 +2276,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2457,16 +2304,7 @@
       "process_tags": [],
       "source_id": "CAT220",
       "properties": {
-        "solid_density": {
-          "value": 0.919,
-          "unit": "g/cm3",
-          "source_id": "CAT220",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2481,7 +2319,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2509,16 +2347,7 @@
       "process_tags": [],
       "source_id": "CAT221",
       "properties": {
-        "solid_density": {
-          "value": 0.924,
-          "unit": "g/cm3",
-          "source_id": "CAT221",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2533,7 +2362,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2561,16 +2390,7 @@
       "process_tags": [],
       "source_id": "CAT222",
       "properties": {
-        "solid_density": {
-          "value": 0.921,
-          "unit": "g/cm3",
-          "source_id": "CAT222",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2585,7 +2405,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2613,16 +2433,7 @@
       "process_tags": [],
       "source_id": "CAT223",
       "properties": {
-        "solid_density": {
-          "value": 0.921,
-          "unit": "g/cm3",
-          "source_id": "CAT223",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2637,7 +2448,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2665,16 +2476,7 @@
       "process_tags": [],
       "source_id": "CAT224",
       "properties": {
-        "solid_density": {
-          "value": 0.923,
-          "unit": "g/cm3",
-          "source_id": "CAT224",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2689,7 +2491,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2717,16 +2519,7 @@
       "process_tags": [],
       "source_id": "CAT225",
       "properties": {
-        "solid_density": {
-          "value": 0.925,
-          "unit": "g/cm3",
-          "source_id": "CAT225",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2741,7 +2534,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2769,16 +2562,7 @@
       "process_tags": [],
       "source_id": "CAT226",
       "properties": {
-        "solid_density": {
-          "value": 0.921,
-          "unit": "g/cm3",
-          "source_id": "CAT226",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2793,7 +2577,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2821,16 +2605,7 @@
       "process_tags": [],
       "source_id": "CAT227",
       "properties": {
-        "solid_density": {
-          "value": 0.925,
-          "unit": "g/cm3",
-          "source_id": "CAT227",
-          "method": "Ver fuente",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2845,7 +2620,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2916,16 +2691,7 @@
       "process_tags": [],
       "source_id": "CAT228",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT228",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2940,7 +2706,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -2968,16 +2734,7 @@
       "process_tags": [],
       "source_id": "CAT229",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT229",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2992,7 +2749,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3020,16 +2777,7 @@
       "process_tags": [],
       "source_id": "CAT230",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT230",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3044,7 +2792,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3072,16 +2820,7 @@
       "process_tags": [],
       "source_id": "CAT231",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT231",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3096,7 +2835,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3124,16 +2863,7 @@
       "process_tags": [],
       "source_id": "CAT232",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT232",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3148,7 +2878,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3176,16 +2906,7 @@
       "process_tags": [],
       "source_id": "CAT233",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT233",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3200,7 +2921,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3228,16 +2949,7 @@
       "process_tags": [],
       "source_id": "CAT234",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT234",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3252,7 +2964,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3280,16 +2992,7 @@
       "process_tags": [],
       "source_id": "CAT235",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT235",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3304,7 +3007,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3332,16 +3035,7 @@
       "process_tags": [],
       "source_id": "CAT236",
       "properties": {
-        "solid_density": {
-          "value": 0.9,
-          "unit": "g/cm3",
-          "source_id": "CAT236",
-          "method": "ISO 1183",
-          "condition": null,
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Densidad sólida; no sustituye densidad del fundido."
-        },
+        "solid_density": null,
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3356,7 +3050,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3442,7 +3136,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3494,7 +3188,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3546,7 +3240,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3598,7 +3292,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3650,7 +3344,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3702,7 +3396,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3754,7 +3448,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3806,7 +3500,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3858,7 +3552,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -3962,7 +3656,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4006,7 +3700,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4050,7 +3744,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4094,7 +3788,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4138,7 +3832,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4182,7 +3876,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4226,7 +3920,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4270,7 +3964,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4314,7 +4008,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4402,7 +4096,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4445,7 +4139,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4488,7 +4182,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4531,7 +4225,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4574,7 +4268,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4617,7 +4311,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4660,7 +4354,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4703,7 +4397,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4746,7 +4440,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4832,7 +4526,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4875,7 +4569,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4918,7 +4612,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -4961,7 +4655,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5004,7 +4698,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5047,7 +4741,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5090,7 +4784,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5133,7 +4827,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5176,7 +4870,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5262,7 +4956,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5323,7 +5017,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5384,7 +5078,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5445,7 +5139,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5506,7 +5200,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5567,7 +5261,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5628,7 +5322,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5689,7 +5383,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
@@ -5750,7 +5444,7 @@
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "grade_identity_referenced_properties_partial",
+      "record_status": "catalog_identity_pending_grade_data_verification",
       "notes": "Grado identificado en catálogo de fabricante. Propiedades adicionales no verificadas se dejan pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
