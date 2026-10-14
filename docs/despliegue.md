@@ -16,6 +16,21 @@ Antes de subir, se sirvió `dist/` bajo la subruta del repositorio y se verifica
 
 La respuesta HTTP del sitio Pages no pudo comprobarse directamente desde este entorno por su restricción de red. El éxito indicado es el resultado del servicio de despliegue de GitHub y su enlace de entorno, no una prueba funcional posterior sobre la URL pública.
 
+## Rediseño y V1 conservada — 2026-10-14
+
+GitHub confirmó correctamente el [despliegue del rediseño](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38524671401), incluido el job de publicación y el enlace de entorno.
+
+- Código de aplicación: `793171cb1c515bfb01a6ecc0a9555aeb59e70e75`.
+- Artefacto publicado: `385a72a7c5267293b2fb0bcdcaa8a55442943691` en `gh-pages`.
+- Biblioteca: `1.2.0`; ecuaciones, motor y datos sin cambios respecto a la V1 anterior.
+- [V1 congelada](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/versions/v1/) y [ZIP de su fuente](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/downloads/CCIP-Web-V1.zip) incluidos en el mismo artefacto.
+- Etiqueta `web-v1-2026-10-14` apunta a `7ece24a90d072d61e03762c1505141370483777f` y fue subida al repositorio del usuario.
+- `main` sigue en `423c04b1710f8f009c811c893873184d363f1b66`; ningún cambio al original.
+
+Verificación: 326 pruebas Node y 15 pruebas Chromium correctas, más comprobación del artefacto `dist/` bajo una subruta: nueve variantes avanzadas, logo/ayudas a 320/768/1440 px, 24 archivos web V1 con SHA-256 intacto, ZIP íntegro y cálculo de la copia anterior. Los archivos `deployment.json` de la rama publicada se comprobaron mediante raw de GitHub para ambas aplicaciones.
+
+Se conserva la limitación de red indicada arriba: el entorno no permite comprobar la respuesta HTTP pública del dominio Pages. La confirmación de publicación procede del servicio GitHub; la prueba funcional se realizó localmente sobre el artefacto exacto. Este registro de despliegue se añadió posteriormente como documentación, sin cambiar el paquete publicado.
+
 ## Artefacto y publicación
 
 Desde un checkout limpio de la versión aprobada:
