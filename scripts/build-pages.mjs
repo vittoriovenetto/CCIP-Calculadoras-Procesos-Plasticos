@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const site = join(root, 'dist');
 const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
-git(['diff', '--exit-code', 'HEAD', '--', 'index.html', '.nojekyll', 'src']);
+git(['diff', '--exit-code', 'HEAD', '--', 'index.html', '.nojekyll', 'src', 'versions', 'downloads']);
 const owner = 'vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos';
 if (existsSync(site)) {
   const marker = join(site, 'deployment.json');
@@ -13,7 +13,7 @@ if (existsSync(site)) {
   rmSync(site, { recursive: true });
 }
 mkdirSync(site);
-for (const file of git(['ls-files', 'index.html', '.nojekyll', 'src']).split('\n')) {
+for (const file of git(['ls-files', 'index.html', '.nojekyll', 'src', 'versions', 'downloads']).split('\n')) {
   const target = join(site, file);
   mkdirSync(dirname(target), { recursive: true });
   cpSync(join(root, file), target, { dereference: false });

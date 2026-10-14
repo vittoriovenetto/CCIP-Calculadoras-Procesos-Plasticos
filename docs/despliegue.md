@@ -2,7 +2,7 @@
 
 La aplicación estática se publica desde `gh-pages`, conservando `main` y la rama de desarrollo. No necesita servidor de aplicaciones, secretos, variables de producción ni compilación de dependencias.
 
-## Despliegue confirmado
+## Despliegue inicial confirmado
 
 GitHub completó correctamente el workflow nativo [pages build and deployment](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38514593056) al publicar la rama `gh-pages`.
 
@@ -24,7 +24,7 @@ Desde un checkout limpio de la versión aprobada:
 npm run deploy:pages
 ```
 
-`build:pages` copia únicamente `index.html`, `.nojekyll` y los archivos rastreados de `src/` a `dist/`, más un `deployment.json` que identifica commit de origen y versión de biblioteca. No incluye Git, pruebas, capturas, adjuntos, credenciales ni documentación de desarrollo. Rechaza cambios pendientes en los archivos de aplicación y no elimina un directorio `dist` ajeno.
+`build:pages` copia `index.html`, `.nojekyll` y los archivos rastreados de `src/`, `versions/` y `downloads/` a `dist/`, más un `deployment.json` que identifica commit de origen y versión de biblioteca. La web anterior y el ZIP de su fuente se incluyen intencionalmente para conservación. Fuera de ese ZIP no incluye Git, pruebas, capturas, adjuntos, credenciales ni documentación de desarrollo. Rechaza cambios pendientes en los archivos de aplicación y no elimina un directorio `dist` ajeno.
 
 El publicador usa un índice temporal, crea un commit del artefacto y hace un push normal a `gh-pages`, conservando su historia y sin cambiar rama/índice de desarrollo ni forzar actualizaciones. No configura ni activa el servicio Pages: subir la rama por sí solo no demuestra que la web esté publicada.
 

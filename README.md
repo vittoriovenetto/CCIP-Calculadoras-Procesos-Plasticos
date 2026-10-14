@@ -14,7 +14,8 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 ## Funcionalidad
 - Tres niveles de detalle: básico, técnico, avanzado; cada uno activa nuevas entradas. Los datos ocultos no participan en el cálculo.
 - Las propiedades y los parámetros de máquina sin fuente permanecen vacíos; los datos de catálogo se aplican solo a campos compatibles y tras confirmar condiciones; las dimensiones y cantidades precargadas son ejemplos editables.
-- Explicaciones de cada parámetro y fórmulas en los resultados.
+- Ayudas «?» al pasar el cursor, enfocar o tocar; fórmulas completas en resultados desplegables.
+- Logo CCIP, ficha de materiales compacta y acceso a la V1 anterior conservada como web y ZIP.
 - Biblioteca de nueve grados comerciales con selección familia → fabricante → grado, fuentes y condiciones locales.
 - Autocompletado condicionado de propiedades compatibles, rangos elegidos explícitamente y overrides manuales trazables.
 - Historial/JSON conserva identidad del grado, fuente, auditoría, referencias pVT y snapshot de propiedades utilizadas.
@@ -33,7 +34,11 @@ Para ejecutar las pruebas del motor, niveles, entradas e historial: `npm test` (
 
 Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install playwright`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cuatro tamaños, más nueve grados × tres procesos × tres niveles × escritorio/móvil; también edición, fuentes, rangos, overrides, historial, JSON y cálculo offline tras cargar recursos.
 
-Los cambios de esta auditoría se preparan en `feature/web-v1-modular`. La publicación en GitHub Pages y la fusión a `main` quedan pendientes de una decisión posterior; no son parte de la verificación local.
+El desarrollo se mantiene en `feature/web-v1-modular`, sin fusionar a `main`. La publicación autorizada utiliza `gh-pages`; consulta [despliegue](docs/despliegue.md).
+
+[Aplicación actual](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/) · [Abrir V1 conservada](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/versions/v1/) · [Descargar archivos V1](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/downloads/CCIP-Web-V1.zip)
+
+La [documentación del rediseño y conservación](docs/rediseno-y-versiones.md) distingue versiones históricas, niveles de cálculo y biblioteca. La original se aproxima a técnico con funciones avanzadas: consulta la [comparación de funciones y ecuaciones](docs/comparacion-original.md).
 
 ## Estructura
 - `index.html`: HTML de entrada.
@@ -50,6 +55,8 @@ Los cambios de esta auditoría se preparan en `feature/web-v1-modular`. La publi
 - `docs/materiales.md`: reglas de biblioteca, trazabilidad y pruebas.
 - `src/history.js`: lectura validada del historial.
 - `src/styles.css`: estilos responsivos.
+- `src/presentation.js` y `src/tooltips.js`: grupos de campos, métricas principales y ayudas; separados del motor.
+- `versions/v1/` y `downloads/CCIP-Web-V1.zip`: aplicación anterior congelada y código completo; integridad documentada en `versions/v1-integrity.json`.
 - `tests/`: pruebas de referencia, dominios/niveles, historial e integración de navegador.
 - `docs/modelos.md`: ecuaciones, unidades, dominios, límites y validación técnica necesaria.
 - `docs/arquitectura.md`: contrato y extensión de calculadoras.

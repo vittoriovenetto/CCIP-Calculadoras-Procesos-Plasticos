@@ -2,12 +2,16 @@ import { modules, activeFields } from "./schema.js";
 import { calculate } from "./engine.js";
 import { readHistory, storageKey } from "./history.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
+import { fieldGroups, primaryLabels } from "./presentation.js";
+import { bindParameterHelp } from "./tooltips.js";
 import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from "./materials-view.js";
 
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
 const sessions = new Map();
 let library = null, loadStatus = "Cargando catálogo local…";
+let materialDetailsOpen = false;
+const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
 const initialValues = () => Object.fromEntries(mod().fields.map(f => [f.key, f.default ?? ""]));
 const loadHistory = () => {
@@ -17,8 +21,11 @@ const loadHistory = () => {
 
 function invalidate() {
   $("result-date").textContent = "Pendientes";
+  $("summary-metrics").innerHTML = '<p class="muted">Los resultados aparecerán aquí al calcular.</p>';
+  $("usage").innerHTML = "";
   $("metrics").innerHTML = "<p class='muted'>Introduce los parámetros y pulsa Calcular. Los resultados sin datos válidos quedan pendientes.</p>";
   $("messages").innerHTML = "";
+  $("result-notes").querySelector("summary").textContent = "Advertencias, hipótesis y límites";
 }
 
 function nav() {
@@ -50,7 +57,7 @@ function draw() {
 
 function drawMaterials() {
   renderMaterials($("materials"), { library, loadStatus, materialState: state.material, filters: state.filters,
-    module: mod(), values: state.values, level: state.level, onChange: materialChanged });
+    module: mod(), values: state.values, level: state.level, onChange: materialChanged, detailsOpen: materialDetailsOpen, onDetailsToggle: open => { materialDetailsOpen = open; } });
 }
 function materialChanged(action, value) {
   if (action === "reference") {
@@ -80,13 +87,15 @@ function materialChanged(action, value) {
   draw();
 }
 function drawFields() {
-  $("fields").innerHTML = activeFields(mod(), state.values, state.level).map(f => {
+  parameterHelp.close();
+  const renderField = f => {
     const options = f.options?.map(([value, label]) => `<option value="${safe(value)}" ${String(state.values[f.key]) === String(value) ? "selected" : ""}>${safe(label)}</option>`).join("") || "";
     const attrs = `id="field-${f.key}" data-field="${f.key}" aria-describedby="hint-${f.key}"`;
     const control = f.type === "select" ? `<select ${attrs}>${options}</select>` :
       `<input ${attrs} inputmode="decimal" type="number" step="${f.integer ? "1" : "any"}" min="${f.min}" ${f.max == null ? "" : `max="${f.max}"`} value="${safe(state.values[f.key])}" placeholder="Sin dato"/>`;
-    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" title="${safe(f.description)}" aria-label="Explicar ${safe(f.label)}">ⓘ</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><p id="hint-${f.key}" class="hint">${safe(f.description)}</p><small id="provenance-${f.key}" class="field-provenance">${safe(provenanceText(state.material.provenance[f.key]))}</small></div>`;
-  }).join("");
+    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p></div><small id="provenance-${f.key}" class="field-provenance">${safe(provenanceText(state.material.provenance[f.key]))}</small></div>`;
+  };
+  $("fields").innerHTML = fieldGroups(state.id, activeFields(mod(), state.values, state.level)).map(group => `<fieldset class="parameter-group"><legend>${safe(group.label)}</legend><div class="fields">${group.fields.map(renderField).join("")}</div></fieldset>`).join("");
   document.querySelectorAll("[data-field]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => {
     state.values[el.dataset.field] = el.validity.badInput ? "invalid" : el.value;
     markManual(state.material, state.id, el.dataset.field, state.values[el.dataset.field]);
@@ -95,10 +104,7 @@ function drawFields() {
     if (el.dataset.field === "method" || el.dataset.field === "shape") draw();
     else invalidate();
   }));
-  document.querySelectorAll("[data-help]").forEach(el => el.addEventListener("click", () => {
-    const f = mod().fields.find(x => x.key === el.dataset.help);
-    alert(f.label + ": " + f.description);
-  }));
+
 }
 
 function compute() {
@@ -107,8 +113,15 @@ function compute() {
   a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
   const item = { module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
+  const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
+  const primary = (primaryLabels[state.id] || []).map(label => a.metrics.find(m => m.label === label)).filter(Boolean);
+  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small></article>`).join("");
+  const usage = a.metrics.find(m => m.label === "Utilización volumétrica teórica");
+  $("usage").innerHTML = usage ? `<div class="usage"><b>Utilización geométrica del husillo</b><p>${safe(format(usage))}</p>${usage.value === null ? '<p class="muted">Pendiente: requiere volumen de shot, diámetro y carrera disponibles.</p>' : `<div class="usage-track" role="meter" aria-label="Utilización geométrica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100, Math.max(0, usage.value))}" aria-valuetext="${safe(format(usage))}${usage.value > 100 ? "; supera la capacidad teórica" : ""}"><span style="width:${Math.min(100, Math.max(0, usage.value))}%"></span></div><small>${usage.value > 100 ? "Supera la capacidad geométrica indicada. " : ""}Verifica los límites reales del equipo; el porcentaje no certifica idoneidad.</small>`}</div>` : "";
   $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small></div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
   $("messages").innerHTML = a.warnings.map(t => `<div class="warning">⚠ ${safe(t)}</div>`).join("") + a.notes.map(t => `<div class="note">${safe(t)}</div>`).join("");
+  $("result-notes").querySelector("summary").textContent = a.warnings.length ? `Advertencias (${a.warnings.length}), hipótesis y límites` : "Hipótesis y límites";
+  if (a.warnings.length) $("result-notes").open = true;
   return item;
 }
 

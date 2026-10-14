@@ -1,0 +1,10 @@
+{
+  "name": "CCIP Web V1 conservada",
+  "source_commit": "7ece24a90d072d61e03762c1505141370483777f",
+  "site_commit": "f8a130f6361f760218ca7a1dbaf1e9880ea53a47",
+  "source_tag": "web-v1-2026-10-14",
+  "browser_path": "versions/v1/",
+  "download_path": "downloads/CCIP-Web-V1.zip",
+  "material_library": "1.2.0",
+  "description": "Copia de la aplicación publicada antes del rediseño visual; independiente de los niveles básico, técnico y avanzado."
+}

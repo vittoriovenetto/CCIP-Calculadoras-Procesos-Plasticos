@@ -9,7 +9,7 @@ Capturas reales de la ejecución de `python3 tests/browser_smoke.py` durante la 
 | Móvil | 390 × 844 | [Móvil](movil-390.png) |
 | Móvil estrecho | 320 × 568 | [320 px](movil-320.png) |
 
-Las imágenes incluyen el contenido que aparece al desplazarse verticalmente; por eso su altura es mayor que la del viewport. Se verificaron los siete procesos y tres niveles además de estas vistas, con un total de 108 estados. No hay publicación de la página web.
+Las imágenes incluyen el contenido que aparece al desplazarse verticalmente; por eso su altura es mayor que la del viewport. Se verificaron los siete procesos y tres niveles además de estas vistas, con un total de 108 estados. Estas capturas corresponden a la auditoría local anterior a la primera publicación.
 
 ## Biblioteca de materiales V1
 
@@ -22,3 +22,11 @@ Las confirmaciones de estas capturas ilustran el flujo de uso; no prueban compat
 ## Auditoría y pVT V1.2
 
 [ABS: ficha, gráfica orientativa y evidencia manual](pvt-abs.png). La curva muestra los 24 puntos aproximados del adjunto, sin transferirlos al motor. El valor de densidad manual y las condiciones mostradas son un caso sintético de prueba, declarado en el campo de fuente; no una medición de Terluran ni una densidad deducida de la gráfica.
+
+## Rediseño y ayudas «?» — 2026-10-14
+
+[PC 1440 px](rediseno-pc.png) · [Tablet 768 px](rediseno-tablet.png) · [Móvil 390 px](rediseno-movil.png) · [Ayuda junto a «?»](ayuda-parametro.png)
+
+Capturas reales de Chromium con ficha ABS contraída e inyección avanzada. Los datos de `tests/fixtures.js`, incluida la densidad fundida manual **0.8 g/cm³**, son ejemplos sintéticos: no corresponden a una propiedad verificada del Terluran GP-22 seleccionado. La ficha sigue indicando densidad/Cp pendientes y las advertencias permanecen visibles. Las imágenes muestran página completa, más alta que el viewport.
+
+La nueva cabecera permite abrir la V1 anterior o descargar sus archivos. Los paneles de ecuaciones y ficha permanecen accesibles mediante sus controles desplegables.

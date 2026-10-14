@@ -1,0 +1,30 @@
+{
+  "site_commit": "f8a130f6361f760218ca7a1dbaf1e9880ea53a47",
+  "files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "deployment.json": "a836197ced844888139e3e491e7fe1009c50a536329901f3ad8a21e41b2707ea",
+    "index.html": "5770c174b410ccd199adcdbe78c147bc031f497e0f1eb64ad9fa3315e09f3d8f",
+    "src/app.js": "c759eb16a49384ca20d9d69b5034f77e541ffcaa628fbff761ce24f375df5099",
+    "src/data/materials.v1.1.json": "2e3ff988500c71f6cc07a90766bff32c579895acca542e096bfb59dda9ff45b3",
+    "src/data/materials.v1.2.json": "5a34bef1dcd5fee6bd7bf3efddf5cfcae1daa40c0ea01b25e9986ddd90c33028",
+    "src/data/materials.v1.json": "da3df79ab06e8fffda98676a68362d2d044ece9c6c93921f7434d6bb104357a4",
+    "src/engine.js": "bba8e37b8dff3ca1a9c3bb7453f886cf07db0d573df5729e1da0086e0e050d8d",
+    "src/history.js": "eb042b628942c56391c6db59ae8000c57b9188f1e8a223533f54133f414afae9",
+    "src/icon.svg": "d64187ca14a1cf3de6d0529f2b2b3d76f068c9a68348744dfdc36bb63d611c92",
+    "src/materials-audit-view.js": "c773260ef73672275ff2870b9befab7a669684abd5db49c801f3060fcac62a5b",
+    "src/materials-view.js": "aa09943f41831236afd9f541cdda4098c501ac06fbb02b27f2e3281ceeac3fdd",
+    "src/materials.js": "3b35d23d9577595fc661d2dac087122e5e0a838b49b313380c06b8d3ebba0e84",
+    "src/math.js": "7af7f60cc0ad350574368ce0f25e091e0ed7b066451af3c8d33c0fc98ba6ccd0",
+    "src/models/costos.js": "fba37254197827b22f232a503e675b20add700167a52ec15ef33fe3ed10b3986",
+    "src/models/extrusion.js": "6a090589ceb83659400094a781585a409953d9bb346dbe6f65679b31944486c3",
+    "src/models/inyeccion.js": "e88f302265f2b016d2b2819933cdb4cb9e2f7ec771fd043a2e4664d584120a43",
+    "src/models/pelicula.js": "437331ed094d6e022572b4af364d7f0d845e31b2d24cef815b6b7514e2ca202a",
+    "src/models/secado.js": "8d3e2b1663539711db27f8735deb2c4f936bd5d3f256c6953e0b4fdb263782ea",
+    "src/models/soplado.js": "f4528531a6d3d84184a3bf81d05d3574032233fce5c743c8d24d3661c4cb454c",
+    "src/models/termoformado.js": "f9180a4fa2746eb63b2c6811475b070b8345da2a6ae059a1102bc8ae1fc31b86",
+    "src/pvt.js": "20b8a3df2f3f373162d069a68373d74169fd3dbd243021ce76ce905625196005",
+    "src/schema.js": "14eeb3d94dbff42dae31cf2b21b63e1def3684e365cb74759ef1e0eb4d659edc",
+    "src/styles.css": "ef7aabce12576d386027aaecb7b6983cdf4bc8d5b80251f78b19d8d7191bd3dc"
+  },
+  "source_zip_sha256": "d8804da94ec18d13b63d4308541922db3f69bba2d222bec170ad4ada7c313971"
+}

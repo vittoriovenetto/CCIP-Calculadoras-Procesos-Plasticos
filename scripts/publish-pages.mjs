@@ -7,7 +7,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url))), site = join(root,
 const metadata = JSON.parse(readFileSync(join(site, 'deployment.json'), 'utf8'));
 const git = (args, options = {}) => execFileSync('git', args, { cwd: root, encoding: 'utf8', ...options }).trim();
 if (metadata.source_commit !== git(['rev-parse', 'HEAD'])) throw Error('El artefacto no corresponde a HEAD; ejecuta npm run build:pages.');
-git(['diff', '--exit-code', 'HEAD', '--', 'index.html', '.nojekyll', 'src']);
+git(['diff', '--exit-code', 'HEAD', '--', 'index.html', '.nojekyll', 'src', 'versions', 'downloads']);
 const temp = mkdtempSync(join(tmpdir(), 'ccip-pages-index-'));
 try {
   const env = { ...process.env, GIT_INDEX_FILE: join(temp, 'index') };

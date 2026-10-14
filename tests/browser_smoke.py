@@ -78,6 +78,11 @@ class BrowserSmoke(unittest.TestCase):
             key = control.get_attribute('data-field')
             control.fill(str(values[key]))
         self.page.locator('#calculate').click()
+        self.open_results()
+
+    def open_results(self):
+        if not self.page.locator('#results-details').evaluate('el => el.open'):
+            self.page.locator('#results-details > summary').click()
 
     def assert_layout(self):
         self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Desbordamiento horizontal de página')
@@ -87,13 +92,15 @@ class BrowserSmoke(unittest.TestCase):
           return r.width > 0 && (r.left < -1 || r.right > innerWidth + 1);
         }).map(el => el.outerHTML)''')
         self.assertEqual(outside, [], 'Controles/resultados fuera de pantalla')
-        self.assertEqual(self.page.locator('.mark').evaluate('el => getComputedStyle(el).whiteSpace'), 'nowrap')
+        self.assertTrue(self.page.locator('.ccip-logo').evaluate('el => el.complete && el.naturalWidth > 0'))
 
     def select_grade(self, material):
         self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
         self.page.locator('#material-family').select_option(material['family'])
         self.page.locator('#material-manufacturer').select_option(material['manufacturer'])
         self.page.locator('#material-grade').select_option(material['id'])
+        if not self.page.locator('#material-details').evaluate('el => el.open'):
+            self.page.locator('#material-details > summary').click()
 
     def test_01_all_modules_levels_and_viewports(self):
         for width, height in [(1440, 900), (768, 1024), (390, 844), (320, 568)]:
@@ -128,10 +135,12 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('.metric').count(), 0)
         # Calcular con foco en el campo debe leer la última edición.
         self.page.locator('#calculate').click()
-        self.assertIn('93.5', self.page.locator('.metric').nth(1).inner_text())
+        self.open_results()
+        self.assertIn('93.5', self.page.locator('.metric').nth(1).text_content())
         self.page.locator('#level').select_option('basic')
         self.page.locator('#calculate').click()
-        self.assertIn('85', self.page.locator('.metric').nth(1).inner_text())
+        self.open_results()
+        self.assertIn('85', self.page.locator('.metric').nth(1).text_content())
         self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
         self.page.locator('#level').select_option('advanced')
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '0.8')
@@ -140,8 +149,9 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
         self.page.locator('[data-field="partMass"]').fill('-1')
         self.page.locator('#calculate').click()
+        self.open_results()
         self.assertIn('Masa por pieza:', self.page.locator('#messages').inner_text())
-        self.assertIn('Pendiente', self.page.locator('.metric').nth(1).inner_text())
+        self.assertIn('Pendiente', self.page.locator('.metric').nth(1).text_content())
 
     def test_03_history_export_and_corrupt_storage(self):
         self.fill_case('secado', VARIANTS[5][1])
@@ -150,7 +160,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('[data-history="0"]').click()
         self.assertEqual(self.page.locator('#module-title').inner_text(), 'Secado y acondicionamiento')
         self.assertEqual(self.page.locator('[data-field="throughput"]').input_value(), '50')
-        self.assertIn('150', self.page.locator('.metric').nth(0).inner_text())
+        self.assertIn('150', self.page.locator('.metric').nth(0).text_content())
         with self.page.expect_download() as info:
             self.page.locator('#export').click()
         data = json.loads(Path(info.value.path()).read_text())
@@ -193,19 +203,21 @@ class BrowserSmoke(unittest.TestCase):
         self.page.keyboard.type('40')
         self.page.locator('#calculate').focus()
         self.page.keyboard.press('Enter')
-        self.assertIn('40', self.page.locator('.metric').nth(1).inner_text())
+        self.assertIn('40', self.page.locator('.metric').nth(1).text_content())
         self.assertEqual(self.page.locator('#calculation-output').get_attribute('aria-live'), 'polite')
-        dialogs = []
-        self.page.on('dialog', lambda dialog: (dialogs.append(dialog.message), dialog.accept()))
         self.page.locator('[data-help="partMass"]').focus()
         self.page.keyboard.press('Enter')
-        self.assertTrue(dialogs[0].startswith('Masa por pieza:'))
+        self.assertTrue(self.page.locator('#hint-partMass').is_visible())
+        self.assertIn('Masa de pieza sólida', self.page.locator('#hint-partMass').inner_text())
+        self.page.keyboard.press('Escape')
+        self.assertTrue(self.page.locator('#hint-partMass').is_hidden())
 
     def test_06_zero_and_empty_inputs_in_browser(self):
         self.fill_case('secado', {**VARIANTS[5][1], 'startT': -20, 'targetT': 0})
         self.assertIn('0.56', self.page.locator('.metric').nth(2).inner_text())
         self.page.locator('[data-field="specificHeat"]').fill('')
         self.page.locator('#calculate').click()
+        self.open_results()
         self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
         self.fill_case('costos', {**VARIANTS[6][1], 'resinCost': 0, 'powerKw': 0, 'energyCost': 0, 'laborHour': 0})
         self.assertEqual(self.page.locator('.metric').nth(5).locator('strong').inner_text().strip(), '0 moneda/pza')
@@ -231,7 +243,8 @@ class BrowserSmoke(unittest.TestCase):
                                 if level != 'basic':
                                     self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
                                 self.page.locator('#calculate').click()
-                                self.assertIn('30', self.page.locator('.metric').nth(1).inner_text())
+                                self.open_results()
+                                self.assertIn('30', self.page.locator('.metric').nth(1).text_content())
                                 self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
                             elif module == 'pelicula':
                                 self.page.locator('#material-compatible').check()
@@ -313,7 +326,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.reload()
         self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('no disponible')")
         self.fill_case('inyeccion', VARIANTS[0][1])
-        self.assertIn('71.5', self.page.locator('.metric').nth(1).inner_text())
+        self.assertIn('71.5', self.page.locator('.metric').nth(1).text_content())
         self.page.unroute('**/materials.v1.2.json')
         self.page.reload()
         self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('9 grados')")
@@ -326,7 +339,8 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('#material-bulkCompatible').check()
         self.page.locator('#material-dryingCompatible').check()
         self.page.locator('#calculate').click()
-        self.assertIn('200', self.page.locator('.metric').nth(0).inner_text())
+        self.open_results()
+        self.assertIn('200', self.page.locator('.metric').nth(0).text_content())
         self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
         self.assertIn('ISO 1133', self.page.locator('[data-property="mvr"]').inner_text())
         self.page.locator('#save').click()
@@ -337,7 +351,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.evaluate("""localStorage.setItem('ccip-calculators-web-v1', JSON.stringify([{module:'secado',level:'advanced',date:'2026-10-13',inputs:{throughput:50,residence:3},material:{grade_snapshot:{id:'x',family:'x',manufacturer:'x',grade:'x',properties:[],process_tags:[{}]}}}]))""")
         self.page.reload()
         self.page.locator('[data-history="0"]').click()
-        self.assertIn('150', self.page.locator('.metric').nth(0).inner_text())
+        self.assertIn('150', self.page.locator('.metric').nth(0).text_content())
         self.assertEqual(self.page.locator('.source-link').count(), 0)
 
 
@@ -350,6 +364,7 @@ class BrowserSmoke(unittest.TestCase):
             self.assertEqual(self.page.locator('#pvt-section').count(), 1)
             self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
             self.page.locator('#calculate').click()
+            self.open_results()
             self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
             if material['family'] == 'PA6':
                 self.assertIn('Referencia de B3S — no validada para R03', self.page.locator('#pvt-section').inner_text())
@@ -410,9 +425,114 @@ class BrowserSmoke(unittest.TestCase):
         }""")
         self.page.reload()
         self.page.locator('[data-history="0"]').click()
+        self.page.locator('#material-details > summary').click()
         self.assertIn('Biblioteca 1.0.0', self.page.locator('.material-summary').inner_text())
         self.assertEqual(self.page.locator('#pvt-section').count(), 0)
-        self.assertIn('150', self.page.locator('.metric').nth(0).inner_text())
+        self.assertIn('150', self.page.locator('.metric').nth(0).text_content())
+
+
+    def test_13_tooltips_mouse_keyboard_touch_and_layout(self):
+        help_button = self.page.locator('[data-help="partMass"]')
+        value = self.page.locator('[data-field="partMass"]').input_value()
+        help_button.hover()
+        self.page.wait_for_function("!document.querySelector('#hint-partMass').hidden")
+        self.assertEqual(help_button.get_attribute('aria-expanded'), 'true')
+        self.assertEqual(self.page.locator('#hint-partMass').get_attribute('role'), 'tooltip')
+        self.page.locator('#hint-partMass').hover()
+        self.assertTrue(self.page.locator('#hint-partMass').is_visible())
+        self.page.locator('#calculate').hover()
+        self.page.wait_for_function("document.querySelector('#hint-partMass').hidden")
+        help_button.focus()
+        self.assertTrue(self.page.locator('#hint-partMass').is_visible())
+        self.page.keyboard.press('Escape')
+        self.assertTrue(self.page.locator('#hint-partMass').is_hidden())
+        self.assertEqual(self.page.locator('[data-field="partMass"]').input_value(), value)
+        for width in [320, 360, 390, 430, 768, 1024, 1440]:
+            self.page.set_viewport_size({'width': width, 'height': 900})
+            help_button.click()
+            popup = self.page.locator('#hint-partMass').bounding_box()
+            self.assertIsNotNone(popup)
+            self.assertGreaterEqual(popup['x'], 0)
+            self.assertLessEqual(popup['x'] + popup['width'], width)
+            self.assertLessEqual(popup['y'] + popup['height'], 900)
+            self.assert_layout()
+            if width == 1440:
+                self.page.screenshot(path=str(ARTIFACTS / 'ayuda-parametro.png'))
+            self.page.keyboard.press('Escape')
+        # Un toque abre y otro cierra, sin hover disponible.
+        context = self.browser.new_context(is_mobile=True, has_touch=True, viewport={'width':390,'height':844})
+        try:
+            page = context.new_page(); page.goto(self.url)
+            page.locator('[data-help="partMass"]').tap()
+            self.assertTrue(page.locator('#hint-partMass').is_visible())
+            page.locator('[data-help="partMass"]').tap()
+            self.assertTrue(page.locator('#hint-partMass').is_hidden())
+            page.locator('[data-help="partMass"]').tap()
+            page.locator('#materials-title').tap()
+            self.assertTrue(page.locator('#hint-partMass').is_hidden())
+        finally:context.close()
+
+    def test_14_collapsed_material_does_not_change_calculation(self):
+        self.assertFalse(self.page.locator('#material-details').evaluate('el => el.open'))
+        self.fill_case('inyeccion', VARIANTS[0][1])
+        before = self.page.locator('#metrics').inner_text()
+        inputs = self.page.locator('input[data-field]').evaluate_all('els => els.map(el => el.value)')
+        self.page.locator('#material-details > summary').click()
+        self.page.locator('#material-details > summary').click()
+        self.assertEqual(self.page.locator('#metrics').inner_text(), before)
+        self.assertEqual(self.page.locator('input[data-field]').evaluate_all('els => els.map(el => el.value)'), inputs)
+        self.assertIn('71.5', self.page.locator('.kpi').nth(0).inner_text())
+        self.assertEqual(self.page.locator('[role="meter"]').count(), 1)
+        self.page.locator('[data-field="meltDensity"]').fill('')
+        self.page.locator('#calculate').click()
+        self.open_results()
+        self.assertEqual(self.page.locator('[role="meter"]').count(), 0)
+        self.assertIn('Pendiente', self.page.locator('#usage').inner_text())
+        # Fuente y curvas siguen accesibles cuando se abre la ficha.
+        self.select_grade(next(m for m in MATERIALS if m['family']=='ABS'))
+        self.assertEqual(self.page.locator('.pvt-chart circle').count(), 24)
+        self.page.locator('#material-details > summary').click()
+        self.assertFalse(self.page.locator('#material-details').evaluate('el => el.open'))
+        self.page.emulate_media(forced_colors='active', reduced_motion='reduce')
+        self.page.set_viewport_size({'width':430,'height':900});self.assert_layout()
+        self.page.emulate_media(forced_colors='none', reduced_motion='no-preference')
+        # Escala del contenido al 200 %, incluyendo viewport estrecho de escritorio.
+        self.page.set_viewport_size({'width':1440,'height':1000})
+        self.page.evaluate("document.body.style.zoom='2'")
+        self.assert_layout()
+        self.page.locator('[data-help="partMass"]').focus()
+        popup = self.page.locator('#hint-partMass').bounding_box()
+        self.assertGreaterEqual(popup['x'], 0)
+        self.assertLessEqual(popup['x']+popup['width'], 1440)
+        self.assertGreaterEqual(popup['y'], 0)
+        self.assertLessEqual(popup['y']+popup['height'], 1000)
+        self.page.keyboard.press('Escape')
+        self.page.evaluate("document.body.style.zoom='1'")
+        # Capturas con datos de demostración manuales, nunca propiedades inferidas del ABS.
+        self.fill_case('inyeccion', VARIANTS[0][1])
+        self.page.locator('#results-details > summary').click()
+        for width in [320,390,430,768,1024,1440]:
+            self.page.set_viewport_size({'width':width,'height':900})
+            self.page.evaluate('scrollTo(0,0)')
+            self.page.screenshot(path=str(ARTIFACTS / f'ccip-nueva-{width}.png'),full_page=True)
+
+    def test_15_v1_browser_and_download(self):
+        self.assertEqual(self.page.locator('.version-links a').nth(0).get_attribute('href'), './versions/v1/')
+        response = self.page.request.get(self.url+'downloads/CCIP-Web-V1.zip')
+        self.assertEqual(response.status,200)
+        self.assertTrue(response.body().startswith(b'PK'))
+        self.page.goto(self.url+'versions/v1/')
+        self.page.locator('[data-field="partMass"]').wait_for()
+        self.assertEqual(self.page.locator('.mark').inner_text(),'CCIP')
+        self.page.locator('#calculate').click()
+        self.assertIn('30',self.page.locator('.metric').nth(1).text_content())
+        self.assertEqual(self.page.locator('#material-details').count(),0)
+        self.assertEqual(self.page.locator('[data-module]').count(),7)
+        self.page.locator('#level').select_option('advanced')
+        self.page.locator('[data-module="secado"]').click()
+        self.page.locator('[data-field="residence"]').fill('3')
+        self.page.locator('#calculate').click()
+        self.assertIn('150',self.page.locator('.metric').nth(0).text_content())
 
 
 if __name__ == '__main__':
