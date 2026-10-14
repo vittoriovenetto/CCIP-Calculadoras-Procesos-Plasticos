@@ -18,6 +18,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 VARIANTS = json.loads(subprocess.check_output(
     ["node", "--input-type=module", "-e", "import { variants } from './tests/fixtures.js'; console.log(JSON.stringify(variants))"], cwd=ROOT, text=True))
+MATERIALS = json.loads((ROOT / 'src/data/materials.v1.json').read_text())['materials']
 ARTIFACTS = Path(os.environ.get("CCIP_TEST_ARTIFACTS", tempfile.mkdtemp(prefix="ccip-browser-")))
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
 
@@ -39,6 +40,7 @@ class BrowserSmoke(unittest.TestCase):
         chromium = os.environ.get("CCIP_CHROMIUM") or shutil.which("chromium") or shutil.which("chromium-browser")
         cls.browser = cls.pw.chromium.launch(executable_path=chromium)
         cls.matrix_count = 0
+        cls.material_count = 0
 
     @classmethod
     def tearDownClass(cls):
@@ -48,6 +50,7 @@ class BrowserSmoke(unittest.TestCase):
         cls.server.server_close()
         cls.thread.join()
         print(f"Estados módulo/variante × nivel × pantalla comprobados: {cls.matrix_count}")
+        print(f"Estados biblioteca × proceso × nivel × pantalla: {cls.material_count}")
         print(f"Capturas: {ARTIFACTS}")
 
     def setUp(self):
@@ -85,6 +88,12 @@ class BrowserSmoke(unittest.TestCase):
         }).map(el => el.outerHTML)''')
         self.assertEqual(outside, [], 'Controles/resultados fuera de pantalla')
         self.assertEqual(self.page.locator('.mark').evaluate('el => getComputedStyle(el).whiteSpace'), 'nowrap')
+
+    def select_grade(self, material):
+        self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
+        self.page.locator('#material-family').select_option(material['family'])
+        self.page.locator('#material-manufacturer').select_option(material['manufacturer'])
+        self.page.locator('#material-grade').select_option(material['id'])
 
     def test_01_all_modules_levels_and_viewports(self):
         for width, height in [(1440, 900), (768, 1024), (390, 844), (320, 568)]:
@@ -201,6 +210,135 @@ class BrowserSmoke(unittest.TestCase):
         self.fill_case('costos', {**VARIANTS[6][1], 'resinCost': 0, 'powerKw': 0, 'energyCost': 0, 'laborHour': 0})
         self.assertEqual(self.page.locator('.metric').nth(5).locator('strong').inner_text().strip(), '0 moneda/pza')
         self.assert_layout()
+
+
+    def test_07_materials_levels_and_mobile(self):
+        for width, height in [(1440, 900), (390, 844)]:
+            self.page.set_viewport_size({"width": width, "height": height})
+            for material in MATERIALS:
+                for module in ['inyeccion', 'pelicula', 'secado']:
+                    for level in ['basic', 'technical', 'advanced']:
+                        with self.subTest(width=width, grade=material['id'], module=module, level=level):
+                            self.page.locator(f'[data-module="{module}"]').click()
+                            self.page.locator('#reset').click()
+                            self.page.locator('#level').select_option(level)
+                            self.select_grade(material)
+                            source = self.page.locator('.source-link')
+                            self.assertEqual(source.count(), 1)
+                            self.assertTrue(source.get_attribute('href').startswith('https://'))
+                            self.assertIn(material['source_id'], source.inner_text())
+                            if module == 'inyeccion':
+                                if level != 'basic':
+                                    self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+                                self.page.locator('#calculate').click()
+                                self.assertIn('30', self.page.locator('.metric').nth(1).inner_text())
+                                self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
+                            elif module == 'pelicula':
+                                self.page.locator('#material-compatible').check()
+                                if self.page.locator('#material-processConfirmed').count():
+                                    self.page.locator('#material-processConfirmed').check()
+                                if level != 'basic':
+                                    density = material['properties']['solid_density']
+                                    self.assertEqual(self.page.locator('[data-field="density"]').input_value(), str(density['value']) if density else '')
+                            else:
+                                self.page.locator('#material-physicalForm').select_option('powder' if material['family'] == 'PVC' else 'pellets')
+                                self.page.locator('#material-bulkCompatible').check()
+                                self.page.locator('#material-dryingCompatible').check()
+                                drying = material['properties']['drying_time']
+                                if drying and drying['range']:
+                                    self.assertEqual(self.page.locator('[data-field="residence"]').input_value(), '')
+                                    self.page.locator('#material-dryingTime').fill('2.5')
+                                expected = 2.5 if drying and drying['range'] else drying['value'] if drying else ''
+                                self.assertEqual(self.page.locator('[data-field="residence"]').input_value(), str(expected))
+                                if level != 'basic':
+                                    bulk = material['properties']['bulk_density']
+                                    self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(), str(bulk['value']) if bulk else '')
+                                if level == 'advanced':
+                                    self.assertEqual(self.page.locator('[data-field="specificHeat"]').input_value(), '')
+                            self.assert_layout()
+                            self.__class__.material_count += 1
+            self.page.screenshot(path=str(ARTIFACTS / f'materiales-pc-secado-{width}.png'), full_page=True)
+
+    def test_08_overrides_grade_changes_history_and_snapshot(self):
+        pa6 = next(m for m in MATERIALS if m['family'] == 'PA6')
+        pc = next(m for m in MATERIALS if m['family'] == 'PC')
+        self.page.locator('[data-module="secado"]').click()
+        self.page.locator('#level').select_option('advanced')
+        self.select_grade(pa6)
+        self.page.locator('#material-physicalForm').select_option('pellets')
+        self.page.locator('#material-bulkCompatible').check()
+        self.page.locator('#material-dryingCompatible').check()
+        self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(), '80')
+        self.page.locator('[data-field="bulkDensity"]').fill('0.65')
+        self.assertIn('Modificado por usuario', self.page.locator('#provenance-bulkDensity').inner_text())
+        self.select_grade(pc)
+        self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(), '0.65')
+        self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(), '')
+        self.page.locator('#material-physicalForm').select_option('pellets')
+        self.page.locator('#material-bulkCompatible').check()
+        self.page.locator('#material-dryingCompatible').check()
+        self.page.locator('#material-dryingTime').fill('2.5')
+        self.page.locator('#material-conditionsNote').fill('Condiciones y cambio manual validados para ensayo')
+        self.page.locator('#material-lot').fill('Lote de prueba')
+        self.page.locator('#save').click()
+        with self.page.expect_download() as info:
+            self.page.locator('#export').click()
+        data = json.loads(Path(info.value.path()).read_text())
+        snapshot = data['material']
+        self.assertEqual(snapshot['grade_id'], pc['id'])
+        self.assertEqual(snapshot['source_id'], 'S09')
+        self.assertEqual(snapshot['used_fields']['bulkDensity']['value'], '0.65')
+        self.assertEqual(snapshot['used_fields']['bulkDensity']['reference']['value'], 0.7)
+        self.assertEqual(snapshot['used_fields']['bulkDensity']['grade_id'], pa6['id'])
+        self.assertEqual(snapshot['used_fields']['bulkDensity']['source_id'], 'S08')
+        self.assertEqual(snapshot['used_fields']['residence']['reference']['range'], [2, 3])
+        self.assertIsNone(snapshot['grade_snapshot']['properties']['specific_heat'])
+        self.page.locator('[data-module="inyeccion"]').click()
+        self.page.locator('[data-history="0"]').click()
+        self.assertEqual(self.page.locator('#material-grade').input_value(), pc['id'])
+        self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(), '0.65')
+        self.assertEqual(self.page.locator('#material-lot').input_value(), 'Lote de prueba')
+        self.page.locator('[data-use-reference="bulkDensity"]').click()
+        self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(), '0.66')
+        self.page.locator('[data-field="bulkDensity"]').fill('')
+        self.page.locator('#level').select_option('technical')
+        self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(), '')
+        self.page.locator('#material-grade').select_option('')
+        self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(), '')
+        self.assertEqual(self.page.locator('[data-field="residence"]').input_value(), '')
+
+    def test_09_catalogue_failure_and_offline_calculation(self):
+        # Un JSON inválido no genera un fallo HTTP intencional en consola.
+        self.page.route('**/materials.v1.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
+        self.page.reload()
+        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('no disponible')")
+        self.fill_case('inyeccion', VARIANTS[0][1])
+        self.assertIn('71.5', self.page.locator('.metric').nth(1).inner_text())
+        self.page.unroute('**/materials.v1.json')
+        self.page.reload()
+        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('9 grados')")
+        pa6 = next(m for m in MATERIALS if m['family'] == 'PA6')
+        self.page.locator('[data-module="secado"]').click()
+        self.page.locator('#level').select_option('advanced')
+        self.select_grade(pa6)
+        self.context.set_offline(True)
+        self.page.locator('#material-physicalForm').select_option('pellets')
+        self.page.locator('#material-bulkCompatible').check()
+        self.page.locator('#material-dryingCompatible').check()
+        self.page.locator('#calculate').click()
+        self.assertIn('200', self.page.locator('.metric').nth(0).inner_text())
+        self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
+        self.assertIn('ISO 1133', self.page.locator('[data-property="mvr"]').inner_text())
+        self.page.locator('#save').click()
+        self.assertEqual(self.page.locator('[data-history="0"]').count(), 1)
+        self.context.set_offline(False)
+
+    def test_10_untrusted_material_history(self):
+        self.page.evaluate("""localStorage.setItem('ccip-calculators-web-v1', JSON.stringify([{module:'secado',level:'advanced',date:'2026-10-13',inputs:{throughput:50,residence:3},material:{grade_snapshot:{id:'x',family:'x',manufacturer:'x',grade:'x',properties:[],process_tags:[{}]}}}]))""")
+        self.page.reload()
+        self.page.locator('[data-history="0"]').click()
+        self.assertIn('150', self.page.locator('.metric').nth(0).inner_text())
+        self.assertEqual(self.page.locator('.source-link').count(), 0)
 
 
 if __name__ == '__main__':

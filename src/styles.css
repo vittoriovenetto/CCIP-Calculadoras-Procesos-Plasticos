@@ -15,3 +15,16 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .layout>aside{min-width:0}
 .work>.bar>div{min-width:0}
 .mark{flex-shrink:0;white-space:nowrap}
+.material-selectors label,.material-context>label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}
+.material-summary h3{font-size:17px;margin-bottom:8px;overflow-wrap:anywhere}
+.material-summary p{font-size:13px;line-height:1.5}
+.source-link{display:inline-block;color:#940f2d;border:1px solid #e2e3e7;border-radius:7px;padding:10px;overflow-wrap:anywhere}
+#materials details{margin-top:15px}#materials summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:14px}
+.property-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:8px}
+.material-property{background:#f4f5f7;border-radius:8px;padding:12px;display:grid;gap:6px;font-size:13px;min-width:0;overflow-wrap:anywhere}
+.material-property small{color:#555c66;line-height:1.5}
+.material-context{margin-top:16px}.material-context .material-check{display:flex;align-items:flex-start;gap:10px;line-height:1.5;font-weight:400}
+.material-check input{width:20px;min-width:20px;min-height:20px;margin:0;accent-color:#98112a}
+textarea{width:100%;min-width:0;border:1px solid #cbd0d7;border-radius:7px;padding:11px;font:inherit;resize:vertical}
+textarea:focus-visible{outline:3px solid #940f2d;outline-offset:2px}
+.field-provenance{display:block;line-height:1.5;font-size:11px;color:#7e1830;overflow-wrap:anywhere}

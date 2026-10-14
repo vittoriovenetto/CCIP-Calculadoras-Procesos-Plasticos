@@ -1,6 +1,6 @@
 # Modelos, unidades y validación técnica
 
-Esta versión comprueba aritmética, unidades y dominios de entrada. **No constituye validación industrial**, selección de equipo ni receta de operación. Los números de `tests/fixtures.js` y las dimensiones/cantidades precargadas en pantalla son casos sintéticos editables; no identifican grados comerciales ni máquinas reales. No hay base de propiedades de materiales.
+Esta versión comprueba aritmética, unidades y dominios de entrada. **No constituye validación industrial**, selección de equipo ni receta de operación. Los números de `tests/fixtures.js` y las dimensiones/cantidades precargadas en pantalla son casos sintéticos editables; no identifican grados comerciales ni máquinas reales. La biblioteca V1 incorpora nueve grados documentados en los adjuntos del usuario; las propiedades ausentes permanecen pendientes. Véase [biblioteca y compatibilidad](materiales.md).
 
 ## Convenciones comunes
 
