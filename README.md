@@ -15,7 +15,7 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 - Tres niveles de detalle: básico, técnico, avanzado; cada uno activa nuevas entradas. Los datos ocultos no participan en el cálculo.
 - Las propiedades y los parámetros de máquina sin fuente permanecen vacíos; los datos de catálogo se aplican solo a campos compatibles y tras confirmar condiciones; las dimensiones y cantidades precargadas son ejemplos editables.
 - Ayudas «?» al pasar el cursor, enfocar o tocar; fórmulas completas en resultados desplegables.
-- Logo CCIP, ficha de materiales compacta y acceso a la V1 anterior conservada como web y ZIP.
+- Logo CCIP y ficha de materiales compacta. V1 conservada como web y ZIP mediante URL directa; sin enlaces históricos en la interfaz actual.
 - Catálogo V1.3 con 90 identidades comerciales propuestas y 9 genéricos (99 perfiles), selección familia → fabricante → grado, fuentes y condiciones locales. **La confirmación oficial de las 90 identidades sigue pendiente por bloqueo de red**; nueve perfiles conservan la documentación aportada en V1.2.
 - Autocompletado condicionado de propiedades compatibles, rangos elegidos explícitamente y overrides manuales trazables.
 - Historial/JSON conserva identidad del grado, fuente, auditoría, referencias pVT y snapshot de propiedades utilizadas.
@@ -34,7 +34,7 @@ Para ejecutar las pruebas del motor, niveles, entradas e historial: `npm test` (
 
 Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install -r tests/requirements.txt`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cinco tamaños, más nueve perfiles documentados × tres procesos × tres niveles × escritorio/móvil; los 99 perfiles, cambios de idioma y materiales propios también se comprueban; también edición, fuentes, rangos, overrides, historial, JSON y cálculo offline tras cargar recursos.
 
-La V1.3 se prepara en `feature/catalogo-90-i18n-formulas`, [PR #2](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pull/2) hacia `feature/web-v1-modular`. **Esta entrega no publica ni actualiza `main` o `gh-pages`.** Los enlaces siguientes abren la versión ya publicada y la copia histórica, no una vista pública de V1.3. Véase el [despliegue anterior](docs/despliegue.md).
+La V1.3 se desarrolla en `feature/catalogo-90-i18n-formulas`, [PR #2](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pull/2) hacia `feature/web-v1-modular`. El usuario autorizó su publicación experimental en GitHub Pages el 2026-10-14, manteniendo el PR abierto y `main` sin fusionar. Véase el [registro de despliegue](docs/despliegue.md). La primera visita empieza en español; después se conserva el idioma elegido cuando el navegador permite almacenamiento.
 
 [Aplicación actual](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/) · [Abrir V1 conservada](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/versions/v1/) · [Descargar archivos V1](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/downloads/CCIP-Web-V1.zip)
 
@@ -104,4 +104,4 @@ python3 scripts/audit-material-sources.py --output /tmp/ccip-sources.json
 
 Las 61 consultas declaradas (incluidas referencias pVT y SI) quedaron bloqueadas por el túnel de red 403. Esto no prueba que los sitios respondan 404. Los dos valores nuevos Dow sin comprobación directa se conservan como referencias históricas sin autocompletado; las 34 propiedades aportadas en los nueve perfiles V1.2 mantienen su procedencia documental, sin recertificación oficial actual. No se cambió ninguna ecuación del motor.
 
-Antes de publicar: confirmar las fuentes/identidades pendientes, completar datos con condiciones admisibles, revisar los casos reales y aprobar este PR. Safari/Firefox, dispositivos físicos y validación industrial siguen pendientes. **No ejecutar publicación ni fusionar sin esa revisión y autorización.**
+La publicación experimental fue autorizada por el usuario; no certifica el catálogo ni los resultados. Continúan pendientes la confirmación de fuentes/identidades, datos con condiciones admisibles y revisión de casos reales. Safari/Firefox, dispositivos físicos y validación industrial siguen pendientes. El PR permanece para revisión; no se autorizó fusionarlo a `main`.

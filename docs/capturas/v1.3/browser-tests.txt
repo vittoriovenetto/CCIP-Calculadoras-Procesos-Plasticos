@@ -24,11 +24,11 @@ test_23_history_snapshot_readable_in_frozen_v1 (__main__.BrowserSmoke.test_23_hi
 test_24_custom_pvc_pellet_bulk_density (__main__.BrowserSmoke.test_24_custom_pvc_pellet_bulk_density) ... ok
 
 ----------------------------------------------------------------------
-Ran 24 tests in 159.930s
+Ran 24 tests in 148.564s
 
 OK
 Estados módulo/variante × nivel × pantalla comprobados: 135
 Estados biblioteca × proceso × nivel × pantalla: 162
 Perfiles iniciales comprobados en navegador: 99
 Casos con cambio de idioma ES/EN/ES: 27
-Capturas: /tmp/ccip-browser-6xin3gd7
+Capturas: /workspace/scratch/ccip-publish-full-captures

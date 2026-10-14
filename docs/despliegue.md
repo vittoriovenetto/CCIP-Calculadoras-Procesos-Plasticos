@@ -31,6 +31,24 @@ Verificación: 326 pruebas Node y 15 pruebas Chromium correctas, más comprobaci
 
 Se conserva la limitación de red indicada arriba: el entorno no permite comprobar la respuesta HTTP pública del dominio Pages. La confirmación de publicación procede del servicio GitHub; la prueba funcional se realizó localmente sobre el artefacto exacto. Este registro de despliegue se añadió posteriormente como documentación, sin cambiar el paquete publicado.
 
+## V1.3 publicada por autorización del usuario — 2026-10-14
+
+GitHub confirmó el [despliegue V1.3](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38591913209) y el entorno `github-pages` en estado `success`.
+
+- URL: https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/
+- Código publicado: `824c9cb84a7df9acdc70dd9a200b70d151d9c00b`.
+- Artefacto `gh-pages`: `7834287dd53f10b3087359806b8d20f5f835965c`.
+- Biblioteca: `1.3.0`, con advertencias y datos pendientes conservados.
+- Primera visita en español; la elección posterior ES/EN se recuerda cuando hay almacenamiento disponible.
+- Enlaces a V1 y su ZIP retirados de ambas páginas actuales. Los archivos históricos y sus URL directas permanecen disponibles e intactos.
+- PR #2 abierto para revisión, sin fusionar; `main` conserva `423c04b1710f8f009c811c893873184d363f1b66`. No se modificó el repositorio original.
+
+Validación del código publicado: 500 pruebas Node y 24 Playwright completas, sin fallos; 135 estados módulo/variante × nivel × pantalla, 162 estados de biblioteca, 99 perfiles y 27 casos de cambio ES/EN/ES. Las ejecuciones [PR](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38591816963) y [push](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38591810351) también completaron unit/browser correctamente.
+
+Antes de publicar se sirvió el artefacto exacto bajo una subruta y se verificaron español inicial en calculadoras/fórmulas, siete módulos, 42 lecciones, logo y ausencia de desbordamiento a 390/768/1440 px, V1 funcional, los 24 hashes históricos y ZIP íntegro. Después de publicar, la URL pública respondió HTTP 200: `deployment.json` identifica el código/biblioteca anteriores; `index.html` y `formulas.html` son byte a byte iguales al artefacto, incluyen `lang="es"` y no contienen enlaces históricos. Se comprobaron también los hashes públicos del HTML de V1 y del ZIP. La restricción HTTP documentada en despliegues anteriores ya no afecta a estas peticiones. Chromium directo al dominio público rechazó el certificado del proxy del entorno; no se desactivó TLS. La validación funcional en navegador se hizo localmente sobre el paquete exacto.
+
+La publicación es experimental y fue solicitada expresamente por el usuario. Continúa pendiente la confirmación documental oficial de los 90 grados, las propiedades ausentes y la validación técnica de los modelos. Las capturas y logs se actualizaron en el PR; el commit de documentación posterior no altera el paquete publicado.
+
 ## Artefacto y publicación
 
 Desde un checkout limpio de la versión aprobada:
@@ -39,7 +57,7 @@ Desde un checkout limpio de la versión aprobada:
 npm run deploy:pages
 ```
 
-`build:pages` copia `index.html`, `.nojekyll` y los archivos rastreados de `src/`, `versions/` y `downloads/` a `dist/`, más un `deployment.json` que identifica commit de origen y versión de biblioteca. La web anterior y el ZIP de su fuente se incluyen intencionalmente para conservación. Fuera de ese ZIP no incluye Git, pruebas, capturas, adjuntos, credenciales ni documentación de desarrollo. Rechaza cambios pendientes en los archivos de aplicación y no elimina un directorio `dist` ajeno.
+`build:pages` copia `index.html`, `formulas.html`, `.nojekyll` y los archivos rastreados de `src/`, `versions/` y `downloads/` a `dist/`, más un `deployment.json` que identifica commit de origen y versión de biblioteca. La web anterior y el ZIP de su fuente se incluyen intencionalmente para conservación. Fuera de ese ZIP no incluye Git, pruebas, capturas, adjuntos, credenciales ni documentación de desarrollo. Rechaza cambios pendientes en los archivos de aplicación y no elimina un directorio `dist` ajeno.
 
 El publicador usa un índice temporal, crea un commit del artefacto y hace un push normal a `gh-pages`, conservando su historia y sin cambiar rama/índice de desarrollo ni forzar actualizaciones. No configura ni activa el servicio Pages: subir la rama por sí solo no demuestra que la web esté publicada.
 
@@ -60,4 +78,4 @@ Después del despliegue, verificar el enlace que indique GitHub Pages y que `dep
 
 Se mantiene la identificación de versión experimental y las limitaciones del modelo. La publicación no equivale a validación industrial; siguen pendientes ensayos, revisión técnica y datos termodinámicos calibrados.
 
-Este entorno permitió el push Git pero rechazó la conexión a `api.github.com` y `vittoriovenetto.github.io` con 403 en el túnel de red. Se guardaron ambos dominios como requisitos de red en la configuración del entorno. Hasta activar ese acceso no se puede administrar Pages ni comprobar su respuesta pública desde aquí. La configuración del entorno y la configuración de GitHub Pages son operaciones distintas.
+Durante los despliegues anteriores, este entorno permitió el push Git pero rechazó la conexión a `api.github.com` y `vittoriovenetto.github.io` con 403 en el túnel de red. Se guardaron ambos dominios como requisitos de red en la configuración del entorno. En la publicación V1.3 sí se comprobó la respuesta HTTP pública y se consultó la API de GitHub con los permisos del entorno. La configuración del entorno y la configuración de GitHub Pages son operaciones distintas.

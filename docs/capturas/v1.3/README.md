@@ -1,6 +1,6 @@
 # Capturas y resultados V1.3
 
-Capturas reales de Chromium, obtenidas durante las pruebas locales del 2026-10-14. No son maquetas ni una publicación.
+Capturas reales de Chromium, obtenidas durante las pruebas locales del 2026-10-14. Muestran el código publicado `824c9cb`, sin enlaces históricos en la interfaz; no son maquetas. La confirmación de publicación figura en el [registro](../../despliegue.md).
 
 | Vista | Español | Inglés |
 | --- | --- | --- |
@@ -15,4 +15,4 @@ Se capturó página completa para calculadoras; su altura excede la del viewport
 
 [Salida Node: 500 pruebas](node-tests.txt) · [Salida Playwright: 24 pruebas](browser-tests.txt) · [Informe y pendientes](../../auditoria-v1.3-final.md)
 
-Los dos registros son de la ejecución completa local; las últimas correcciones de presentación se comprobaron adicionalmente con casos dirigidos de fichas, importación, locales y PVC propio. CI vuelve a ejecutar ambas suites sobre el commit final. Los artefactos de GitHub Actions incluyen capturas de los cinco tamaños y log.
+Los dos registros son de la ejecución completa local del código publicado; se comprobaron además español inicial en ambas páginas y disponibilidad directa de V1/ZIP sin enlaces visibles. CI completó ambas suites sobre el mismo commit. Los artefactos de GitHub Actions incluyen capturas de los cinco tamaños y log.

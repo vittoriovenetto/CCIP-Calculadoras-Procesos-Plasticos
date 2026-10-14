@@ -2,7 +2,7 @@
 
 Fecha: 2026-10-14. Rama: `feature/catalogo-90-i18n-formulas`. [PR #2](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pull/2), base `feature/web-v1-modular`. Punto de partida `d4cea38f2145f8c82f13de04178182753879854d`.
 
-La interfaz y el código quedan preparados para revisión. **La verificación documental oficial de los 90 grados no pudo cerrarse**, y no se declara lista una publicación como catálogo certificado. No se publicó ni se actualizó `main`/`gh-pages`, ni se modificó el repositorio original de reymenez323.
+La interfaz y el código quedan preparados para revisión. **La verificación documental oficial de los 90 grados no pudo cerrarse**, y no se declara lista una publicación como catálogo certificado. Al cerrar esta auditoría inicial no se publicó ni se actualizó `main`/`gh-pages`, ni se modificó el repositorio original de reymenez323. Posteriormente el usuario autorizó publicar la versión experimental; véase el [registro de despliegue](despliegue.md).
 
 ## Archivos y funcionalidades
 
@@ -86,7 +86,7 @@ No se obtuvieron ni inventaron nuevas mediciones de materiales o máquinas. Las 
 
 ## Revisión y publicación
 
-[Capturas reales](capturas/v1.3/README.md). La comprobación del paquete estático es local; no se usa una URL de GitHub Pages para V1.3. El PR requiere revisión de fuentes y aceptación técnica antes de publicar. `main` permanece en `423c04b1710f8f009c811c893873184d363f1b66` y `gh-pages` en `385a72a7c5267293b2fb0bcdcaa8a55442943691`.
+[Capturas reales](capturas/v1.3/README.md). Estado al cerrar la auditoría inicial, anterior a la autorización de publicación: la comprobación del paquete estático es local; no se usa una URL de GitHub Pages para V1.3. El PR requiere revisión de fuentes y aceptación técnica antes de publicar. `main` permanece en `423c04b1710f8f009c811c893873184d363f1b66` y `gh-pages` en `385a72a7c5267293b2fb0bcdcaa8a55442943691`.
 
 ## Confirmación de CI y paquete local
 
