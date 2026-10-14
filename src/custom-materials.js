@@ -92,18 +92,36 @@ export function renderCustomEditor(root,{onSave,onDelete,lang="es"}={}){
  ${Object.entries(NUMERICS).map(([k,[label,unit,max]])=>`<label>${en?label.split(" / ").at(-1):label.split(" / ")[0]} (${unit})<input name="${k}" type="number" step="any" min="${k==="drying_temperature"||k.includes("temperature")?'-273.14':'0'}" max="${max}" placeholder="—"></label>`).join("")}
  </div><div class="actions"><button type="submit" class="primary">${text("Guardar material local","Save material locally")}</button><button id="custom-export" type="button">${text("Exportar catálogo personal JSON","Export personal catalog JSON")}</button></div></form>
  <p id="custom-feedback" role="status"></p>
- <h3>${text("Mis materiales","My materials")}</h3><div id="custom-list">${records.length?records.map(m=>`<div class="historyRow"><span>${escape(m.family)} · ${escape(m.grade)}</span><button type="button" data-personal-delete="${escape(m.id)}">${text("Eliminar","Delete")}</button></div>`).join(""):`<p class="muted">${text("Sin registros","No records")}</p>`}</div>
+ <h3>${text("Mis materiales","My materials")}</h3><div id="custom-list">${records.length?records.map(m=>`<div class="historyRow"><span>${escape(m.family)} · ${escape(m.grade)}</span><span class="material-editor-actions"><button type="button" data-personal-edit="${escape(m.id)}">${text("Editar","Edit")}</button><button type="button" data-personal-delete="${escape(m.id)}">${text("Eliminar","Delete")}</button></span></div>`).join(""):`<p class="muted">${text("Sin registros","No records")}</p>`}</div>
  </details>`;
  root.querySelector("form").addEventListener("submit",e=>{
    e.preventDefault();
    const f=Object.fromEntries(new FormData(e.target));
    try{
-     const record=makeCustomMaterial(f);
+     const editing=e.target.dataset.editing || null;
+     const record=makeCustomMaterial(f,editing);
      const saved=listUserMaterials();
-     if(saved.some(x=>x.family===record.family && x.grade.toLowerCase()===record.grade.toLowerCase()))throw Error(text("Ya existe un material con ese nombre","Material name already exists"));
-     saved.push(record);persistUserMaterials(saved);onSave?.(record);
+     if(saved.some(x=>x.id!==editing && x.family===record.family && x.grade.toLowerCase()===record.grade.toLowerCase()))throw Error(text("Ya existe un material con ese nombre","Material name already exists"));
+     if(editing && !saved.some(x=>x.id===editing))throw Error(text("El material a editar no existe","Material not found"));
+     const updated=editing ? saved.map(x=>x.id===editing?record:x):[...saved,record];
+     persistUserMaterials(updated);onSave?.(record);
    }catch(error){root.querySelector("#custom-feedback").textContent=error.message}
  });
+ root.querySelectorAll("[data-personal-edit]").forEach(el=>el.addEventListener("click",()=>{
+   const record=listUserMaterials().find(m=>m.id===el.dataset.personalEdit);
+   if(!record)return;
+   const form=root.querySelector("#custom-form");
+   form.dataset.editing=record.id;
+   const values={family:record.family,grade:record.grade,manufacturer:record.manufacturer,
+     url:record.user_source?.url||"",source:record.user_source?.description||"",
+     method:Object.values(record.properties).find(p=>p?.method)?.method||"",
+     conditions:Object.values(record.properties).find(p=>p?.condition)?.condition||""};
+   for(const [key,p] of Object.entries(record.properties))if(p?.value!=null)values[key]=p.value;
+   for(const [key,val] of Object.entries(values))if(form.elements.namedItem(key))form.elements.namedItem(key).value=val;
+   root.querySelector("#custom-panel").open=true;
+   form.querySelector('[name="grade"]').focus();
+   root.querySelector("#custom-feedback").textContent=text("Editando material existente","Editing an existing material");
+ }));
  root.querySelectorAll("[data-personal-delete]").forEach(el=>el.addEventListener("click",()=>{
    if(!confirm(text("¿Eliminar material guardado?","Delete saved material?")))return;
    const remaining=listUserMaterials().filter(x=>x.id!==el.dataset.personalDelete);
