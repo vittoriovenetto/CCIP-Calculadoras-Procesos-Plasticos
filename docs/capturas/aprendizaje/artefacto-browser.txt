@@ -1,0 +1,11 @@
+test_25_learning_entry_levels_and_every_result_deep_link (ccip_artifact.BrowserSmoke.test_25_learning_entry_levels_and_every_result_deep_link) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 62.439s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Estados biblioteca × proceso × nivel × pantalla: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /workspace/scratch/ccip-learning-artifact-captures

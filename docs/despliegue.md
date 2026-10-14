@@ -49,6 +49,21 @@ Antes de publicar se sirvió el artefacto exacto bajo una subruta y se verificar
 
 La publicación es experimental y fue solicitada expresamente por el usuario. Continúa pendiente la confirmación documental oficial de los 90 grados, las propiedades ausentes y la validación técnica de los modelos. Las capturas y logs se actualizaron en el PR; el commit de documentación posterior no altera el paquete publicado.
 
+## Aprendizaje de fórmulas publicado — 2026-10-14
+
+Tras informar el usuario de que abría la web pero no veía las fórmulas o los cambios recientes, se añadió un apartado visible de aprendizaje y acceso desde cada resultado. La guía filtra por proceso/nivel: técnico muestra 28 explicaciones y avanzado las 42; variables y ejemplos se muestran abiertos. Se versionaron las referencias de entrada JS/CSS y se entregan URLs completas con referencia a esta revisión. Esto facilita solicitar archivos nuevos; no se atribuye sin pruebas el problema inicial a la caché.
+
+- [Workflow de publicación correcto](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38595704569).
+- Fuente: `c53deb29b8124d479c215edd5b65d984cf5708da`.
+- Artefacto: `a56ef5d8720fd0557b5f484e0c355ffc1aaf9b30` en `gh-pages`.
+- Biblioteca 1.3.0, motor/ecuaciones/materiales y archivos históricos sin cambios.
+- 502 pruebas Node correctas; ejecución local completa de 25 pruebas Chromium correcta, más prueba del artefacto exacto para los siete procesos × tres niveles y los 42 enlaces. [Informe y alcance](aprendizaje-formulas.md).
+- Validación CI del commit: [PR](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38595403993) y [push](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38595395283).
+- Verificación pública: `deployment.json` del código anterior, `index.html` y `formulas.html` y todos los 32 archivos `src/` respondieron HTTP 200 y son iguales a `dist/`. Las URLs con filtros técnico/avanzado también respondieron; V1 y ZIP conservaron sus hashes.
+- `main` permanece en `423c04b1710f8f009c811c893873184d363f1b66`; PR #2 abierto, sin fusión ni cambios al repositorio original.
+
+[Capturas reales y logs](capturas/aprendizaje/README.md). La validación funcional de navegador se realizó sobre el paquete exacto local; la verificación del dominio público fue HTTP con TLS, conservando la limitación de certificado de Chromium directo indicada anteriormente. Las propiedades ausentes y la validación técnica industrial siguen pendientes. La documentación/capturas posteriores no alteran el artefacto publicado.
+
 ## Artefacto y publicación
 
 Desde un checkout limpio de la versión aprobada:
