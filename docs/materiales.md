@@ -1,5 +1,7 @@
 # Biblioteca de polímeros V1: implementación y validación
 
+Esta página documenta la integración inicial V1.0. La biblioteca activa y sus nuevas referencias se describen en [auditoría V1.1 / pVT V1.2](auditoria-materiales-v1.2.md); V1.0 se conserva para historiales y pruebas.
+
 Se implementa la especificación `CCIP_Especificacion_Biblioteca_Materiales_v1.pdf` y se incorpora el archivo `CCIP_Biblioteca_Materiales_Verificada_v1.json` entregados por el usuario. El JSON se copia **sin modificar** a `src/data/materials.v1.json`.
 
 SHA-256 del adjunto y de la copia: `da3df79ab06e8fffda98676a68362d2d044ece9c6c93921f7434d6bb104357a4`.

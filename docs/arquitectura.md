@@ -7,7 +7,8 @@ La web funciona sin compilación ni dependencias JavaScript de terceros. Las rut
 - `src/engine.js`: selección del modelo, filtrado/validación de entradas y contrato de salidas; `calculate(id, inputs, level = "advanced")`. El tercer argumento es opcional y preserva las llamadas originales que pasan todas las entradas.
 - `src/models/<proceso>.js`: función independiente por proceso. Recibe entradas validadas y `{push, warn, notes}`. No accede al DOM, almacenamiento, ni modelos de otro proceso. `push(label, value, unit, formula, precision)` convierte resultados no finitos a `null`.
 - `src/app.js`: navegación, formularios accesibles, actualización de resultados, guardar/recuperar y exportar.
-- `src/materials.js` y `src/materials-view.js`: selección, reglas de compatibilidad, ficha, overrides y snapshot; catálogo local en `src/data/materials.v1.json`.
+- `src/materials.js` y `src/materials-view.js`: selección, reglas de compatibilidad, ficha, overrides y snapshot; catálogo activo local en `src/data/materials.v1.2.json`, con versiones anteriores conservadas.
+- `src/pvt.js` y `src/materials-audit-view.js`: controles de referencias, gráfico orientativo aislado del motor y registro de evidencia manual.
 - `src/history.js`: recuperación tolerante a almacenamiento bloqueado y entradas dañadas. Conserva los registros válidos y sus resultados anteriores; al recuperar se recalcula con el modelo vigente.
 - `tests/engine.test.js`: diez casos originales conservados. `tests/validation.test.js`: referencias dimensionales, dominios, variantes y niveles. `tests/history.test.js`: persistencia. `tests/browser_smoke.py`: integración opcional en Chromium.
 

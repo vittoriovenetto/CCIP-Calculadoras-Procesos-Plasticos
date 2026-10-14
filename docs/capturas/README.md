@@ -18,3 +18,7 @@ Tras integrar los adjuntos se capturó la ficha de **Covestro Makrolon 2405** en
 [PC con biblioteca](materiales-pc.png) · [Tablet con biblioteca](materiales-tablet.png) · [Móvil con biblioteca](materiales-movil.png)
 
 Las confirmaciones de estas capturas ilustran el flujo de uso; no prueban compatibilidad con un equipo real ni validación industrial.
+
+## Auditoría y pVT V1.2
+
+[ABS: ficha, gráfica orientativa y evidencia manual](pvt-abs.png). La curva muestra los 24 puntos aproximados del adjunto, sin transferirlos al motor. El valor de densidad manual y las condiciones mostradas son un caso sintético de prueba, declarado en el campo de fuente; no una medición de Terluran ni una densidad deducida de la gráfica.

@@ -1,5 +1,6 @@
 import { activeFields } from "./schema.js";
 import { isBlank, n } from "./math.js";
+import { validatePvt, captureReferences } from "./pvt.js";
 
 export const propertyLabels = {
   solid_density: "Densidad del sólido", melt_density: "Densidad del fundido",
@@ -34,7 +35,7 @@ export const safeSourceUrl = value => {
   try { const url = new URL(value); return url.protocol === "https:" ? url.href : null; } catch { return null; }
 };
 export function validateLibrary(data) {
-  if (!data || data.schema_version !== "1.0.0" || !data.sources || !Array.isArray(data.materials) || !data.materials.length) throw Error("Formato de biblioteca no válido");
+  if (!data || !["1.0.0", "1.1.0", "1.2.0"].includes(data.schema_version) || !data.sources || !Array.isArray(data.materials) || !data.materials.length) throw Error("Formato de biblioteca no válido");
   const ids = new Set();
   for (const material of data.materials) {
     if (!material.id || ids.has(material.id) || !material.family || !material.manufacturer || !material.grade ||
@@ -47,13 +48,14 @@ export function validateLibrary(data) {
         (property.range !== null && (!Array.isArray(property.range) || property.range.length !== 2 || !property.range.every(Number.isFinite) || property.range[0] > property.range[1]))) throw Error("Propiedad no válida");
     }
   }
+  validatePvt(data);
   return data;
 }
 export const families = data => [...new Set(data.materials.map(m => m.family))];
 export const manufacturers = (data, family) => [...new Set(data.materials.filter(m => m.family === family).map(m => m.manufacturer))];
 export const grades = (data, family, manufacturer) => data.materials.filter(m => m.family === family && m.manufacturer === manufacturer);
-export const contextDefaults = () => ({ compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "" });
-export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, provenance: {}, context: contextDefaults() });
+export const contextDefaults = () => ({ compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "", pvtTemperatureC: "", pvtPressureMPa: "", meltDensitySource: "", cpMinC: "", cpMaxC: "", cpPhase: "", specificHeatSource: "" });
+export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, references_snapshot: null, provenance: {}, context: contextDefaults() });
 export const outsideProcess = (material, moduleId) => !!processTags[moduleId] && !material.process_tags.some(tag => tag.includes(processTags[moduleId]));
 export const expectedForm = material => material.family === "PVC" ? "powder" : "pellets";
 
@@ -72,6 +74,7 @@ export function selectMaterial(data, materialState, values, gradeId) {
   materialState.grade_snapshot = material ? clone(material) : null;
   materialState.dataset = material ? { name: data.dataset_name, version: data.schema_version, retrieved_on: data.retrieved_on } : null;
   materialState.source = material ? clone(data.sources[material.source_id]) : null;
+  materialState.references_snapshot = material ? captureReferences(data, material) : null;
   materialState.context = contextDefaults();
 }
 export function markManual(materialState, moduleId, field, value) {
@@ -93,6 +96,7 @@ export function materialCandidates(materialState, module, values, level) {
     const map = mappings[module.id]?.[field.key];
     if (!map) return [];
     const [key, unit, phase] = map, property = material.properties[key];
+    if (key === "melt_density" && material.pvt?.calculator_autofill_allowed === false) return [];
     if (!property || property.unit !== unit || !["manufacturer_typical", "manufacturer_recommendation"].includes(property.status)) return [];
     let value = property.value, reason = "";
     if (module.id === "secado" && key === "bulk_density") {
@@ -131,17 +135,32 @@ export function applyMaterial(materialState, module, values, level) {
   }
   return candidates;
 }
-export function materialWarnings(materialState, moduleId) {
+export function materialWarnings(materialState, moduleId, values = {}, level = "advanced") {
   const material = materialState.grade_snapshot;
-  if (!material) return [];
-  const warnings = ["Datos típicos/recomendados: no son certificación de lote ni validación industrial."];
+  const warnings = [], context = materialState.context;
+  if (level !== 'basic' && moduleId === 'inyeccion' && n(values.meltDensity) > 0 &&
+      (!Number.isFinite(n(context.pvtTemperatureC)) || n(context.pvtTemperatureC) <= -273.15 ||
+       !Number.isFinite(n(context.pvtPressureMPa)) || n(context.pvtPressureMPa) < 0 || !context.meltDensitySource.trim())) {
+    warnings.push("Densidad fundida manual sin trazabilidad completa: registra temperatura (°C), presión (MPa), fuente/método y revisión en modo avanzado. Resultado no validado técnicamente.");
+  }
+  if (level === 'advanced' && moduleId === 'secado' && n(values.specificHeat) > 0) {
+    if (context.cpPhase === 'melt') warnings.push("Cp de fundido no corresponde al secado de granza/polvo sólido; verifica fase y modelo térmico. Resultado no validado técnicamente.");
+    const lo = n(context.cpMinC), hi = n(context.cpMaxC);
+    if (!Number.isFinite(lo) || !Number.isFinite(hi) || lo <= -273.15 || hi <= lo || !['solid', 'melt'].includes(context.cpPhase) || !context.specificHeatSource.trim()) warnings.push("Cp manual sin fase, intervalo y fuente completos: registra evidencia térmica. No sustituir por Cp histórico agrupado.");
+    else if ([n(values.startT), n(values.targetT)].some(t => Number.isFinite(t) && (t < lo || t > hi))) warnings.push("Temperatura de cálculo fuera del intervalo documentado de Cp: extrapolación no validada; revisa el dato antes de utilizar el resultado.");
+  }
+  if (!material) return warnings;
+  warnings.push("Datos típicos/recomendados: no son certificación de lote ni validación industrial.");
+  if (material.incoming_product_moisture) warnings.push("PET: 0.15 % objetivo / 0.30 % máximo son humedad del producto recibido, no objetivo ni límite después de secado.");
+  if (Array.isArray(material.reference_properties_not_for_autofill) && material.reference_properties_not_for_autofill.some(ref => ref?.property === 'specific_heat')) warnings.push("Cp histórico 1.172 kJ/(kg K) agrupado 2405/2407/2456: no identifica fase/intervalo y no autocompleta secado.");
+  if (material.pvt) warnings.push(material.pvt.status === 'related_base_grade_chart_only' ? "Referencia pVT de B3S — no validada para R03; no calcular densidad automática." : "pVT: las figuras/reconstrucciones son referencias; densidad automática deshabilitada y extrapolación prohibida.");
   if (outsideProcess(material, moduleId)) warnings.push("El proceso activo no está indicado en las aplicaciones de este grado; cualquier extrapolación requiere validación técnica.");
   if (material.revision_review_required) warnings.push("La ficha PET es de 2017: comprueba su vigencia. Humedad de suministro no equivale a humedad máxima de proceso. No hay secado documentado aquí.");
   if (material.family === "PVC") warnings.push("PVC 1195 es resina en polvo, no pellets ni compuesto final. Su densidad aparente no es densidad sólida.");
   if (material.id === "dow-dow-ldpe-132g") warnings.push("170–230 °C es intervalo de procesado de película; no es temperatura de fusión DSC.");
-  if (moduleId === "inyeccion" && !material.properties.melt_density) warnings.push("Densidad del fundido pendiente: solicita pVT o medición a temperatura/presión de proceso. La densidad sólida no se aplica al shot.");
+  if (moduleId === "inyeccion" && !material.properties.melt_density) warnings.push("Densidad del fundido no documentada en la ficha: solicita pVT o medición a temperatura/presión de proceso. La densidad sólida no se aplica al shot.");
   if (moduleId === "secado") {
-    if (!material.properties.specific_heat) warnings.push("Calor específico pendiente: solicita cp del grado y del intervalo térmico. La potencia sensible queda pendiente sin ese dato.");
+    if (!material.properties.specific_heat) warnings.push("Calor específico no documentado en la ficha: solicita cp del grado y del intervalo térmico. La potencia sensible queda pendiente si no introduces ese dato.");
     if (!material.properties.drying_time || !material.properties.drying_temperature) warnings.push("No hay instrucciones completas de secado para este grado; no se deducen de Tg o fusión.");
     if (material.properties.drying_time || material.properties.drying_temperature) warnings.push("Secado condicionado por equipo, humedad inicial, punto de rocío y almacenamiento; confirma compatibilidad antes de aplicar recomendaciones.");
     if (material.family === "PET") warnings.push("Densidad aparente 0.9 kg/L corresponde a 80 pellets/g; la ficha indica 0.88 kg/L para 60 pellets/g. Confirma presentación y condición.");
@@ -170,7 +189,7 @@ export function materialSnapshot(materialState, module, inputs, level) {
     used[field.key] = { ...clone(entry || { origin: "manual", property_key: map[0], unit: map[1], phase: map[2], grade_id: null }), value: inputs[field.key] };
   }
   return clone({ grade_id: materialState.grade_snapshot?.id ?? null, source_id: materialState.grade_snapshot?.source_id ?? null,
-    dataset: materialState.dataset, grade_snapshot: materialState.grade_snapshot, source: materialState.source,
+    dataset: materialState.dataset, grade_snapshot: materialState.grade_snapshot, source: materialState.source, references_snapshot: materialState.references_snapshot,
     used_fields: used, field_states: fieldStates, context: materialState.context });
 }
 export function restoreMaterial(snapshot) {
@@ -187,6 +206,7 @@ export function restoreMaterial(snapshot) {
     result.grade_snapshot = clone(material);
     result.dataset = snapshot.dataset && typeof snapshot.dataset === "object" ? clone(snapshot.dataset) : null;
     result.source = snapshot.source && typeof snapshot.source === "object" ? clone(snapshot.source) : null;
+    result.references_snapshot = snapshot.references_snapshot && typeof snapshot.references_snapshot === 'object' ? clone(snapshot.references_snapshot) : null;
   }
   const entries = snapshot.field_states ?? snapshot.used_fields;
   if (entries && typeof entries === "object" && !Array.isArray(entries)) {

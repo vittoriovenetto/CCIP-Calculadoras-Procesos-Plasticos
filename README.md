@@ -17,7 +17,9 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 - Explicaciones de cada parámetro y fórmulas en los resultados.
 - Biblioteca de nueve grados comerciales con selección familia → fabricante → grado, fuentes y condiciones locales.
 - Autocompletado condicionado de propiedades compatibles, rangos elegidos explícitamente y overrides manuales trazables.
-- Historial/JSON conserva identidad del grado, fuente y snapshot de propiedades utilizadas.
+- Historial/JSON conserva identidad del grado, fuente, auditoría, referencias pVT y snapshot de propiedades utilizadas.
+- Gráfica pVT orientativa de ABS, fuentes de PC y referencia B3S para PA6: densidad automática deshabilitada.
+- Modo avanzado para registrar T/P y fuente de densidad manual, o fase/intervalo/fuente de Cp.
 - Resultados pendientes si faltan datos: **no se inventan propiedades**. Densidad fundida y calor específico siguen pendientes en los nueve grados.
 - Advertencias y limitaciones del modelo.
 - Historial de hasta 60 resultados en el navegador (localStorage).
@@ -40,7 +42,9 @@ Los cambios de esta auditoría se preparan en `feature/web-v1-modular`. La publi
 - `src/engine.js`: registro de modelos y validación de entradas.
 - `src/models/`: motor independiente de cada proceso y notas técnicas.
 - `src/math.js`: conversiones numéricas y división segura.
-- `src/data/materials.v1.json`: catálogo adjunto conservado sin cambios.
+- `src/data/materials.v1.2.json`: biblioteca activa con auditoría y referencias pVT; archivos V1.0/V1.1 conservados sin cambios.
+- `src/pvt.js`: validación y copia de referencias documentales, sin lookup de densidad.
+- `src/materials-audit-view.js`: referencias bloqueadas, gráfica orientativa y controles manuales.
 - `src/materials.js`: selección, compatibilidad, autocompletado y snapshots.
 - `src/materials-view.js`: selector, ficha y advertencias.
 - `docs/materiales.md`: reglas de biblioteca, trazabilidad y pruebas.
@@ -68,3 +72,5 @@ La película supone dos paredes uniformes sin pérdidas. El DDR geométrico no c
 Consulta [modelos y validación técnica](docs/modelos.md), [arquitectura modular](docs/arquitectura.md) y [auditoría y pruebas](docs/auditoria.md) antes de utilizar resultados fuera de un ejercicio académico.
 
 Consulta [biblioteca de materiales y reglas de aplicación](docs/materiales.md) para conocer los nueve grados, condiciones, niveles y propiedades pendientes.
+
+La [auditoría V1.1 / referencias pVT V1.2](docs/auditoria-materiales-v1.2.md) detalla datos incorporados, controles de calidad, pruebas y validaciones pendientes.

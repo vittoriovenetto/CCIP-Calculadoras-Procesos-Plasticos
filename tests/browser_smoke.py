@@ -18,7 +18,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 VARIANTS = json.loads(subprocess.check_output(
     ["node", "--input-type=module", "-e", "import { variants } from './tests/fixtures.js'; console.log(JSON.stringify(variants))"], cwd=ROOT, text=True))
-MATERIALS = json.loads((ROOT / 'src/data/materials.v1.json').read_text())['materials']
+MATERIALS = json.loads((ROOT / 'src/data/materials.v1.2.json').read_text())['materials']
 ARTIFACTS = Path(os.environ.get("CCIP_TEST_ARTIFACTS", tempfile.mkdtemp(prefix="ccip-browser-")))
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
 
@@ -309,12 +309,12 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_09_catalogue_failure_and_offline_calculation(self):
         # Un JSON inválido no genera un fallo HTTP intencional en consola.
-        self.page.route('**/materials.v1.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
+        self.page.route('**/materials.v1.2.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
         self.page.reload()
         self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('no disponible')")
         self.fill_case('inyeccion', VARIANTS[0][1])
         self.assertIn('71.5', self.page.locator('.metric').nth(1).inner_text())
-        self.page.unroute('**/materials.v1.json')
+        self.page.unroute('**/materials.v1.2.json')
         self.page.reload()
         self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('9 grados')")
         pa6 = next(m for m in MATERIALS if m['family'] == 'PA6')
@@ -339,6 +339,80 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('[data-history="0"]').click()
         self.assertIn('150', self.page.locator('.metric').nth(0).inner_text())
         self.assertEqual(self.page.locator('.source-link').count(), 0)
+
+
+    def test_11_audit_pvt_references_and_manual_traceability(self):
+        self.page.locator('#level').select_option('advanced')
+        for material in MATERIALS:
+            self.page.locator('[data-module="inyeccion"]').click()
+            self.page.locator('#reset').click()
+            self.select_grade(material)
+            self.assertEqual(self.page.locator('#pvt-section').count(), 1)
+            self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+            self.page.locator('#calculate').click()
+            self.assertIn('Pendiente', self.page.locator('.metric').nth(2).inner_text())
+            if material['family'] == 'PA6':
+                self.assertIn('Referencia de B3S — no validada para R03', self.page.locator('#pvt-section').inner_text())
+                self.assertEqual(self.page.locator('.pvt-chart svg').count(), 0)
+            if material['family'] == 'ABS':
+                self.assertEqual(self.page.locator('.pvt-chart polyline').count(), 6)
+                self.assertEqual(self.page.locator('.pvt-chart circle').count(), 24)
+                self.assertIn('Digitalización orientativa', self.page.locator('.pvt-chart').inner_text())
+                self.page.set_viewport_size({'width': 320, 'height': 568})
+                self.assert_layout()
+                self.page.set_viewport_size({'width': 1440, 'height': 900})
+            if material['family'] == 'PET':
+                self.assertIn('0.15', self.page.locator('#incoming-moisture').inner_text())
+                self.assertIn('0.3', self.page.locator('#incoming-moisture').inner_text())
+                self.assertIn('NO humedad', self.page.locator('#incoming-moisture').inner_text())
+                self.page.locator('[data-module="secado"]').click()
+                self.assertEqual(self.page.locator('[data-field="residence"]').input_value(), '')
+                self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(), '')
+            if material['family'] == 'PC':
+                self.page.locator('[data-module="secado"]').click()
+                self.select_grade(material)
+                self.assertIn('1.172', self.page.locator('#blocked-references').inner_text())
+                self.assertEqual(self.page.locator('[data-field="specificHeat"]').input_value(), '')
+        self.page.locator('[data-module="inyeccion"]').click()
+        self.page.locator('#reset').click()
+        self.select_grade(next(m for m in MATERIALS if m['family'] == 'ABS'))
+        self.page.locator('#material-pvtTemperatureC').fill('230')
+        self.page.locator('#material-pvtPressureMPa').fill('40')
+        self.page.locator('#material-meltDensitySource').fill('Dato manual de demostración, no obtenido del gráfico')
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+        self.page.locator('[data-field="meltDensity"]').fill('0.9')
+        self.page.locator('#save').click()
+        with self.page.expect_download() as info:
+            self.page.locator('#export').click()
+        data = json.loads(Path(info.value.path()).read_text())
+        self.assertEqual(data['material']['dataset']['version'], '1.2.0')
+        self.assertEqual(data['material']['context']['pvtTemperatureC'], '230')
+        self.assertEqual(data['material']['context']['pvtPressureMPa'], '40')
+        self.assertIsNone(data['material']['grade_snapshot']['properties']['melt_density'])
+        self.assertFalse(data['material']['references_snapshot']['pvt_sample']['eligible_for_melt_density_autofill'])
+        self.assertEqual(data['material']['used_fields']['meltDensity']['origin'], 'manual')
+        self.page.locator('[data-module="costos"]').click()
+        self.page.locator('[data-history="0"]').click()
+        self.assertEqual(self.page.locator('#material-pvtPressureMPa').input_value(), '40')
+        self.page.evaluate('scrollTo(0,0)')
+        self.page.screenshot(path=str(ARTIFACTS / 'pvt-abs-1440.png'), full_page=True)
+
+    def test_12_legacy_material_snapshot(self):
+        self.page.evaluate("""async () => {
+          const data = await (await fetch('./src/data/materials.v1.json')).json();
+          const { createMaterialState, selectMaterial, materialSnapshot } = await import('./src/materials.js');
+          const { modules } = await import('./src/schema.js');
+          const state = createMaterialState();
+          selectMaterial(data,state,{},'covestro-makrolon-2405');
+          const inputs = {throughput:50,residence:3};
+          const material = materialSnapshot(state,modules.find(m => m.id === 'secado'),inputs,'advanced');
+          localStorage.setItem('ccip-calculators-web-v1',JSON.stringify([{module:'secado',level:'advanced',date:'2026-10-13',inputs,material}]));
+        }""")
+        self.page.reload()
+        self.page.locator('[data-history="0"]').click()
+        self.assertIn('Biblioteca 1.0.0', self.page.locator('.material-summary').inner_text())
+        self.assertEqual(self.page.locator('#pvt-section').count(), 0)
+        self.assertIn('150', self.page.locator('.metric').nth(0).inner_text())
 
 
 if __name__ == '__main__':

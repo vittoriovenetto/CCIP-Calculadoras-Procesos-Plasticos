@@ -64,12 +64,13 @@ function materialChanged(action, value) {
   }
   if (action === "context") {
     state.material.context[value.key] = value.value;
-    if (!["conditionsNote", "lot"].includes(value.key)) {
+    if (["compatible", "physicalForm", "bulkCompatible", "dryingCompatible", "processConfirmed", "dryingTime"].includes(value.key)) {
       clearAutomatic(state.material, state.values);
       applyMaterial(state.material, mod(), state.values, state.level);
       drawFields();
       renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
     }
+    else renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
     invalidate();
     return;
   }
@@ -103,7 +104,7 @@ function drawFields() {
 function compute() {
   const inputs = Object.fromEntries(activeFields(mod(), state.values, state.level).map(f => [f.key, state.values[f.key]]));
   const a = calculate(state.id, inputs, state.level);
-  a.warnings.push(...materialWarnings(state.material, state.id));
+  a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
   const item = { module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small></div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
@@ -158,7 +159,7 @@ state.values = initialValues();
 draw();
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
-fetch(new URL("./data/materials.v1.json", import.meta.url))
+fetch(new URL("./data/materials.v1.2.json", import.meta.url))
   .then(response => { if (!response.ok) throw Error(`HTTP ${response.status}`); return response.json(); })
   .then(data => { library = validateLibrary(data); loadStatus = `${library.materials.length} grados · biblioteca ${library.schema_version} · revisión ${library.retrieved_on}`; })
   .catch(() => { loadStatus = "Catálogo no disponible: puedes continuar con material personalizado y datos manuales."; })

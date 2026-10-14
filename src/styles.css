@@ -28,3 +28,4 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 textarea{width:100%;min-width:0;border:1px solid #cbd0d7;border-radius:7px;padding:11px;font:inherit;resize:vertical}
 textarea:focus-visible{outline:3px solid #940f2d;outline-offset:2px}
 .field-provenance{display:block;line-height:1.5;font-size:11px;color:#7e1830;overflow-wrap:anywhere}
+.pvt-chart{margin:12px 0;min-width:0}.pvt-chart svg{display:block;width:100%;height:auto;background:#fff}.pvt-chart svg text{font:13px system-ui,sans-serif}.pvt-chart figcaption{font-size:13px;line-height:1.5}.pvt-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:700}.pvt-table-wrap{overflow-x:auto;max-width:100%}.pvt-table-wrap table{border-collapse:collapse;font-size:12px;width:100%}.pvt-table-wrap th,.pvt-table-wrap td{border:1px solid #ddd;padding:8px;text-align:right}
