@@ -87,3 +87,9 @@ No se obtuvieron ni inventaron nuevas mediciones de materiales o máquinas. Las 
 ## Revisión y publicación
 
 [Capturas reales](capturas/v1.3/README.md). La comprobación del paquete estático es local; no se usa una URL de GitHub Pages para V1.3. El PR requiere revisión de fuentes y aceptación técnica antes de publicar. `main` permanece en `423c04b1710f8f009c811c893873184d363f1b66` y `gh-pages` en `385a72a7c5267293b2fb0bcdcaa8a55442943691`.
+
+## Confirmación de CI y paquete local
+
+GitHub completó correctamente ambas ejecuciones de validación del código `098a56ca01770b676079b255e7ca84d9411ea69e`: [PR](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38548177402) y [push](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38548172029), con unit/browser y capturas como artefactos. CI ejecuta las suites de 500 y 24 pruebas del mismo checkout.
+
+`npm run build:pages` preparó **solo localmente** el artefacto con biblioteca 1.3.0. Se sirvió `dist/` bajo la subruta del repositorio y se comprobaron nueve variantes avanzadas, logo/ayudas a 320/768/1440 px, guía con 42 lecciones y cambio a inglés, los 24 archivos V1 mediante sus hashes, ZIP íntegro y cálculo V1, sin errores de recursos/JavaScript. No se ejecutó `publish-pages.mjs`. El commit posterior solo registra esta evidencia; no cambia la aplicación verificada.
