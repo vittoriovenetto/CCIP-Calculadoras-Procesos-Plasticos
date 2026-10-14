@@ -1,6 +1,7 @@
+import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
-const translations = {
+const translations = { ...extraTranslations,
 "Calculadoras de procesos plásticos":"Plastic process calculators",
 "Calculadoras de Procesos Plásticos":"Plastic Process Calculators",
 "CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS":"CCIP · INTEC · POLYMER PROCESSING",
