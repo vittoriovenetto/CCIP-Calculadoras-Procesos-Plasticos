@@ -82,6 +82,12 @@ Por petición del usuario, se retira el bloque de aprendizaje del principio del 
 https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/?v=20261014-lateral
 ```
 
+## Título Aprendizaje publicado — 2026-10-14
+
+El título del acceso lateral cambia de «Aprender» a **Aprendizaje**, como pidió el usuario. Traducción inglesa existente: **Learning**. Fuente `e52269f0d2faa87da32b48022727c5c5252fbbc0`, artefacto `dafab9c29fa475583673d06fb1798ff5d028cc7b`. [Workflow correcto](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38600254553). El paquete se comprobó en Chromium a 320/390/768/1440 px, ambos idiomas y apertura de las 42 lecciones. La URL pública respondió HTTP 200 con el HTML exacto, el título nuevo y el manifest correspondiente. No cambian fórmulas ni funcionalidades. `main` y el repositorio original permanecen intactos.
+
+URL con referencia a esta revisión: https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/?v=20261014-aprendizaje
+
 ## Artefacto y publicación
 
 Desde un checkout limpio de la versión aprobada:
