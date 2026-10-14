@@ -517,7 +517,7 @@ class BrowserSmoke(unittest.TestCase):
             self.page.screenshot(path=str(ARTIFACTS / f'ccip-nueva-{width}.png'),full_page=True)
 
     def test_15_v1_browser_and_download(self):
-        self.assertEqual(self.page.locator('.version-links a').nth(0).get_attribute('href'), './versions/v1/')
+        self.assertEqual(self.page.locator('.version-links a[href="./versions/v1/"]').count(), 1)
         response = self.page.request.get(self.url+'downloads/CCIP-Web-V1.zip')
         self.assertEqual(response.status,200)
         self.assertTrue(response.body().startswith(b'PK'))
@@ -533,6 +533,40 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('[data-field="residence"]').fill('3')
         self.page.locator('#calculate').click()
         self.assertIn('150',self.page.locator('.metric').nth(0).text_content())
+
+
+    def test_16_catalog_generic_editor_i18n_and_formulas(self):
+        self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
+        options = self.page.locator('#material-family option').all_text_contents()
+        self.assertIn('HDPE', options)
+        self.page.locator('#material-family').select_option('HDPE')
+        self.assertIn('Genérico', self.page.locator('.material-compact').inner_text())
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-form [name="family"]').select_option('HDPE')
+        self.page.locator('#custom-form [name="grade"]').fill('HDPE ensayo propio')
+        self.page.locator('#custom-form [name="manufacturer"]').fill('Laboratorio')
+        self.page.locator('#custom-form [name="melt_density"]').fill('0.8')
+        self.page.locator('#custom-form [name="conditions"]').fill('220 C, 30 MPa; ensayo de planta')
+        self.page.locator('#custom-form button[type="submit"]').click()
+        self.assertEqual(self.page.locator('#custom-list [data-personal-edit]').count(), 1)
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('#calculate').inner_text(), 'Calculate')
+        self.assertEqual(self.page.locator('#material-family option').count(), 10)
+        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('[data-personal-edit]').click()
+        self.assertEqual(self.page.locator('#custom-form [name="grade"]').input_value(),'HDPE ensayo propio')
+        self.page.locator('#custom-form [name="grade"]').fill('HDPE ensayo corregido')
+        self.page.locator('#custom-form button[type="submit"]').click()
+        self.assertEqual(self.page.locator('#custom-list [data-personal-edit]').count(), 1)
+        self.page.locator('#language').select_option('es')
+        self.assertEqual(self.page.locator('#calculate').inner_text(), 'Calcular')
+        self.page.goto(self.url+'formulas.html')
+        self.assertIn('Biblioteca de fórmulas', self.page.locator('h1').inner_text())
+        self.assertEqual(self.page.locator('.language-section[data-lang="es"] .equation').count(), 26)
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('.language-section[data-lang="en"] .equation').count(), 26)
 
 
 if __name__ == '__main__':
