@@ -1,0 +1,15 @@
+test_15_v1_browser_and_download (__main__.BrowserSmoke.test_15_v1_browser_and_download) ... ok
+test_19_language_switch_preserves_all_case_inputs_results_and_drafts (__main__.BrowserSmoke.test_19_language_switch_preserves_all_case_inputs_results_and_drafts) ... ok
+test_21_all_formula_examples_languages_links_and_layout (__main__.BrowserSmoke.test_21_all_formula_examples_languages_links_and_layout) ... ok
+test_22_responsive_bilingual_captures_and_local_storage_failure (__main__.BrowserSmoke.test_22_responsive_bilingual_captures_and_local_storage_failure) ... ok
+test_25_learning_entry_levels_and_every_result_deep_link (__main__.BrowserSmoke.test_25_learning_entry_levels_and_every_result_deep_link) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 89.125s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Estados biblioteca × proceso × nivel × pantalla: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 27
+Capturas: /workspace/scratch/ccip-sidebar-captures

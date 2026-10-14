@@ -753,17 +753,28 @@ class BrowserSmoke(unittest.TestCase):
         try:
             for width in [390,768,1440]:
                 self.page.set_viewport_size({'width':width,'height':900})
-                self.assertTrue(self.page.locator('#learning-title').is_visible())
+                self.assertTrue(self.page.locator('aside #learn-page').is_visible())
+                self.assertEqual(self.page.locator('.work .learning-panel, #learn-current, #learn-technical, #learn-advanced').count(),0)
+                self.assertEqual(self.page.locator('.work > .bar + #materials').count(),1)
                 self.assert_layout()
+            self.page.locator('[data-field="partMass"]').fill('47')
+            with self.page.expect_popup() as opened:
+                self.page.locator('#learn-page').click()
+            sidebar_guide=opened.value
+            try:
+                sidebar_guide.locator('[data-lesson]').first.wait_for()
+                self.assertEqual(sidebar_guide.locator('[data-lesson]:visible').count(),42)
+                self.assertEqual(self.page.locator('[data-field="partMass"]').input_value(),'47')
+            finally:
+                sidebar_guide.close()
+            guide.goto(self.url+self.page.locator('#learn-page').get_attribute('href')[2:])
             modules = list(dict.fromkeys(module for module,_ in VARIANTS))
             for module in modules:
                 for level in ['basic','technical','advanced']:
                     self.page.locator(f'[data-module="{module}"]').click()
                     self.page.locator('#level').select_option(level)
-                    href = self.page.locator('#learn-current').get_attribute('href')
-                    self.assertIn(f'process={module}&level={level}',href)
-                    guide.goto(self.url+href[2:])
-                    guide.locator('[data-lesson]').first.wait_for(state='attached')
+                    guide.locator('#formula-process').select_option(module)
+                    guide.locator('#formula-level').select_option(level)
                     self.assertEqual(guide.locator('#formula-process').input_value(),module)
                     self.assertEqual(guide.locator('#formula-level').input_value(),level)
                     shown = guide.locator('[data-lesson]:visible')

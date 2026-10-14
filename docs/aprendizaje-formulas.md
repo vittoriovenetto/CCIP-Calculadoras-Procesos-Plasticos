@@ -41,3 +41,13 @@ Guía completa con selector de nivel:
 ```text
 https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/formulas.html?level=advanced&v=20261014-formulas
 ```
+
+## Ajuste de ubicación solicitado por el usuario
+
+El usuario pidió quitar el bloque de aprendizaje del principio del área de cálculo y acceder desde el lateral a una página aparte. Se sustituyó el bloque central y el enlace del encabezado por **Aprender · Fórmulas y ejemplos** bajo los siete procesos del menú lateral. En móvil el acceso aparece debajo del menú horizontal de procesos. Abre `formulas.html` en otra pestaña para conservar las entradas.
+
+La página de aprendizaje conserva los filtros por proceso/nivel, las 42 explicaciones, los ejemplos técnicos y avanzados, y los enlaces desde cada resultado. El formulario vuelve a mostrar el material inmediatamente después del módulo y el selector de nivel. Se retiraron solo los accesos duplicados del bloque central; se conservaron las fórmulas, el motor, los materiales, los niveles y V1.
+
+Se ajustó la prueba de navegador existente para comprobar el acceso lateral, ausencia del bloque central, apertura de la página aparte y conservación de entradas, además de los filtros y los 42 enlaces. La referencia de JS/CSS de entrada usa `20261014-lateral` para solicitar la interfaz actualizada.
+
+Validación del ajuste lateral: 502 pruebas Node y cinco pruebas dirigidas de navegador aprobadas, sin fallos. Incluyen apertura real en otra pestaña, conservación de entradas, siete procesos × tres niveles, los 42 enlaces, cambio ES/EN/ES y diseño adaptable. [Capturas PC/móvil y salida de navegador](capturas/lateral/README.md). La suite completa se ejecuta en CI del commit.

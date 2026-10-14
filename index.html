@@ -6,20 +6,19 @@
   <meta name="theme-color" content="#c8102e">
   <title>CCIP | Calculadoras de procesos plásticos</title>
   <link rel="icon" href="./src/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./src/styles.css?v=20261014-formulas">
+  <link rel="stylesheet" href="./src/styles.css?v=20261014-lateral">
 </head>
 <body>
   <header><div class="shell top">
     <a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a>
-    <div class="version-links"><label for="language">🌐 Idioma <select id="language" aria-label="Idioma"><option value="es">Español</option><option value="en">English</option></select></label><a class="formula-link" href="./formulas.html">Biblioteca de fórmulas</a><span class="version">WEB · EXPERIMENTAL</span></div>
+    <div class="version-links"><label for="language">🌐 Idioma <select id="language" aria-label="Idioma"><option value="es">Español</option><option value="en">English</option></select></label><span class="version">WEB · EXPERIMENTAL</span></div>
   </div></header>
   <main class="shell">
     <section class="hero"><p class="kicker">CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS</p><h1>Calculadoras de procesos plásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></section>
     <div class="layout">
-      <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
+      <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><nav class="learning-nav" aria-label="Aprendizaje"><a id="learn-page" href="./formulas.html?v=20261014-lateral" target="_blank" rel="noopener"><b>Aprender</b><span>Fórmulas y ejemplos</span></a></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
       <section class="work">
         <div class="bar"><div><p class="kicker">MÓDULO ACTIVO</p><h2 id="module-title"></h2><p id="module-desc" class="muted"></p></div><label class="level" for="level">Nivel de cálculo<select id="level"><option value="basic">Básico</option><option value="technical" selected>Técnico</option><option value="advanced">Avanzado</option></select></label></div>
-        <section class="panel learning-panel" aria-labelledby="learning-title"><div><h2 id="learning-title">Aprende las fórmulas</h2><p>Consulta qué significa cada variable, las conversiones y un ejemplo resuelto paso a paso.</p></div><div class="learning-links"><a id="learn-current" class="learning-primary" href="./formulas.html" target="_blank" rel="noopener">Aprender este proceso y nivel</a><a id="learn-technical" href="./formulas.html?level=technical" target="_blank" rel="noopener">Fórmulas del nivel técnico</a><a id="learn-advanced" href="./formulas.html?level=advanced" target="_blank" rel="noopener">Fórmulas del nivel avanzado</a></div></section>
         <section id="materials" class="panel material-panel" aria-labelledby="materials-title"></section><section id="custom-material-editor" class="panel" aria-label="Agregar material / Add custom material"></section>
         <div class="calculation-grid">
           <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section>
@@ -30,6 +29,6 @@
     </div>
     <footer>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</footer>
   </main>
-  <script type="module" src="./src/app.js?v=20261014-formulas"></script>
+  <script type="module" src="./src/app.js?v=20261014-lateral"></script>
 </body>
 </html>
