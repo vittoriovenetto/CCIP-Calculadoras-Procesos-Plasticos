@@ -522,7 +522,16 @@ class BrowserSmoke(unittest.TestCase):
             self.page.screenshot(path=str(ARTIFACTS / f'ccip-nueva-{width}.png'),full_page=True)
 
     def test_15_v1_browser_and_download(self):
-        self.assertEqual(self.page.locator('.version-links a[href="./versions/v1/"]').count(), 1)
+        # Primera visita en español; archivos históricos accesibles solo por URL directa.
+        self.assertEqual(self.page.locator('html').get_attribute('lang'), 'es')
+        self.assertEqual(self.page.locator('#language').input_value(), 'es')
+        self.assertEqual(self.page.locator('#calculate').inner_text(), 'Calcular')
+        self.assertEqual(self.page.locator('a[href*="versions/"], a[href*="downloads/"]').count(), 0)
+        self.page.goto(self.url+'formulas.html')
+        self.page.locator('[data-lesson]').first.wait_for()
+        self.assertEqual(self.page.locator('html').get_attribute('lang'), 'es')
+        self.assertEqual(self.page.locator('#language').input_value(), 'es')
+        self.assertEqual(self.page.locator('a[href*="versions/"], a[href*="downloads/"]').count(), 0)
         response = self.page.request.get(self.url+'downloads/CCIP-Web-V1.zip')
         self.assertEqual(response.status,200)
         self.assertTrue(response.body().startswith(b'PK'))
