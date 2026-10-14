@@ -81,3 +81,18 @@ Consulta [modelos y validación técnica](docs/modelos.md), [arquitectura modula
 Consulta [biblioteca de materiales y reglas de aplicación](docs/materiales.md) para conocer los nueve grados, condiciones, niveles y propiedades pendientes.
 
 La [auditoría V1.1 / referencias pVT V1.2](docs/auditoria-materiales-v1.2.md) detalla datos incorporados, controles de calidad, pruebas y validaciones pendientes.
+
+## Propuesta V1.3 — catálogo, idioma y aprendizaje (rama de revisión)
+
+La ampliación V1.3 se desarrolla en `feature/catalogo-90-i18n-formulas` y **no reemplaza automáticamente la versión publicada `gh-pages`**.
+
+- Catálogo `src/data/materials.v1.3.json` con **90 registros comerciales (10 por cada familia HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6, PC) y 9 perfiles genéricos**. El registro comercial es una referencia de identidad; muchas propiedades individuales siguen sin verificarse. No presentar el conjunto como 90 fichas completas.
+- Selección de familia sin marca: activa **Genérico**. No autocompleta densidad del fundido, calor específico, MFR o secado sin fundamento.
+- Panel desplegable **Agregar / editar material propio**: ingreso de propiedades, fuente, método y condiciones; editar, eliminar, seleccionar y exportar registros personales. Se guarda solo en `localStorage`, sin sincronización. Confirmar condiciones antes de aplicar propiedades a resultados.
+- Cambio de idioma ES/EN con preferencia persistente; prioriza navegación, etiquetas, ayudas y la biblioteca de fórmulas. Algunos avisos dinámicos técnicos requieren revisión de localización adicional.
+- `formulas.html` explica 26 grupos de ecuaciones y muestra un índice de **todas las 42 salidas matemáticas**, leído directamente del motor, con unidades.
+- Pruebas de catálogo, material personalizado, idioma, navegación, fórmulas y casos anteriores en Node y Playwright.
+
+Ver [auditoría de ampliación](docs/auditoria-web-y-ampliacion-2026-10-14.md).
+
+**Publicación segura:** comprobar GitHub Actions en verde, aprobar fuentes y funcionamiento en móvil, revisar PR hacia `feature/web-v1-modular`, y solo entonces actualizar `gh-pages` preservando la versión original.
