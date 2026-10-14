@@ -1,4 +1,7 @@
 export const auditTranslations = {
+  "Aprender": "Learn",
+  "Aprendizaje": "Learning",
+  "Fórmulas y ejemplos": "Formulas and examples",
   "Aprende las fórmulas": "Learn the formulas",
   "Consulta qué significa cada variable, las conversiones y un ejemplo resuelto paso a paso.": "Learn what each variable means, the unit conversions and a worked example, step by step.",
   "Aprender este proceso y nivel": "Learn this process and level",

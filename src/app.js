@@ -47,7 +47,6 @@ function nav() {
 }
 
 function draw() {
-  drawLearningLinks();
   nav();
   $("level").value = state.level;
   $("module-title").textContent = mod().name;
@@ -58,12 +57,6 @@ function draw() {
   if (!$("custom-material-editor").children.length) drawCustomEditor();
   invalidate();
   renderHistory();
-}
-
-function drawLearningLinks() {
-  $("learn-current").href = guideHref(state.id, state.level);
-  $("learn-technical").href = guideHref(state.id, "technical");
-  $("learn-advanced").href = guideHref(state.id, "advanced");
 }
 
 const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}" target="_blank" rel="noopener">Ver fórmula y ejemplo</a>`;
@@ -185,7 +178,6 @@ function renderHistory() {
     $("level").value = state.level;
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
-    drawLearningLinks();
     drawFields();
     drawMaterials();
     renderHistory();
