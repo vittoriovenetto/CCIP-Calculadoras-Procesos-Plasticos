@@ -322,14 +322,14 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_09_catalogue_failure_and_offline_calculation(self):
         # Un JSON inválido no genera un fallo HTTP intencional en consola.
-        self.page.route('**/materials.v1.2.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
+        self.page.route('**/materials.v1.3.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
         self.page.reload()
         self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('no disponible')")
         self.fill_case('inyeccion', VARIANTS[0][1])
         self.assertIn('71.5', self.page.locator('.metric').nth(1).text_content())
-        self.page.unroute('**/materials.v1.2.json')
+        self.page.unroute('**/materials.v1.3.json')
         self.page.reload()
-        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('9 grados')")
+        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('99 opciones')")
         pa6 = next(m for m in MATERIALS if m['family'] == 'PA6')
         self.page.locator('[data-module="secado"]').click()
         self.page.locator('#level').select_option('advanced')
