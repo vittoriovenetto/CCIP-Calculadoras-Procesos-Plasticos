@@ -1,4 +1,6 @@
 import { modules, activeFields } from "./schema.js";
+import { initI18n, getLanguage } from "./i18n.js";
+import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
 import { calculate } from "./engine.js";
 import { readHistory, storageKey } from "./history.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
@@ -9,7 +11,7 @@ import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from ".
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
 const sessions = new Map();
-let library = null, loadStatus = "Cargando catálogo local…";
+let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
@@ -51,6 +53,20 @@ function draw() {
   applyMaterial(state.material, mod(), state.values, state.level);
   drawFields();
   drawMaterials();
+  renderCustomEditor($("custom-material-editor"), { lang: getLanguage(),
+    onSave: record => {
+      if (catalogBase) library = validateLibrary(mergeCustomMaterials(catalogBase));
+      selectMaterial(library, state.material, state.values, record.id);
+      state.filters = { family: record.family, manufacturer: record.manufacturer };
+      draw();
+    },
+    onDelete: () => {
+      if (catalogBase) library = validateLibrary(mergeCustomMaterials(catalogBase));
+      state.material = createMaterialState();
+      state.filters = { family: "", manufacturer: "" };
+      draw();
+    }
+  });
   invalidate();
   renderHistory();
 }
@@ -170,10 +186,12 @@ $("export").addEventListener("click", () => {
 });
 state.values = initialValues();
 draw();
+initI18n();
+$("language")?.addEventListener("change", () => { renderCustomEditor($("custom-material-editor"), {lang: getLanguage(), onSave: record => { if(catalogBase)library=validateLibrary(mergeCustomMaterials(catalogBase)); selectMaterial(library,state.material,state.values,record.id);state.filters={family:record.family,manufacturer:record.manufacturer};draw(); }, onDelete: () => {if(catalogBase)library=validateLibrary(mergeCustomMaterials(catalogBase));state.material=createMaterialState();draw();}}); });
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
-fetch(new URL("./data/materials.v1.2.json", import.meta.url))
+fetch(new URL("./data/materials.v1.3.json", import.meta.url))
   .then(response => { if (!response.ok) throw Error(`HTTP ${response.status}`); return response.json(); })
-  .then(data => { library = validateLibrary(data); loadStatus = `${library.materials.length} grados · biblioteca ${library.schema_version} · revisión ${library.retrieved_on}`; })
+  .then(data => { catalogBase = validateLibrary(data); library = validateLibrary(mergeCustomMaterials(catalogBase)); loadStatus = `${library.materials.length} opciones · catálogo ${data.catalog_revision || data.schema_version} · revisión ${library.retrieved_on}`; })
   .catch(() => { loadStatus = "Catálogo no disponible: puedes continuar con material personalizado y datos manuales."; })
   .finally(drawMaterials);
