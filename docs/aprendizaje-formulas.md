@@ -51,3 +51,5 @@ La página de aprendizaje conserva los filtros por proceso/nivel, las 42 explica
 Se ajustó la prueba de navegador existente para comprobar el acceso lateral, ausencia del bloque central, apertura de la página aparte y conservación de entradas, además de los filtros y los 42 enlaces. La referencia de JS/CSS de entrada usa `20261014-lateral` para solicitar la interfaz actualizada.
 
 Validación del ajuste lateral: 502 pruebas Node y cinco pruebas dirigidas de navegador aprobadas, sin fallos. Incluyen apertura real en otra pestaña, conservación de entradas, siete procesos × tres niveles, los 42 enlaces, cambio ES/EN/ES y diseño adaptable. [Capturas PC/móvil y salida de navegador](capturas/lateral/README.md). La suite completa se ejecuta en CI del commit.
+
+Publicación lateral confirmada en el intento 2 de GitHub Pages; el primer intento falló por HTTP 500 interno del servicio. Las suites completas de CI del commit lateral terminaron correctamente. Se verificaron HTTP 200 y la identidad byte a byte de ambas páginas y los 32 archivos públicos de src; V1/ZIP intactos. Véase el [registro](despliegue.md) para identificadores y URL actualizada.

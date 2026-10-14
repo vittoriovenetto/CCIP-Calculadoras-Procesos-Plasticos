@@ -64,6 +64,24 @@ Tras informar el usuario de que abría la web pero no veía las fórmulas o los 
 
 [Capturas reales y logs](capturas/aprendizaje/README.md). La validación funcional de navegador se realizó sobre el paquete exacto local; la verificación del dominio público fue HTTP con TLS, conservando la limitación de certificado de Chromium directo indicada anteriormente. Las propiedades ausentes y la validación técnica industrial siguen pendientes. La documentación/capturas posteriores no alteran el artefacto publicado.
 
+## Acceso lateral a Aprender publicado — 2026-10-14
+
+Por petición del usuario, se retira el bloque de aprendizaje del principio del área de cálculo y el enlace duplicado del encabezado. **Aprender · Fórmulas y ejemplos** queda debajo de los siete procesos en el lateral (debajo del menú horizontal en móvil) y abre la guía en otra pestaña. Se conservan sus 42 explicaciones, filtros técnico/avanzado y enlaces desde resultados.
+
+- Fuente: `01e5b8808bbaa135462cfb21d3de1b175565fc56`.
+- Artefacto: `cc259753b40d25fdfce14abc02ecd827022917e6` en `gh-pages`, biblioteca 1.3.0.
+- [Publicación confirmada](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38597709605), intento 2. El primer intento falló por HTTP 500 interno de GitHub Pages al crear el despliegue; las anotaciones recomendaron reintentar. Se repitió el trabajo fallido con el mismo paquete y terminó correctamente.
+- 502 pruebas Node y cinco pruebas dirigidas de navegador correctas; CI completó unit/browser en ambas ejecuciones del commit: [PR](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38597515357) y [push](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38597505213), incluyendo las 25 pruebas de navegador completas.
+- Paquete exacto comprobado localmente en 390/768/1440 px: acceso lateral, ausencia del bloque central, página independiente con 42/28 explicaciones, conservación de entradas, siete procesos × tres niveles, español inicial/inglés y ausencia de errores JS/recursos.
+- Verificación pública: HTTP 200 para `deployment.json` de la fuente anterior, ambas páginas y los 32 archivos `src/`, iguales al artefacto. HTML principal con acceso lateral y sin bloque central/enlace de encabezado. V1 y ZIP intactos por SHA-256.
+- `main` permanece en `423c04b1710f8f009c811c893873184d363f1b66`; PR abierto sin fusionar y repositorio original intacto.
+
+[Capturas del lateral](capturas/lateral/README.md). La documentación posterior no altera el paquete publicado. URL para solicitar esta revisión:
+
+```text
+https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/?v=20261014-lateral
+```
+
 ## Artefacto y publicación
 
 Desde un checkout limpio de la versión aprobada:
