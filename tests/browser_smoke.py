@@ -18,7 +18,8 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 VARIANTS = json.loads(subprocess.check_output(
     ["node", "--input-type=module", "-e", "import { variants } from './tests/fixtures.js'; console.log(JSON.stringify(variants))"], cwd=ROOT, text=True))
-MATERIALS = json.loads((ROOT / 'src/data/materials.v1.2.json').read_text())['materials']
+MATERIALS = json.loads((ROOT / 'src/data/materials.v1.3.json').read_text())['materials']
+ORIGINAL_MATERIALS = [m for m in MATERIALS if m['id'].startswith(('dow-', 'lyondellbasell-', 'indorama-', 'westlake-', 'ineos-', 'basf-', 'covestro-'))]
 ARTIFACTS = Path(os.environ.get("CCIP_TEST_ARTIFACTS", tempfile.mkdtemp(prefix="ccip-browser-")))
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
 
@@ -41,6 +42,8 @@ class BrowserSmoke(unittest.TestCase):
         cls.browser = cls.pw.chromium.launch(executable_path=chromium)
         cls.matrix_count = 0
         cls.material_count = 0
+        cls.catalog_count = 0
+        cls.language_count = 0
 
     @classmethod
     def tearDownClass(cls):
@@ -51,6 +54,8 @@ class BrowserSmoke(unittest.TestCase):
         cls.thread.join()
         print(f"Estados módulo/variante × nivel × pantalla comprobados: {cls.matrix_count}")
         print(f"Estados biblioteca × proceso × nivel × pantalla: {cls.material_count}")
+        print(f"Perfiles iniciales comprobados en navegador: {cls.catalog_count}")
+        print(f"Casos con cambio de idioma ES/EN/ES: {cls.language_count}")
         print(f"Capturas: {ARTIFACTS}")
 
     def setUp(self):
@@ -103,7 +108,7 @@ class BrowserSmoke(unittest.TestCase):
             self.page.locator('#material-details > summary').click()
 
     def test_01_all_modules_levels_and_viewports(self):
-        for width, height in [(1440, 900), (768, 1024), (390, 844), (320, 568)]:
+        for width, height in [(1440, 900), (1024, 768), (768, 1024), (390, 844), (320, 568)]:
             self.page.set_viewport_size({"width": width, "height": height})
             for module, values in VARIANTS:
                 for level in ["basic", "technical", "advanced"]:
@@ -227,7 +232,7 @@ class BrowserSmoke(unittest.TestCase):
     def test_07_materials_levels_and_mobile(self):
         for width, height in [(1440, 900), (390, 844)]:
             self.page.set_viewport_size({"width": width, "height": height})
-            for material in MATERIALS:
+            for material in ORIGINAL_MATERIALS:
                 for module in ['inyeccion', 'pelicula', 'secado']:
                     for level in ['basic', 'technical', 'advanced']:
                         with self.subTest(width=width, grade=material['id'], module=module, level=level):
@@ -273,8 +278,8 @@ class BrowserSmoke(unittest.TestCase):
             self.page.screenshot(path=str(ARTIFACTS / f'materiales-pc-secado-{width}.png'), full_page=True)
 
     def test_08_overrides_grade_changes_history_and_snapshot(self):
-        pa6 = next(m for m in MATERIALS if m['family'] == 'PA6')
-        pc = next(m for m in MATERIALS if m['family'] == 'PC')
+        pa6 = next(m for m in ORIGINAL_MATERIALS if m['family'] == 'PA6')
+        pc = next(m for m in ORIGINAL_MATERIALS if m['family'] == 'PC')
         self.page.locator('[data-module="secado"]').click()
         self.page.locator('#level').select_option('advanced')
         self.select_grade(pa6)
@@ -322,15 +327,15 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_09_catalogue_failure_and_offline_calculation(self):
         # Un JSON inválido no genera un fallo HTTP intencional en consola.
-        self.page.route('**/materials.v1.2.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
+        self.page.route('**/materials.v1.3.json', lambda route: route.fulfill(status=200, content_type='application/json', body='{}'))
         self.page.reload()
         self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('no disponible')")
         self.fill_case('inyeccion', VARIANTS[0][1])
         self.assertIn('71.5', self.page.locator('.metric').nth(1).text_content())
-        self.page.unroute('**/materials.v1.2.json')
+        self.page.unroute('**/materials.v1.3.json')
         self.page.reload()
-        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('9 grados')")
-        pa6 = next(m for m in MATERIALS if m['family'] == 'PA6')
+        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('99 opciones')")
+        pa6 = next(m for m in ORIGINAL_MATERIALS if m['family'] == 'PA6')
         self.page.locator('[data-module="secado"]').click()
         self.page.locator('#level').select_option('advanced')
         self.select_grade(pa6)
@@ -357,7 +362,7 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_11_audit_pvt_references_and_manual_traceability(self):
         self.page.locator('#level').select_option('advanced')
-        for material in MATERIALS:
+        for material in ORIGINAL_MATERIALS:
             self.page.locator('[data-module="inyeccion"]').click()
             self.page.locator('#reset').click()
             self.select_grade(material)
@@ -390,7 +395,7 @@ class BrowserSmoke(unittest.TestCase):
                 self.assertEqual(self.page.locator('[data-field="specificHeat"]').input_value(), '')
         self.page.locator('[data-module="inyeccion"]').click()
         self.page.locator('#reset').click()
-        self.select_grade(next(m for m in MATERIALS if m['family'] == 'ABS'))
+        self.select_grade(next(m for m in ORIGINAL_MATERIALS if m['family'] == 'ABS'))
         self.page.locator('#material-pvtTemperatureC').fill('230')
         self.page.locator('#material-pvtPressureMPa').fill('40')
         self.page.locator('#material-meltDensitySource').fill('Dato manual de demostración, no obtenido del gráfico')
@@ -400,7 +405,7 @@ class BrowserSmoke(unittest.TestCase):
         with self.page.expect_download() as info:
             self.page.locator('#export').click()
         data = json.loads(Path(info.value.path()).read_text())
-        self.assertEqual(data['material']['dataset']['version'], '1.2.0')
+        self.assertEqual(data['material']['dataset']['version'], '1.3.0')
         self.assertEqual(data['material']['context']['pvtTemperatureC'], '230')
         self.assertEqual(data['material']['context']['pvtPressureMPa'], '40')
         self.assertIsNone(data['material']['grade_snapshot']['properties']['melt_density'])
@@ -489,7 +494,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[role="meter"]').count(), 0)
         self.assertIn('Pendiente', self.page.locator('#usage').inner_text())
         # Fuente y curvas siguen accesibles cuando se abre la ficha.
-        self.select_grade(next(m for m in MATERIALS if m['family']=='ABS'))
+        self.select_grade(next(m for m in ORIGINAL_MATERIALS if m['family']=='ABS'))
         self.assertEqual(self.page.locator('.pvt-chart circle').count(), 24)
         self.page.locator('#material-details > summary').click()
         self.assertFalse(self.page.locator('#material-details').evaluate('el => el.open'))
@@ -517,7 +522,16 @@ class BrowserSmoke(unittest.TestCase):
             self.page.screenshot(path=str(ARTIFACTS / f'ccip-nueva-{width}.png'),full_page=True)
 
     def test_15_v1_browser_and_download(self):
-        self.assertEqual(self.page.locator('.version-links a').nth(0).get_attribute('href'), './versions/v1/')
+        # Primera visita en español; archivos históricos accesibles solo por URL directa.
+        self.assertEqual(self.page.locator('html').get_attribute('lang'), 'es')
+        self.assertEqual(self.page.locator('#language').input_value(), 'es')
+        self.assertEqual(self.page.locator('#calculate').inner_text(), 'Calcular')
+        self.assertEqual(self.page.locator('a[href*="versions/"], a[href*="downloads/"]').count(), 0)
+        self.page.goto(self.url+'formulas.html')
+        self.page.locator('[data-lesson]').first.wait_for()
+        self.assertEqual(self.page.locator('html').get_attribute('lang'), 'es')
+        self.assertEqual(self.page.locator('#language').input_value(), 'es')
+        self.assertEqual(self.page.locator('a[href*="versions/"], a[href*="downloads/"]').count(), 0)
         response = self.page.request.get(self.url+'downloads/CCIP-Web-V1.zip')
         self.assertEqual(response.status,200)
         self.assertTrue(response.body().startswith(b'PK'))
@@ -533,6 +547,344 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('[data-field="residence"]').fill('3')
         self.page.locator('#calculate').click()
         self.assertIn('150',self.page.locator('.metric').nth(0).text_content())
+
+
+    def test_16_catalog_generic_editor_i18n_and_formulas(self):
+        self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
+        options = self.page.locator('#material-family option').all_text_contents()
+        self.assertIn('HDPE', options)
+        self.page.locator('#material-family').select_option('HDPE')
+        self.assertIn('Genérico', self.page.locator('.material-compact').inner_text())
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-form [name="family"]').select_option('HDPE')
+        self.page.locator('#custom-form [name="grade"]').fill('HDPE ensayo propio')
+        self.page.locator('#custom-form [name="manufacturer"]').fill('Laboratorio')
+        self.page.locator('#custom-properties > summary').click()
+        self.page.locator('#custom-property-melt_density > summary').click()
+        self.page.locator('#custom-form [name="melt_density"]').fill('0.8')
+        self.page.locator('#custom-form [name="conditions"]').fill('220 C, 30 MPa; ensayo de planta')
+        self.page.locator('#custom-form button[type="submit"]').click()
+        self.assertEqual(self.page.locator('#custom-list [data-personal-edit]').count(), 1)
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(), '')
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('#calculate').inner_text(), 'Calculate')
+        self.assertEqual(self.page.locator('#material-family option').count(), 10)
+        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('[data-personal-edit]').click()
+        self.assertEqual(self.page.locator('#custom-form [name="grade"]').input_value(),'HDPE ensayo propio')
+        self.page.locator('#custom-form [name="grade"]').fill('HDPE ensayo corregido')
+        self.page.locator('#custom-form button[type="submit"]').click()
+        self.assertEqual(self.page.locator('#custom-list [data-personal-edit]').count(), 1)
+        self.page.locator('#language').select_option('es')
+        self.assertEqual(self.page.locator('#calculate').inner_text(), 'Calcular')
+        self.page.goto(self.url+'formulas.html')
+        self.assertIn('Biblioteca de fórmulas', self.page.locator('h1').inner_text())
+        self.assertEqual(self.page.locator('[data-lesson]').count(), 42)
+        self.assertEqual(self.page.locator('.formula-full-index tbody tr').count(), 42)
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('[data-lesson]').count(), 42)
+
+
+    def open_custom_property(self, key):
+        for selector in ['#custom-panel', '#custom-properties', f'#custom-property-{key}']:
+            if not self.page.locator(selector).evaluate('el=>el.open'):
+                self.page.locator(selector+' > summary').click()
+
+    def english_ui_is_complete(self):
+        self.page.wait_for_function("document.documentElement.lang==='en' && !document.body.innerText.includes('⚠ Datos típicos')")
+        leftovers = self.page.evaluate(r'''()=>{const out=[];const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){
+          if(n.parentElement.closest('script,style,textarea,[data-i18n-ignore]'))continue;
+          const text=n.nodeValue.trim();if(text==='Español')continue;
+          if(/\b(idioma|pendiente|datos|fuente|referencia|ficha|condiciones|grado|método|máximo|presiones|incertidumbre|revisión|estado|genérico|calcular|reserva|colchón|masa|cavidades|advertencias|parámetros|historial|sin|guardar|limpiar|agregar|introduce|rango|fase)\b/i.test(text))out.push(text);
+        }return out;}''')
+        self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
+
+    def test_17_all_99_profiles_in_browser(self):
+        self.page.locator('#language').select_option('en')
+        widths=[320,390,768,1024,1440]
+        for index, material in enumerate(MATERIALS):
+            with self.subTest(id=material['id']):
+                self.page.set_viewport_size({'width':widths[index%5],'height':900})
+                module=VARIANTS[index%7][0]
+                self.page.locator(f'[data-module="{module}"]').click()
+                self.page.locator('#level').select_option(['basic','technical','advanced'][index%3])
+                self.select_grade(material)
+                self.assertEqual(self.page.locator('#material-grade').input_value(),material['id'])
+                self.page.locator('#calculate').click()
+                if material['record_status']=='generic_unverified' or material['id'].startswith('catalog-'):
+                    for key in ['meltDensity','density','bulkDensity','specificHeat']:
+                        control=self.page.locator(f'[data-field="{key}"]')
+                        if control.count():self.assertEqual(control.input_value(),'')
+                self.english_ui_is_complete()
+                self.assert_layout()
+                self.__class__.catalog_count += 1
+
+    def test_18_custom_crud_import_export_persistence_and_units(self):
+        self.open_custom_property('melt_density')
+        form=self.page.locator('#custom-form')
+        form.locator('[name="family"]').select_option('PP')
+        form.locator('[name="grade"]').fill('Material de ensayo')
+        form.locator('[name="manufacturer"]').fill('Laboratorio')
+        form.locator('[name="melt_density"]').fill('800')
+        form.locator('[name="melt_density_unit"]').select_option('kg/m3')
+        form.locator('[name="melt_density_source"]').fill('Datos sintéticos; no son medición')
+        form.locator('[name="melt_density_conditions"]').fill('220 °C; 30 MPa; fundido')
+        form.locator('button[type="submit"]').click()
+        saved=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-user-materials-v1'))")
+        self.assertEqual(saved[0]['properties']['melt_density']['value'],.8)
+        self.assertEqual(saved[0]['properties']['melt_density']['entered_unit'],'kg/m3')
+        grade_id=saved[0]['id']
+        self.page.locator('#material-details > summary').click()
+        self.page.locator('#material-compatible').check()
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'0.8')
+        self.page.locator('#custom-panel > summary').click()
+        with self.page.expect_download() as info:self.page.locator('#custom-export').click()
+        payload=Path(info.value.path()).read_bytes()
+        exported=json.loads(payload)
+        self.assertEqual(exported['schema_version'],'ccip-custom-materials/1')
+        self.assertEqual(exported['materials'][0]['properties']['melt_density']['entered_value'],800)
+        self.page.locator('[data-personal-edit]').click()
+        self.open_custom_property('melt_density')
+        self.assertEqual(form.locator('[name="melt_density"]').input_value(),'800')
+        form.locator('[name="melt_density"]').fill('750')
+        form.locator('button[type="submit"]').click()
+        self.page.reload()
+        self.assertEqual(self.page.locator('[data-personal-edit]').count(),1)
+        self.select_grade({**saved[0],'id':grade_id})
+        self.page.locator('#material-compatible').check()
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'0.75')
+        self.page.locator('#custom-panel > summary').click()
+        self.page.on('dialog',lambda dialog:dialog.accept())
+        self.page.locator('[data-personal-delete]').click()
+        self.assertEqual(self.page.locator('[data-personal-edit]').count(),0)
+        self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'')
+        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-import').set_input_files({'name':'propios.json','mimeType':'application/json','buffer':payload})
+        self.page.wait_for_function("JSON.parse(localStorage.getItem('ccip-user-materials-v1')).length===1")
+        self.assertEqual(self.page.locator('[data-personal-edit]').count(),1)
+        self.page.reload()
+        self.assertEqual(self.page.locator('[data-personal-edit]').count(),1)
+        self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('ccip-user-materials-v1'))[0].id"),grade_id)
+
+    def test_19_language_switch_preserves_all_case_inputs_results_and_drafts(self):
+        def quantities():
+            return self.page.locator('.metric strong').evaluate_all("els=>els.map(el=>{const value=el.textContent.trim().split(' ')[0];return ['Pending','Pendiente'].includes(value)?null:value})")
+        for module,values in VARIANTS:
+            for level in ['basic','technical','advanced']:
+                with self.subTest(module=module,level=level):
+                    self.fill_case(module,values,level)
+                    inputs=self.page.locator('[data-field]').evaluate_all('els=>els.map(el=>[el.dataset.field,el.value])')
+                    before=quantities()
+                    self.page.locator('#language').select_option('en')
+                    self.page.wait_for_function("document.querySelector('#calculate').textContent==='Calculate'")
+                    self.assertEqual(quantities(),before)
+                    self.assertEqual(self.page.locator('[data-field]').evaluate_all('els=>els.map(el=>[el.dataset.field,el.value])'),inputs)
+                    self.english_ui_is_complete()
+                    self.page.locator('#language').select_option('es')
+                    self.page.wait_for_function("document.querySelector('#calculate').textContent==='Calcular'")
+                    self.assertEqual(quantities(),before)
+                    self.__class__.language_count += 1
+        self.open_custom_property('solid_density')
+        self.page.locator('#custom-form [name="grade"]').fill('Borrador sin guardar')
+        self.page.locator('#custom-form [name="solid_density"]').fill('950')
+        self.page.locator('#custom-form [name="solid_density_unit"]').select_option('kg/m3')
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('#custom-form [name="grade"]').input_value(),'Borrador sin guardar')
+        self.assertEqual(self.page.locator('#custom-form [name="solid_density"]').input_value(),'950')
+        self.assertEqual(self.page.locator('#custom-form [name="solid_density_unit"]').input_value(),'kg/m3')
+        self.page.reload()
+        self.assertEqual(self.page.locator('#language').input_value(),'en')
+        self.page.wait_for_function("document.querySelector('#calculate').textContent==='Calculate'")
+
+    def test_20_invalid_import_and_corrupt_storage_do_not_break_calculation(self):
+        self.page.locator('#language').select_option('en')
+        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-import').set_input_files({'name':'invalid.json','mimeType':'application/json','buffer':b'{bad'})
+        self.page.wait_for_function("document.querySelector('#custom-feedback').textContent==='Invalid materials JSON.'")
+        self.page.locator('#language').select_option('es')
+        self.assertEqual(self.page.locator('#custom-feedback').inner_text(),'JSON de materiales no válido.')
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('#custom-feedback').inner_text(),'Invalid materials JSON.')
+        self.page.locator('#custom-form button[type="submit"]').click()
+        self.assertEqual(self.page.locator('#custom-feedback').inner_text(),'Invalid name, family or manufacturer.')
+        self.page.locator('#language').select_option('es')
+        self.assertEqual(self.page.locator('#custom-feedback').inner_text(),'Nombre, familia o fabricante no válido.')
+        self.page.locator('#language').select_option('en')
+        self.assertIsNone(self.page.evaluate("localStorage.getItem('ccip-user-materials-v1')"))
+        self.page.evaluate("localStorage.setItem('ccip-user-materials-v1',JSON.stringify([{id:1,properties:[]},{id:'user-mal',family:'PC',grade:'Mal',properties:{solid_density:{value:-2,unit:'g/cm3'}}}]))")
+        self.page.reload()
+        self.assertEqual(self.page.locator('[data-personal-edit]').count(),0)
+        self.fill_case('inyeccion',VARIANTS[0][1])
+        self.assertIn('71.5',self.page.locator('.kpi').nth(0).inner_text())
+        self.english_ui_is_complete()
+
+    def test_21_all_formula_examples_languages_links_and_layout(self):
+        self.page.goto(self.url+'formulas.html')
+        self.assertEqual(self.page.locator('[data-lesson]').count(),42)
+        self.assertEqual(self.page.locator('[data-auxiliary]').count(),1)
+        self.assertEqual(self.page.locator('.formula-full-index tbody tr').count(),42)
+        for lang in ['es','en']:
+            self.page.locator('#language').select_option(lang)
+            self.assertEqual(self.page.locator('[data-example-value]').count(),42)
+            self.assertEqual(self.page.locator('.alternate-example').count(),2)
+            self.assertTrue(all(n>=2 for n in self.page.locator('.worked-example').evaluate_all("els=>els.map(el=>el.querySelectorAll('li').length)")))
+            for width in [320,390,768,1024,1440]:
+                self.page.set_viewport_size({'width':width,'height':900})
+                for details in self.page.locator('details').all():details.evaluate('el=>el.open=true')
+                self.assert_layout()
+            if lang=='en':self.english_ui_is_complete()
+        self.page.locator('#formula-nav a').nth(6).click()
+        self.assertEqual(self.page.url.split('#')[-1],'guide-costos')
+        self.assertIn('Production',self.page.locator('#guide-costos h2').inner_text())
+        self.page.reload();self.assertEqual(self.page.locator('#language').input_value(),'en')
+        links=self.page.locator('a[href]').evaluate_all("els=>[...new Set(els.map(el=>el.getAttribute('href')).filter(h=>h.startsWith('./')))]")
+        for path in links:self.assertEqual(self.page.request.get(self.url+path[2:]).status,200,path)
+        self.page.screenshot(path=str(ARTIFACTS/'formulas-en-1440.png'))
+        self.page.set_viewport_size({'width':390,'height':844})
+        self.page.locator('#language').select_option('es')
+        self.page.evaluate('scrollTo(0,0)')
+        self.page.screenshot(path=str(ARTIFACTS/'formulas-es-390.png'))
+
+    def test_25_learning_entry_levels_and_every_result_deep_link(self):
+        guide = self.context.new_page()
+        guide.on('pageerror', lambda e: self.errors.append(str(e)))
+        guide.on('console', lambda m: self.errors.append(m.text) if m.type == 'error' else None)
+        try:
+            for width in [390,768,1440]:
+                self.page.set_viewport_size({'width':width,'height':900})
+                self.assertTrue(self.page.locator('aside #learn-page').is_visible())
+                self.assertEqual(self.page.locator('.work .learning-panel, #learn-current, #learn-technical, #learn-advanced').count(),0)
+                self.assertEqual(self.page.locator('.work > .bar + #materials').count(),1)
+                self.assert_layout()
+            self.page.locator('[data-field="partMass"]').fill('47')
+            with self.page.expect_popup() as opened:
+                self.page.locator('#learn-page').click()
+            sidebar_guide=opened.value
+            try:
+                sidebar_guide.locator('[data-lesson]').first.wait_for()
+                self.assertEqual(sidebar_guide.locator('[data-lesson]:visible').count(),42)
+                self.assertEqual(self.page.locator('[data-field="partMass"]').input_value(),'47')
+            finally:
+                sidebar_guide.close()
+            guide.goto(self.url+self.page.locator('#learn-page').get_attribute('href')[2:])
+            modules = list(dict.fromkeys(module for module,_ in VARIANTS))
+            for module in modules:
+                for level in ['basic','technical','advanced']:
+                    self.page.locator(f'[data-module="{module}"]').click()
+                    self.page.locator('#level').select_option(level)
+                    guide.locator('#formula-process').select_option(module)
+                    guide.locator('#formula-level').select_option(level)
+                    self.assertEqual(guide.locator('#formula-process').input_value(),module)
+                    self.assertEqual(guide.locator('#formula-level').input_value(),level)
+                    shown = guide.locator('[data-lesson]:visible')
+                    self.assertGreater(shown.count(),0)
+                    allowed = ['basic','technical','advanced'][:['basic','technical','advanced'].index(level)+1]
+                    self.assertTrue(all(value in allowed for value in shown.evaluate_all('els=>els.map(el=>el.dataset.lessonLevel)')))
+                    self.assertTrue(all(value==f'guide-{module}' for value in guide.locator('.formula-topic:visible').evaluate_all('els=>els.map(el=>el.id)')))
+                    guide.reload()
+                    self.assertEqual(guide.locator('#formula-level').input_value(),level)
+                self.page.locator('#calculate').click();self.open_results()
+                links = self.page.locator('#metrics .result-learning').evaluate_all('els=>els.map(el=>el.getAttribute("href"))')
+                self.assertEqual(len(links),self.page.locator('.metric').count())
+                for href in links:
+                    guide.goto(self.url+href[2:])
+                    target = guide.locator('#'+href.split('#')[1])
+                    self.assertTrue(target.is_visible())
+                    self.assertTrue(target.locator('.worked-example').evaluate('el=>el.open'))
+                    self.assertGreaterEqual(target.locator('.worked-example li').count(),2)
+                    self.assertTrue(target.locator('.formula-variables').is_visible())
+            self.page.goto(self.url)
+            self.page.locator('#calculate').click();self.open_results()
+            href=self.page.locator('.metric').filter(has_text='Fuerza de cierre teórica').locator('.result-learning').get_attribute('href')
+            self.assertIn('level=advanced#inyeccion-8',href)
+            guide.goto(self.url+href[2:]);self.assertTrue(guide.locator('#inyeccion-8').is_visible())
+            guide.locator('#formula-process').select_option('all')
+            guide.locator('#formula-level').select_option('technical')
+            self.assertEqual(guide.locator('[data-lesson]:visible').count(),28)
+            self.assertEqual(guide.locator('[data-lesson-level="advanced"]:visible').count(),0)
+            self.assertEqual(guide.locator('.alternate-example:visible').count(),2)
+            self.assertTrue(guide.locator('[data-alternate-level="advanced"]').evaluate_all('els=>els.every(el=>el.hidden)'))
+            guide.locator('#language').select_option('en')
+            self.assertEqual(guide.locator('#formula-level').input_value(),'technical')
+            self.assertIn('28 explanations',guide.locator('#formula-count').inner_text())
+            guide.locator('#formula-level').select_option('advanced')
+            self.assertEqual(guide.locator('[data-lesson]:visible').count(),42)
+            guide.locator('#language').select_option('es')
+            for width in [320,390,768,1440]:
+                guide.set_viewport_size({'width':width,'height':900})
+                self.assertTrue(guide.evaluate('document.documentElement.scrollWidth<=innerWidth'))
+            guide.evaluate('scrollTo(0,0)')
+            guide.screenshot(path=str(ARTIFACTS/'formulas-aprendizaje-1440.png'))
+            guide.set_viewport_size({'width':390,'height':844})
+            guide.screenshot(path=str(ARTIFACTS/'formulas-aprendizaje-390.png'))
+            guide.goto(self.url+'formulas.html?process=inyeccion&level=advanced#inyeccion-8')
+            guide.screenshot(path=str(ARTIFACTS/'formulas-cierre-paso-a-paso-390.png'))
+        finally:
+            guide.close()
+
+    def test_22_responsive_bilingual_captures_and_local_storage_failure(self):
+        self.fill_case('inyeccion',VARIANTS[0][1], 'technical')
+        self.page.locator('#results-details > summary').click()
+        for lang in ['es','en']:
+            self.page.locator('#language').select_option(lang)
+            for width in [320,390,768,1024,1440]:
+                self.page.set_viewport_size({'width':width,'height':900})
+                self.assert_layout()
+                self.page.evaluate('scrollTo(0,0)')
+                self.page.screenshot(path=str(ARTIFACTS/f'v13-{lang}-{width}.png'),full_page=True)
+            self.open_custom_property('specific_heat')
+            self.page.set_viewport_size({'width':320,'height':900});self.assert_layout()
+            self.page.locator('#custom-panel > summary').click()
+        self.page.add_init_script("Object.defineProperty(window,'localStorage',{get(){throw Error('blocked')}})")
+        self.page.reload()
+        self.page.locator('#language').select_option('en')
+        self.page.wait_for_function("document.querySelector('#calculate').textContent==='Calculate'")
+        self.open_custom_property('melt_density')
+        self.page.locator('#custom-form [name="grade"]').fill('Fail quota case')
+        self.page.locator('#custom-form button[type="submit"]').click()
+        self.assertEqual(self.page.locator('#custom-feedback').inner_text(),'Materials could not be saved in this browser.')
+        self.fill_case('inyeccion',VARIANTS[0][1])
+        self.assertIn('71.5',self.page.locator('.kpi').nth(0).inner_text())
+        self.page.goto(self.url+'formulas.html')
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('[data-lesson]').count(),42)
+
+
+    def test_23_history_snapshot_readable_in_frozen_v1(self):
+        record=self.page.evaluate("""async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const record=makeCustomMaterial({family:'PP',grade:'Caso propio de compatibilidad',melt_density:.8,source:'Demostración sintética, no medición'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([record]));return record;}""")
+        self.page.reload();self.select_grade(record)
+        self.fill_case('inyeccion',VARIANTS[0][1])
+        self.page.locator('#save').click()
+        snapshot=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))[0]")
+        self.assertEqual(snapshot['material']['dataset']['version'],'1.3.0')
+        self.page.locator('#language').select_option('en')
+        self.page.goto(self.url+'versions/v1/')
+        self.page.locator('[data-history="0"]').click()
+        self.assertEqual(self.page.locator('#material-grade').count(),1)
+        self.assertIn(record['grade'],self.page.locator('.material-summary').inner_text())
+        with self.page.expect_download() as info:self.page.locator('#export').click()
+        restored=json.loads(Path(info.value.path()).read_text())
+        self.assertEqual(restored['inputs'],snapshot['inputs'])
+        self.assertEqual(restored['metrics'],snapshot['metrics'])
+        self.assertEqual(restored['material']['grade_id'],record['id'])
+        self.assertEqual(self.page.locator('.mark').inner_text(),'CCIP')
+
+
+    def test_24_custom_pvc_pellet_bulk_density(self):
+        record=self.page.evaluate("""async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const r=makeCustomMaterial({family:'PVC',grade:'Compuesto PVC propio',bulk_density:500,bulk_density_unit:'kg/m3',bulk_density_form:'pellets',bulk_density_source:'Ejemplo sintético, no medición'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([r]));return r;}""")
+        self.page.reload();self.page.locator('[data-module="secado"]').click()
+        self.page.locator('#level').select_option('technical');self.select_grade(record)
+        self.page.locator('#material-physicalForm').select_option('pellets')
+        self.page.locator('#material-bulkCompatible').check()
+        self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(),'0.5')
+        self.page.locator('[data-field="residence"]').fill('3')
+        self.page.locator('#calculate').click();self.open_results()
+        self.assertIn('300',self.page.locator('.metric').nth(1).inner_text())
+        self.page.locator('#language').select_option('en')
+        self.english_ui_is_complete()
+        self.assertIn('User-specified',self.page.locator('[data-property="bulk_density"]').inner_text())
+        self.assertIn('not documented',self.page.locator('[data-property="bulk_density"]').inner_text())
 
 
 if __name__ == '__main__':

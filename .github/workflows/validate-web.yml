@@ -1,0 +1,46 @@
+name: Validate CCIP web
+on:
+  push:
+    branches: ["feature/catalogo-90-i18n-formulas"]
+  pull_request:
+    branches: ["feature/web-v1-modular"]
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Check JS and JSON unit tests
+        run: npm test
+  browser:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install -r tests/requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Browser smoke test
+        env:
+          CCIP_TEST_ARTIFACTS: test-artifacts
+        shell: bash
+        run: |
+          mkdir -p test-artifacts
+          python tests/browser_smoke.py 2>&1 | tee test-artifacts/browser.log
+      - name: Save browser screenshots and log
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: ccip-v13-browser-${{ github.run_id }}
+          path: test-artifacts
+          retention-days: 30

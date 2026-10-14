@@ -1,15 +1,18 @@
 import { modules, activeFields } from "./schema.js";
+import { initI18n, getLanguage, t } from "./i18n.js";
+import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
 import { calculate } from "./engine.js";
 import { readHistory, storageKey } from "./history.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
 import { fieldGroups, primaryLabels } from "./presentation.js";
 import { bindParameterHelp } from "./tooltips.js";
 import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from "./materials-view.js";
+import { guideHref } from "./formula-learning.js";
 
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
 const sessions = new Map();
-let library = null, loadStatus = "Cargando catálogo local…";
+let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
@@ -51,8 +54,36 @@ function draw() {
   applyMaterial(state.material, mod(), state.values, state.level);
   drawFields();
   drawMaterials();
+  if (!$("custom-material-editor").children.length) drawCustomEditor();
   invalidate();
   renderHistory();
+}
+
+const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}" target="_blank" rel="noopener">Ver fórmula y ejemplo</a>`;
+
+function refreshPersonalCatalog() {
+  const base = catalogBase || {schema_version:"1.3.0",dataset_name:"Personal materials",retrieved_on:new Date().toISOString().slice(0,10),sources:{},materials:[]};
+  const merged = mergeCustomMaterials(base);
+  library = merged.materials.length ? validateLibrary(merged) : null;
+  if (library) loadStatus = `${library.materials.length} opciones · catálogo ${library.catalog_revision || library.schema_version} · revisión ${library.retrieved_on}`;
+}
+function drawCustomEditor() {
+  renderCustomEditor($("custom-material-editor"), {
+    onSave: record => {
+      refreshPersonalCatalog();
+      for (const session of sessions.values()) if (session.material.grade_snapshot?.id === record.id) selectMaterial(library,session.material,session.values,record.id);
+      selectMaterial(library,state.material,state.values,record.id);
+      state.filters = {family:record.family,manufacturer:record.manufacturer};
+      drawCustomEditor();draw();
+    },
+    onDelete: id => {
+      refreshPersonalCatalog();
+      for (const session of sessions.values()) if (session.material.grade_snapshot?.id === id) {selectMaterial(library,session.material,session.values,null);session.filters={family:"",manufacturer:""};}
+      if (state.material.grade_snapshot?.id === id) {selectMaterial(library,state.material,state.values,null);state.filters={family:"",manufacturer:""};}
+      drawCustomEditor();draw();
+    },
+    onImport: () => {refreshPersonalCatalog();drawCustomEditor();draw();$("custom-panel").open=true;}
+  });
 }
 
 function drawMaterials() {
@@ -79,6 +110,13 @@ function materialChanged(action, value) {
     }
     else renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
     invalidate();
+    return;
+  }
+  if (action === "family" && value && library) {
+    const generic = library.materials.find(m => m.family === value && m.record_status === "generic_unverified");
+    selectMaterial(library, state.material, state.values, generic?.id || null);
+    state.filters = { family: value, manufacturer: generic?.manufacturer || "" };
+    draw();
     return;
   }
   selectMaterial(library, state.material, state.values, action === "grade" ? value : null);
@@ -115,10 +153,10 @@ function compute() {
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => a.metrics.find(m => m.label === label)).filter(Boolean);
-  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small></article>`).join("");
+  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small>${learningLink(m.label)}</article>`).join("");
   const usage = a.metrics.find(m => m.label === "Utilización volumétrica teórica");
   $("usage").innerHTML = usage ? `<div class="usage"><b>Utilización geométrica del husillo</b><p>${safe(format(usage))}</p>${usage.value === null ? '<p class="muted">Pendiente: requiere volumen de shot, diámetro y carrera disponibles.</p>' : `<div class="usage-track" role="meter" aria-label="Utilización geométrica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100, Math.max(0, usage.value))}" aria-valuetext="${safe(format(usage))}${usage.value > 100 ? "; supera la capacidad teórica" : ""}"><span style="width:${Math.min(100, Math.max(0, usage.value))}%"></span></div><small>${usage.value > 100 ? "Supera la capacidad geométrica indicada. " : ""}Verifica los límites reales del equipo; el porcentaje no certifica idoneidad.</small>`}</div>` : "";
-  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small></div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
+  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small>${learningLink(m.label)}</div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
   $("messages").innerHTML = a.warnings.map(t => `<div class="warning">⚠ ${safe(t)}</div>`).join("") + a.notes.map(t => `<div class="note">${safe(t)}</div>`).join("");
   $("result-notes").querySelector("summary").textContent = a.warnings.length ? `Advertencias (${a.warnings.length}), hipótesis y límites` : "Hipótesis y límites";
   if (a.warnings.length) $("result-notes").open = true;
@@ -157,7 +195,7 @@ $("save").addEventListener("click", () => {
   try {
     localStorage.setItem(storageKey, JSON.stringify(history.slice(0, 60)));
     renderHistory();
-  } catch { alert("No se pudo guardar el historial en este navegador."); }
+  } catch { alert(t("No se pudo guardar el historial en este navegador.")); }
 });
 $("export").addEventListener("click", () => {
   const item = compute();
@@ -170,10 +208,12 @@ $("export").addEventListener("click", () => {
 });
 state.values = initialValues();
 draw();
+initI18n();
+
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
-fetch(new URL("./data/materials.v1.2.json", import.meta.url))
+fetch(new URL("./data/materials.v1.3.json", import.meta.url))
   .then(response => { if (!response.ok) throw Error(`HTTP ${response.status}`); return response.json(); })
-  .then(data => { library = validateLibrary(data); loadStatus = `${library.materials.length} grados · biblioteca ${library.schema_version} · revisión ${library.retrieved_on}`; })
+  .then(data => { catalogBase = validateLibrary(data); library = validateLibrary(mergeCustomMaterials(catalogBase)); loadStatus = `${library.materials.length} opciones · catálogo ${data.catalog_revision || data.schema_version} · revisión ${library.retrieved_on}`; })
   .catch(() => { loadStatus = "Catálogo no disponible: puedes continuar con material personalizado y datos manuales."; })
   .finally(drawMaterials);
