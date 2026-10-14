@@ -50,7 +50,7 @@ La [documentación del rediseño y conservación](docs/rediseno-y-versiones.md) 
 - `src/data/materials.v1.3.json`: catálogo activo con 99 perfiles y estado documental explícito. V1.0/V1.1/V1.2 permanecen conservadas.
 - `src/custom-materials.js`: propiedades personales, conversiones, importación/exportación y almacenamiento validado.
 - `src/i18n*.js`: presentación ES/EN, separada de entradas y cálculo.
-- `src/formulas-data.js`, `src/formulas-index.js` y `formulas.html`: 42 salidas explicadas, área auxiliar y ejemplos sintéticos de las nueve variantes.
+- `src/formulas-data.js`, `src/formulas-index.js`, `src/formula-learning.js` y `formulas.html`: 42 salidas explicadas, área auxiliar y ejemplos sintéticos de las nueve variantes.
 - `src/pvt.js`: validación y copia de referencias documentales, sin lookup de densidad.
 - `src/materials-audit-view.js`: referencias bloqueadas, gráfica orientativa y controles manuales.
 - `src/materials.js`: selección, compatibilidad, autocompletado y snapshots.
@@ -91,10 +91,10 @@ La [auditoría V1.1 / referencias pVT V1.2](docs/auditoria-materiales-v1.2.md) d
 - Crear, editar, eliminar, seleccionar, exportar e importar materiales propios. Cada propiedad mantiene unidad introducida y canónica, fase, fuente, método y condiciones. Para densidad aparente propia también se declara pellets/polvo: no se deduce de la familia PVC. Datos no verificados por CCIP, guardados solo localmente.
 - Validación de JSON, versión, nombres/ID duplicados, unidades, límites, fases y URLs. Importación atómica; registros corruptos no impiden usar los válidos ni calcular. Los materiales propios no pueden sobrescribir fichas originales.
 - ES/EN en controles, ayudas, fichas, ecuaciones, resultados, errores y límites. Cambiar idioma conserva parámetros, resultados y borradores. La preferencia se guarda cuando el navegador permite almacenamiento. Los nombres comerciales y textos escritos por el usuario conservan su contenido original.
-- Guía con 42 explicaciones de resultados y área auxiliar del husillo: variables, unidades, conversiones, ejemplos paso a paso, límites y referencias. Incluye dosificación por volumen y extrusión de tubo, ampliando las 26 explicaciones iniciales.
+- Apartado visible «Aprende las fórmulas», filtros por proceso/nivel y enlaces desde cada resultado. Guía con 42 explicaciones de resultados y área auxiliar del husillo: variables, unidades, conversiones, ejemplos paso a paso, límites y referencias. Incluye dosificación por volumen y extrusión de tubo, ampliando las 26 explicaciones iniciales.
 - Pruebas finales: **500 Node + 24 Playwright**, 135 estados de cálculo, 162 de biblioteca inicial, 99 perfiles y 27 casos ES/EN/ES; validación adicional del historial V1.3 recuperado desde V1 congelada. Véase [informe](docs/auditoria-v1.3-final.md) para resultados ejecutados y alcance.
 
-[Capturas V1.3](docs/capturas/v1.3/README.md) · [Auditoría individual de fuentes](docs/auditoria-fuentes-v1.3.json)
+[Aprendizaje de fórmulas](docs/aprendizaje-formulas.md) · [Capturas V1.3](docs/capturas/v1.3/README.md) · [Auditoría individual de fuentes](docs/auditoria-fuentes-v1.3.json)
 
 Reconsulta documental reproducible, sin modificar el catálogo:
 

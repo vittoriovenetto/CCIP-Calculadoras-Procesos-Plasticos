@@ -6,6 +6,7 @@ import {calculate} from '../src/engine.js';
 import {validateLibrary,createMaterialState,selectMaterial,applyMaterial,materialSnapshot} from '../src/materials.js';
 import {makeCustomMaterial,validateUserMaterial,listUserMaterials,persistUserMaterials,parseUserImport,exportUserMaterials,mergeCustomMaterials,convertProperty,USER_KEY} from '../src/custom-materials.js';
 import {lessons,examples} from '../src/formulas-data.js';
+import {lessonLevel,guideHref} from '../src/formula-learning.js';
 import {t,setLanguage,getLanguage} from '../src/i18n.js';
 const data = JSON.parse(readFileSync(new URL('../src/data/materials.v1.3.json',import.meta.url)));
 const audit = JSON.parse(readFileSync(new URL('../docs/auditoria-fuentes-v1.3.json',import.meta.url)));
@@ -49,6 +50,31 @@ for (const lesson of lessons) test(`${lesson.id}: ejemplo independiente correspo
 test('Guía cubre las 42 salidas sin duplicados y añade ambos modos geométricos',()=>{
   assert.equal(lessons.length,42);assert.equal(examples.length,9);
   for (const module of modules) assert.deepEqual(lessons.filter(x=>x.module===module.id).map(x=>x.label).sort(),calculate(module.id,{},'advanced').metrics.map(x=>x.label).sort());
+});
+test('Niveles de aprendizaje reproducen los 42 ejemplos, incluidos términos opcionales e intermedios',()=>{
+  const levels = ['basic','technical','advanced'];
+  for (const lesson of lessons) {
+    const inputs = examples.find(([id])=>id===lesson.module)[1];
+    const selected = lessonLevel(lesson);
+    assert.ok(levels.includes(selected),lesson.id);
+    for (const level of levels) {
+      const value = calculate(lesson.module,inputs,level).metrics.find(m=>m.label===lesson.label).value;
+      const matches = value !== null && Math.abs(value-lesson.expected) <= 1e-10*Math.max(1,Math.abs(lesson.expected));
+      assert.equal(matches,levels.indexOf(level)>=levels.indexOf(selected),`${lesson.id}/${level}`);
+    }
+  }
+  assert.equal(lessonLevel(lessons.find(x=>x.id==='inyeccion-2')),'technical','Un margen técnico distinto de cero no se enseña como ejemplo básico');
+  assert.equal(lessonLevel(lessons.find(x=>x.id==='inyeccion-8')),'advanced');
+});
+test('Enlaces de resultados alcanzan su lección y habilitan un nivel suficiente aunque estén pendientes',()=>{
+  for (const lesson of lessons) {
+    const url = new URL(guideHref(lesson.module,'basic',lesson.label),'https://example.org/ccip/');
+    assert.equal(url.hash,`#${lesson.id}`);
+    assert.equal(url.searchParams.get('process'),lesson.module);
+    assert.equal(url.searchParams.get('level'),lessonLevel(lesson));
+  }
+  assert.equal(guideHref('inyeccion','technical','Fuerza de cierre teórica'),'./formulas.html?process=inyeccion&level=advanced#inyeccion-8');
+  assert.equal(guideHref('secado','invalid'),'./formulas.html?process=secado&level=advanced#guide-secado');
 });
 for (const [key,value,unit,wanted] of [
   ['solid_density',950,'kg/m3',.95],['melt_density',800,'kg/m3',.8],['bulk_density',500,'kg/m3',.5],
