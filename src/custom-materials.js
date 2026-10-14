@@ -79,21 +79,21 @@ export function renderCustomEditor(root,{onSave,onDelete,lang="es"}={}){
  const en=lang==="en",records=listUserMaterials();
  const text=(es,eng)=>en?eng:es;
  const escape=s=>String(s||"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll('"',"&quot;");
- root.innerHTML = \`<details id="custom-panel"><summary>\${text("Agregar / editar material propio","Add / edit custom material")} (\${records.length})</summary>
- <p class="muted">\${text("Datos guardados solo en este navegador. Sin validación ni sincronización. Nunca se asumen propiedades de la familia.","Saved only in this browser. Unverified, not synchronized. Family properties are never assumed.")}</p>
+ root.innerHTML = `<details id="custom-panel"><summary>${text("Agregar / editar material propio","Add / edit custom material")} (${records.length})</summary>
+ <p class="muted">${text("Datos guardados solo en este navegador. Sin validación ni sincronización. Nunca se asumen propiedades de la familia.","Saved only in this browser. Unverified, not synchronized. Family properties are never assumed.")}</p>
  <form id="custom-form"><div class="fields">
- <label>\${text("Familia","Family")}<select name="family" required>\${FAMILIES.map(f=>\`<option value="\${f}">\${f}</option>\`).join("")}</select></label>
- <label>\${text("Nombre del material/grado","Material/grade name")}<input name="grade" maxlength="100" required></label>
- <label>\${text("Fabricante / procedencia","Manufacturer / origin")}<input name="manufacturer" maxlength="100"></label>
- <label>\${text("Fuente o ficha (HTTPS)","Source or datasheet (HTTPS)")}<input name="url" type="url"></label>
- <label>\${text("Descripción de fuente","Source description")}<input name="source" maxlength="500"></label>
- <label>\${text("Método de medida","Measurement method")}<input name="method" maxlength="160"></label>
- <label>\${text("Condiciones (temperatura, presión, fase, lote...)","Conditions (temperature, pressure, phase, batch...)")}<input name="conditions" maxlength="250"></label>
- \${Object.entries(NUMERICS).map(([k,[label,unit,max]])=>\`<label>\${en?label.split(" / ").at(-1):label.split(" / ")[0]} (\${unit})<input name="\${k}" type="number" step="any" min="\${k==="drying_temperature"||k.includes("temperature")?'-273.14':'0'}" max="\${max}" placeholder="—"></label>\`).join("")}
- </div><div class="actions"><button type="submit" class="primary">\${text("Guardar material local","Save material locally")}</button><button id="custom-export" type="button">\${text("Exportar catálogo personal JSON","Export personal catalog JSON")}</button></div></form>
+ <label>${text("Familia","Family")}<select name="family" required>${FAMILIES.map(f=>`<option value="${f}">${f}</option>`).join("")}</select></label>
+ <label>${text("Nombre del material/grado","Material/grade name")}<input name="grade" maxlength="100" required></label>
+ <label>${text("Fabricante / procedencia","Manufacturer / origin")}<input name="manufacturer" maxlength="100"></label>
+ <label>${text("Fuente o ficha (HTTPS)","Source or datasheet (HTTPS)")}<input name="url" type="url"></label>
+ <label>${text("Descripción de fuente","Source description")}<input name="source" maxlength="500"></label>
+ <label>${text("Método de medida","Measurement method")}<input name="method" maxlength="160"></label>
+ <label>${text("Condiciones (temperatura, presión, fase, lote...)","Conditions (temperature, pressure, phase, batch...)")}<input name="conditions" maxlength="250"></label>
+ ${Object.entries(NUMERICS).map(([k,[label,unit,max]])=>`<label>${en?label.split(" / ").at(-1):label.split(" / ")[0]} (${unit})<input name="${k}" type="number" step="any" min="${k==="drying_temperature"||k.includes("temperature")?'-273.14':'0'}" max="${max}" placeholder="—"></label>`).join("")}
+ </div><div class="actions"><button type="submit" class="primary">${text("Guardar material local","Save material locally")}</button><button id="custom-export" type="button">${text("Exportar catálogo personal JSON","Export personal catalog JSON")}</button></div></form>
  <p id="custom-feedback" role="status"></p>
- <h3>\${text("Mis materiales","My materials")}</h3><div id="custom-list">\${records.length?records.map(m=>\`<div class="historyRow"><span>\${escape(m.family)} · \${escape(m.grade)}</span><button type="button" data-personal-delete="\${escape(m.id)}">\${text("Eliminar","Delete")}</button></div>\`).join(""):\`<p class="muted">\${text("Sin registros","No records")}</p>\`}</div>
- </details>\`;
+ <h3>${text("Mis materiales","My materials")}</h3><div id="custom-list">${records.length?records.map(m=>`<div class="historyRow"><span>${escape(m.family)} · ${escape(m.grade)}</span><button type="button" data-personal-delete="${escape(m.id)}">${text("Eliminar","Delete")}</button></div>`).join(""):`<p class="muted">${text("Sin registros","No records")}</p>`}</div>
+ </details>`;
  root.querySelector("form").addEventListener("submit",e=>{
    e.preventDefault();
    const f=Object.fromEntries(new FormData(e.target));
