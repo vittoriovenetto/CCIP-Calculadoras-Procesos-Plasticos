@@ -565,6 +565,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.goto(self.url+'formulas.html')
         self.assertIn('Biblioteca de fórmulas', self.page.locator('h1').inner_text())
         self.assertEqual(self.page.locator('.language-section[data-lang="es"] .equation').count(), 26)
+        self.assertEqual(self.page.locator('.formula-full-index tbody tr').count(), 42)
         self.page.locator('#language').select_option('en')
         self.assertEqual(self.page.locator('.language-section[data-lang="en"] .equation').count(), 26)
 
