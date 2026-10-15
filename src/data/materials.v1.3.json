@@ -553,7 +553,7 @@
     "CAT260": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur HH-106",
-      "url": "https://www.ineos-styrolution.com/Product/Novodur-ABS-_NOVODUR-HH-106_SKU302200150417.html",
+      "url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-HH-106_SKU302200150417.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -665,7 +665,7 @@
     "CAT276": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2856",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2856_000000000057534439",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -679,7 +679,7 @@
     "CAT278": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 3105",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -6749,26 +6749,55 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Terluran HI-10",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT256",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.03,
+          "unit": "g/cm3",
+          "source_id": "CAT256",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
+        "drying_temperature": {
+          "value": 175,
+          "unit": "°F",
+          "source_id": "CAT256",
+          "method": "Fabricante",
+          "condition": "Dato en °F, no usar como °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 0.1,
+          "unit": "g/10min",
+          "source_id": "CAT256",
+          "method": "ASTM D1238",
+          "condition": "200 °C / 5 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos típicos oficiales INEOS; comprobar unidad de ensayo y las recomendaciones de secado para el grado exacto.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -6787,10 +6816,38 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT256"
+      },
+      "additional_properties": [
+        {
+          "key": "vicat_temperature",
+          "value": 96,
+          "unit": "°C",
+          "source_id": "CAT256",
+          "method": "ISO 306",
+          "condition": "Consultar condición A/B 50/120 según ficha",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 6240,
+          "unit": "psi",
+          "source_id": "CAT256",
+          "method": "ASTM D638",
+          "condition": "23 °C; la fuente publica psi",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-HI-10_SKU300600120831.html"
       }
     },
     {
@@ -6896,10 +6953,21 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur H605",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT259",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.05,
+          "unit": "g/cm3",
+          "source_id": "CAT259",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -6908,14 +6976,23 @@
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 26,
+          "unit": "cm3/10min",
+          "source_id": "CAT259",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos típicos oficiales INEOS; comprobar unidad de ensayo y las recomendaciones de secado para el grado exacto.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -6934,10 +7011,49 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT259"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2400,
+          "unit": "MPa",
+          "source_id": "CAT259",
+          "method": "ISO 527",
+          "condition": "23 °C, ficha de fabricante",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "vicat_temperature",
+          "value": 104,
+          "unit": "°C",
+          "source_id": "CAT259",
+          "method": "ISO 306",
+          "condition": "Consultar condición A/B 50/120 según ficha",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 47,
+          "unit": "MPa",
+          "source_id": "CAT259",
+          "method": "ISO 527",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-H605_SKU302200150405.html"
       }
     },
     {
@@ -6945,7 +7061,9 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur HH-106",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT260",
       "properties": {
         "solid_density": null,
@@ -6957,14 +7075,23 @@
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 7,
+          "unit": "cm3/10min",
+          "source_id": "CAT260",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos típicos oficiales INEOS; comprobar unidad de ensayo y las recomendaciones de secado para el grado exacto.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -6983,10 +7110,38 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT260"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2400,
+          "unit": "MPa",
+          "source_id": "CAT260",
+          "method": "ISO 527",
+          "condition": "23 °C, ficha de fabricante",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 51,
+          "unit": "MPa",
+          "source_id": "CAT260",
+          "method": "ISO 527",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-HH-106_SKU302200150417.html"
       }
     },
     {
@@ -6994,7 +7149,9 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur HH-112",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT261",
       "properties": {
         "solid_density": null,
@@ -7006,14 +7163,23 @@
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 5.5,
+          "unit": "cm3/10min",
+          "source_id": "CAT261",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos típicos oficiales INEOS; comprobar unidad de ensayo y las recomendaciones de secado para el grado exacto.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -7032,10 +7198,38 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT261"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2700,
+          "unit": "MPa",
+          "source_id": "CAT261",
+          "method": "ISO 527",
+          "condition": "23 °C, ficha de fabricante",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 58,
+          "unit": "MPa",
+          "source_id": "CAT261",
+          "method": "ISO 527",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_Novodur-HH-112_SKU302200150418.html"
       }
     },
     {
@@ -7043,10 +7237,21 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur P2MC",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT262",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.03,
+          "unit": "g/cm3",
+          "source_id": "CAT262",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -7055,14 +7260,23 @@
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 25,
+          "unit": "cm3/10min",
+          "source_id": "CAT262",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos típicos oficiales INEOS; comprobar unidad de ensayo y las recomendaciones de secado para el grado exacto.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -7081,10 +7295,49 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT262"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2200,
+          "unit": "MPa",
+          "source_id": "CAT262",
+          "method": "ISO 527",
+          "condition": "23 °C, ficha de fabricante",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "vicat_temperature",
+          "value": 98,
+          "unit": "°C",
+          "source_id": "CAT262",
+          "method": "ISO 306",
+          "condition": "Consultar condición A/B 50/120 según ficha",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 40,
+          "unit": "MPa",
+          "source_id": "CAT262",
+          "method": "ISO 527",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.ineos-styrolution.com/Product/Novodur_Novodur-P2MC_SKU302100140449.html"
       }
     },
     {
@@ -7092,10 +7345,21 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur P2H-AT",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT263",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.05,
+          "unit": "g/cm3",
+          "source_id": "CAT263",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -7104,14 +7368,23 @@
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 37,
+          "unit": "cm3/10min",
+          "source_id": "CAT263",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos típicos oficiales INEOS; comprobar unidad de ensayo y las recomendaciones de secado para el grado exacto.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -7130,10 +7403,49 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT263"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2500,
+          "unit": "MPa",
+          "source_id": "CAT263",
+          "method": "ISO 527",
+          "condition": "23 °C, ficha de fabricante",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "vicat_temperature",
+          "value": 100,
+          "unit": "°C",
+          "source_id": "CAT263",
+          "method": "ISO 306",
+          "condition": "Consultar condición A/B 50/120 según ficha",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 44,
+          "unit": "MPa",
+          "source_id": "CAT263",
+          "method": "ISO 527",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur_NOVODUR-P2H-AT_SKU302100140442.html"
       }
     },
     {
@@ -8065,26 +8377,64 @@
       "family": "PC",
       "manufacturer": "Covestro",
       "grade": "Makrolon 2856",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT276",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.2,
+          "unit": "g/cm3",
+          "source_id": "CAT276",
+          "method": "ISO 1183-1",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
+        "drying_temperature": {
+          "value": 120,
+          "unit": "°C",
+          "source_id": "CAT276",
+          "method": "Secador aire seco",
+          "condition": "Recomendación grado",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        "drying_time": {
+          "value": 4,
+          "unit": "h",
+          "source_id": "CAT276",
+          "method": "Secador aire seco",
+          "condition": "Recomendación grado",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 9,
+          "unit": "cm3/10min",
+          "source_id": "CAT276",
+          "method": "ISO 1133-1",
+          "condition": "300 °C / 1.2 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos del producto exacto Covestro. Densidad aparente se puede consultar pero fuente presenta errores de unidad, no se importa automáticamente.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -8121,10 +8471,27 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT276"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2400,
+          "unit": "MPa",
+          "source_id": "CAT276",
+          "method": "ISO 527-1/-2",
+          "condition": "23 °C / 50% RH",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2856_000000000057534439"
       }
     },
     {
@@ -8199,10 +8566,21 @@
       "family": "PC",
       "manufacturer": "Covestro",
       "grade": "Makrolon 3105",
-      "process_tags": [],
+      "process_tags": [
+        "inyeccion"
+      ],
       "source_id": "CAT278",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.2,
+          "unit": "g/cm3",
+          "source_id": "CAT278",
+          "method": "ISO 1183-1",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -8211,14 +8589,23 @@
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 6,
+          "unit": "cm3/10min",
+          "source_id": "CAT278",
+          "method": "ISO 1133-1",
+          "condition": "300 °C / 1.2 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos del producto exacto Covestro. Densidad aparente se puede consultar pero fuente presenta errores de unidad, no se importa automáticamente.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -8255,10 +8642,27 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
         "source_id": "CAT278"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 2400,
+          "unit": "MPa",
+          "source_id": "CAT278",
+          "method": "ISO 527-1/-2",
+          "condition": "23 °C / 50% RH",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico de fabricante; NO certificado de lote"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560"
       }
     },
     {
