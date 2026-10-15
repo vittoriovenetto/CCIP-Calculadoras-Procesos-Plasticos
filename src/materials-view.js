@@ -60,6 +60,11 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
               : grade.family + " · " + grade.grade + " · " + count + " propiedades ingresadas por usuario (no verificadas).")
         : (en ? grade.family + " · " + grade.grade + " · " + (count ? count + " technical properties available." : "No technical properties entered yet.")
               : grade.family + " · " + grade.grade + " · " + (count ? count + " propiedades técnicas disponibles." : "Sin propiedades técnicas registradas."));
+  const detailsTitle = count
+    ? (en ? "Material properties, compatibility and references" : "Ficha, compatibilidad, pVT y fuentes")
+    : generic
+      ? (en ? "Unknown grade: manual data and conditions" : "Grado genérico: datos y condiciones manuales")
+      : (en ? "Material information and process conditions" : "Información y condiciones del material");
   const sourceDetails = generic ? "" : `<p class="muted"><span>Fuente</span> [${safe(grade.source_id)}]: <span ${grade.record_status === "user_entered_unverified" && materialState.source?.description && materialState.source.description !== "Datos introducidos por usuario" ? "data-i18n-ignore" : ""}>${safe(materialState.source?.description || "Metadata no disponible")}</span> · <span>Biblioteca</span> ${safe(materialState.dataset?.version)} · <span>Revisión</span> ${safe(materialState.dataset?.retrieved_on)}</p>${sourceUrl ? `<a class="source-link" target="_blank" rel="noopener noreferrer" href="${safe(sourceUrl)}">Abrir referencia declarada [${safe(grade.source_id)}]</a>` : generic ? "" : '<p class="muted">Enlace de fuente no disponible.</p>'}`;
   root.innerHTML = `<h2 id="materials-title">Material del caso</h2>
     <div class="material-selectors fields">
@@ -68,7 +73,7 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
       <div><label for="material-grade">Grado comercial</label><select id="material-grade" ${manufacturer && available ? "" : "disabled"}><option value="">Material personalizado / sin ficha</option>${gradeOptions.map(m => `<option value="${safe(m.id)}" ${m.id === grade?.id ? "selected" : ""}>${safe(m.grade)}</option>`).join("")}</select></div>
     </div><p id="material-load-status" class="muted">${safe(loadStatus)}</p>
     <p class="material-compact">${safe(compactText)}</p>
-    <details id="material-details" ${detailsOpen ? 'open' : ''}><summary>Ficha, compatibilidad, pVT y fuentes</summary><div class="material-details-body">
+    <details id="material-details" ${detailsOpen ? 'open' : ''}><summary>${safe(detailsTitle)}</summary><div class="material-details-body">
     ${grade ? `<div class="material-summary"><h3>${safe(grade.family)} · <span ${grade.record_status === "user_entered_unverified" && grade.manufacturer !== "Usuario" ? "data-i18n-ignore" : ""}>${safe(grade.manufacturer)}</span> · <span ${grade.record_status === "user_entered_unverified" ? "data-i18n-ignore" : ""}>${safe(grade.grade)}</span></h3><p>${safe(grade.notes)}</p>${grade.identity_verification ? '<p class="warning">Identidad comercial pendiente de verificación oficial.</p>' : ""}${sourceDetails}
       ${properties.length ? `<details id="material-properties" ${level === "basic" ? "" : "open"}><summary>Ficha: valores, unidades, fase y condiciones</summary><div class="property-list">${properties.map(([key, label]) => {
         const p = grade.properties[key];
