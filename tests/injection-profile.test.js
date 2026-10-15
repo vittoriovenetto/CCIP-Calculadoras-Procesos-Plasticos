@@ -54,6 +54,6 @@ test('Posiciones absolutas solo con origen y sentido explícitos; cero es un ori
 });
 test('Colchón, factor caliente y margen no alteran los tres tramos físicos',()=>{
   const a=calculateInjectionProfile(input,'advanced',settings,{});
-  const b=calculateInjectionProfile({...input,cushion:10,hotFactor:0.5,shotMargin:90},'advanced',settings,{});
+  const b=calculateInjectionProfile({...input,targetCushion:10,hotFactor:0.5,shotMargin:90},'advanced',settings,{});
   assert.deepEqual(a.stages,b.stages);assert.equal(b.thermal_correction_applied,false);
 });
