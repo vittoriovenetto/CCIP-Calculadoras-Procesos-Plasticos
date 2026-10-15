@@ -1627,10 +1627,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT201"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT201",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -1716,10 +1716,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT202"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT202",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -1805,10 +1805,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT203"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT203",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -1895,10 +1895,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT204"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT204",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [],
       "data_review": {
@@ -1974,10 +1974,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT205"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT205",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2074,10 +2074,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT206"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT206",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2183,10 +2183,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT207"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT207",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2272,10 +2272,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT208"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT208",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2525,10 +2525,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT211"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT211",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2624,10 +2624,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT212"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT212",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2723,10 +2723,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT213"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT213",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [],
       "data_review": {
@@ -2824,10 +2824,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT214"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT214",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -2924,10 +2924,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT215"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT215",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3025,10 +3025,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT216"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT216",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3124,10 +3124,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT217"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT217",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3223,10 +3223,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT218"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT218",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3355,10 +3355,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT219"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT219",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3454,10 +3454,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT220"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT220",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3553,10 +3553,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT221"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT221",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -3643,10 +3643,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT222"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT222",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -4020,10 +4020,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT228"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT228",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -4125,10 +4125,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT229"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT229",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -5717,10 +5717,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT255"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT255",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [
         {
@@ -6285,10 +6285,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT264"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT264",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [],
       "data_review": {
@@ -6848,10 +6848,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT273"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT273",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [],
       "data_review": {
@@ -6976,10 +6976,10 @@
         "P_range_MPa": null
       },
       "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT274"
+        "status": "official_product_page_confirmed",
+        "checked_on": "2026-10-15",
+        "source_id": "CAT274",
+        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
       },
       "additional_properties": [],
       "data_review": {
