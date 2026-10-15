@@ -6,7 +6,7 @@ import {compareRecords,comparisonCSV} from "../src/compare.js";
 const d=JSON.parse(readFileSync(new URL("../src/data/materials.v1.3.json",import.meta.url),"utf8"));
 test("search across family, manufacturer, grade, accent-neutral",()=>{
  const data=d.materials;
- assert.equal(data.length,68);
+ assert.equal(data.length,73);
  assert.ok(searchMaterials(data,{query:"2045"}).some(m=>m.grade==="DOWLEX 2045G"));
  assert.ok(searchMaterials(data,{query:"dow 2045"}).some(m=>m.grade==="DOWLEX 2045G"));
  assert.ok(searchMaterials(data,{query:"MOPLEN",family:"PP"}).every(m=>m.family==="PP"));
