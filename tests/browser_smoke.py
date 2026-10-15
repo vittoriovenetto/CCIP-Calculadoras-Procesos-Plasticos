@@ -334,7 +334,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertIn('71.5', self.page.locator('.metric').nth(1).text_content())
         self.page.unroute('**/materials.v1.3.json')
         self.page.reload()
-        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('68 opciones')")
+        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('73 opciones')")
         pa6 = next(m for m in ORIGINAL_MATERIALS if m['family'] == 'PA6')
         self.page.locator('[data-module="secado"]').click()
         self.page.locator('#level').select_option('advanced')
