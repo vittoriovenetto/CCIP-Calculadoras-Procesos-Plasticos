@@ -3,7 +3,7 @@ import { initI18n, getLanguage, t } from "./i18n.js";
 import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
 import { calculateWithMeltDensity, applyFamilyMeltDensity } from "./injection-density.js";
 import { renderInjectionDensity } from "./injection-density-view.js";
-import { readHistory, storageKey } from "./history.js";
+import { readHistory, renameHistoryItem, storageKey } from "./history.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
 import { fieldGroups, primaryLabels } from "./presentation.js";
 import { bindParameterHelp } from "./tooltips.js";
@@ -286,8 +286,16 @@ function compute() {
 
 function renderHistory() {
   const items = loadHistory();
-  $("history").innerHTML = items.length ? items.slice(0, 15).map((x, i) => `<div class="historyRow"><span>${safe(modules.find(m => m.id === x.module).name)} · ${safe(new Date(x.date).toLocaleString("es-DO"))}</span><button data-history="${i}">Recuperar</button></div>`).join("") : "<p class='muted'>Aún no hay cálculos guardados en este navegador.</p>";
+  $("history").innerHTML = items.length ? items.slice(0, 15).map((x, i) => `<div class="historyRow"><span>${typeof x.name === 'string' && x.name ? `<b data-i18n-ignore>${safe(x.name)}</b> · ` : ''}${safe(modules.find(m => m.id === x.module).name)} · ${safe(new Date(x.date).toLocaleString("es-DO"))}</span><button type="button" data-history-rename="${i}">Renombrar</button><button data-history="${i}">Recuperar</button></div>`).join("") : "<p class='muted'>Aún no hay cálculos guardados en este navegador.</p>";
   renderComparison($("comparison"), items, modules);
+  $("history").querySelectorAll('[data-history-rename]').forEach(button => button.addEventListener('click', () => {
+    const index = Number(button.dataset.historyRename), item = items[index];
+    const name = prompt(t('Nombre del cálculo (máximo 120 caracteres):'), typeof item.name === 'string' ? item.name : t(modules.find(m => m.id === item.module).name));
+    if (name === null) return;
+    if (!name.trim() || name.trim().length > 120) { alert(t('Introduce un nombre de 1 a 120 caracteres.')); return; }
+    try { renameHistoryItem(localStorage, index, name); renderHistory(); }
+    catch { alert(t('No se pudo renombrar el cálculo en este navegador.')); }
+  }));
   document.querySelectorAll("[data-history]").forEach(b => b.addEventListener("click", () => {
     const item = items[Number(b.dataset.history)];
     state.id = item.module;

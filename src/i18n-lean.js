@@ -1,4 +1,9 @@
 export const leanTranslations = {
+  'Renombrar':'Rename',
+  'Limpiar selección':'Clear selection',
+  'Nombre del cálculo (máximo 120 caracteres):':'Calculation name (maximum 120 characters):',
+  'Introduce un nombre de 1 a 120 caracteres.':'Enter a name between 1 and 120 characters.',
+  'No se pudo renombrar el cálculo en este navegador.':'Could not rename the calculation in this browser.',
   'Ficha y fuentes':'Datasheet and sources',
   'Selecciona material con datos de secado':'Select a material with drying data',
   'Selecciona un grado con secado documentado':'Select a grade with documented drying data',
