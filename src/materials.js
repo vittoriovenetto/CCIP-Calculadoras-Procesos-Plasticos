@@ -1,6 +1,7 @@
 import { activeFields } from "./schema.js";
 import { isBlank, n } from "./math.js";
 import { validatePvt, captureReferences } from "./pvt.js";
+import { applyFamilyMeltDensity } from './injection-density.js';
 
 export const propertyLabels = {
   solid_density: "Densidad del sólido", melt_density: "Densidad del fundido",
@@ -14,7 +15,8 @@ export const propertyLabels = {
 export const statusLabels = {
   manufacturer_typical: "Valor típico", manufacturer_recommendation: "Recomendación",
   library: "De ficha", user_custom: "Dato ingresado por usuario", user_entered: "Dato ingresado por usuario", range_selection: "Rango seleccionado por usuario",
-  user_override: "Modificado por usuario", manual: "Manual"
+  user_override: "Modificado por usuario", manual: "Manual",
+  family_reference: "Referencia de familia · estimación"
 };
 const mappings = {
   inyeccion: { meltDensity: ["melt_density", "g/cm3", "fundido"] },
@@ -54,7 +56,7 @@ export function validateLibrary(data) {
 export const families = data => [...new Set(data.materials.map(m => m.family))];
 export const manufacturers = (data, family) => [...new Set(data.materials.filter(m => m.family === family).map(m => m.manufacturer))];
 export const grades = (data, family, manufacturer) => data.materials.filter(m => m.family === family && m.manufacturer === manufacturer);
-export const contextDefaults = () => ({ compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "", pvtTemperatureC: "", pvtPressureMPa: "", meltDensitySource: "", cpMinC: "", cpMaxC: "", cpPhase: "", specificHeatSource: "" });
+export const contextDefaults = () => ({ compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "", pvtTemperatureC: "", pvtPressureMPa: "", meltDensitySource: "", meltDensityPolicy: "reference_allowed", meltDensityVerified: false, familyMeltReferenceAccepted: false, pvcMeltReferenceForm: "", pvcMeltCompoundConfirmed: false, cpMinC: "", cpMaxC: "", cpPhase: "", specificHeatSource: "" });
 export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, references_snapshot: null, provenance: {}, context: contextDefaults() });
 export const outsideProcess = (material, moduleId) => !!material && !["generic_unverified", "user_entered_unverified", "grade_identity_referenced_properties_partial", "catalog_identity_pending_grade_data_verification"].includes(material.record_status) && !!processTags[moduleId] && !material.process_tags.some(tag => tag.includes(processTags[moduleId]));
 export const expectedForm = material => material.record_status === "user_entered_unverified" ? (material.properties.bulk_density?.physical_form || null) : material.family === "PVC" ? "powder" : "pellets";
@@ -62,13 +64,14 @@ export const expectedForm = material => material.record_status === "user_entered
 // Una selección invalida únicamente valores automáticos previos; nunca valores manuales.
 export function clearAutomatic(materialState, values) {
   for (const [field, entry] of Object.entries(materialState.provenance)) {
-    if (["library", "range_selection", "user_custom"].includes(entry.origin)) {
+    if (["library", "range_selection", "user_custom", "family_reference"].includes(entry.origin)) {
       values[field] = "";
       delete materialState.provenance[field];
     }
   }
 }
 export function selectMaterial(data, materialState, values, gradeId) {
+  const policy = materialState.context.meltDensityPolicy;
   clearAutomatic(materialState, values);
   const material = data?.materials.find(m => m.id === gradeId);
   materialState.grade_snapshot = material ? clone(material) : null;
@@ -76,10 +79,12 @@ export function selectMaterial(data, materialState, values, gradeId) {
   materialState.source = material ? clone(data.sources[material.source_id]) : null;
   materialState.references_snapshot = material ? captureReferences(data, material) : null;
   materialState.context = contextDefaults();
+  if (policy === 'verified_only') materialState.context.meltDensityPolicy = policy;
 }
 export function markManual(materialState, moduleId, field, value) {
   const map = mappings[moduleId]?.[field];
   if (!map) return;
+  if (moduleId === 'inyeccion' && field === 'meltDensity') materialState.context.meltDensityVerified = false;
   const previous = materialState.provenance[field];
   materialState.provenance[field] = {
     ...previous, property_key: map[0], unit: map[1], phase: map[2],
@@ -127,7 +132,7 @@ export function applyMaterial(materialState, module, values, level) {
     if (candidate.reason) continue;
     const previous = materialState.provenance[candidate.field];
     if (["manual", "user_override"].includes(previous?.origin)) continue;
-    if (!isBlank(values[candidate.field]) && !["library", "range_selection", "user_custom"].includes(previous?.origin)) continue;
+    if (!isBlank(values[candidate.field]) && !["library", "range_selection", "user_custom", "family_reference"].includes(previous?.origin)) continue;
     values[candidate.field] = candidate.value;
     materialState.provenance[candidate.field] = {
       property_key: candidate.property_key, unit: candidate.unit, phase: candidate.phase,
@@ -138,12 +143,13 @@ export function applyMaterial(materialState, module, values, level) {
       selection_reason: candidate.property.range ? "Valor elegido explícitamente dentro del rango de ficha tras confirmar condiciones" : null
     };
   }
+  applyFamilyMeltDensity(materialState, module, values, level);
   return candidates;
 }
 export function materialWarnings(materialState, moduleId, values = {}, level = "advanced") {
   const material = materialState.grade_snapshot;
   const warnings = [], context = materialState.context;
-  if (level !== 'basic' && moduleId === 'inyeccion' && n(values.meltDensity) > 0 &&
+  if (level !== 'basic' && moduleId === 'inyeccion' && materialState.provenance.meltDensity?.origin !== 'family_reference' && n(values.meltDensity) > 0 &&
       (!Number.isFinite(n(context.pvtTemperatureC)) || n(context.pvtTemperatureC) <= -273.15 ||
        !Number.isFinite(n(context.pvtPressureMPa)) || n(context.pvtPressureMPa) < 0 || !context.meltDensitySource.trim())) {
     warnings.push("Densidad fundida manual sin trazabilidad completa: registra temperatura (°C), presión (MPa), fuente/método y revisión en modo avanzado. Resultado no validado técnicamente.");
@@ -155,7 +161,9 @@ export function materialWarnings(materialState, moduleId, values = {}, level = "
     else if ([n(values.startT), n(values.targetT)].some(t => Number.isFinite(t) && (t < lo || t > hi))) warnings.push("Temperatura de cálculo fuera del intervalo documentado de Cp: extrapolación no validada; revisa el dato antes de utilizar el resultado.");
   }
   if (!material) return warnings;
-  if (material.record_status === "generic_unverified") warnings.push("Material GENÉRICO: no se conoce grado, formulación ni lote. No se asignan propiedades típicas; las entradas manuales requieren fuente o medición.");
+  if (material.record_status === "generic_unverified") warnings.push(materialState.provenance.meltDensity?.origin === 'family_reference'
+    ? "Material GENÉRICO: se usa una referencia de familia independiente, no una propiedad del grado. Los resultados dependientes son estimaciones."
+    : "Material GENÉRICO: no se conoce grado, formulación ni lote. No se asignan propiedades típicas; las entradas manuales requieren fuente o medición.");
   else if (material.record_status === "user_entered_unverified") warnings.push("Material creado por usuario: propiedades no verificadas por el CCIP; confirme fuente, fase y método.");
   else warnings.push("Datos típicos/recomendados: no son certificación de lote ni validación industrial.");
   if (material.incoming_product_moisture) warnings.push("PET: 0.15 % objetivo / 0.30 % máximo son humedad del producto recibido, no objetivo ni límite después de secado.");
