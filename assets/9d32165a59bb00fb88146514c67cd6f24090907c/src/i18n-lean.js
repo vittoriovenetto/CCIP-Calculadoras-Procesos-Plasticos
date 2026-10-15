@@ -1,0 +1,22 @@
+export const leanTranslations = {
+  'Ficha y fuentes':'Datasheet and sources',
+  'Selecciona material con datos de secado':'Select a material with drying data',
+  'Selecciona un grado con secado documentado':'Select a grade with documented drying data',
+  'El material anterior no tiene tiempo/temperatura de secado en ficha. Elige otro grado o usa datos manuales documentados.':'The previous material has no datasheet drying time/temperature. Choose another grade or use documented manual data.',
+  'Usar datos manuales documentados':'Use documented manual data',
+  'Recomendación de secado de ficha:':'Datasheet drying recommendation:',
+  'Recomendación de secado de ficha':'Datasheet drying recommendation',
+  'Usar como residencia nominal de tolva requiere condiciones compatibles de secador, humedad y punto de rocío. No predice humedad residual.':'Use as nominal hopper residence requires compatible dryer, moisture and dew point conditions. It does not predict residual moisture.',
+  'Justificación de los cambios manuales':'Manual change justification',
+  'El proceso activo no está indicado en la ficha; confirma su compatibilidad antes de aplicar propiedades.':'The active process is not listed in the datasheet; confirm compatibility before applying properties.',
+  'Las referencias de familia son estimaciones; no son propiedades certificadas del grado ni datos pVT. No se usa densidad sólida ni factor de caliente.':'Family references are estimates, not certified grade properties or pVT data. Solid density and thermal correction factors are not used.',
+  'Compuesto final de PVC confirmado':'Confirmed final PVC compound',
+  'No aplicar a resina en polvo de formulación desconocida.':'Do not apply to powder resin with unknown formulation.',
+  'Condiciones y datos verificados':'Conditions and verified data',
+  'La recomendación de secado es una guía; usarla como residencia nominal exige comprobar humedad inicial, secador y punto de rocío. No garantiza humedad final.':'The drying recommendation is a guideline; using it as nominal residence requires checking initial moisture, dryer and dew point. It does not guarantee final moisture.',
+  'Confirmo método y condiciones de densidad aparente, incluida presentación/tamaño del material.':'I confirm bulk density method and conditions, including material form and size.',
+  'Introduce los datos necesarios para calcular.':'Enter the required calculation inputs.',
+  'Volver a calculadora':'Back to calculator',
+  'Ejemplos sintéticos de enseñanza; no son datos de un material ni una máquina real.':'Synthetic teaching examples; not data for a real material or machine.',
+  'Índice completo de resultados y fórmulas':'Complete output and formula index'
+};
