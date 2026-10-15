@@ -329,14 +329,14 @@
     "CAT228": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP501M",
-      "url": "https://www.lyondellbasell.com/globalassets/archives/sites/lyb-documents/op/pp/polypropylene-consumer-and-injection-molding.pdf",
+      "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP501M/1f2b1127-1a74-4107-870e-7d04f3132220",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
     "CAT229": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP400R",
-      "url": "https://www.lyondellbasell.com/globalassets/archives/sites/lyb-documents/op/pp/polypropylene-consumer-and-injection-molding.pdf",
+      "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP400R/b8c2b2d7-cbc5-46e4-8506-8031418ef728",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -581,7 +581,7 @@
     "CAT264": {
       "manufacturer": "BASF",
       "grade": "Ultramid B3K",
-      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
+      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd659928f6ca1/en/ULTRAMID%25C2%25AE_B3K",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -644,7 +644,7 @@
     "CAT273": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2407",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2407_000000000086286874",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -3960,10 +3960,22 @@
       "family": "PP",
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP501M",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT228",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.9,
+          "unit": "g/cm3",
+          "source_id": "CAT228",
+          "method": "Ficha LYB",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -3971,15 +3983,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 7.5,
+          "unit": "g/10min",
+          "source_id": "CAT228",
+          "method": "Ficha LYB",
+          "condition": "230 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos parciales documentados del grado exacto; revisar condiciones. Las propiedades no publicadas permanecen pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -4002,6 +4024,40 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT228"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 1350,
+          "unit": "MPa",
+          "method": null,
+          "condition": "",
+          "status": "manufacturer_typical",
+          "source_id": "CAT228"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 34,
+          "unit": "MPa",
+          "method": null,
+          "condition": "",
+          "status": "manufacturer_typical",
+          "source_id": "CAT228"
+        },
+        {
+          "key": "vicat_temperature",
+          "value": 154,
+          "unit": "°C",
+          "method": null,
+          "condition": "A50",
+          "status": "manufacturer_typical",
+          "source_id": "CAT228"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP501M/1f2b1127-1a74-4107-870e-7d04f3132220"
       }
     },
     {
@@ -4009,10 +4065,22 @@
       "family": "PP",
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP400R",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT229",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.9,
+          "unit": "g/cm3",
+          "source_id": "CAT229",
+          "method": "Ficha LYB",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -4020,15 +4088,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 25,
+          "unit": "g/10min",
+          "source_id": "CAT229",
+          "method": "Ficha LYB",
+          "condition": "230 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos parciales documentados del grado exacto; revisar condiciones. Las propiedades no publicadas permanecen pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -4051,6 +4129,40 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT229"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_modulus",
+          "value": 1350,
+          "unit": "MPa",
+          "method": null,
+          "condition": "",
+          "status": "manufacturer_typical",
+          "source_id": "CAT229"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 32,
+          "unit": "MPa",
+          "method": null,
+          "condition": "",
+          "status": "manufacturer_typical",
+          "source_id": "CAT229"
+        },
+        {
+          "key": "vicat_temperature",
+          "value": 154,
+          "unit": "°C",
+          "method": null,
+          "condition": "A50",
+          "status": "manufacturer_typical",
+          "source_id": "CAT229"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP400R/b8c2b2d7-cbc5-46e4-8506-8031418ef728"
       }
     },
     {
@@ -5512,26 +5624,81 @@
       "family": "ABS",
       "manufacturer": "INEOS Styrolution",
       "grade": "Terluran GP-35",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT255",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.04,
+          "unit": "g/cm3",
+          "source_id": "CAT255",
+          "method": "ASTM D792",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
+        "drying_temperature": {
+          "value": 80,
+          "unit": "°C",
+          "source_id": "CAT255",
+          "method": null,
+          "condition": "aire seco / según ficha",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
+        "drying_time": {
+          "value": null,
+          "unit": "h",
+          "source_id": "CAT255",
+          "method": null,
+          "condition": "aire seco / condiciones de fabricante",
+          "range": [
+            2,
+            4
+          ],
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
+        "mfr": {
+          "value": 3.1,
+          "unit": "g/10min",
+          "source_id": "CAT255",
+          "method": "ASTM D1238",
+          "condition": "200 °C / 5 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
+        "mvr": {
+          "value": 11,
+          "unit": "cm3/10min",
+          "source_id": "CAT255",
+          "method": "ASTM D1238",
+          "condition": "230 °C / 3.8 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos parciales documentados del grado exacto; revisar condiciones. Las propiedades no publicadas permanecen pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -5554,6 +5721,22 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT255"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 34,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "220 °C / 10 kg",
+          "status": "manufacturer_typical",
+          "source_id": "CAT255"
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html"
       }
     },
     {
@@ -5996,26 +6179,94 @@
       "family": "PA6",
       "manufacturer": "BASF",
       "grade": "Ultramid B3K",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT264",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.13,
+          "unit": "g/cm3",
+          "source_id": "CAT264",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
+        "drying_temperature": {
+          "value": 80,
+          "unit": "°C",
+          "source_id": "CAT264",
+          "method": null,
+          "condition": "aire seco / según ficha",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
+        "drying_time": {
+          "value": 4,
+          "unit": "h",
+          "source_id": "CAT264",
+          "method": null,
+          "condition": "aire seco / condiciones de fabricante",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
+        "moisture_target": {
+          "value": null,
+          "unit": "% masa",
+          "source_id": "CAT264",
+          "method": null,
+          "condition": "humedad de proceso",
+          "range": [
+            0.03,
+            0.06
+          ],
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 160,
+          "unit": "cm3/10min",
+          "source_id": "CAT264",
+          "method": "ISO 1133",
+          "condition": "275 °C / 5 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
+        "melt_temperature_recommended": {
+          "value": null,
+          "unit": "°C",
+          "source_id": "CAT264",
+          "method": null,
+          "condition": "temperatura de proceso recomendada",
+          "range": [
+            250,
+            270
+          ],
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos parciales documentados del grado exacto; revisar condiciones. Las propiedades no publicadas permanecen pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -6038,6 +6289,12 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT264"
+      },
+      "additional_properties": [],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fd659928f6ca1/en/ULTRAMID%25C2%25AE_B3K"
       }
     },
     {
@@ -6480,26 +6737,81 @@
       "family": "PC",
       "manufacturer": "Covestro",
       "grade": "Makrolon 2407",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT273",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.2,
+          "unit": "g/cm3",
+          "source_id": "CAT273",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
+        "drying_temperature": {
+          "value": 120,
+          "unit": "°C",
+          "source_id": "CAT273",
+          "method": null,
+          "condition": "aire seco / según ficha",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
+        "drying_time": {
+          "value": null,
+          "unit": "h",
+          "source_id": "CAT273",
+          "method": null,
+          "condition": "aire seco / condiciones de fabricante",
+          "range": [
+            2,
+            3
+          ],
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 19,
+          "unit": "cm3/10min",
+          "source_id": "CAT273",
+          "method": "ISO 1133",
+          "condition": "300 °C / 1.2 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
+        "melt_temperature_recommended": {
+          "value": 300,
+          "unit": "°C",
+          "source_id": "CAT273",
+          "method": null,
+          "condition": "temperatura de proceso recomendada",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos parciales documentados del grado exacto; revisar condiciones. Las propiedades no publicadas permanecen pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -6540,6 +6852,12 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT273"
+      },
+      "additional_properties": [],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2407_000000000086286874"
       }
     },
     {
@@ -6547,26 +6865,81 @@
       "family": "PC",
       "manufacturer": "Covestro",
       "grade": "Makrolon 2805",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT274",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 1.2,
+          "unit": "g/cm3",
+          "source_id": "CAT274",
+          "method": "ISO 1183",
+          "condition": "23 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
+        "drying_temperature": {
+          "value": 120,
+          "unit": "°C",
+          "source_id": "CAT274",
+          "method": null,
+          "condition": "aire seco / según ficha",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
+        "drying_time": {
+          "value": null,
+          "unit": "h",
+          "source_id": "CAT274",
+          "method": null,
+          "condition": "aire seco / condiciones de fabricante",
+          "range": [
+            2,
+            3
+          ],
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "moisture_target": null,
         "moisture_max": null,
         "mfr": null,
-        "mvr": null,
+        "mvr": {
+          "value": 9,
+          "unit": "cm3/10min",
+          "source_id": "CAT274",
+          "method": "ISO 1133",
+          "condition": "300 °C / 1.2 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
+        "melt_temperature_recommended": {
+          "value": 300,
+          "unit": "°C",
+          "source_id": "CAT274",
+          "method": null,
+          "condition": "temperatura de proceso recomendada",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+        },
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Datos parciales documentados del grado exacto; revisar condiciones. Las propiedades no publicadas permanecen pendientes.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -6607,6 +6980,12 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT274"
+      },
+      "additional_properties": [],
+      "data_review": {
+        "status": "manufacturer_datasheet_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2805_000000000057534382"
       }
     },
     {
@@ -7301,8 +7680,9 @@
     "preserved_properties": "Nine original profiles retain the user-supplied verified V1.2 documentation, not a current official recertification. Two proposed Dow values are historical references only."
   },
   "property_coverage": {
-    "manufacturer_partial_records_reviewed": 20,
+    "manufacturer_partial_records_reviewed": 26,
     "source_checked_on": "2026-10-15",
-    "interpretation": "El catálogo sigue en auditoría. Los grados no revisados conservan null. Propiedades verificadas ≠ ficha íntegra de material."
+    "interpretation": "El catálogo sigue en auditoría. Los grados no revisados conservan null. Propiedades verificadas ≠ ficha íntegra de material.",
+    "manufacturer_family_expansion": 6
   }
 }
