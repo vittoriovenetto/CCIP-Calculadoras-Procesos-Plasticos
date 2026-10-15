@@ -1,7 +1,8 @@
 import { modules, activeFields } from "./schema.js";
 import { initI18n, getLanguage, t } from "./i18n.js";
 import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
-import { calculate } from "./engine.js";
+import { calculateWithMeltDensity, applyFamilyMeltDensity } from "./injection-density.js";
+import { renderInjectionDensity } from "./injection-density-view.js";
 import { readHistory, storageKey } from "./history.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
 import { fieldGroups, primaryLabels } from "./presentation.js";
@@ -9,9 +10,12 @@ import { bindParameterHelp } from "./tooltips.js";
 import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from "./materials-view.js";
 import { guideHref } from "./formula-learning.js";
 import { renderComparison } from "./compare.js";
+import { defaultInjectionProfile, restoreInjectionProfile, calculateInjectionProfile } from "./injection-profile.js";
+import { renderInjectionProfile } from "./injection-profile-view.js";
 
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
+state.profile = defaultInjectionProfile();
 const sessions = new Map();
 let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
@@ -29,6 +33,7 @@ function invalidate() {
   $("usage").innerHTML = "";
   $("metrics").innerHTML = "<p class='muted'>Introduce los parámetros y pulsa Calcular. Los resultados sin datos válidos quedan pendientes.</p>";
   $("messages").innerHTML = "";
+  drawProfile(null);
   $("result-notes").querySelector("summary").textContent = "Advertencias, hipótesis y límites";
 }
 
@@ -91,8 +96,24 @@ function drawMaterials() {
   renderMaterials($("materials"), { library, loadStatus, materialState: state.material, filters: state.filters,
     module: mod(), values: state.values, level: state.level, onChange: materialChanged, detailsOpen: materialDetailsOpen, onDetailsToggle: open => { materialDetailsOpen = open; } });
 }
+function drawProfile(result) {
+  renderInjectionProfile($("injection-profile"), {
+    moduleId: state.id, level: state.level, settings: state.profile, result,
+    onSettings: settings => { state.profile = settings; }
+  });
+}
+function drawDensity() {
+  renderInjectionDensity($("injection-density"), {
+    module: mod(), level: state.level, state: state.material, values: state.values,
+    onChange: (key,value) => materialChanged('context',{key,value}),
+    onUseReference: () => materialChanged('reference','meltDensity')
+  });
+}
+const densityBadge = metric => metric.density_estimate ? '<small class="density-estimate">Estimación · densidad de familia</small>' : '';
+
 function materialChanged(action, value) {
   if (action === "reference") {
+    if (value === 'meltDensity') state.material.context.familyMeltReferenceAccepted = true;
     state.values[value] = "";
     delete state.material.provenance[value];
     applyMaterial(state.material, mod(), state.values, state.level);
@@ -103,13 +124,29 @@ function materialChanged(action, value) {
   }
   if (action === "context") {
     state.material.context[value.key] = value.value;
-    if (["compatible", "physicalForm", "bulkCompatible", "dryingCompatible", "processConfirmed", "dryingTime"].includes(value.key)) {
+    if (state.id === 'inyeccion' && ['pvtTemperatureC','pvtPressureMPa','meltDensitySource'].includes(value.key)) {
+      state.material.context.meltDensityVerified = false;
+      if ($('density-verified')) $('density-verified').checked = false;
+    }
+    if (state.id === 'inyeccion' && ['pvtTemperatureC','pvtPressureMPa'].includes(value.key)) {
+      const previous = state.values.meltDensity;
+      applyFamilyMeltDensity(state.material,mod(),state.values,state.level);
+      if (previous !== state.values.meltDensity) drawFields();
+      else if (state.level === 'advanced') drawDensity();
+      renderMaterialFeedback($("materials"),state.material,mod(),state.values,state.level);
+      invalidate();return;
+    }
+    if (value.key === 'pvcMeltReferenceForm' || (value.key === 'meltDensityPolicy' && value.value === 'verified_only')) state.material.context.familyMeltReferenceAccepted = false;
+    if (["compatible", "physicalForm", "bulkCompatible", "dryingCompatible", "processConfirmed", "dryingTime", "meltDensityPolicy", "familyMeltReferenceAccepted", "pvcMeltReferenceForm", "pvcMeltCompoundConfirmed"].includes(value.key)) {
       clearAutomatic(state.material, state.values);
       applyMaterial(state.material, mod(), state.values, state.level);
       drawFields();
       renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
     }
-    else renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
+    else {
+      renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
+      if (value.key === "meltDensityVerified") drawDensity();
+    }
     invalidate();
     return;
   }
@@ -140,27 +177,37 @@ function drawFields() {
     markManual(state.material, state.id, el.dataset.field, state.values[el.dataset.field]);
     $("provenance-" + el.dataset.field).textContent = provenanceText(state.material.provenance[el.dataset.field]);
     renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
+    if (el.dataset.field === "meltDensity") drawDensity();
     if (el.dataset.field === "method" || el.dataset.field === "shape") draw();
     else invalidate();
   }));
 
+  drawDensity();
 }
 
 function compute() {
+  if (state.id === 'inyeccion' && $("profile-details")) state.profile.enabled = $("profile-details").open;
   const inputs = Object.fromEntries(activeFields(mod(), state.values, state.level).map(f => [f.key, state.values[f.key]]));
-  const a = calculate(state.id, inputs, state.level);
+  const a = calculateWithMeltDensity(state.id, inputs, state.level, state.material);
+  if (a.density_provenance?.origin === 'library') {
+    state.values.meltDensity = inputs.meltDensity = a.calculation_inputs.meltDensity;
+    state.material.provenance.meltDensity = a.density_provenance;
+    drawFields();
+  }
   a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
-  const item = { module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), inputs, state.level), ...a };
+  const injectionProfile = state.id === 'inyeccion' ? calculateInjectionProfile(a.calculation_inputs || inputs, state.level, state.profile, a.density_assessment) : null;
+  const item = { ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => a.metrics.find(m => m.label === label)).filter(Boolean);
-  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small>${learningLink(m.label)}</article>`).join("");
+  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small>${densityBadge(m)}${learningLink(m.label)}</article>`).join("");
   const usage = a.metrics.find(m => m.label === "Utilización volumétrica teórica");
-  $("usage").innerHTML = usage ? `<div class="usage"><b>Utilización geométrica del husillo</b><p>${safe(format(usage))}</p>${usage.value === null ? '<p class="muted">Pendiente: requiere volumen de shot, diámetro y carrera disponibles.</p>' : `<div class="usage-track" role="meter" aria-label="Utilización geométrica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100, Math.max(0, usage.value))}" aria-valuetext="${safe(format(usage))}${usage.value > 100 ? "; supera la capacidad teórica" : ""}"><span style="width:${Math.min(100, Math.max(0, usage.value))}%"></span></div><small>${usage.value > 100 ? "Supera la capacidad geométrica indicada. " : ""}Verifica los límites reales del equipo; el porcentaje no certifica idoneidad.</small>`}</div>` : "";
-  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small>${learningLink(m.label)}</div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
+  $("usage").innerHTML = usage ? `<div class="usage"><b>Utilización geométrica del husillo</b><p>${safe(format(usage))}</p>${densityBadge(usage)}${usage.value === null ? '<p class="muted">Pendiente: requiere volumen de shot, diámetro y carrera disponibles.</p>' : `<div class="usage-track" role="meter" aria-label="Utilización geométrica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100, Math.max(0, usage.value))}" aria-valuetext="${safe(format(usage))}${usage.value > 100 ? "; supera la capacidad teórica" : ""}"><span style="width:${Math.min(100, Math.max(0, usage.value))}%"></span></div><small>${usage.value > 100 ? "Supera la capacidad geométrica indicada. " : ""}Verifica los límites reales del equipo; el porcentaje no certifica idoneidad.</small>`}</div>` : "";
+  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small>${densityBadge(m)}${learningLink(m.label)}</div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
   $("messages").innerHTML = a.warnings.map(t => `<div class="warning">⚠ ${safe(t)}</div>`).join("") + a.notes.map(t => `<div class="note">${safe(t)}</div>`).join("");
   $("result-notes").querySelector("summary").textContent = a.warnings.length ? `Advertencias (${a.warnings.length}), hipótesis y límites` : "Hipótesis y límites";
   if (a.warnings.length) $("result-notes").open = true;
+  drawProfile(injectionProfile);
   return item;
 }
 
@@ -174,6 +221,7 @@ function renderHistory() {
     state.level = item.level;
     state.values = { ...initialValues(), ...item.inputs };
     state.material = restoreMaterial(item.material);
+    if (state.id === 'inyeccion') state.profile = restoreInjectionProfile(item.injection_profile_settings);
     state.filters = { family: state.material.grade_snapshot?.family || "", manufacturer: state.material.grade_snapshot?.manufacturer || "" };
     // Recuperar conserva el snapshot: no volver a aplicar datos actuales ni ocultos.
     nav();
@@ -182,13 +230,14 @@ function renderHistory() {
     $("module-desc").textContent = mod().description;
     drawFields();
     drawMaterials();
+    drawProfile(null);
     renderHistory();
     compute();
   }));
 }
 
 $("calculate").addEventListener("click", compute);
-$("reset").addEventListener("click", () => { state.values = initialValues(); state.material = createMaterialState(); state.filters = { family: "", manufacturer: "" }; draw(); });
+$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.material = createMaterialState(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw(); });
 $("save").addEventListener("click", () => {
   const item = compute();

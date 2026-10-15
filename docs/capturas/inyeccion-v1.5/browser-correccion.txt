@@ -1,0 +1,12 @@
+test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) ... ok
+test_28_density_consent_strict_manual_traceability (__main__.BrowserSmoke.test_28_density_consent_strict_manual_traceability) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 23.663s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Estados biblioteca × proceso × nivel × pantalla: 0
+Perfiles iniciales comprobados en navegador: 73
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /workspace/scratch/ccip-density-captures

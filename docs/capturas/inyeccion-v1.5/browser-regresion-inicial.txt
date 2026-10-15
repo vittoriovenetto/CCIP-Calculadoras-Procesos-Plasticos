@@ -1,0 +1,130 @@
+test_01_all_modules_levels_and_viewports (__main__.BrowserSmoke.test_01_all_modules_levels_and_viewports) ... ok
+test_02_input_invalidation_levels_and_reset (__main__.BrowserSmoke.test_02_input_invalidation_levels_and_reset) ... ok
+test_03_history_export_and_corrupt_storage (__main__.BrowserSmoke.test_03_history_export_and_corrupt_storage) ... ok
+test_04_storage_blocked_still_calculates (__main__.BrowserSmoke.test_04_storage_blocked_still_calculates) ... ok
+test_05_keyboard_and_labels (__main__.BrowserSmoke.test_05_keyboard_and_labels) ... ok
+test_06_zero_and_empty_inputs_in_browser (__main__.BrowserSmoke.test_06_zero_and_empty_inputs_in_browser) ... ok
+test_07_materials_levels_and_mobile (__main__.BrowserSmoke.test_07_materials_levels_and_mobile) ... ok
+test_08_overrides_grade_changes_history_and_snapshot (__main__.BrowserSmoke.test_08_overrides_grade_changes_history_and_snapshot) ... ok
+test_09_catalogue_failure_and_offline_calculation (__main__.BrowserSmoke.test_09_catalogue_failure_and_offline_calculation) ... ok
+test_10_untrusted_material_history (__main__.BrowserSmoke.test_10_untrusted_material_history) ... ok
+test_11_audit_pvt_references_and_manual_traceability (__main__.BrowserSmoke.test_11_audit_pvt_references_and_manual_traceability) ... ok
+test_12_legacy_material_snapshot (__main__.BrowserSmoke.test_12_legacy_material_snapshot) ... ok
+test_13_tooltips_mouse_keyboard_touch_and_layout (__main__.BrowserSmoke.test_13_tooltips_mouse_keyboard_touch_and_layout) ... ok
+test_14_collapsed_material_does_not_change_calculation (__main__.BrowserSmoke.test_14_collapsed_material_does_not_change_calculation) ... ok
+test_15_v1_browser_and_download (__main__.BrowserSmoke.test_15_v1_browser_and_download) ... ok
+test_16_catalog_generic_editor_i18n_and_formulas (__main__.BrowserSmoke.test_16_catalog_generic_editor_i18n_and_formulas) ... ok
+test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) ...
+  test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-2807') ... FAIL
+  test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-2858') ... FAIL
+  test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-3106') ... FAIL
+  test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-3107') ... FAIL
+  test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-3108') ... FAIL
+test_18_custom_crud_import_export_persistence_and_units (__main__.BrowserSmoke.test_18_custom_crud_import_export_persistence_and_units) ... ok
+test_19_language_switch_preserves_all_case_inputs_results_and_drafts (__main__.BrowserSmoke.test_19_language_switch_preserves_all_case_inputs_results_and_drafts) ... ok
+test_20_invalid_import_and_corrupt_storage_do_not_break_calculation (__main__.BrowserSmoke.test_20_invalid_import_and_corrupt_storage_do_not_break_calculation) ... ok
+test_21_all_formula_examples_languages_links_and_layout (__main__.BrowserSmoke.test_21_all_formula_examples_languages_links_and_layout) ... ok
+test_22_responsive_bilingual_captures_and_local_storage_failure (__main__.BrowserSmoke.test_22_responsive_bilingual_captures_and_local_storage_failure) ... ok
+test_23_history_snapshot_readable_in_frozen_v1 (__main__.BrowserSmoke.test_23_history_snapshot_readable_in_frozen_v1) ... ok
+test_24_custom_pvc_pellet_bulk_density (__main__.BrowserSmoke.test_24_custom_pvc_pellet_bulk_density) ... ok
+test_25_learning_entry_levels_and_every_result_deep_link (__main__.BrowserSmoke.test_25_learning_entry_levels_and_every_result_deep_link) ... ok
+test_26_hide_empty_datasheets_keep_only_available_properties (__main__.BrowserSmoke.test_26_hide_empty_datasheets_keep_only_available_properties) ... ok
+test_27_material_search_compare_and_csv (__main__.BrowserSmoke.test_27_material_search_compare_and_csv) ... ok
+test_28_density_consent_strict_manual_traceability (__main__.BrowserSmoke.test_28_density_consent_strict_manual_traceability) ... ok
+test_29_pvc_and_pa6_reference_scope (__main__.BrowserSmoke.test_29_pvc_and_pa6_reference_scope) ... ok
+test_30_physical_profile_graph_positions_restore_and_responsive (__main__.BrowserSmoke.test_30_physical_profile_graph_positions_restore_and_responsive) ... ok
+
+======================================================================
+FAIL: test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-2807')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 619, in test_17_all_curated_profiles_in_browser
+    self.english_ui_is_complete()
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 601, in english_ui_is_complete
+    self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
+AssertionError: Lists differ: ['Datos de grado exacto identificados en documentación oficial Covestro.'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Datos de grado exacto identificados en documentación oficial Covestro.'
+
+- ['Datos de grado exacto identificados en documentación oficial Covestro.']
++ [] : Texto de interfaz sin traducción
+
+======================================================================
+FAIL: test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-2858')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 619, in test_17_all_curated_profiles_in_browser
+    self.english_ui_is_complete()
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 601, in english_ui_is_complete
+    self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
+AssertionError: Lists differ: ['Datos de grado exacto identificados en documentación oficial Covestro.'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Datos de grado exacto identificados en documentación oficial Covestro.'
+
+- ['Datos de grado exacto identificados en documentación oficial Covestro.']
++ [] : Texto de interfaz sin traducción
+
+======================================================================
+FAIL: test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-3106')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 619, in test_17_all_curated_profiles_in_browser
+    self.english_ui_is_complete()
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 601, in english_ui_is_complete
+    self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
+AssertionError: Lists differ: ['Datos de grado exacto identificados en documentación oficial Covestro.'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Datos de grado exacto identificados en documentación oficial Covestro.'
+
+- ['Datos de grado exacto identificados en documentación oficial Covestro.']
++ [] : Texto de interfaz sin traducción
+
+======================================================================
+FAIL: test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-3107')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 619, in test_17_all_curated_profiles_in_browser
+    self.english_ui_is_complete()
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 601, in english_ui_is_complete
+    self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
+AssertionError: Lists differ: ['Datos de grado exacto identificados en documentación oficial Covestro.'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Datos de grado exacto identificados en documentación oficial Covestro.'
+
+- ['Datos de grado exacto identificados en documentación oficial Covestro.']
++ [] : Texto de interfaz sin traducción
+
+======================================================================
+FAIL: test_17_all_curated_profiles_in_browser (__main__.BrowserSmoke.test_17_all_curated_profiles_in_browser) (id='catalog-pc-makrolon-3108')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 619, in test_17_all_curated_profiles_in_browser
+    self.english_ui_is_complete()
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 601, in english_ui_is_complete
+    self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
+AssertionError: Lists differ: ['Datos de grado exacto identificados en documentación oficial Covestro.'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Datos de grado exacto identificados en documentación oficial Covestro.'
+
+- ['Datos de grado exacto identificados en documentación oficial Covestro.']
++ [] : Texto de interfaz sin traducción
+
+----------------------------------------------------------------------
+Ran 30 tests in 265.066s
+
+FAILED (failures=5)
+Estados módulo/variante × nivel × pantalla comprobados: 135
+Estados biblioteca × proceso × nivel × pantalla: 162
+Perfiles iniciales comprobados en navegador: 68
+Casos con cambio de idioma ES/EN/ES: 27
+Capturas: /workspace/scratch/ccip-density-captures

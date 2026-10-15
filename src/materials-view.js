@@ -20,6 +20,7 @@ export function documentedProperties(grade) {
 }
 export function provenanceText(entry) {
   if (!entry) return "Entrada manual / sin ficha aplicada";
+  if (entry.origin === 'family_reference') return `Referencia de familia · estimación · ${entry.family} · ${entry.value} g/cm³`;
   const reference = entry.reference;
   return `${statusLabels[entry.origin] || "Manual"}${reference ? ` · ${statusLabels[reference.status] || "Referencia"} [${entry.source_id}] · referencia: ${display(reference)}` : ""}`;
 }

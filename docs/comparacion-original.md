@@ -10,7 +10,7 @@ La original se aproxima al **nivel técnico del módulo de inyección**, con alg
 | Densidad de fusión, geometría del husillo, capacidad volumétrica, utilización, carrera y colchón residual | Técnico; las magnitudes se distinguen y la densidad no se presupone |
 | Área proyectada, presión de cavidad, fuerza de cierre, caudal de llenado y capacidad de plastificación | Avanzado; cierre admite factor de seguridad explícito |
 | Utilización gravimétrica sobre capacidad nominal de máquina | Pendiente: la nueva muestra utilización volumétrica geométrica |
-| Perfil de inyección L1/L2/L3 con fracciones 30/50/20 % | Pendiente: no implementado como modelo en la nueva |
+| Perfil de inyección L1/L2/L3 con fracciones 30/50/20 % | Avanzado: gráfico y tabla opcionales; porcentajes editables, suma 100 %, sin reserva/colchón automático. Coordenadas solo con origen y sentido explícitos |
 | «Factor de caliente» multiplicando la densidad | Sin equivalente automático; requiere especificación técnica separada |
 | Umbrales de uso 30–80 % y dictamen de adecuación | No adoptados como criterio universal; la nueva exige validar los límites del equipo |
 
@@ -26,6 +26,6 @@ Ambas calculan capacidad ideal mediante el área transversal del husillo por su 
 
 ## Trabajo técnico pendiente
 
-Antes de añadir un perfil por etapas se debe definir volumen útil dosificado, posiciones/carreras de transición, unidades y límites de velocidad, presión y tiempo, verificando parámetros contra el manual del equipo. Las fracciones 30/50/20 del original no se convierten en una recomendación universal. Se necesitarían casos reproducibles y validación del proceso; no basta con trasladar su dibujo.
+El perfil geométrico implementado no define velocidades, presiones, tiempos ni conmutación. Para convertirlo en una configuración industrial se requieren límites del equipo, molde, material, condiciones y validación reproducible del proceso. Las fracciones 30/50/20 no son una recomendación universal. Véanse las [reglas dimensionales y limitaciones del perfil](inyeccion-densidad-perfil-v1.5.md).
 
 No se copiaron las densidades genéricas de la original a la biblioteca comercial. En la nueva, grado, fase, temperatura, presión, método y fuente siguen condicionando la admisibilidad de cada propiedad.

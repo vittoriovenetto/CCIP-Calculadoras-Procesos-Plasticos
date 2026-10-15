@@ -11,7 +11,7 @@ export function compareRecords(a,b){
    const bv=(typeof second.value==="number"&&Number.isFinite(second.value))?second.value:null;
    const diff=comparable&&av!==null&&bv!==null?bv-av:null;
    const pct=diff!==null&&av!==0?100*diff/Math.abs(av):null;
-   return {name:m.label,unit:m.unit,first:av,second:bv,diff,pct,comparable};
+   return {name:m.label,unit:m.unit,first:av,second:bv,diff,pct,comparable,first_estimated:m.density_estimate===true,second_estimated:second.density_estimate===true};
  });
  return {rows,error:null,commonInputs:Object.keys(a.inputs||{}).filter(k=>JSON.stringify(a.inputs[k])===JSON.stringify(b.inputs?.[k])),module:a.module,gradeA:a.material?.grade_snapshot?.grade||"",gradeB:b.material?.grade_snapshot?.grade||""};
 }
@@ -25,9 +25,9 @@ export function comparisonCSV(a,b,output){
  ["Caso A",a?.date||"",output.gradeA],
  ["Caso B",b?.date||"",output.gradeB],
  [],
- ["Resultado","Unidad","Caso A","Caso B","Diferencia B - A","Variación %"]
+ ["Resultado","Unidad","Caso A","Caso B","Diferencia B - A","Variación %","Estimación A","Estimación B","Densidad A [g/cm³]","Origen A","Fuente A","Densidad B [g/cm³]","Origen B","Fuente B"]
  ];
- for(const r of output.rows)lines.push([r.name,r.unit,r.first,r.second,r.diff,r.pct]);
+ for(const r of output.rows)lines.push([r.name,r.unit,r.first,r.second,r.diff,r.pct,r.first_estimated,r.second_estimated,a?.density_assessment?.value_g_cm3,a?.density_assessment?.origin,a?.density_assessment?.source?.url||a?.density_assessment?.source?.title,b?.density_assessment?.value_g_cm3,b?.density_assessment?.origin,b?.density_assessment?.source?.url||b?.density_assessment?.source?.title]);
  return "\ufeff"+lines.map(row=>row.map(csvCell).join(";")).join("\r\n");
 }
 const download=(body,filename,type)=>{
@@ -62,7 +62,7 @@ export function renderComparison(root,history,modules){
    if(result.error){
     out.innerHTML='<p class="muted">'+safe(tr(result.error,result.error==="Selecciona dos cálculos guardados."?"Select two saved cases.":"Choose calculations from the same process."))+'</p>';return;
    }
-   const rows=result.rows.map(r=>'<tr><th scope="row">'+safe(r.name)+'</th><td>'+safe(r.unit)+'</td><td>'+fmt(r.first)+'</td><td>'+fmt(r.second)+'</td><td>'+fmt(r.diff)+'</td><td>'+fmt(r.pct)+(r.pct===null?"":" %")+'</td></tr>').join("");
+   const rows=result.rows.map(r=>'<tr><th scope="row">'+safe(r.name)+((r.first_estimated||r.second_estimated)?'<small class="density-estimate">'+tr('Estimación con densidad de familia','Estimate using family density')+' · '+[r.first_estimated?'A':'',r.second_estimated?'B':''].filter(Boolean).join(' / ')+'</small>':'')+'</th><td>'+safe(r.unit)+'</td><td>'+fmt(r.first)+'</td><td>'+fmt(r.second)+'</td><td>'+fmt(r.diff)+'</td><td>'+fmt(r.pct)+(r.pct===null?"":" %")+'</td></tr>').join("");
    out.innerHTML='<div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>'+tr("Resultado","Output")+'</th><th>'+tr("Unidad","Unit")+'</th><th>A</th><th>B</th><th>Δ</th><th>Δ %</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
    '<p class="muted">'+tr("— significa falta de datos, unidades incompatibles o división no definida. Las diferencias no prueban que un material sea mejor.","— means missing data, incompatible units or undefined division. Differences alone do not prove a material is better.")+'</p>';
  };
