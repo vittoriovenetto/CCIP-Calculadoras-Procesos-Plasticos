@@ -2,6 +2,8 @@
 
 Entrega del 15/10/2026 para revisión; sin publicación ni fusión a `main`. Base: `audit/materiales-minimo-3-propiedades`; rama: `feature/ux-lean-materiales-v1.5`. No se modifica el repositorio original de Reymenez, el motor compartido ni los modelos de los otros seis procesos. La biblioteca comercial conserva sus 64 grados y 9 perfiles genéricos de la base auditada.
 
+Autorización posterior: el usuario solicitó publicar y conservar accesible la versión anterior. Véase el [registro de despliegue](despliegue-inyeccion-2026-10-15.md); se mantiene la prohibición de fusionar `main`.
+
 ## Alcance autorizado y documento adjunto
 
 Se implementan las instrucciones directas del usuario y sus aclaraciones: referencias fundidas aceptadas, prioridad de datos y tres tramos físicos en avanzado. El DOCX `CCIP_Especificacion_Codex_Plataforma_Lean_Materiales_v1_5.docx` no contenía una tabla fundida; los valores y las citas siguientes fueron aportados explícitamente después en el chat. No se dedujeron de las densidades sólidas del documento. La reorganización completa del catálogo y otros cambios generales del DOCX quedan fuera de esta entrega.

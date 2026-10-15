@@ -1,0 +1,816 @@
+{
+  "schema_version": "1.1.0",
+  "dataset_name": "ccip-material-reference-seed-with-gap-audit",
+  "retrieved_on": "2026-10-13",
+  "publication_notice": "Datos verificados con grados citados, pero no son certificados de lote. Referencias de otros grados e historicas NO alimentan calculos automaticos.",
+  "null_policy": "Mantener NULL si no está en fuente; nunca usar densidad sólida como fundida, ni aparente como sólida.",
+  "sources": {
+    "S01": {
+      "manufacturer": "Dow",
+      "grade": "DOW 12450N (HDPE)",
+      "url": "https://www.dow.com/en-us/pdp.dow-12450n-high-density-polyethylene-resin.47054z.html",
+      "description": "Página del fabricante; propiedades típicas"
+    },
+    "S02": {
+      "manufacturer": "Dow",
+      "grade": "DOWLEX 2045G (LLDPE)",
+      "url": "https://www.dow.com/en-us/pdp.dowlex-2045g-polyethylene-resin.7650z.html",
+      "description": "Página del fabricante; propiedades típicas"
+    },
+    "S03": {
+      "manufacturer": "Dow",
+      "grade": "DOW LDPE 132G",
+      "url": "https://www.dow.com/en-us/pdp.dow-ldpe-132g-low-density-polyethylene-resin.110928z.html",
+      "description": "Página del fabricante; propiedades típicas"
+    },
+    "S04": {
+      "manufacturer": "LyondellBasell",
+      "grade": "Moplen HP500N (PP)",
+      "url": "https://productsafety.lyondellbasell.com/directrequest?productguid=e8c2d3bb-d271-459f-a439-629a5d85a7da&responsetypeguid=46d59436-1337-4083-ac94-e673e98a4f93&searchhistoryguid=19f453cf-ed90-4ff8-b698-3309ce2d9bf9&searchresultrank=6",
+      "description": "Ficha técnica PP; valores típicos; 2026"
+    },
+    "S05": {
+      "manufacturer": "Indorama Ventures",
+      "grade": "Polyclear Refresh PET 1101",
+      "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Refresh-PET-1101-Rev-16.pdf",
+      "description": "Ficha técnica, revisión 16 de marzo de 2017; comprobar vigencia"
+    },
+    "S06": {
+      "manufacturer": "Westlake",
+      "grade": "PVC 1195",
+      "url": "https://www.westlake.com/sites/default/files/1195_1.pdf",
+      "description": "Ficha de resina PVC en polvo; densidad aparente"
+    },
+    "S07": {
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-22 (ABS)",
+      "url": "https://www.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html",
+      "description": "Página técnica ISO; datos típicos no coloreados"
+    },
+    "S08": {
+      "manufacturer": "BASF",
+      "grade": "Ultramid B3S R03 (PA6)",
+      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd64903145168/en/ULTRAMID%253Csup%253E%25C2%25AE%253Csup%253E_B3S_R03",
+      "description": "Ficha de proceso, 02/2026, método ISO"
+    },
+    "S09": {
+      "manufacturer": "Covestro",
+      "grade": "Makrolon 2405 (PC)",
+      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2405_000000000000945088",
+      "description": "Ficha web: densidad, secado, procesamiento y MVR"
+    },
+    "S10": {
+      "manufacturer": "Covestro (Bayer, documento historico)",
+      "grade": "Makrolon 2405 / 2407 / 2456",
+      "url": "https://www.newark.com/pdfs/techarticles/ledil/PC_Data-Sheet.pdf",
+      "description": "Ficha historica agrupada. Cp = 1 172 J/(kg K), ASTM D2766. Temperatura/estado no indicados para uso integrado."
+    },
+    "S11": {
+      "manufacturer": "Alpek Polyester",
+      "grade": "Laser+ CSD B90A (PET de comparacion)",
+      "url": "https://www.alpekpolyester.com/wp-content/uploads/2023/11/Laser-CSD-B90A-PI.pdf",
+      "description": "Guia de secado de OTRO grado PET para contexto. No autocompletar en Polyclear 1101."
+    },
+    "S12": {
+      "manufacturer": "PETCORE Europe",
+      "grade": "Procedimiento EPTP-P-06 de escamas PET",
+      "url": "https://petcore-europe.org/images/evaluation-platform-test-procedures/eptp-p-06-v0-sept-21-melt-filtration-peletizing-crystalization.pdf",
+      "description": "Protocolo de escamas PET para ensayo/extrusion; no equivale a recomendacion del grado PET 1101."
+    },
+    "S13": {
+      "manufacturer": "Covestro",
+      "grade": "Makrolon 2405",
+      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2405_000000000000945088",
+      "description": "Pagina vigente con condiciones de secado y enlace a multipoint pvT; obtener y validar curva aparte."
+    },
+    "S14": {
+      "manufacturer": "LyondellBasell",
+      "grade": "Moplen HP500N",
+      "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP500N/e8c2d3bb-d271-459f-a439-629a5d85a7da",
+      "description": "Ficha publica de grado PP; valida densidad y MFR."
+    },
+    "S15": {
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-22",
+      "url": "https://www.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html",
+      "description": "Tabla de propiedades y secado de ABS GP-22."
+    },
+    "S16": {
+      "manufacturer": "BASF",
+      "grade": "Ultramid B3S R03",
+      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd64903145168/en/ULTRAMID%253Csup%253E%25C2%25AE%253Csup%253E_B3S_R03",
+      "description": "Ficha de procesamiento PA6 de febrero 2026, humedad recomendada de moldeo 0.03-0.06 %."
+    },
+    "S17": {
+      "manufacturer": "Indorama Ventures",
+      "grade": "Polyclear Refresh PET 1101",
+      "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Refresh-PET-1101-Rev-16.pdf",
+      "description": "Ficha revision 16, 2017. Humedad = especificacion del pellet suministrado, NO humedad final de procesamiento."
+    },
+    "S18": {
+      "manufacturer": "Westlake",
+      "grade": "PVC 1195",
+      "url": "https://www.westlake.com/sites/default/files/1195_1.pdf",
+      "description": "PVC en polvo: densidad aparente para polvo, no compuesto estabilizado final."
+    }
+  },
+  "materials": [
+    {
+      "id": "dow-dow-12450n",
+      "family": "HDPE",
+      "manufacturer": "Dow",
+      "grade": "DOW 12450N",
+      "process_tags": [
+        "inyección"
+      ],
+      "source_id": "S01",
+      "properties": {
+        "solid_density": {
+          "value": 0.95,
+          "unit": "g/cm3",
+          "source_id": "S01",
+          "method": null,
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Densidad reportada; no es densidad de fundido."
+        },
+        "melt_density": null,
+        "bulk_density": null,
+        "specific_heat": null,
+        "drying_temperature": null,
+        "drying_time": null,
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": {
+          "value": 12,
+          "unit": "g/10min",
+          "source_id": "S01",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "mvr": null,
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": null,
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "not_verified_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "dow-dowlex-2045g",
+      "family": "LLDPE",
+      "manufacturer": "Dow",
+      "grade": "DOWLEX 2045G",
+      "process_tags": [
+        "película soplada"
+      ],
+      "source_id": "S02",
+      "properties": {
+        "solid_density": {
+          "value": 0.92,
+          "unit": "g/cm3",
+          "source_id": "S02",
+          "method": null,
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": null,
+        "specific_heat": null,
+        "drying_temperature": null,
+        "drying_time": null,
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": {
+          "value": 1,
+          "unit": "g/10min",
+          "source_id": "S02",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "mvr": null,
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": null,
+        "melting_temperature": {
+          "value": 119,
+          "unit": "°C",
+          "source_id": "S02",
+          "method": null,
+          "condition": "DSC, método Dow",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        }
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "not_verified_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "dow-dow-ldpe-132g",
+      "family": "LDPE",
+      "manufacturer": "Dow",
+      "grade": "DOW LDPE 132G",
+      "process_tags": [
+        "película soplada"
+      ],
+      "source_id": "S03",
+      "properties": {
+        "solid_density": {
+          "value": 0.921,
+          "unit": "g/cm3",
+          "source_id": "S03",
+          "method": null,
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": null,
+        "specific_heat": null,
+        "drying_temperature": null,
+        "drying_time": null,
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": {
+          "value": 0.25,
+          "unit": "g/10min",
+          "source_id": "S03",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "mvr": null,
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": {
+          "value": null,
+          "unit": "°C",
+          "source_id": "S03",
+          "method": null,
+          "condition": null,
+          "range": [
+            170,
+            230
+          ],
+          "status": "manufacturer_typical",
+          "note": "Intervalo indicado para extrusión de película soplada; no equivale a temperatura de fusión DSC."
+        },
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "not_verified_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "lyondellbasell-moplen-hp500n",
+      "family": "PP",
+      "manufacturer": "LyondellBasell",
+      "grade": "Moplen HP500N",
+      "process_tags": [
+        "inyección"
+      ],
+      "source_id": "S04",
+      "properties": {
+        "solid_density": {
+          "value": 0.9,
+          "unit": "g/cm3",
+          "source_id": "S04",
+          "method": "ASTM D792",
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": null,
+        "specific_heat": null,
+        "drying_temperature": null,
+        "drying_time": null,
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": {
+          "value": 12,
+          "unit": "g/10min",
+          "source_id": "S04",
+          "method": "ASTM D1238",
+          "condition": "230 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "mvr": null,
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": null,
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "not_verified_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "indorama-ventures-polyclear-refresh-pet-1101",
+      "family": "PET",
+      "manufacturer": "Indorama Ventures",
+      "grade": "Polyclear Refresh PET 1101",
+      "process_tags": [
+        "preformas / inyección-estirado-soplado"
+      ],
+      "source_id": "S05",
+      "properties": {
+        "solid_density": {
+          "value": 1.398,
+          "unit": "g/cm3",
+          "source_id": "S05",
+          "method": "Método interno M2E-71-043",
+          "condition": "grado de la ficha 2017",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": {
+          "value": 0.9,
+          "unit": "kg/L",
+          "source_id": "S05",
+          "method": "Método interno M2E-72-015",
+          "condition": "80 pellets/g; 0.88 kg/L para 60 pellets/g",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "specific_heat": null,
+        "drying_temperature": null,
+        "drying_time": null,
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": null,
+        "mvr": null,
+        "intrinsic_viscosity": {
+          "value": 0.84,
+          "unit": "dL/g",
+          "source_id": "S05",
+          "method": "Método interno M2E-75-011",
+          "condition": "objetivo; tolerancia ±0.02",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_temperature_recommended": null,
+        "melting_temperature": {
+          "value": 240,
+          "unit": "°C",
+          "source_id": "S05",
+          "method": "Método interno M2E-73-002",
+          "condition": "objetivo; tolerancia ±8 °C",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        }
+      },
+      "revision_review_required": true,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "not_verified_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": [
+        {
+          "property": "drying_guide_different_pet_grade",
+          "source_id": "S11",
+          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
+          "pellet_temperature_C": "149-166",
+          "residence_h": "minimo 4; preferible 6",
+          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
+        }
+      ],
+      "incoming_product_moisture": {
+        "value": 0.15,
+        "unit": "% mass",
+        "max": 0.3,
+        "source_id": "S17",
+        "meaning": "Especificacion del producto suministrado; NO humedad a lograr tras secado antes de inyeccion.",
+        "status": "manufacturer_specification_historical_2017"
+      }
+    },
+    {
+      "id": "westlake-westlake-pvc-1195",
+      "family": "PVC",
+      "manufacturer": "Westlake",
+      "grade": "Westlake PVC 1195",
+      "process_tags": [
+        "PVC rígido; polvo para mezcla"
+      ],
+      "source_id": "S06",
+      "properties": {
+        "solid_density": null,
+        "melt_density": null,
+        "bulk_density": {
+          "value": 0.53,
+          "unit": "kg/L",
+          "source_id": "S06",
+          "method": "ASTM D1895",
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Densidad aparente de resina en POLVO; no pellets ni compuesto final."
+        },
+        "specific_heat": null,
+        "drying_temperature": null,
+        "drying_time": null,
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": null,
+        "mvr": null,
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": null,
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "not_verified_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation",
+        "final_compound": "must_define_stabilizers_plasticizers_fillers_and_compounding_grade"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "ineos-styrolution-terluran-gp-22",
+      "family": "ABS",
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-22",
+      "process_tags": [
+        "inyección"
+      ],
+      "source_id": "S07",
+      "properties": {
+        "solid_density": {
+          "value": 1.04,
+          "unit": "g/cm3",
+          "source_id": "S07",
+          "method": "ISO 1183",
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": null,
+        "specific_heat": null,
+        "drying_temperature": {
+          "value": 80,
+          "unit": "°C",
+          "source_id": "S07",
+          "method": null,
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "drying_time": {
+          "value": null,
+          "unit": "h",
+          "source_id": "S07",
+          "method": null,
+          "condition": null,
+          "range": [
+            2,
+            4
+          ],
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "moisture_target": null,
+        "moisture_max": null,
+        "mfr": null,
+        "mvr": {
+          "value": 19,
+          "unit": "cm3/10min",
+          "source_id": "S07",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": {
+          "value": null,
+          "unit": "°C",
+          "source_id": "S07",
+          "method": null,
+          "condition": null,
+          "range": [
+            220,
+            260
+          ],
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "present_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "basf-ultramid-b3s-r03",
+      "family": "PA6",
+      "manufacturer": "BASF",
+      "grade": "Ultramid B3S R03",
+      "process_tags": [
+        "inyección"
+      ],
+      "source_id": "S08",
+      "properties": {
+        "solid_density": {
+          "value": 1.13,
+          "unit": "g/cm3",
+          "source_id": "S08",
+          "method": "ISO 1183",
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": {
+          "value": 0.7,
+          "unit": "kg/L",
+          "source_id": "S08",
+          "method": null,
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Aproximada; pellets"
+        },
+        "specific_heat": null,
+        "drying_temperature": {
+          "value": 80,
+          "unit": "°C",
+          "source_id": "S08",
+          "method": null,
+          "condition": "secador de aire seco",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "drying_time": {
+          "value": 4,
+          "unit": "h",
+          "source_id": "S08",
+          "method": null,
+          "condition": "según humedad inicial, punto de rocío y almacenamiento",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "moisture_target": {
+          "value": null,
+          "unit": "% masa",
+          "source_id": "S08",
+          "method": null,
+          "condition": null,
+          "range": [
+            0.03,
+            0.06
+          ],
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "moisture_max": null,
+        "mfr": null,
+        "mvr": {
+          "value": 190,
+          "unit": "cm3/10min",
+          "source_id": "S08",
+          "method": "ISO 1133",
+          "condition": "275 °C / 5 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": {
+          "value": null,
+          "unit": "°C",
+          "source_id": "S08",
+          "method": null,
+          "condition": null,
+          "range": [
+            250,
+            270
+          ],
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "present_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": []
+    },
+    {
+      "id": "covestro-makrolon-2405",
+      "family": "PC",
+      "manufacturer": "Covestro",
+      "grade": "Makrolon 2405",
+      "process_tags": [
+        "inyección"
+      ],
+      "source_id": "S09",
+      "properties": {
+        "solid_density": {
+          "value": 1.2,
+          "unit": "g/cm3",
+          "source_id": "S09",
+          "method": "ISO 1183-1",
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "melt_density": null,
+        "bulk_density": {
+          "value": 0.66,
+          "unit": "kg/L",
+          "source_id": "S09",
+          "method": "ISO 60",
+          "condition": "pellets",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "specific_heat": null,
+        "drying_temperature": {
+          "value": 120,
+          "unit": "°C",
+          "source_id": "S09",
+          "method": null,
+          "condition": "secador de aire seco",
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "drying_time": {
+          "value": null,
+          "unit": "h",
+          "source_id": "S09",
+          "method": null,
+          "condition": null,
+          "range": [
+            2,
+            3
+          ],
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "moisture_target": null,
+        "moisture_max": {
+          "value": 0.02,
+          "unit": "% masa",
+          "source_id": "S09",
+          "method": null,
+          "condition": null,
+          "range": null,
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "mfr": null,
+        "mvr": {
+          "value": 19,
+          "unit": "cm3/10min",
+          "source_id": "S09",
+          "method": null,
+          "condition": "300 °C / 1.2 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": null
+        },
+        "intrinsic_viscosity": null,
+        "melt_temperature_recommended": {
+          "value": null,
+          "unit": "°C",
+          "source_id": "S09",
+          "method": null,
+          "condition": null,
+          "range": [
+            280,
+            320
+          ],
+          "status": "manufacturer_recommendation",
+          "note": null
+        },
+        "melting_temperature": null
+      },
+      "revision_review_required": false,
+      "record_status": "reference_data_not_certified",
+      "notes": "No copiar densidad sólida a melt_density; toda propiedad ausente permanece null.",
+      "missing_data_audit": {
+        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
+        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
+        "drying_guideline": "present_grade_specific",
+        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
+        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
+      },
+      "reference_properties_not_for_autofill": [
+        {
+          "property": "specific_heat",
+          "value": 1.172,
+          "unit": "kJ/(kg K)",
+          "source_id": "S10",
+          "status": "historical_grouped_2405_2407_2456",
+          "method": "ASTM D2766",
+          "temperature_range": null,
+          "phase": null,
+          "use": "Display source note only; never auto-fill advanced drying energy"
+        }
+      ],
+      "pvT_resource": {
+        "source_id": "S13",
+        "type": "Manufacturer multipoint pvT PDF link announced on product page",
+        "data_integrated": false,
+        "status": "acquire_and_digitize_or_fit"
+      }
+    }
+  ],
+  "data_contract": {
+    "grade_match": "Autocompletar solo cuando coincidan fabricante, grado y presentacion; guardar version de ficha, lote y condiciones de medicion.",
+    "units": "Unidades canonicas: g/cm3 para densidades, kg/L aparente, kJ/(kg K) cp, C T, MPa P y porcentaje masa para humedad.",
+    "melt_density": "Sin curva pvT del grado y T/P compatibles, dejar null y requerir entrada manual, con trazabilidad.",
+    "specific_heat": "Dato unico solo si la fuente indica estado y rango termico compatible; para cruces de fase usar entalpia/latent heat. Referencia historica no autocompletable.",
+    "PET_received_moisture": "La humedad de la ficha de Polyclear 1101 es especificacion de producto recibido; NO objetivo de secado antes de inyeccion.",
+    "PVC": "PVC 1195 es resina en polvo. No extrapolar valores de polvo a compuesto/aditivado.",
+    "no_equivalence": "MFR no determina densidad fundida ni Cp; densidad solida y densidad aparente no sirven para calcular rho fundido.",
+    "fallbacks": "Sin dato, mostrar Pendiente y explicar documento, grado y ensayo solicitados."
+  }
+}

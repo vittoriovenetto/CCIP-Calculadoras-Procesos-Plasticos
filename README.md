@@ -6,7 +6,7 @@ La rama `feature/ux-lean-materiales-v1.5`, basada en `audit/materiales-minimo-3-
 
 En **avanzado** se añade el perfil geométrico físico **L1/L2/L3**, opcional y distinto de los tres niveles: porcentajes 30/50/20 editables que deben sumar 100, gráfico, volúmenes, recorridos individuales/acumulados y coordenadas únicamente con origen y sentido definidos. Se usa la dosificación sin reserva ni colchón automático, sin inventar velocidades o presiones.
 
-Consulta [fórmulas, fuentes, límites y pruebas](docs/inyeccion-densidad-perfil-v1.5.md). Esta entrega no publica la página ni fusiona `main`.
+Consulta [fórmulas, fuentes, límites y pruebas](docs/inyeccion-densidad-perfil-v1.5.md). El usuario autorizó posteriormente publicar conservando la web anterior; véase el [registro de publicación y copias](docs/despliegue-inyeccion-2026-10-15.md). No se fusiona `main`.
 
 ## Catálogo depurado v1.4 — vigente en esta rama (15/10/2026)
 
