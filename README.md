@@ -2,7 +2,7 @@
 
 ## Catálogo depurado v1.4 — vigente en esta rama (15/10/2026)
 
-**Prioridad: calidad sobre cantidad.** Tras auditar 99 registros históricos, el catálogo seleccionable contiene **59 grados comerciales con un mínimo de tres propiedades numéricas atribuidas a fabricante** y **9 perfiles genéricos exclusivamente manuales**. Se retiraron **31 grados sin datos suficientes**; esos registros ya no están disponibles para nuevas selecciones.
+**Prioridad: calidad sobre cantidad.** Tras auditar 99 registros históricos, el catálogo seleccionable contiene **64 grados comerciales con un mínimo de tres propiedades numéricas atribuidas a fabricante** y **9 perfiles genéricos exclusivamente manuales**. Se retiraron **26 grados sin datos suficientes**; esos registros ya no están disponibles para nuevas selecciones.
 
 - [Informe técnico con nombres y justificación de los 31 excluidos](docs/INFORME_AUDITORIA_MATERIALES_V1_4.md).
 - [Matriz JSON de trazabilidad por los 99 registros evaluados](docs/auditoria-estricta-materiales-v1.4.json).
