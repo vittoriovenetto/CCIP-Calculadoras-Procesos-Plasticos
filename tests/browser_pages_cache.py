@@ -2,9 +2,11 @@
 Ejecutar después de npm run build:pages: python3 tests/browser_pages_cache.py
 """
 import functools
+import os
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
+import shutil
 from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright
@@ -21,7 +23,7 @@ server = ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(QuietHandler, d
 threading.Thread(target=server.serve_forever, daemon=True).start()
 try:
     with sync_playwright() as p:
-        browser = p.chromium.launch(executable_path='/usr/bin/chromium')
+        browser = p.chromium.launch(executable_path=os.environ.get('CCIP_CHROMIUM') or shutil.which('chromium') or shutil.which('chromium-browser'))
         for width in (390, 768, 1440):
             context = browser.new_context(viewport={'width': width, 'height': 1000})
             page = context.new_page()
