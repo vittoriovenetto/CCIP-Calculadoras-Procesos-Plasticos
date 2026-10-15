@@ -2,12 +2,12 @@
   "schema": "ccip-materials-audit/1.4",
   "date": "2026-10-15",
   "criterion": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
-  "note": "Los registros excluidos no están en la lista seleccionable; se conservan motivos y fuentes aquí, no sus valores como propiedades activas.",
+  "note": "Auditoría inicial de 99 perfiles; cinco PC de Covestro recuperados de documentación oficial. Catálogo activo: 64 grados comerciales y 9 genéricos; 26 excluidos.",
   "counts": {
     "original": 99,
-    "commercial_retained": 59,
+    "commercial_retained": 64,
     "generic_manual_retained": 9,
-    "removed": 31
+    "removed": 26
   },
   "records": [
     {
@@ -1842,13 +1842,22 @@
       "grade": "Makrolon 2807",
       "manufacturer": "Covestro",
       "record_type": "commercial",
-      "recorded_properties": 0,
-      "categories": [],
-      "property_keys": [],
-      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/products/datasheets/imported/makrolon/makrolon-2807_zf_56978007-00009619-18637275.pdf",
       "manufacturer_source": true,
-      "decision": "REMOVE",
-      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+      "decision": "KEEP",
+      "reason": "Rescatado con propiedades técnicas documentadas del grado exacto en Covestro"
     },
     {
       "id": "catalog-pc-makrolon-2856",
@@ -1881,13 +1890,20 @@
       "grade": "Makrolon 2858",
       "manufacturer": "Covestro",
       "record_type": "commercial",
-      "recorded_properties": 0,
-      "categories": [],
-      "property_keys": [],
-      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "recorded_properties": 3,
+      "categories": [
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "mvr",
+        "tensile_modulus",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1556888808.pdf?hash=6C670B9A7B2F77CD2BF485F9C9DD2988&rev=3230968946",
       "manufacturer_source": true,
-      "decision": "REMOVE",
-      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+      "decision": "KEEP",
+      "reason": "Rescatado con propiedades técnicas documentadas del grado exacto en Covestro"
     },
     {
       "id": "catalog-pc-makrolon-3105",
@@ -1917,13 +1933,21 @@
       "grade": "Makrolon 3106",
       "manufacturer": "Covestro",
       "record_type": "commercial",
-      "recorded_properties": 0,
-      "categories": [],
-      "property_keys": [],
-      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3106_000000000056628987",
       "manufacturer_source": true,
-      "decision": "REMOVE",
-      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+      "decision": "KEEP",
+      "reason": "Rescatado con propiedades técnicas documentadas del grado exacto en Covestro"
     },
     {
       "id": "catalog-pc-makrolon-3107",
@@ -1931,13 +1955,22 @@
       "grade": "Makrolon 3107",
       "manufacturer": "Covestro",
       "record_type": "commercial",
-      "recorded_properties": 0,
-      "categories": [],
-      "property_keys": [],
-      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3107_000000000057534595",
       "manufacturer_source": true,
-      "decision": "REMOVE",
-      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+      "decision": "KEEP",
+      "reason": "Rescatado con propiedades técnicas documentadas del grado exacto en Covestro"
     },
     {
       "id": "catalog-pc-makrolon-3108",
@@ -1945,13 +1978,21 @@
       "grade": "Makrolon 3108",
       "manufacturer": "Covestro",
       "record_type": "commercial",
-      "recorded_properties": 0,
-      "categories": [],
-      "property_keys": [],
-      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "deflection_temperature"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3108_000000000000006499",
       "manufacturer_source": true,
-      "decision": "REMOVE",
-      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+      "decision": "KEEP",
+      "reason": "Rescatado con propiedades técnicas documentadas del grado exacto en Covestro"
     },
     {
       "id": "generic-pc",
