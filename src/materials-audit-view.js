@@ -36,7 +36,8 @@ function chart(sample) {
 }
 export function renderAudit(state, level) {
   const grade = state.grade_snapshot;
-  if (!grade) return '';
+  // Generic families and catalog-only entries have no verified pVT/datasheet values.
+  if (!grade || ["generic_unverified", "catalog_identity_pending_grade_data_verification"].includes(grade.record_status)) return '';
   const refs = state.references_snapshot || {};
   const incoming = grade.incoming_product_moisture;
   const references = Array.isArray(grade.reference_properties_not_for_autofill) ? grade.reference_properties_not_for_autofill.filter(ref => ref && typeof ref === "object") : [];

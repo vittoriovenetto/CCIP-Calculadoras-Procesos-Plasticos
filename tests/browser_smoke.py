@@ -887,5 +887,37 @@ class BrowserSmoke(unittest.TestCase):
         self.assertIn('not documented',self.page.locator('[data-property="bulk_density"]').inner_text())
 
 
+    def test_26_hide_empty_datasheets_keep_only_available_properties(self):
+        self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
+        cases = [
+            next(m for m in MATERIALS if m['id'] == 'generic-hdpe'),
+            next(m for m in MATERIALS if m['id'].startswith('catalog-hdpe-') and not any(
+                isinstance(p,dict) and p.get('value') is not None for p in m['properties'].values())),
+            next(m for m in MATERIALS if m['id'] == 'westlake-westlake-pvc-1195'),
+            next(m for m in MATERIALS if m['id'] == 'basf-ultramid-b3s-r03')
+        ]
+        for lang in ['es','en']:
+            self.page.locator('#language').select_option(lang)
+            for m in cases:
+                self.select_grade(m)
+                available=sum(1 for p in m['properties'].values() if isinstance(p,dict) and (
+                    isinstance(p.get('value'),(int,float)) or (
+                        isinstance(p.get('range'),list) and len(p['range'])==2
+                    )
+                ))
+                self.assertEqual(self.page.locator('#material-properties').count(),int(available>0),m['id'])
+                self.assertEqual(self.page.locator('#material-properties .material-property').count(),available,m['id'])
+                if available:
+                    self.assertTrue(all('Pendiente: no documentado' not in t and 'Pending: not documented' not in t for t in self.page.locator('#material-properties .material-property').all_text_contents()))
+                for width in [320,390,768]:
+                    self.page.set_viewport_size({'width':width,'height':844})
+                    self.assert_layout()
+        self.page.locator('#level').select_option('basic')
+        self.select_grade(cases[-1])
+        self.assertEqual(self.page.locator('#material-properties .material-property').count(),7)
+        self.page.locator('#calculate').click()
+        self.assertTrue(self.page.locator('#summary-metrics .kpi').count()>0)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
