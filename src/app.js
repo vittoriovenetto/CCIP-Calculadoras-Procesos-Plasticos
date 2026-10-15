@@ -12,9 +12,14 @@ import { guideHref } from "./formula-learning.js";
 import { renderComparison } from "./compare.js";
 import { defaultInjectionProfile, restoreInjectionProfile, calculateInjectionProfile } from "./injection-profile.js";
 import { renderInjectionProfile } from "./injection-profile-view.js";
+import { renderManualData } from "./materials-audit-view.js";
+import { materialCatalogFor, hasDryingGuideline, enableLeanMaterial } from "./lean-materials.js";
+import { displayMetrics, inputIssues } from "./results-view.js";
+import { mountGuide } from "./formulas-index.js";
+const freshMaterial = () => enableLeanMaterial(createMaterialState());
 
 const $ = id => document.getElementById(id);
-const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
+const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), filters: { family: "", manufacturer: "" } };
 state.profile = defaultInjectionProfile();
 const sessions = new Map();
 let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
@@ -34,7 +39,8 @@ function invalidate() {
   $("metrics").innerHTML = "<p class='muted'>Introduce los parámetros y pulsa Calcular. Los resultados sin datos válidos quedan pendientes.</p>";
   $("messages").innerHTML = "";
   drawProfile(null);
-  $("result-notes").querySelector("summary").textContent = "Advertencias, hipótesis y límites";
+  for(const error of document.querySelectorAll('.field-error')) error.replaceChildren();
+  for(const input of document.querySelectorAll('[data-field]')) input.removeAttribute('aria-invalid');
 }
 
 function nav() {
@@ -45,10 +51,10 @@ function nav() {
     state.id = b.dataset.module;
     const session = sessions.get(state.id);
     state.values = session?.values || initialValues();
-    state.material = session?.material || createMaterialState();
+    state.material = session?.material || freshMaterial();
     state.filters = session?.filters || { family: "", manufacturer: "" };
     if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
-    draw();
+    closeLearning();draw();
   }));
 }
 
@@ -65,7 +71,34 @@ function draw() {
   renderHistory();
 }
 
-const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}" target="_blank" rel="noopener">Ver fórmula y ejemplo</a>`;
+const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}">Ver fórmula y ejemplo</a>`;
+
+const calculatorUrl = new URL(location.href);
+for(const key of ['view','process','level'])calculatorUrl.searchParams.delete(key);
+calculatorUrl.hash='';
+function closeLearning(push=true) {
+  if($("learning-view").hidden)return;
+  $("learning-view").hidden=true;$("calculator-view").hidden=false;$("learn-page").removeAttribute("aria-current");
+  if(push)history.pushState({ccipView:'calculator'},'',calculatorUrl);
+  $("module-title").setAttribute('tabindex','-1');$("module-title").focus({preventScroll:true});
+}
+function showLearning(href,push=true) {
+  parameterHelp.close();
+  const requested=new URL(href,location.href),url=new URL(calculatorUrl);
+  url.searchParams.set('view','learning');
+  for(const key of ['process','level'])if(requested.searchParams.has(key))url.searchParams.set(key,requested.searchParams.get(key));
+  url.hash=requested.hash;
+  if(push)history.pushState({ccipView:'learning'},'',url);
+  $("calculator-view").hidden=true;$("learning-view").hidden=false;$("learn-page").setAttribute("aria-current","page");
+  mountGuide($("learning-view"),{process:url.searchParams.get('process'),level:url.searchParams.get('level'),lesson:url.hash.slice(1),onBack:()=>closeLearning()});
+  if(!url.hash)$("learning-back").focus({preventScroll:true});
+}
+document.addEventListener('click',event=>{
+  const link=event.target.closest('#learn-page,.result-learning');
+  if(!link||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;
+  event.preventDefault();showLearning(link.href);
+});
+addEventListener('popstate',()=>new URL(location.href).searchParams.get('view')==='learning'?showLearning(location.href,false):closeLearning(false));
 
 function refreshPersonalCatalog() {
   const base = catalogBase || {schema_version:"1.3.0",dataset_name:"Personal materials",retrieved_on:new Date().toISOString().slice(0,10),sources:{},materials:[]};
@@ -93,7 +126,7 @@ function drawCustomEditor() {
 }
 
 function drawMaterials() {
-  renderMaterials($("materials"), { library, loadStatus, materialState: state.material, filters: state.filters,
+  renderMaterials($("materials"), { library: materialCatalogFor(library,state.id), loadStatus, materialState: state.material, filters: state.filters,
     module: mod(), values: state.values, level: state.level, onChange: materialChanged, detailsOpen: materialDetailsOpen, onDetailsToggle: open => { materialDetailsOpen = open; } });
 }
 function drawProfile(result) {
@@ -103,7 +136,7 @@ function drawProfile(result) {
   });
 }
 function drawDensity() {
-  renderInjectionDensity($("injection-density"), {
+  renderInjectionDensity($("density-help"), {
     module: mod(), level: state.level, state: state.material, values: state.values,
     onChange: (key,value) => materialChanged('context',{key,value}),
     onUseReference: () => materialChanged('reference','meltDensity')
@@ -131,11 +164,15 @@ function materialChanged(action, value) {
     if (state.id === 'inyeccion' && ['pvtTemperatureC','pvtPressureMPa'].includes(value.key)) {
       const previous = state.values.meltDensity;
       applyFamilyMeltDensity(state.material,mod(),state.values,state.level);
-      if (previous !== state.values.meltDensity) drawFields();
-      else if (state.level === 'advanced') drawDensity();
+      if (previous !== state.values.meltDensity) {
+        if($('field-meltDensity'))$('field-meltDensity').value=state.values.meltDensity;
+        if($('provenance-meltDensity'))$('provenance-meltDensity').textContent=state.material.provenance.meltDensity?provenanceText(state.material.provenance.meltDensity):'';
+      }
       renderMaterialFeedback($("materials"),state.material,mod(),state.values,state.level);
       invalidate();return;
     }
+    if (value.key === 'pvcMeltReferenceForm') state.material.context.pvcMeltCompoundConfirmed = ['rigid','flexible'].includes(value.value);
+    if (value.key === 'dryingManualMode') {draw();return;}
     if (value.key === 'pvcMeltReferenceForm' || (value.key === 'meltDensityPolicy' && value.value === 'verified_only')) state.material.context.familyMeltReferenceAccepted = false;
     if (["compatible", "physicalForm", "bulkCompatible", "dryingCompatible", "processConfirmed", "dryingTime", "meltDensityPolicy", "familyMeltReferenceAccepted", "pvcMeltReferenceForm", "pvcMeltCompoundConfirmed"].includes(value.key)) {
       clearAutomatic(state.material, state.values);
@@ -153,36 +190,63 @@ function materialChanged(action, value) {
   if (action === "family" && value && library) {
     const generic = library.materials.find(m => m.family === value && m.record_status === "generic_unverified");
     selectMaterial(library, state.material, state.values, generic?.id || null);
+    enableLeanMaterial(state.material);
     state.filters = { family: value, manufacturer: generic?.manufacturer || "" };
     draw();
     return;
   }
   selectMaterial(library, state.material, state.values, action === "grade" ? value : null);
+  enableLeanMaterial(state.material);
   if (action === "family") state.filters = { family: value, manufacturer: "" };
   if (action === "manufacturer") state.filters.manufacturer = value;
   draw();
 }
 function drawFields() {
   parameterHelp.close();
+  const dryReady = state.id !== 'secado' || hasDryingGuideline(state.material.grade_snapshot,library?.sources) || state.material.context.dryingManualMode;
+  $("calculation-grid").hidden=!dryReady;
   const renderField = f => {
     const options = f.options?.map(([value, label]) => `<option value="${safe(value)}" ${String(state.values[f.key]) === String(value) ? "selected" : ""}>${safe(label)}</option>`).join("") || "";
-    const attrs = `id="field-${f.key}" data-field="${f.key}" aria-describedby="hint-${f.key}"`;
+    const attrs = `id="field-${f.key}" data-field="${f.key}" aria-describedby="hint-${f.key} error-${f.key}"`;
     const control = f.type === "select" ? `<select ${attrs}>${options}</select>` :
       `<input ${attrs} inputmode="decimal" type="number" step="${f.integer ? "1" : "any"}" min="${f.min}" ${f.max == null ? "" : `max="${f.max}"`} value="${safe(state.values[f.key])}" placeholder="Sin dato"/>`;
-    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p></div><small id="provenance-${f.key}" class="field-provenance">${safe(provenanceText(state.material.provenance[f.key]))}</small></div>`;
+    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
   };
   $("fields").innerHTML = fieldGroups(state.id, activeFields(mod(), state.values, state.level)).map(group => `<fieldset class="parameter-group"><legend>${safe(group.label)}</legend><div class="fields">${group.fields.map(renderField).join("")}</div></fieldset>`).join("");
   document.querySelectorAll("[data-field]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => {
     state.values[el.dataset.field] = el.validity.badInput ? "invalid" : el.value;
     markManual(state.material, state.id, el.dataset.field, state.values[el.dataset.field]);
-    $("provenance-" + el.dataset.field).textContent = provenanceText(state.material.provenance[el.dataset.field]);
+    if(state.id==='secado'&&['residence','targetT'].includes(el.dataset.field)) {
+      const property=state.material.grade_snapshot?.properties[el.dataset.field==='residence'?'drying_time':'drying_temperature'];
+      const number=Number(el.value);
+      if(property?.range&&el.value!=='') {
+        const inRange=Number.isFinite(number)&&number>=property.range[0]&&number<=property.range[1];
+        state.material.context[el.dataset.field==='residence'?'dryingTime':'dryingTemperature']=inRange?el.value:'';
+        const entry=state.material.provenance[el.dataset.field];
+        Object.assign(entry,{origin:inRange?'range_selection':'user_override',reference:structuredClone(property),source:structuredClone(state.material.source),source_id:property.source_id,selection_reason:inRange?'Valor elegido explícitamente por el usuario dentro del rango de ficha':'Anulación manual fuera del rango de ficha; requiere validación técnica'});
+      }
+    }
+    $("provenance-" + el.dataset.field).textContent = state.material.provenance[el.dataset.field]?provenanceText(state.material.provenance[el.dataset.field]):"";
     renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
     if (el.dataset.field === "meltDensity") drawDensity();
+    if(state.material.provenance[el.dataset.field])drawMaterials();
     if (el.dataset.field === "method" || el.dataset.field === "shape") draw();
     else invalidate();
   }));
 
   drawDensity();
+  for(const control of $("fields").querySelectorAll('[data-material-context]')) control.addEventListener(control.type==='checkbox'||control.tagName==='SELECT'?'change':'input',()=>materialChanged('context',{key:control.dataset.materialContext,value:control.type==='checkbox'?control.checked:control.value}));
+}
+
+function fieldHelp(f) {
+  if(f.key==='meltDensity')return '<div id="density-help"></div>';
+  if(state.id==='secado'&&f.key==='specificHeat')return renderManualData(state.material,'secado','advanced');
+  if(state.id==='secado'&&f.key==='residence') {
+    const p=state.material.grade_snapshot?.properties.drying_time;
+    return `<p>La recomendación de secado es una guía; usarla como residencia nominal exige comprobar humedad inicial, secador y punto de rocío. No garantiza humedad final.</p>${p?.range?`<p>Elige explícitamente un tiempo entre ${safe(p.range[0])} y ${safe(p.range[1])} h; no se usa un promedio.</p>`:''}`;
+  }
+  if(state.id==='secado'&&f.key==='bulkDensity')return `<label for="material-physicalForm">Presentación real del material</label><select id="material-physicalForm" data-material-context="physicalForm"><option value="">Sin confirmar</option>${['pellets','powder'].map(x=>`<option ${state.material.context.physicalForm===x?'selected':''}>${x}</option>`).join('')}</select><label><input id="material-bulkCompatible" data-material-context="bulkCompatible" type="checkbox" ${state.material.context.bulkCompatible?'checked':''}>Confirmo método y condiciones de densidad aparente, incluida presentación/tamaño del material.</label>`;
+  return '';
 }
 
 function compute() {
@@ -196,17 +260,26 @@ function compute() {
   }
   a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
   const injectionProfile = state.id === 'inyeccion' ? calculateInjectionProfile(a.calculation_inputs || inputs, state.level, state.profile, a.density_assessment) : null;
-  const item = { ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
+  const issues=inputIssues(state.id,inputs,state.level,a);
+  for(const issue of issues)if(!a.warnings.includes(issue.message))a.warnings.push(issue.message);
+  const visible=displayMetrics(a);
+  const item = {input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
-  const primary = (primaryLabels[state.id] || []).map(label => a.metrics.find(m => m.label === label)).filter(Boolean);
-  $("summary-metrics").innerHTML = primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small>${densityBadge(m)}${learningLink(m.label)}</article>`).join("");
-  const usage = a.metrics.find(m => m.label === "Utilización volumétrica teórica");
+  const primary = (primaryLabels[state.id] || []).map(label => visible.find(m => m.label === label)).filter(Boolean);
+  if(!primary.length)primary.push(...visible.slice(0,3));
+  $("summary-metrics").innerHTML = primary.length ? primary.map(m => `<article class="kpi"><h3>${safe(m.label)}</h3><strong>${safe(format(m))}</strong><small>${m.value === null ? "Requiere datos válidos para este resultado" : "Estimación académica"}</small>${densityBadge(m)}${learningLink(m.label)}</article>`).join("") : '<p class="muted">Introduce los datos necesarios para calcular.</p>';
+  const usage = visible.find(m => m.label === "Utilización volumétrica teórica");
   $("usage").innerHTML = usage ? `<div class="usage"><b>Utilización geométrica del husillo</b><p>${safe(format(usage))}</p>${densityBadge(usage)}${usage.value === null ? '<p class="muted">Pendiente: requiere volumen de shot, diámetro y carrera disponibles.</p>' : `<div class="usage-track" role="meter" aria-label="Utilización geométrica" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100, Math.max(0, usage.value))}" aria-valuetext="${safe(format(usage))}${usage.value > 100 ? "; supera la capacidad teórica" : ""}"><span style="width:${Math.min(100, Math.max(0, usage.value))}%"></span></div><small>${usage.value > 100 ? "Supera la capacidad geométrica indicada. " : ""}Verifica los límites reales del equipo; el porcentaje no certifica idoneidad.</small>`}</div>` : "";
-  $("metrics").innerHTML = a.metrics.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small>${densityBadge(m)}${learningLink(m.label)}</div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
-  $("messages").innerHTML = a.warnings.map(t => `<div class="warning">⚠ ${safe(t)}</div>`).join("") + a.notes.map(t => `<div class="note">${safe(t)}</div>`).join("");
-  $("result-notes").querySelector("summary").textContent = a.warnings.length ? `Advertencias (${a.warnings.length}), hipótesis y límites` : "Hipótesis y límites";
-  if (a.warnings.length) $("result-notes").open = true;
+  $("results-details").hidden=!visible.length;
+  $("metrics").innerHTML = visible.map(m => `<div class="metric"><div><b>${safe(m.label)}</b><small>${safe(m.formula)}</small>${densityBadge(m)}${learningLink(m.label)}</div><strong>${m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision })} ${m.value === null ? "" : safe(m.unit)}</strong></div>`).join("");
+  for(const error of document.querySelectorAll('.field-error'))error.replaceChildren();
+  for(const input of document.querySelectorAll('[data-field]'))input.removeAttribute('aria-invalid');
+  for(const issue of issues.filter(x=>x.field)) {
+    const field=$("field-"+issue.field);field?.setAttribute('aria-invalid','true');
+    $("error-"+issue.field)?.insertAdjacentHTML('beforeend',`<p>${safe(issue.message)}</p>`);
+  }
+  $("messages").innerHTML=issues.filter(x=>!x.field).map(x=>`<p class="warning">${safe(x.message)}</p>`).join('');
   drawProfile(injectionProfile);
   return item;
 }
@@ -237,7 +310,7 @@ function renderHistory() {
 }
 
 $("calculate").addEventListener("click", compute);
-$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.material = createMaterialState(); state.filters = { family: "", manufacturer: "" }; draw(); });
+$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.material = freshMaterial(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw(); });
 $("save").addEventListener("click", () => {
   const item = compute();
@@ -260,6 +333,7 @@ $("export").addEventListener("click", () => {
 state.values = initialValues();
 draw();
 initI18n();
+if(new URL(location.href).searchParams.get('view')==='learning')showLearning(location.href,false);
 
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.

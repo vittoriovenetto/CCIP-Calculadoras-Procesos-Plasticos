@@ -24,5 +24,5 @@ export function guideHref(module, level = 'advanced', label) {
   const requested = Object.hasOwn(levels, level) ? level : 'advanced';
   // Un resultado pendiente puede necesitar un nivel superior al del caso actual.
   const shown = lesson && levels[lessonLevel(lesson)] > levels[requested] ? lessonLevel(lesson) : requested;
-  return `./formulas.html?process=${encodeURIComponent(module)}&level=${shown}#${lesson ? lesson.id : `guide-${module}`}`;
+  return `./?view=learning&process=${encodeURIComponent(module)}&level=${shown}#${lesson ? lesson.id : `guide-${module}`}`;
 }
