@@ -15,12 +15,12 @@ function storage(data = []) {
   let raw = typeof data === 'string' ? data : JSON.stringify(data);
   return {getItem:key=>key===USER_KEY?raw:null,setItem:(_,value)=>{raw=value;},raw:()=>raw};
 }
-test('Auditoría estricta: 99 fichas evaluadas; 31 grados comerciales excluidos',()=>{
+test('Auditoría estricta: 99 fichas evaluadas; 26 grados comerciales excluidos',()=>{
   assert.equal(audit.records.length,99);
   assert.equal(audit.counts.original,99);
-  assert.equal(audit.counts.removed,31);
-  assert.equal(data.materials.length,68);
-  assert.equal(data.audit_metadata.commercial_retained,59);
+  assert.equal(audit.counts.removed,26);
+  assert.equal(data.materials.length,73);
+  assert.equal(data.audit_metadata.commercial_retained,64);
   const ids=new Set(data.materials.map(m=>m.id));
   const valid=p=>p&&typeof p==='object'&&(Number.isFinite(p.value)||(Array.isArray(p.range)&&p.range.length===2&&p.range.every(Number.isFinite)));
   for(const record of audit.records){
