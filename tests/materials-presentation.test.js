@@ -15,7 +15,7 @@ test("una propiedad nula o incompleta no genera tarjeta",()=>{
   assert.equal(hasDocumentedProperty({value:null,range:[1,3]}),true);
 });
 test("genérico y grado de catálogo vacío carecen de ficha",()=>{
-  for(const id of ["generic-hdpe","generic-pc",material("catalog-hdpe-dow-hdpe-dgda-2426-nt")?.id]){
+  for(const id of ["generic-hdpe","generic-pc","generic-pa6"]){
     assert.equal(documentedProperties(material(id)).length,0,id);
   }
 });
@@ -29,7 +29,7 @@ test("ficha parcial conserva solo propiedades existentes",()=>{
 });
 test("inventario completo: el número de fichas completas/parciales es verificable",()=>{
  const values=data.materials.map(m=>documentedProperties(m).length);
- assert.equal(values.length,99);
- assert.equal(values.filter(x=>x===0).length,64);
- assert.equal(values.filter(x=>x>0).length,35);
+ assert.equal(values.length,73);
+ assert.equal(values.filter(x=>x===0).length,9);
+ assert.equal(values.filter(x=>x>0).length,64);
 });

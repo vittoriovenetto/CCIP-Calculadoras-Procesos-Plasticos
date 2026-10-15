@@ -1,5 +1,19 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Catálogo depurado v1.4 — vigente en esta rama (15/10/2026)
+
+**Prioridad: calidad sobre cantidad.** Tras auditar 99 registros históricos, el catálogo seleccionable contiene **64 grados comerciales con un mínimo de tres propiedades numéricas atribuidas a fabricante** y **9 perfiles genéricos exclusivamente manuales**. Se retiraron **26 grados sin datos suficientes**; esos registros ya no están disponibles para nuevas selecciones.
+
+- [Informe técnico con nombres y justificación de los 31 excluidos](docs/INFORME_AUDITORIA_MATERIALES_V1_4.md).
+- [Matriz JSON de trazabilidad por los 99 registros evaluados](docs/auditoria-estricta-materiales-v1.4.json).
+- **Aclaración:** el archivo `docs/cobertura-99-materiales-y-fuentes.md` es la fotografía histórica anterior a esta auditoría y no refleja el catálogo vigente.
+- Se mantienen entradas manuales «GENÉRICO» para HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6 y PC. Nunca completan densidad o parámetros de proceso automáticamente.
+- Los valores son típicos de ficha y solo se comparan bajo métodos, carga, temperatura, presentación y condiciones equivalentes. No son certificados de lote ni validación industrial.
+- El filtrado no elimina el historial local de cálculos ni materiales propios ya guardados.
+- Antes de publicar, comprobar los trabajos unitarios y de Playwright y revisar las fuentes exactas con el CCIP.
+
+
+
 Proyecto académico independiente para **Procesos de Transformación I (CCIP / INTEC)**. Código web completamente nuevo; no se ha modificado el repositorio de la calculadora original.
 
 ## Modelos incluidos

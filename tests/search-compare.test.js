@@ -6,7 +6,7 @@ import {compareRecords,comparisonCSV} from "../src/compare.js";
 const d=JSON.parse(readFileSync(new URL("../src/data/materials.v1.3.json",import.meta.url),"utf8"));
 test("search across family, manufacturer, grade, accent-neutral",()=>{
  const data=d.materials;
- assert.equal(data.length,99);
+ assert.equal(data.length,73);
  assert.ok(searchMaterials(data,{query:"2045"}).some(m=>m.grade==="DOWLEX 2045G"));
  assert.ok(searchMaterials(data,{query:"dow 2045"}).some(m=>m.grade==="DOWLEX 2045G"));
  assert.ok(searchMaterials(data,{query:"MOPLEN",family:"PP"}).every(m=>m.family==="PP"));
@@ -41,7 +41,7 @@ test("CSV escapes formulas and quote sequences without losing delimiters",()=>{
 });
 test("only verified additional property records become available",()=>{
  const records=d.materials.filter(m=>m.data_review?.status==="manufacturer_webpage_reviewed");
- assert.equal(records.length,20);
+ assert.equal(records.length,18);
  for(const m of records){
    assert.ok(m.properties.solid_density?.value);
    assert.ok(m.properties.mfr?.value!==undefined);

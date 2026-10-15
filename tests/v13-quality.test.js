@@ -9,28 +9,30 @@ import {lessons,examples} from '../src/formulas-data.js';
 import {lessonLevel,guideHref} from '../src/formula-learning.js';
 import {t,setLanguage,getLanguage} from '../src/i18n.js';
 const data = JSON.parse(readFileSync(new URL('../src/data/materials.v1.3.json',import.meta.url)));
-const audit = JSON.parse(readFileSync(new URL('../docs/auditoria-fuentes-v1.3.json',import.meta.url)));
+const audit = JSON.parse(readFileSync(new URL('../docs/auditoria-estricta-materiales-v1.4.json',import.meta.url)));
 const own = values => makeCustomMaterial({family:'PC',grade:'Caso manual',manufacturer:'Laboratorio',...values});
 function storage(data = []) {
   let raw = typeof data === 'string' ? data : JSON.stringify(data);
   return {getItem:key=>key===USER_KEY?raw:null,setItem:(_,value)=>{raw=value;},raw:()=>raw};
 }
-test('Auditoría: 90 identidades pendientes con evidencia de bloqueo; ninguna certificación por URL',()=>{
-  assert.equal(audit.records.length,90);assert.equal(data.schema_version,'1.3.0');
-  const ids = new Set(audit.records.map(x=>x.id));assert.equal(ids.size,90);
-  for (const record of audit.records) {
-    const m=data.materials.find(x=>x.id===record.id);
-    assert.ok(m.identity_verification);
-    if (['manufacturer_webpage_reviewed','manufacturer_datasheet_reviewed'].includes(m.data_review?.status)) {
-      assert.equal(record.identity_status,'manufacturer_site_confirmed_2026_10_15');
-      assert.ok(Object.values(m.properties).some(p=>p!==null));
-      assert.match(record.access_result,/(oficial Dow|fabricante)/);
-    } else {
-      assert.match(record.access_result,/Tunnel connection failed: 403/);
-      assert.equal(record.identity_status,'pending_official_confirmation');
-    }
+test('Auditoría estricta: 99 fichas evaluadas; 26 grados comerciales excluidos',()=>{
+  assert.equal(audit.records.length,99);
+  assert.equal(audit.counts.original,99);
+  assert.equal(audit.counts.removed,26);
+  assert.equal(data.materials.length,73);
+  assert.equal(data.audit_metadata.commercial_retained,64);
+  const ids=new Set(data.materials.map(m=>m.id));
+  const valid=p=>p&&typeof p==='object'&&(Number.isFinite(p.value)||(Array.isArray(p.range)&&p.range.length===2&&p.range.every(Number.isFinite)));
+  for(const record of audit.records){
+    if(record.decision==='REMOVE')assert.ok(!ids.has(record.id),'Removed grade must not be selectable: '+record.id);
+    else assert.ok(ids.has(record.id),'Kept grade must be selectable: '+record.id);
   }
-  for (const m of data.materials.filter(m=>m.id.startsWith('catalog-') && !m.data_review)) assert.ok(Object.values(m.properties).every(p=>p===null),'Unverified records must not have properties assigned');
+  for(const m of data.materials.filter(m=>m.record_status!=='generic_unverified')){
+    const count=Object.values(m.properties).filter(valid).length+(m.additional_properties||[]).filter(valid).length;
+    assert.ok(count>=3,'Grade must carry 3 documented numbers: '+m.grade);
+    assert.match(data.sources[m.source_id].url,/^https:\/\//);
+  }
+  for(const m of data.materials.filter(m=>m.record_status==='generic_unverified'))assert.deepEqual(Object.values(m.properties).filter(Boolean),[]);
 });
 for (const profile of data.materials) test(`${profile.id}: compatible con 7 procesos × 3 niveles sin inventar magnitudes`,()=>{
   validateLibrary(data);
