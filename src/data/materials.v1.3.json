@@ -2201,20 +2201,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "solid_density",
-          "value": 0.922,
-          "unit": "g/cm3",
-          "source_id": "CAT211",
-          "method": "ASTM D792",
-          "condition": null,
-          "range": null,
-          "status": "unverified_reference",
-          "note": "Dato explícito de la página oficial Dow para este grado; densidad sólida, no fundida.",
-          "applicability": "Referencia propuesta sin verificación oficial; no autocompletar."
-        }
-      ],
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -2422,20 +2409,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "solid_density",
-          "value": 0.922,
-          "unit": "g/cm3",
-          "source_id": "CAT214",
-          "method": "ASTM D792",
-          "condition": null,
-          "range": null,
-          "status": "unverified_reference",
-          "note": "Dato explícito de la página oficial Dow para este grado; densidad sólida, no fundida.",
-          "applicability": "Referencia propuesta sin verificación oficial; no autocompletar."
-        }
-      ],
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -4416,16 +4390,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -4524,16 +4489,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -6504,25 +6460,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -6632,25 +6570,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -6727,25 +6647,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -6862,25 +6764,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -6958,25 +6842,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -7075,25 +6941,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -7181,25 +7029,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -7288,25 +7118,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -7377,10 +7189,43 @@
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
+        "drying_temperature": {
+          "value": 120,
+          "unit": "°C",
+          "source_id": "CAT281",
+          "method": "Covestro recommended drying conditions",
+          "condition": "Secador de aire seco",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+          "verification_basis": "Covestro official product page 2026-10-15"
+        },
+        "drying_time": {
+          "value": null,
+          "unit": "h",
+          "source_id": "CAT281",
+          "method": "Covestro recommended drying conditions",
+          "condition": "Secador de aire seco",
+          "range": [
+            2,
+            3
+          ],
+          "status": "manufacturer_typical",
+          "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+          "verification_basis": "Covestro official product page 2026-10-15"
+        },
         "moisture_target": null,
-        "moisture_max": null,
+        "moisture_max": {
+          "value": 0.02,
+          "unit": "%",
+          "source_id": "CAT281",
+          "method": "Covestro recommended processing conditions",
+          "condition": "≤ 0.02 %",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+          "verification_basis": "Covestro official product page 2026-10-15"
+        },
         "mfr": null,
         "mvr": {
           "value": 6,
@@ -7407,25 +7252,7 @@
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
+      "reference_properties_not_for_autofill": [],
       "pvt": {
         "status": "not_found_grade_specific_public",
         "source_ref": null,
@@ -7442,16 +7269,40 @@
       },
       "additional_properties": [
         {
+          "key": "tensile_modulus",
+          "value": 2350,
+          "unit": "MPa",
+          "source_id": "CAT281",
+          "method": "ISO 527-1/-2",
+          "condition": "23 °C / 50 % HR / 1 mm/min",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+          "verification_basis": "Covestro official product page 2026-10-15"
+        },
+        {
+          "key": "tensile_strength_yield",
+          "value": 65,
+          "unit": "MPa",
+          "source_id": "CAT281",
+          "method": "ISO 527-1/-2",
+          "condition": "23 °C / 50 % HR / 50 mm/min",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+          "verification_basis": "Covestro official product page 2026-10-15"
+        },
+        {
           "key": "deflection_temperature",
           "value": 141,
           "unit": "°C",
           "source_id": "CAT281",
-          "method": "ISO 75",
+          "method": "ISO 75-1/-2",
           "condition": "0.45 MPa",
           "range": null,
           "status": "manufacturer_typical",
-          "note": "Valor típico, no certificado de lote.",
-          "verification_basis": "fabricante_pagina_grado_2026-10-15"
+          "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+          "verification_basis": "Covestro official product page 2026-10-15"
         }
       ],
       "data_review": {
@@ -7697,6 +7548,6 @@
     "min_properties_per_commercial": 3,
     "rule": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
     "report_path": "docs/auditoria-estricta-materiales-v1.4.json",
-    "caution": "Ranges are not single values; solid/bulk/melt densities distinct; manual generic have no assumed properties."
+    "caution": "Ranges are not single values; solid/bulk/melt densities distinct; manual generic have no assumed properties. Catalog-only records must never inherit grade-specific pvT or historical Cp reference metadata from their template."
   }
 }
