@@ -520,6 +520,53 @@ class BrowserSmoke(unittest.TestCase):
         self.assert_layout()
 
 
+    def test_G38_rename_history_and_clear_comparison(self):
+        self.page.locator('#level').select_option('basic')
+        self.page.locator('#save').click()
+        self.page.locator('[data-field="partMass"]').fill('45')
+        self.page.locator('#save').click()
+        before=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))")
+        name='Molde piloto <prueba>'
+        self.page.once('dialog',lambda d:d.accept(name))
+        self.page.locator('[data-history-rename="0"]').click()
+        after=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))")
+        self.assertEqual(after,[dict(before[0],name=name),before[1]])
+        self.assertIn(name,self.page.locator('#history').inner_text())
+        self.assertIn(name,self.page.locator('#compare-a option').nth(1).text_content())
+        self.page.once('dialog',lambda d:d.dismiss())
+        self.page.locator('[data-history-rename="0"]').click()
+        self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))"),after)
+        self.page.reload()
+        self.page.locator('[data-history-rename="0"]').wait_for()
+        self.assertIn(name,self.page.locator('#history').inner_text())
+        for width in [390,768,1440]:
+            self.page.set_viewport_size({'width':width,'height':1000})
+            self.page.locator('#compare-a').select_option('0')
+            self.page.locator('#compare-b').select_option('1')
+            self.assertEqual(self.page.locator('.comparison-table').count(),1)
+            self.page.locator('#comparison-clear').click()
+            self.assertEqual(self.page.locator('#compare-a').input_value(),'')
+            self.assertEqual(self.page.locator('#compare-b').input_value(),'')
+            self.assertEqual(self.page.locator('.comparison-table').count(),0)
+            for button in ['comparison-csv','comparison-json','comparison-pdf']:
+                self.assertTrue(self.page.locator('#'+button).is_disabled())
+            self.assert_layout()
+        self.page.locator('#level').select_option('technical')
+        self.assertEqual(self.page.locator('#compare-a').input_value(),'')
+        self.assertEqual(self.page.locator('#compare-b').input_value(),'')
+        self.page.locator('#compare-a').select_option('0')
+        self.assertEqual(self.page.locator('.comparison-table').count(),0)
+        self.page.locator('#compare-b').select_option('1')
+        with self.page.expect_download() as downloaded:
+            self.page.locator('#comparison-json').click()
+        payload=json.loads(Path(downloaded.value.path()).read_text())
+        self.assertEqual(payload['caseA']['name'],name)
+        self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))"),after)
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('[data-history-rename="0"]').inner_text(),'Rename')
+        self.assertEqual(self.page.locator('#comparison-clear').inner_text(),'Clear selection')
+        self.assertIn(name,self.page.locator('#history').inner_text())
+
     def test_G32_custom_crud_import_export_persistence_and_units(self):
         self.open_custom_property('melt_density')
         form=self.page.locator('#custom-form')

@@ -1,6 +1,13 @@
 import { modules, levels } from "./schema.js";
 
 export const storageKey = "ccip-calculators-web-v1";
+export function renameHistoryItem(storage, index, name) {
+  if (typeof name !== 'string' || !name.trim() || name.trim().length > 120) throw Error('Nombre no válido.');
+  const items = readHistory(storage);
+  if (!Number.isInteger(index) || !items[index]) throw Error('Cálculo no disponible.');
+  items[index] = { ...items[index], name: name.trim() };
+  storage.setItem(storageKey, JSON.stringify(items));
+}
 export function readHistory(storage) {
   try {
     const items = JSON.parse(storage.getItem(storageKey) || "[]");

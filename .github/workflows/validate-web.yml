@@ -1,9 +1,9 @@
 name: Validate CCIP web
 on:
   push:
-    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "feature/buscador-comparador-catalogo", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache"]
+    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "feature/buscador-comparador-catalogo", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache", "feature/historial-nombres-comparacion-limpiar"]
   pull_request:
-    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas"]
+    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache"]
 permissions:
   contents: read
 jobs:
