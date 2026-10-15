@@ -8,9 +8,9 @@ const audit=JSON.parse(readFileSync(new URL("../docs/auditoria-estricta-material
 const valid=p=>p&&typeof p==="object"&&((typeof p.value==="number"&&Number.isFinite(p.value))||(Array.isArray(p.range)&&p.range.length===2&&p.range.every(x=>typeof x==="number"&&Number.isFinite(x))));
 const names=m=>[...Object.entries(m.properties||{}).filter(([k,p])=>valid(p)).map(([k])=>k),...(m.additional_properties||[]).filter(valid).map(p=>p.key)];
 const category=k=>/density/.test(k)?"physical":/mfr|mvr|viscosity|k_value/.test(k)?"flow":/drying|moisture/.test(k)?"drying":/tensile|flexural|impact|modulus|hardness|strength|secant/.test(k)?"mechanical":/melt_temperature|melting|vicat|deflection|heat/.test(k)?"thermal":"other";
-test("auditoría v1.4 elimina 31 grados sin 3 propiedades y conserva familias",()=>{
- validateLibrary(lib);assert.equal(lib.materials.length,68);
- assert.equal(audit.records.length,99);assert.equal(audit.counts.removed,31);
+test("auditoría v1.4 elimina 26 grados sin 3 propiedades y conserva familias",()=>{
+ validateLibrary(lib);assert.equal(lib.materials.length,73);
+ assert.equal(audit.records.length,99);assert.equal(audit.counts.removed,26);
  const ids=new Set(lib.materials.map(x=>x.id));
  for(const rec of audit.records)assert.equal(ids.has(rec.id),rec.decision!=="REMOVE",rec.grade);
  for(const family of ["HDPE","LLDPE","LDPE","PP","PET","PVC","ABS","PA6","PC"]){
@@ -20,7 +20,7 @@ test("auditoría v1.4 elimina 31 grados sin 3 propiedades y conserva familias",(
 });
 test("cada grado comercial tiene ≥3 propiedades trazables en ≥2 grupos",()=>{
  const commercial=lib.materials.filter(m=>m.record_status!=="generic_unverified");
- assert.equal(commercial.length,59);
+ assert.equal(commercial.length,64);
  for(const m of commercial){
  const k=names(m);
  assert.ok(k.length>=3,m.grade+" has "+k.length);
