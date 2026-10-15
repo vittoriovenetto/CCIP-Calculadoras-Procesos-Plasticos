@@ -9,7 +9,7 @@ const raw=JSON.parse(readFileSync(new URL("../src/data/materials.v1.3.json",impo
 test("99 catalog entries: 10 commercial grades plus generic per family",()=>{
  const lib=validateLibrary(raw);
  assert.equal(lib.materials.length,99);
- assert.equal(lib.catalog_revision,"1.3.0");
+ assert.equal(lib.catalog_revision,"1.3.1");
  for(const family of FAMILIES){
    const entries=lib.materials.filter(x=>x.family===family);
    assert.equal(entries.length,11,family);
