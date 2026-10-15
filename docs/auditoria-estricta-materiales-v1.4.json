@@ -2,7 +2,7 @@
   "schema": "ccip-materials-audit/1.4",
   "date": "2026-10-15",
   "criterion": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
-  "note": "Auditoría inicial de 99 perfiles; cinco PC de Covestro recuperados de documentación oficial. Catálogo activo: 64 grados comerciales y 9 genéricos; 26 excluidos.",
+  "note": "Auditoría inicial de 99 perfiles; cinco PC de Covestro recuperados de documentación oficial. Catálogo activo: 64 grados comerciales y 9 genéricos; 26 excluidos. Se eliminaron 13 referencias de grados diferentes clonadas incorrectamente y corrigió metadatos de secado.",
   "counts": {
     "original": 99,
     "commercial_retained": 64,
@@ -1978,15 +1978,22 @@
       "grade": "Makrolon 3108",
       "manufacturer": "Covestro",
       "record_type": "commercial",
-      "recorded_properties": 3,
+      "recorded_properties": 8,
       "categories": [
         "density",
         "flow",
+        "drying",
+        "mechanical",
         "thermal"
       ],
       "property_keys": [
         "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "moisture_max",
         "mvr",
+        "tensile_modulus",
+        "tensile_strength_yield",
         "deflection_temperature"
       ],
       "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3108_000000000000006499",
