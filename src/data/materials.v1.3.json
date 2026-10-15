@@ -5606,7 +5606,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -5712,7 +5712,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -5811,7 +5811,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -5899,7 +5899,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -5996,7 +5996,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -6104,7 +6104,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -6643,7 +6643,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -6838,7 +6838,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -6937,7 +6937,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -7025,7 +7025,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -7114,7 +7114,7 @@
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
+        "drying_guideline": "not_verified_grade_specific",
         "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
         "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
       },
@@ -7548,6 +7548,6 @@
     "min_properties_per_commercial": 3,
     "rule": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
     "report_path": "docs/auditoria-estricta-materiales-v1.4.json",
-    "caution": "Ranges are not single values; solid/bulk/melt densities distinct; manual generic have no assumed properties. Catalog-only records must never inherit grade-specific pvT or historical Cp reference metadata from their template."
+    "caution": "Ranges are not single values; solid/bulk/melt densities distinct; manual generic have no assumed properties. Catalog-only records must never inherit grade-specific pvT or historical Cp reference metadata from their template. Per-record drying status is inferred only from record-specific published drying parameters."
   }
 }
