@@ -8,6 +8,7 @@ import { fieldGroups, primaryLabels } from "./presentation.js";
 import { bindParameterHelp } from "./tooltips.js";
 import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from "./materials-view.js";
 import { guideHref } from "./formula-learning.js";
+import { renderComparison } from "./compare.js";
 
 const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: createMaterialState(), filters: { family: "", manufacturer: "" } };
@@ -166,6 +167,7 @@ function compute() {
 function renderHistory() {
   const items = loadHistory();
   $("history").innerHTML = items.length ? items.slice(0, 15).map((x, i) => `<div class="historyRow"><span>${safe(modules.find(m => m.id === x.module).name)} · ${safe(new Date(x.date).toLocaleString("es-DO"))}</span><button data-history="${i}">Recuperar</button></div>`).join("") : "<p class='muted'>Aún no hay cálculos guardados en este navegador.</p>";
+  renderComparison($("comparison"), items, modules);
   document.querySelectorAll("[data-history]").forEach(b => b.addEventListener("click", () => {
     const item = items[Number(b.dataset.history)];
     state.id = item.module;

@@ -919,5 +919,38 @@ class BrowserSmoke(unittest.TestCase):
         self.assertTrue(self.page.locator('#summary-metrics .kpi').count()>0)
 
 
+    def test_27_material_search_compare_and_csv(self):
+        self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
+        self.page.locator('.finder-panel > summary').click()
+        self.page.locator('#material-search').fill('DOWLEX 2045G')
+        self.assertGreater(self.page.locator('#material-search-results .finder-option').count(),0)
+        self.page.locator('#finder-with-data').check()
+        self.assertGreater(self.page.locator('#material-search-results .finder-option').count(),0)
+        self.page.locator('#material-search-results [data-grade-id="dow-dowlex-2045g"]').click()
+        self.assertEqual(self.page.locator('#material-grade').input_value(),'dow-dowlex-2045g')
+        self.page.set_viewport_size({'width':390,'height':844})
+        self.assert_layout()
+        self.fill_case('inyeccion',VARIANTS[0][1])
+        self.page.locator('#save').click()
+        self.page.locator('[data-field="partMass"]').fill('45')
+        self.page.locator('#calculate').click()
+        self.page.locator('#save').click()
+        self.assertEqual(self.page.locator('#compare-a').locator('option').count(),3)
+        self.assertIn('Shot calculado',self.page.locator('#comparison-output').inner_text())
+        with self.page.expect_download() as downloaded:
+            self.page.locator('#comparison-csv').click()
+        content=Path(downloaded.value.path()).read_text(encoding='utf-8-sig')
+        self.assertIn('Caso A',content)
+        self.assertIn('Diferencia',content)
+        with self.page.expect_download() as downloaded_json:
+            self.page.locator('#comparison-json').click()
+        payload=json.loads(Path(downloaded_json.value.path()).read_text())
+        self.assertEqual(payload['comparison']['module'],'inyeccion')
+        self.page.evaluate('window.print=()=>{window.__printed=true}')
+        self.page.locator('#comparison-pdf').click()
+        self.assertTrue(self.page.evaluate('window.__printed'))
+        self.assert_layout()
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

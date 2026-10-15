@@ -19,11 +19,18 @@ test('Auditoría: 90 identidades pendientes con evidencia de bloqueo; ninguna ce
   assert.equal(audit.records.length,90);assert.equal(data.schema_version,'1.3.0');
   const ids = new Set(audit.records.map(x=>x.id));assert.equal(ids.size,90);
   for (const record of audit.records) {
-    assert.match(record.access_result,/Tunnel connection failed: 403/);
-    assert.equal(record.identity_status,'pending_official_confirmation');
-    assert.ok(data.materials.find(m=>m.id===record.id).identity_verification);
+    const m=data.materials.find(x=>x.id===record.id);
+    assert.ok(m.identity_verification);
+    if (['manufacturer_webpage_reviewed','manufacturer_datasheet_reviewed'].includes(m.data_review?.status)) {
+      assert.equal(record.identity_status,'manufacturer_site_confirmed_2026_10_15');
+      assert.ok(Object.values(m.properties).some(p=>p!==null));
+      assert.match(record.access_result,/(oficial Dow|fabricante)/);
+    } else {
+      assert.match(record.access_result,/Tunnel connection failed: 403/);
+      assert.equal(record.identity_status,'pending_official_confirmation');
+    }
   }
-  for (const m of data.materials.filter(m=>m.id.startsWith('catalog-'))) assert.ok(Object.values(m.properties).every(p=>p===null),'New candidate properties cannot be certified by their URL');
+  for (const m of data.materials.filter(m=>m.id.startsWith('catalog-') && !m.data_review)) assert.ok(Object.values(m.properties).every(p=>p===null),'Unverified records must not have properties assigned');
 });
 for (const profile of data.materials) test(`${profile.id}: compatible con 7 procesos × 3 niveles sin inventar magnitudes`,()=>{
   validateLibrary(data);
@@ -33,7 +40,7 @@ for (const profile of data.materials) test(`${profile.id}: compatible con 7 proc
     Object.assign(state.context,{compatible:true,bulkCompatible:true,dryingCompatible:true,processConfirmed:true,physicalForm:profile.family==='PVC'?'powder':'pellets'});
     const candidates = applyMaterial(state,module,values,level), fields = new Set(activeFields(module,values,level).map(f=>f.key));
     assert.ok(candidates.every(c=>fields.has(c.field)));
-    if (profile.record_status==='generic_unverified' || profile.id.startsWith('catalog-')) assert.deepEqual(values,{});
+    if (profile.record_status==='generic_unverified' || (profile.id.startsWith('catalog-') && !profile.data_review)) assert.deepEqual(values,{});
     const result = calculate(module.id,values,level);
     assert.ok(result.metrics.every(m=>m.value===null||Number.isFinite(m.value)));
     assert.equal(materialSnapshot(state,module,values,level).grade_id,profile.id);

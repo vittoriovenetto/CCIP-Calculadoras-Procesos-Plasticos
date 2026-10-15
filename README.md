@@ -105,3 +105,16 @@ python3 scripts/audit-material-sources.py --output /tmp/ccip-sources.json
 Las 61 consultas declaradas (incluidas referencias pVT y SI) quedaron bloqueadas por el túnel de red 403. Esto no prueba que los sitios respondan 404. Los dos valores nuevos Dow sin comprobación directa se conservan como referencias históricas sin autocompletado; las 34 propiedades aportadas en los nueve perfiles V1.2 mantienen su procedencia documental, sin recertificación oficial actual. No se cambió ninguna ecuación del motor.
 
 La publicación experimental fue autorizada por el usuario; no certifica el catálogo ni los resultados. Continúan pendientes la confirmación de fuentes/identidades, datos con condiciones admisibles y revisión de casos reales. Safari/Firefox, dispositivos físicos y validación industrial siguen pendientes. El PR permanece para revisión; no se autorizó fusionarlo a `main`.
+
+## Desarrollo experimental — buscador, comparador y fichas (15/10/2026)
+
+La rama `feature/buscador-comparador-catalogo` añade funciones **sin sustituir la página publicada**:
+
+- Buscador por familia, fabricante y nombre/grado, coincidencia parcial insensible a mayúsculas y acentos; filtros de familia, fabricante y presencia de propiedades registradas. Los selectores clásicos se conservan.
+- Panel **Comparar resultados** con dos cálculos guardados del mismo proceso. Muestra unidades, resultados y diferencias (B-A y %). No compara números de unidades incompatibles y no recalcula snapshots antiguos.
+- Exportación de comparaciones a CSV (compatible con Excel), JSON técnico y `Imprimir / Guardar como PDF` mediante el navegador. **No genera XLSX nativo**.
+- Catálogo ampliado: los 99 perfiles conservados, con 26 grados comercialmente identificados con datos parciales de fabricante (20 Dow, 2 PP LYB, 1 PA6 BASF, 2 PC Covestro y 1 ABS INEOS). Las nueve opciones GENÉRICAS no heredan propiedades; los demás grados permanecen incompletos.
+- Condiciones de MFR y MVR (carga y temperatura), densidades sólidas y propiedades adicionales solo con fuente de grado exacto.
+- [Matriz de cobertura de los 99 perfiles](docs/cobertura-99-materiales-y-fuentes.md): estado, valores y vínculos a la ficha/fabricante.
+
+**Antes de publicar:** revisar pruebas CI Node/Playwright, verificar fichas grado a grado, probar guardado/comparación y exportación en móvil, y aprobar un pull request. No reutilizar datos de otro grado. El documento de cobertura no equivale a certificados de lote.
