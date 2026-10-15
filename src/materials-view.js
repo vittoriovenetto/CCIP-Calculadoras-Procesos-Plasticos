@@ -51,6 +51,16 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
   const extra = (Array.isArray(grade?.additional_properties) ? grade.additional_properties : []).filter(p => p && typeof p.value === "number" && Number.isFinite(p.value));
   const extraNames = {
     tensile_strength_yield: ["Resistencia a tracción en fluencia","Tensile yield strength"],
+    tensile_modulus: ["Módulo de tracción","Tensile modulus"],
+    flexural_modulus: ["Módulo de flexión","Flexural modulus"],
+    secant_modulus: ["Módulo secante","Secant modulus"],
+    deflection_temperature: ["Temperatura de deflexión térmica","Heat deflection temperature"],
+    chip_count: ["Número de pellets por gramo","Pellets per gram"],
+    inherent_viscosity: ["Viscosidad inherente (PVC)","Inherent viscosity (PVC)"],
+    k_value: ["Valor K del PVC","PVC K value"],
+    volatile_max: ["Contenido máximo de volátiles","Maximum volatile content"],
+    particle_fines_max: ["Fracción de finos máxima","Maximum fines fraction"],
+    drying_temperature_source_f: ["Temperatura de secado publicada (°F)","Published drying temperature (°F)"],
     mfr_secondary: ["Índice de fluidez (otra carga)","Melt index (other test load)"],
     hardness_shore_d: ["Dureza Shore D","Shore D hardness"],
     vicat_temperature: ["Temperatura Vicat","Vicat temperature"],
