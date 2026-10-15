@@ -2,6 +2,10 @@
 // Text without a verified translation remains in its original language rather
 // than being sent to a third-party translation service.
 export const extraTranslations = {
+  "Información y condiciones del material":"Material information and process conditions",
+  "Grado genérico: datos y condiciones manuales":"Generic grade: manual data and conditions",
+  "Ficha, compatibilidad, pVT y fuentes":"Datasheet, compatibility, pVT and sources",
+
 "Dosificación, shot, cierre y tiempos. Masa de pieza en estado sólido y densidad fundida son magnitudes distintas.":"Shot, dosing, clamping and timing. Solid part mass and melt density are distinct quantities.",
 "Continuidad geométrica para láminas y tuberías.":"Geometric continuity for sheets and tubes.",
 "BUR, DDR ideal y producción para tubo plegado de dos paredes.":"BUR, ideal DDR and production rate for a two-wall layflat tube.",
