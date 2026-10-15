@@ -24,3 +24,17 @@ Incluye el catálogo auditado de 64 grados y 9 perfiles genéricos, referencias 
 Pruebas del código funcional: **520 Node + 30 navegador**, aprobadas en [CI del PR #6](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38762179031). La conservación se verifica por hashes, ZIP íntegro y prueba funcional del artefacto que incluye ambas versiones. El resultado de publicación y la comprobación HTTP posterior se registran una vez confirmados.
 
 La publicación sigue siendo experimental. Densidades familiares, formulación real, condiciones pVT y perfil geométrico requieren revisión técnica; publicar no equivale a validación industrial. Véanse [fuentes, fórmulas y limitaciones](inyeccion-densidad-perfil-v1.5.md).
+
+## Publicación y verificación confirmadas
+
+GitHub completó correctamente [pages build and deployment](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/38764714618).
+
+- Fuente publicada: `0c83631180e8c3fcd50a584d6cfad70e8c4a50c0`.
+- Artefacto en `gh-pages`: `f069284acadb9f940db11a60615a7fdbdfac0259`.
+- Biblioteca actual: 1.4.0, con referencias fundidas separadas de las fichas.
+- Comprobación pública: 15/10/2026 a las 11:57, America/Santo_Domingo. **82 recursos HTTP 200**, iguales por SHA-256 al artefacto: páginas/manifest, todos los archivos actuales de `src/`, la copia anterior (excepto el archivo de control oculto `.nojekyll`), su ZIP, el HTML de V1 y su ZIP. [Registro JSON](capturas/inyeccion-v1.5/deployment-public-2026-10-15.json).
+- Comprobación local del paquete exacto: 520 pruebas Node aprobadas; nuevo perfil, referencias, historial, ES/EN y anchos 1440/768/390/320 px; copia anterior con 27 casos (9 variantes × 3 pantallas), 42 lecciones y área auxiliar; V1 funcional. Se verificaron los 36 hashes del archivo nuevo, su ZIP descargado y los 24 hashes V1.
+- Chromium directo al dominio público rechazó el certificado del proxy del entorno (`ERR_CERT_AUTHORITY_INVALID`). No se desactivó TLS: la validación funcional de navegador fue sobre el artefacto exacto local y la comprobación pública fue HTTP con validación TLS.
+- `main` conserva `423c04b1710f8f009c811c893873184d363f1b66`; PR #6 abierto sin fusionar. La etiqueta de la fuente anterior está disponible en el remoto. Ningún cambio al repositorio original.
+
+Esta documentación posterior no altera los archivos publicados ni sustituye su commit de origen declarado en `deployment.json`.

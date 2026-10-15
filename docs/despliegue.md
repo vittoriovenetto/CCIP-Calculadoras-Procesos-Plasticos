@@ -1,5 +1,7 @@
 # Publicación en GitHub Pages
 
+Publicación más reciente: [inyección con referencias fundidas, perfil físico y copia de la web anterior — 15/10/2026](despliegue-inyeccion-2026-10-15.md).
+
 La aplicación estática se publica desde `gh-pages`, conservando `main` y la rama de desarrollo. No necesita servidor de aplicaciones, secretos, variables de producción ni compilación de dependencias.
 
 ## Despliegue inicial confirmado
