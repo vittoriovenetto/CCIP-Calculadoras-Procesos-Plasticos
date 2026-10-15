@@ -1,9 +1,9 @@
 name: Validate CCIP web
 on:
   push:
-    branches: ["feature/catalogo-90-i18n-formulas"]
+    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas"]
   pull_request:
-    branches: ["feature/web-v1-modular"]
+    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas"]
 permissions:
   contents: read
 jobs:
