@@ -132,6 +132,10 @@ Se auditaron **90 grados comerciales + 9 entradas genéricas**. Se conservan exc
 | PA6 | Ultramid B3U42G6 | 0 | Solo 0 propiedades técnicas documentadas (mínimo 3) | [Fuente](https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools) |
 | PA6 | Ultramid B3ZG6 | 0 | Solo 0 propiedades técnicas documentadas (mínimo 3) | [Fuente](https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools) |
 
+## Control de errores de procedencia
+
+Se detectaron y retiraron **13 referencias pVT/Cp de otros grados** arrastradas de plantillas, y se corrigieron estados de secado que estaban heredados sin documentación propia. Ninguna curva pVT ajena se debe asociar ni aplicar a un grado nuevo. La ficha exacta de Makrolon 3108 fue revisada para completar sus propiedades de tracción y recomendaciones de secado. Los datos son típicos de fabricante; no valores de lote.
+
 ## Trazabilidad y recuperación
 
 - La matriz JSON [auditoria-estricta-materiales-v1.4.json](auditoria-estricta-materiales-v1.4.json) conserva el dictamen de cada uno de los 99 registros sin exponer candidatos incompletos al usuario final.
