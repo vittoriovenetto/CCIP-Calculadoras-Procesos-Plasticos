@@ -334,7 +334,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertIn('71.5', self.page.locator('.metric').nth(1).text_content())
         self.page.unroute('**/materials.v1.3.json')
         self.page.reload()
-        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('99 opciones')")
+        self.page.wait_for_function("document.querySelector('#material-load-status').textContent.includes('68 opciones')")
         pa6 = next(m for m in ORIGINAL_MATERIALS if m['family'] == 'PA6')
         self.page.locator('[data-module="secado"]').click()
         self.page.locator('#level').select_option('advanced')
@@ -600,7 +600,7 @@ class BrowserSmoke(unittest.TestCase):
         }return out;}''')
         self.assertEqual(leftovers,[], 'Texto de interfaz sin traducción')
 
-    def test_17_all_99_profiles_in_browser(self):
+    def test_17_all_curated_profiles_in_browser(self):
         self.page.locator('#language').select_option('en')
         widths=[320,390,768,1024,1440]
         for index, material in enumerate(MATERIALS):
@@ -612,7 +612,7 @@ class BrowserSmoke(unittest.TestCase):
                 self.select_grade(material)
                 self.assertEqual(self.page.locator('#material-grade').input_value(),material['id'])
                 self.page.locator('#calculate').click()
-                if material['record_status']=='generic_unverified' or material['id'].startswith('catalog-'):
+                if material['record_status']=='generic_unverified':
                     for key in ['meltDensity','density','bulkDensity','specificHeat']:
                         control=self.page.locator(f'[data-field="{key}"]')
                         if control.count():self.assertEqual(control.input_value(),'')
@@ -891,8 +891,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.wait_for_function("document.querySelector('#material-family') && !document.querySelector('#material-family').disabled")
         cases = [
             next(m for m in MATERIALS if m['id'] == 'generic-hdpe'),
-            next(m for m in MATERIALS if m['id'].startswith('catalog-hdpe-') and not any(
-                isinstance(p,dict) and p.get('value') is not None for p in m['properties'].values())),
+            next(m for m in MATERIALS if m['id'] == 'generic-pc'),
             next(m for m in MATERIALS if m['id'] == 'westlake-westlake-pvc-1195'),
             next(m for m in MATERIALS if m['id'] == 'basf-ultramid-b3s-r03')
         ]
@@ -906,7 +905,8 @@ class BrowserSmoke(unittest.TestCase):
                     )
                 ))
                 self.assertEqual(self.page.locator('#material-properties').count(),int(available>0),m['id'])
-                self.assertEqual(self.page.locator('#material-properties .material-property').count(),available,m['id'])
+                extra=sum(1 for p in m.get('additional_properties',[]) if isinstance(p,dict) and isinstance(p.get('value'),(int,float)))
+                self.assertEqual(self.page.locator('#material-properties .material-property').count(),available+extra,m['id'])
                 if available:
                     self.assertTrue(all('Pendiente: no documentado' not in t and 'Pending: not documented' not in t for t in self.page.locator('#material-properties .material-property').all_text_contents()))
                 for width in [320,390,768]:
