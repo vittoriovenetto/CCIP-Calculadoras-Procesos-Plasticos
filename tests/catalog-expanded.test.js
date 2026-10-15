@@ -6,16 +6,16 @@ import {modules} from "../src/schema.js";
 import {makeCustomMaterial,mergeCustomMaterials,FAMILIES} from "../src/custom-materials.js";
 import {t} from "../src/i18n.js";
 const raw=JSON.parse(readFileSync(new URL("../src/data/materials.v1.3.json",import.meta.url),"utf8"));
-test("99 catalog entries: 10 commercial grades plus generic per family",()=>{
+test("68 curated profiles: 59 published commercial grades plus nine generic manual families",()=>{
  const lib=validateLibrary(raw);
- assert.equal(lib.materials.length,99);
- assert.equal(lib.catalog_revision,"1.3.1");
+ assert.equal(lib.materials.length,68);
+ assert.equal(lib.catalog_revision,"1.4.0");
  for(const family of FAMILIES){
    const entries=lib.materials.filter(x=>x.family===family);
-   assert.equal(entries.length,11,family);
+   assert.ok(entries.length>=2,family);
    assert.equal(entries.filter(x=>x.record_status==="generic_unverified").length,1,family);
-   assert.equal(entries.filter(x=>x.record_status!=="generic_unverified").length,10,family);
-   assert.equal(new Set(entries.map(x=>x.id)).size,11);
+   assert.ok(entries.filter(x=>x.record_status!=="generic_unverified").length>=1,family);
+   assert.equal(new Set(entries.map(x=>x.id)).size,entries.length);
  }
 });
 test("generic materials never assume densities",()=>{
@@ -42,7 +42,7 @@ test("custom user material is explicitly unverified and fields absent remain nul
  assert.equal(m.properties.specific_heat,null);
  assert.equal(m.properties.mfr,null);
  const all=validateLibrary(mergeCustomMaterials(raw,[m]));
- assert.equal(all.materials.length,100);
+ assert.equal(all.materials.length,69);
  const materialState=createMaterialState();const values={meltDensity:"",cavities:1};
  selectMaterial(all,materialState,values,m.id);
  applyMaterial(materialState,modules.find(x=>x.id==="inyeccion"),values,"technical");
