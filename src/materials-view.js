@@ -1,5 +1,6 @@
 import { families, manufacturers, grades, propertyLabels, statusLabels, safeSourceUrl, materialWarnings, materialCandidates, outsideProcess } from "./materials.js";
 import { renderAudit, renderManualData } from "./materials-audit-view.js";
+import { t } from "./i18n.js";
 import { renderMaterialSearch } from "./material-search-ui.js";
 export const safe = t => String(t ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const options = (values, selected, prompt) => `<option value="">${safe(prompt)}</option>` + values.map(v => `<option value="${safe(v)}" ${v === selected ? "selected" : ""}>${safe(v)}</option>`).join("");
@@ -69,7 +70,12 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
   };
   const extraMarkup = extra.length ? `<div class="property-list">${extra.map(p=>{
     const label=extraNames[p.key]?.[document.documentElement.lang==="en"?1:0]||p.key;
-    return `<article class="material-property" data-property="${safe(p.key)}"><b>${safe(label)}</b><span>${safe(p.value)} ${safe(p.unit)}</span><small>${safe(p.method||"")}${p.condition?" · "+safe(p.condition):""} · ${safe(p.status||"")}</small></article>`;
+    const lang=document.documentElement.lang==="en"?"en":"es";
+    const units=lang==="en"&&p.unit==="% masa máx."?"% mass max.":p.unit;
+    const sourceStatus=p.status==="manufacturer_recommendation"
+      ? (lang==="en"?"Manufacturer recommendation":"Recomendación de fabricante")
+      : (lang==="en"?"Typical manufacturer value":"Valor típico de fabricante");
+    return `<article class="material-property" data-property="${safe(p.key)}"><b>${safe(label)}</b><span><span>${safe(p.value)}</span> <span>${safe(units)}</span></span><small><span>${safe(t(p.method||"",lang))}</span>${p.condition?" · <span>"+safe(t(p.condition,lang))+"</span>":""} · <span>${safe(sourceStatus)}</span></small></article>` ;
   }).join("")}</div>` : "";
   const generic = grade?.record_status === "generic_unverified";
   const en = document.documentElement.lang === "en";
