@@ -34,31 +34,33 @@ const download=(body,filename,type)=>{
  const url=URL.createObjectURL(new Blob([body],{type}));
  const a=document.createElement("a");a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),500);
 };
-const state={a:"",b:""};
+const state={a:"",b:"",manualSelection:false};
 export function renderComparison(root,history,modules){
  if(!root)return;
  const lang=document.documentElement.lang==="en"?"en":"es";
  const tr=(es,en)=>lang==="en"?en:es;
  const eligible=(history||[]).filter(x=>x&&Array.isArray(x.metrics)&&x.metrics.length&&x.module);
  const keys=eligible.map((h,i)=>String(i));
- if(!keys.includes(state.a))state.a=keys[0]||"";
- if(!keys.includes(state.b))state.b=keys[1]||"";
+ if(!keys.includes(state.a))state.a=state.manualSelection?"":keys[0]||"";
+ if(!keys.includes(state.b))state.b=state.manualSelection?"":keys[1]||"";
  const option=(id,label)=>'<option value="'+safe(id)+'">'+safe(label)+'</option>';
- const labels=eligible.map((x,i)=>option(i,[modules.find(m=>m.id===x.module)?.name||x.module,x.material?.grade_snapshot?.grade||"",new Date(x.date).toLocaleString("es-DO")].filter(Boolean).join(" · "))).join("");
+ const labels=eligible.map((x,i)=>option(i,[typeof x.name==='string'?x.name:'',modules.find(m=>m.id===x.module)?.name||x.module,x.material?.grade_snapshot?.grade||"",new Date(x.date).toLocaleString("es-DO")].filter(Boolean).join(" · "))).join("");
  root.innerHTML='<h2>'+tr("Comparar resultados guardados","Compare saved results")+'</h2>'+
  '<p class="muted">'+tr("Guarda primero dos cálculos del mismo proceso. La comparación utiliza los valores y fuentes originales, sin recalcularlos.","Save two calculations of the same process first. The comparison retains their original results and sources without recalculation.")+'</p>'+
  '<div class="comparison-selectors">'+
  '<label>'+tr("Caso A (referencia)","Case A (reference)")+'<select id="compare-a">'+option("",tr("Seleccionar cálculo","Select calculation"))+labels+'</select></label>'+
  '<label>'+tr("Caso B (alternativa)","Case B (alternative)")+'<select id="compare-b">'+option("",tr("Seleccionar cálculo","Select calculation"))+labels+'</select></label>'+
- '</div><div id="comparison-output"></div><div class="comparison-actions"><button id="comparison-csv" type="button">'+tr("Exportar tabla CSV para Excel","Export Excel-compatible CSV")+'</button><button id="comparison-pdf" type="button">'+tr("Imprimir / guardar PDF","Print / save PDF")+'</button><button id="comparison-json" type="button">'+tr("Exportar JSON técnico","Export technical JSON")+'</button></div>';
+ '</div><div id="comparison-output"></div><div class="comparison-actions"><button id="comparison-clear" type="button">'+tr("Limpiar selección","Clear selection")+'</button><button id="comparison-csv" type="button">'+tr("Exportar tabla CSV para Excel","Export Excel-compatible CSV")+'</button><button id="comparison-pdf" type="button">'+tr("Imprimir / guardar PDF","Print / save PDF")+'</button><button id="comparison-json" type="button">'+tr("Exportar JSON técnico","Export technical JSON")+'</button></div>';
  const a=root.querySelector("#compare-a"),b=root.querySelector("#compare-b");
  a.value=state.a;b.value=state.b;
  const out=root.querySelector("#comparison-output");
+ const selected=control=>control.value===''?undefined:eligible[Number(control.value)];
  const redraw=()=>{
-   const one=eligible[Number(a.value)],two=eligible[Number(b.value)];
+   const one=selected(a),two=selected(b);
    const result=compareRecords(one,two);
    state.a=a.value;state.b=b.value;
-   for(const btn of root.querySelectorAll(".comparison-actions button"))btn.disabled=!!result.error;
+   for(const btn of root.querySelectorAll(".comparison-actions button:not(#comparison-clear)"))btn.disabled=!!result.error;
+   root.querySelector('#comparison-clear').disabled=!a.value&&!b.value;
    if(result.error){
     out.innerHTML='<p class="muted">'+safe(tr(result.error,result.error==="Selecciona dos cálculos guardados."?"Select two saved cases.":"Choose calculations from the same process."))+'</p>';return;
    }
@@ -66,9 +68,11 @@ export function renderComparison(root,history,modules){
    out.innerHTML='<div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>'+tr("Resultado","Output")+'</th><th>'+tr("Unidad","Unit")+'</th><th>A</th><th>B</th><th>Δ</th><th>Δ %</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
    '<p class="muted">'+tr("— significa falta de datos, unidades incompatibles o división no definida. Las diferencias no prueban que un material sea mejor.","— means missing data, incompatible units or undefined division. Differences alone do not prove a material is better.")+'</p>';
  };
- a.addEventListener("change",redraw);b.addEventListener("change",redraw);
- root.querySelector("#comparison-csv").addEventListener("click",()=>{const x=eligible[Number(a.value)],y=eligible[Number(b.value)];download(comparisonCSV(x,y,compareRecords(x,y)),"ccip-comparacion.csv","text/csv;charset=utf-8")});
- root.querySelector("#comparison-json").addEventListener("click",()=>{const x=eligible[Number(a.value)],y=eligible[Number(b.value)];download(JSON.stringify({caseA:x,caseB:y,comparison:compareRecords(x,y)},null,2),"ccip-comparacion.json","application/json")});
+ const change=()=>{state.manualSelection=true;redraw();};
+ a.addEventListener("change",change);b.addEventListener("change",change);
+ root.querySelector('#comparison-clear').addEventListener('click',()=>{a.value='';b.value='';change();a.focus();});
+ root.querySelector("#comparison-csv").addEventListener("click",()=>{const x=selected(a),y=selected(b);download(comparisonCSV(x,y,compareRecords(x,y)),"ccip-comparacion.csv","text/csv;charset=utf-8")});
+ root.querySelector("#comparison-json").addEventListener("click",()=>{const x=selected(a),y=selected(b);download(JSON.stringify({caseA:x,caseB:y,comparison:compareRecords(x,y)},null,2),"ccip-comparacion.json","application/json")});
  root.querySelector("#comparison-pdf").addEventListener("click",()=>{document.body.classList.add("printing-comparison");window.print()});
  window.addEventListener("afterprint",()=>document.body.classList.remove("printing-comparison"),{once:true});
  redraw();
