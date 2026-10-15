@@ -1,5 +1,6 @@
 import { families, manufacturers, grades, propertyLabels, statusLabels, safeSourceUrl, materialWarnings, materialCandidates, outsideProcess } from "./materials.js";
 import { renderAudit, renderManualData } from "./materials-audit-view.js";
+import { renderMaterialSearch } from "./material-search-ui.js";
 export const safe = t => String(t ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const options = (values, selected, prompt) => `<option value="">${safe(prompt)}</option>` + values.map(v => `<option value="${safe(v)}" ${v === selected ? "selected" : ""}>${safe(v)}</option>`).join("");
 const phase = key => ({ solid_density: "sólido", melt_density: "fundido", bulk_density: "aparente (pellets/polvo)", specific_heat: "fase e intervalo térmico por confirmar", mfr: "fundido / ensayo de flujo", mvr: "fundido / ensayo de volumen", drying_time: "material a secar / recomendación", drying_temperature: "material a secar / recomendación", moisture_max: "límite de humedad de proceso", moisture_target: "objetivo de humedad" }[key] || "referencia de ensayo/proceso");
@@ -67,6 +68,7 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
       : (en ? "Material information and process conditions" : "Información y condiciones del material");
   const sourceDetails = !grade || generic ? "" : `<p class="muted"><span>Fuente</span> [${safe(grade.source_id)}]: <span ${grade.record_status === "user_entered_unverified" && materialState.source?.description && materialState.source.description !== "Datos introducidos por usuario" ? "data-i18n-ignore" : ""}>${safe(materialState.source?.description || "Metadata no disponible")}</span> · <span>Biblioteca</span> ${safe(materialState.dataset?.version)} · <span>Revisión</span> ${safe(materialState.dataset?.retrieved_on)}</p>${sourceUrl ? `<a class="source-link" target="_blank" rel="noopener noreferrer" href="${safe(sourceUrl)}">Abrir referencia declarada [${safe(grade.source_id)}]</a>` : generic ? "" : '<p class="muted">Enlace de fuente no disponible.</p>'}`;
   root.innerHTML = `<h2 id="materials-title">Material del caso</h2>
+    <details class="finder-panel"><summary>🔎 Buscar por nombre, familia o marca</summary><div id="material-finder"></div></details>
     <div class="material-selectors fields">
       <div><label for="material-family">Familia</label><select id="material-family" ${available ? "" : "disabled"}>${options(familyOptions, family, "Material personalizado / sin ficha")}</select></div>
       <div><label for="material-manufacturer">Fabricante</label><select id="material-manufacturer" ${family && available ? "" : "disabled"}>${options(manufacturerOptions, manufacturer, "Selecciona fabricante")}</select></div>
@@ -86,6 +88,7 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
       <label for="material-conditionsNote">Condiciones y justificación del caso / cambios manuales</label><textarea id="material-conditionsNote" data-material-context="conditionsNote" rows="2" placeholder="Fase, temperatura, método, secador o justificación de una modificación">${safe(materialState.context.conditionsNote)}</textarea>
       ${level === "advanced" ? `<label for="material-lot">Lote / formulación / mediciones locales</label><input id="material-lot" data-material-context="lot" value="${safe(materialState.context.lot)}" placeholder="Dato manual, no deducido de la familia"><p class="muted">Solicita pVT a T/P de proceso, cp(T), humedad inicial/final y certificados del lote. Compara alternativas únicamente con iguales métodos y condiciones.</p>` : ""}
       </div></div>` : ""}${renderManualData(materialState, module.id, level)}<div id="material-feedback" aria-live="polite"></div></div></details>`;
+  renderMaterialSearch(root,library,id=>onChange("grade",id));
   root.querySelector('#material-details').addEventListener('toggle', e => onDetailsToggle(e.target.open));
   for (const [key, id] of [['family', 'material-family'], ['manufacturer', 'material-manufacturer'], ['grade', 'material-grade']]) root.querySelector('#' + id).addEventListener('change', e => onChange(key, e.target.value));
   root.querySelectorAll('[data-material-context]').forEach(el => el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', () => onChange('context', { key: el.dataset.materialContext, value: el.type === 'checkbox' ? el.checked : el.value })));
