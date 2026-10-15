@@ -1,3 +1,5 @@
+> **ARCHIVO HISTÓRICO — NO ES EL CATÁLOGO ACTIVO.** Actualizado por la auditoría [v1.4](INFORME_AUDITORIA_MATERIALES_V1_4.md): 59 grados con ≥3 propiedades y 9 perfiles manuales. Se retiraron 31 grados de esta lista. Este documento muestra el estado anterior al filtro.
+
 # Cobertura real del catálogo de 99 materiales (15/10/2026)
 
 **Alcance:** 90 grados comerciales + 9 perfiles genéricos sin grado conocido.
