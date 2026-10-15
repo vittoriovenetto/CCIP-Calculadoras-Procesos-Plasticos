@@ -1,8 +1,8 @@
 {
   "schema_version": "1.3.0",
-  "dataset_name": "ccip-90-grade-candidates-and-9-generic-families",
+  "dataset_name": "ccip-59-sourced-commercial-grades-and-9-generic-manual-families",
   "retrieved_on": "2026-10-14",
-  "publication_notice": "Índice de 90 grados comerciales y nueve genéricos. Se amplían 20 grados Dow con datos parciales de páginas oficiales. Los demás registros siguen pendientes de verificar individualmente. Condiciones de ensayo obligatorias. No usar propiedades no documentadas.",
+  "publication_notice": "Catálogo depurado: 59 grados comerciales con ≥3 propiedades publicadas + 9 genéricos manuales; 31 registros retirados. Fichas típicas no certifican el lote ni sustituyen ensayo.",
   "null_policy": "Mantener NULL si no está en fuente; nunca usar densidad sólida como fundida, ni aparente como sólida.",
   "sources": {
     "S01": {
@@ -77,60 +77,6 @@
       "verification_status": "not_reconfirmed_network_blocked",
       "verification_basis": "user_supplied_verified_library_v1.2"
     },
-    "S10": {
-      "manufacturer": "Covestro (Bayer, documento historico)",
-      "grade": "Makrolon 2405 / 2407 / 2456",
-      "url": "https://www.newark.com/pdfs/techarticles/ledil/PC_Data-Sheet.pdf",
-      "description": "Ficha historica agrupada. Cp = 1 172 J/(kg K), ASTM D2766. Temperatura/estado no indicados para uso integrado."
-    },
-    "S11": {
-      "manufacturer": "Alpek Polyester",
-      "grade": "Laser+ CSD B90A (PET de comparacion)",
-      "url": "https://www.alpekpolyester.com/wp-content/uploads/2023/11/Laser-CSD-B90A-PI.pdf",
-      "description": "Guia de secado de OTRO grado PET para contexto. No autocompletar en Polyclear 1101."
-    },
-    "S12": {
-      "manufacturer": "PETCORE Europe",
-      "grade": "Procedimiento EPTP-P-06 de escamas PET",
-      "url": "https://petcore-europe.org/images/evaluation-platform-test-procedures/eptp-p-06-v0-sept-21-melt-filtration-peletizing-crystalization.pdf",
-      "description": "Protocolo de escamas PET para ensayo/extrusion; no equivale a recomendacion del grado PET 1101."
-    },
-    "S13": {
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 2405",
-      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2405_000000000000945088",
-      "description": "Pagina vigente con condiciones de secado y enlace a multipoint pvT; obtener y validar curva aparte."
-    },
-    "S14": {
-      "manufacturer": "LyondellBasell",
-      "grade": "Moplen HP500N",
-      "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP500N/e8c2d3bb-d271-459f-a439-629a5d85a7da",
-      "description": "Ficha publica de grado PP; valida densidad y MFR."
-    },
-    "S15": {
-      "manufacturer": "INEOS Styrolution",
-      "grade": "Terluran GP-22",
-      "url": "https://www.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html",
-      "description": "Tabla de propiedades y secado de ABS GP-22."
-    },
-    "S16": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3S R03",
-      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd64903145168/en/ULTRAMID%253Csup%253E%25C2%25AE%253Csup%253E_B3S_R03",
-      "description": "Ficha de procesamiento PA6 de febrero 2026, humedad recomendada de moldeo 0.03-0.06 %."
-    },
-    "S17": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear Refresh PET 1101",
-      "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Refresh-PET-1101-Rev-16.pdf",
-      "description": "Ficha revision 16, 2017. Humedad = especificacion del pellet suministrado, NO humedad final de procesamiento."
-    },
-    "S18": {
-      "manufacturer": "Westlake",
-      "grade": "PVC 1195",
-      "url": "https://www.westlake.com/sites/default/files/1195_1.pdf",
-      "description": "PVC en polvo: densidad aparente para polvo, no compuesto estabilizado final."
-    },
     "CAT-GENERIC": {
       "manufacturer": "Unknown / No definido",
       "grade": "Familia genérica",
@@ -155,13 +101,6 @@
       "manufacturer": "Dow",
       "grade": "DOW HDPE NG6997",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-ng6997-high-density-polyethylene-resin.119863z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT204": {
-      "manufacturer": "Dow",
-      "grade": "DOW 05962B",
-      "url": "https://www.dow.com/en-us/pdp.dow-05962b-high-density-polyethylene-resin.64720z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -193,20 +132,6 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT209": {
-      "manufacturer": "Dow",
-      "grade": "DOW HDPE DGDA-2426 NT",
-      "url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2426-nt-bimodal-polyethylene-resin.442623z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT210": {
-      "manufacturer": "Dow",
-      "grade": "DOWLEX 2049G",
-      "url": "https://www.dow.com/en-us/pdp.dowlex-2049g-polyethylene-resin.9597z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT211": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045.01G",
@@ -218,13 +143,6 @@
       "manufacturer": "Dow",
       "grade": "DOWLEX 2645G",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT213": {
-      "manufacturer": "Dow",
-      "grade": "DOWLEX 2045G CIR",
-      "url": "https://www.dow.com/en-us/pdp.dowlex-2045g-cir-polyethylene-resin.515268z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -291,41 +209,6 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT223": {
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 203M",
-      "url": "https://www.dow.com/en-us/pdp.dow-ldpe-203m-low-density-polyethylene-resin.80210z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT224": {
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 310LG",
-      "url": "https://www.dow.com/en-us/pdp.dow-ldpe-310lg-low-density-polyethylene-resin.188542z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT225": {
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 352E",
-      "url": "https://www.dow.com/en-us/pdp.dow-ldpe-352e-low-density-polyethylene-resin.20966z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT226": {
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 220M",
-      "url": "https://www.dow.com/en-us/pdp.dow-ldpe-220m-low-density-polyethylene-resin.80215z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT227": {
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 432E",
-      "url": "https://www.dow.com/en-us/pdp.dow-ldpe-432e-low-density-polyethylene-resin.403830z.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT228": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP501M",
@@ -389,13 +272,6 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT237": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear PET T-94G",
-      "url": "https://www.indoramaventures.com/en/our-products/pet",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT238": {
       "manufacturer": "Indorama Ventures",
       "grade": "Polyclear Preserve PET 2201",
@@ -403,52 +279,10 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT239": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear Preserve PET 2201-D",
-      "url": "https://www.indoramaventures.com/en/our-products/pet",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT240": {
       "manufacturer": "Indorama Ventures",
       "grade": "Polyclear Splash PET 3301",
       "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear%20%C2%AE%20Splash%20PET%203301%20Rev%2015.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT241": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear TITAN PET T94-Ti",
-      "url": "https://www.indoramaventures.com/en/our-products/pet",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT242": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Preformance PET",
-      "url": "https://www.indoramaventures.com/en/our-products/pet",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT243": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear EBM PET 5505",
-      "url": "https://beta.indoramaventures.com/storage/downloads/specialty-polymers/indorama_ventures_specialtiy_polymers_product_overview_for-website_12.2025.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT244": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear EBM PET 5507",
-      "url": "https://beta.indoramaventures.com/storage/downloads/specialty-polymers/indorama_ventures_specialtiy_polymers_product_overview_for-website_12.2025.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT245": {
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear AERO PET 5605",
-      "url": "https://beta.indoramaventures.com/storage/downloads/specialty-polymers/indorama_ventures_specialtiy_polymers_product_overview_for-website_12.2025.pdf",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
@@ -529,20 +363,6 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT257": {
-      "manufacturer": "INEOS Styrolution",
-      "grade": "Terluran SP-6",
-      "url": "https://www.ineos-styrolution.com/Product/Terluran_ID30060012_lang_ja_JP.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT258": {
-      "manufacturer": "INEOS Styrolution",
-      "grade": "Terluran GP-35 White",
-      "url": "https://www.ineos-styrolution.com/Product/Terluran_ID30060012_lang_ja_JP.html",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT259": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur H605",
@@ -585,62 +405,6 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT265": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3L",
-      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT266": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3S",
-      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT267": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3Z2",
-      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT268": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3EG6",
-      "url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT269": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3U30G6",
-      "url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT270": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3U50G6",
-      "url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT271": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3U42G6",
-      "url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT272": {
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3ZG6",
-      "url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT273": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2407",
@@ -655,13 +419,6 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT275": {
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 2807",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT276": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2856",
@@ -669,38 +426,10 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "CAT277": {
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 2858",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
     "CAT278": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 3105",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT279": {
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 3106",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT280": {
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 3107",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
-      "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
-    },
-    "CAT281": {
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 3108",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     }
@@ -1943,85 +1672,6 @@
       }
     },
     {
-      "id": "catalog-hdpe-dow-05962b",
-      "family": "HDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW 05962B",
-      "process_tags": [
-        "inyección",
-        "extrusión"
-      ],
-      "source_id": "CAT204",
-      "properties": {
-        "solid_density": {
-          "value": 0.958,
-          "unit": "g/cm3",
-          "source_id": "CAT204",
-          "method": "ASTM D792",
-          "condition": "Producto sólido",
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
-          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
-        },
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": {
-          "value": 5,
-          "unit": "g/10min",
-          "source_id": "CAT204",
-          "method": "ASTM D1238",
-          "condition": "190 °C / 2.16 kg",
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
-          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
-        },
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "grade_with_manufacturer_data_partial",
-      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "official_product_page_confirmed",
-        "checked_on": "2026-10-15",
-        "source_id": "CAT204",
-        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
-      },
-      "additional_properties": [],
-      "data_review": {
-        "status": "manufacturer_webpage_reviewed",
-        "review_date": "2026-10-15",
-        "source_url": "https://www.dow.com/en-us/pdp.dow-05962b-high-density-polyethylene-resin.64720z.html",
-        "property_conditions_present": true
-      }
-    },
-    {
       "id": "catalog-hdpe-dow-dmda-8007-nt-7",
       "family": "HDPE",
       "manufacturer": "Dow",
@@ -2410,55 +2060,6 @@
       }
     },
     {
-      "id": "catalog-hdpe-dow-hdpe-dgda-2426-nt",
-      "family": "HDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW HDPE DGDA-2426 NT",
-      "process_tags": [],
-      "source_id": "CAT209",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT209"
-      }
-    },
-    {
       "id": "generic-hdpe",
       "family": "HDPE",
       "manufacturer": "Genérico / Generic",
@@ -2499,55 +2100,6 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
-    },
-    {
-      "id": "catalog-lldpe-dowlex-2049g",
-      "family": "LLDPE",
-      "manufacturer": "Dow",
-      "grade": "DOWLEX 2049G",
-      "process_tags": [],
-      "source_id": "CAT210",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT210"
       }
     },
     {
@@ -2768,84 +2320,6 @@
         "status": "manufacturer_webpage_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
-        "property_conditions_present": true
-      }
-    },
-    {
-      "id": "catalog-lldpe-dowlex-2045g-cir",
-      "family": "LLDPE",
-      "manufacturer": "Dow",
-      "grade": "DOWLEX 2045G CIR",
-      "process_tags": [
-        "película soplada"
-      ],
-      "source_id": "CAT213",
-      "properties": {
-        "solid_density": {
-          "value": 0.92,
-          "unit": "g/cm3",
-          "source_id": "CAT213",
-          "method": "ASTM D792",
-          "condition": "Producto sólido",
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
-          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
-        },
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": {
-          "value": 1,
-          "unit": "g/10min",
-          "source_id": "CAT213",
-          "method": "ASTM D1238",
-          "condition": "190 °C / 2.16 kg",
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
-          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
-        },
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "grade_with_manufacturer_data_partial",
-      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "official_product_page_confirmed",
-        "checked_on": "2026-10-15",
-        "source_id": "CAT213",
-        "reason": "Grade identified on manufacturer's own page; numeric data typical, not batch-certified."
-      },
-      "additional_properties": [],
-      "data_review": {
-        "status": "manufacturer_webpage_reviewed",
-        "review_date": "2026-10-15",
-        "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045g-cir-polyethylene-resin.515268z.html",
         "property_conditions_present": true
       }
     },
@@ -3778,251 +3252,6 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-219m-low-density-polyethylene-resin.80207z.html",
         "property_conditions_present": true
-      }
-    },
-    {
-      "id": "catalog-ldpe-dow-ldpe-203m",
-      "family": "LDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 203M",
-      "process_tags": [],
-      "source_id": "CAT223",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT223"
-      }
-    },
-    {
-      "id": "catalog-ldpe-dow-ldpe-310lg",
-      "family": "LDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 310LG",
-      "process_tags": [],
-      "source_id": "CAT224",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT224"
-      }
-    },
-    {
-      "id": "catalog-ldpe-dow-ldpe-352e",
-      "family": "LDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 352E",
-      "process_tags": [],
-      "source_id": "CAT225",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT225"
-      }
-    },
-    {
-      "id": "catalog-ldpe-dow-ldpe-220m",
-      "family": "LDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 220M",
-      "process_tags": [],
-      "source_id": "CAT226",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT226"
-      }
-    },
-    {
-      "id": "catalog-ldpe-dow-ldpe-432e",
-      "family": "LDPE",
-      "manufacturer": "Dow",
-      "grade": "DOW LDPE 432E",
-      "process_tags": [],
-      "source_id": "CAT227",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT227"
       }
     },
     {
@@ -5078,64 +4307,6 @@
       }
     },
     {
-      "id": "catalog-pet-polyclear-pet-t-94g",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear PET T-94G",
-      "process_tags": [],
-      "source_id": "CAT237",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT237"
-      }
-    },
-    {
       "id": "catalog-pet-polyclear-preserve-pet-2201",
       "family": "PET",
       "manufacturer": "Indorama Ventures",
@@ -5254,64 +4425,6 @@
       }
     },
     {
-      "id": "catalog-pet-polyclear-preserve-pet-2201-d",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear Preserve PET 2201-D",
-      "process_tags": [],
-      "source_id": "CAT239",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT239"
-      }
-    },
-    {
       "id": "catalog-pet-polyclear-splash-pet-3301",
       "family": "PET",
       "manufacturer": "Indorama Ventures",
@@ -5417,296 +4530,6 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear%20%C2%AE%20Splash%20PET%203301%20Rev%2015.pdf",
         "property_conditions_present": true
-      }
-    },
-    {
-      "id": "catalog-pet-polyclear-titan-pet-t94-ti",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear TITAN PET T94-Ti",
-      "process_tags": [],
-      "source_id": "CAT241",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT241"
-      }
-    },
-    {
-      "id": "catalog-pet-preformance-pet",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Preformance PET",
-      "process_tags": [],
-      "source_id": "CAT242",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT242"
-      }
-    },
-    {
-      "id": "catalog-pet-polyclear-ebm-pet-5505",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear EBM PET 5505",
-      "process_tags": [],
-      "source_id": "CAT243",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT243"
-      }
-    },
-    {
-      "id": "catalog-pet-polyclear-ebm-pet-5507",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear EBM PET 5507",
-      "process_tags": [],
-      "source_id": "CAT244",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT244"
-      }
-    },
-    {
-      "id": "catalog-pet-polyclear-aero-pet-5605",
-      "family": "PET",
-      "manufacturer": "Indorama Ventures",
-      "grade": "Polyclear AERO PET 5605",
-      "process_tags": [],
-      "source_id": "CAT245",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "not_verified_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "drying_guide_different_pet_grade",
-          "source_id": "S11",
-          "air_dew_point_C": "<= -37 (se prefiere <= -40)",
-          "pellet_temperature_C": "149-166",
-          "residence_h": "minimo 4; preferible 6",
-          "applicability": "Solo PET Laser+ CSD B90A; no aplicar automaticamente a Polyclear 1101."
-        }
-      ],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT245"
       }
     },
     {
@@ -6767,16 +5590,7 @@
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
-        "drying_temperature": {
-          "value": 175,
-          "unit": "°F",
-          "source_id": "CAT256",
-          "method": "Fabricante",
-          "condition": "Dato en °F, no usar como °C",
-          "range": null,
-          "status": "manufacturer_typical",
-          "note": "Valor típico de fabricante; NO certificado de lote"
-        },
+        "drying_temperature": null,
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
@@ -6842,110 +5656,21 @@
           "range": null,
           "status": "manufacturer_typical",
           "note": "Valor típico de fabricante; NO certificado de lote"
+        },
+        {
+          "key": "drying_temperature_source_f",
+          "value": 175,
+          "unit": "°F",
+          "source_id": "CAT256",
+          "method": "INEOS Styrolution",
+          "condition": "Solo referencia en unidades originales. No alimentar campo Celsius automáticamente.",
+          "status": "manufacturer_recommendation"
         }
       ],
       "data_review": {
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-HI-10_SKU300600120831.html"
-      }
-    },
-    {
-      "id": "catalog-abs-terluran-sp-6",
-      "family": "ABS",
-      "manufacturer": "INEOS Styrolution",
-      "grade": "Terluran SP-6",
-      "process_tags": [],
-      "source_id": "CAT257",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT257"
-      }
-    },
-    {
-      "id": "catalog-abs-terluran-gp-35-white",
-      "family": "ABS",
-      "manufacturer": "INEOS Styrolution",
-      "grade": "Terluran GP-35 White",
-      "process_tags": [],
-      "source_id": "CAT258",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT258"
       }
     },
     {
@@ -7615,398 +6340,6 @@
       }
     },
     {
-      "id": "catalog-pa6-ultramid-b3l",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3L",
-      "process_tags": [],
-      "source_id": "CAT265",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT265"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3s",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3S",
-      "process_tags": [],
-      "source_id": "CAT266",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT266"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3z2",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3Z2",
-      "process_tags": [],
-      "source_id": "CAT267",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT267"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3eg6",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3EG6",
-      "process_tags": [],
-      "source_id": "CAT268",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT268"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3u30g6",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3U30G6",
-      "process_tags": [],
-      "source_id": "CAT269",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT269"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3u50g6",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3U50G6",
-      "process_tags": [],
-      "source_id": "CAT270",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT270"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3u42g6",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3U42G6",
-      "process_tags": [],
-      "source_id": "CAT271",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT271"
-      }
-    },
-    {
-      "id": "catalog-pa6-ultramid-b3zg6",
-      "family": "PA6",
-      "manufacturer": "BASF",
-      "grade": "Ultramid B3ZG6",
-      "process_tags": [],
-      "source_id": "CAT272",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [],
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT272"
-      }
-    },
-    {
       "id": "generic-pa6",
       "family": "PA6",
       "manufacturer": "Genérico / Generic",
@@ -8306,73 +6639,6 @@
       }
     },
     {
-      "id": "catalog-pc-makrolon-2807",
-      "family": "PC",
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 2807",
-      "process_tags": [],
-      "source_id": "CAT275",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT275"
-      }
-    },
-    {
       "id": "catalog-pc-makrolon-2856",
       "family": "PC",
       "manufacturer": "Covestro",
@@ -8495,73 +6761,6 @@
       }
     },
     {
-      "id": "catalog-pc-makrolon-2858",
-      "family": "PC",
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 2858",
-      "process_tags": [],
-      "source_id": "CAT277",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT277"
-      }
-    },
-    {
       "id": "catalog-pc-makrolon-3105",
       "family": "PC",
       "manufacturer": "Covestro",
@@ -8663,207 +6862,6 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560"
-      }
-    },
-    {
-      "id": "catalog-pc-makrolon-3106",
-      "family": "PC",
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 3106",
-      "process_tags": [],
-      "source_id": "CAT279",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT279"
-      }
-    },
-    {
-      "id": "catalog-pc-makrolon-3107",
-      "family": "PC",
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 3107",
-      "process_tags": [],
-      "source_id": "CAT280",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT280"
-      }
-    },
-    {
-      "id": "catalog-pc-makrolon-3108",
-      "family": "PC",
-      "manufacturer": "Covestro",
-      "grade": "Makrolon 3108",
-      "process_tags": [],
-      "source_id": "CAT281",
-      "properties": {
-        "solid_density": null,
-        "melt_density": null,
-        "bulk_density": null,
-        "specific_heat": null,
-        "drying_temperature": null,
-        "drying_time": null,
-        "moisture_target": null,
-        "moisture_max": null,
-        "mfr": null,
-        "mvr": null,
-        "intrinsic_viscosity": null,
-        "melt_temperature_recommended": null,
-        "melting_temperature": null
-      },
-      "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
-      "missing_data_audit": {
-        "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
-        "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
-        "drying_guideline": "present_grade_specific",
-        "real_machine_process_validation": "requires_equipment_record_and_at_least_one_measured_reference_case",
-        "lot_confirmation": "requires_label_coa_and_supplier_confirmation"
-      },
-      "reference_properties_not_for_autofill": [
-        {
-          "property": "specific_heat",
-          "value": 1.172,
-          "unit": "kJ/(kg K)",
-          "source_id": "S10",
-          "status": "historical_grouped_2405_2407_2456",
-          "method": "ASTM D2766",
-          "temperature_range": null,
-          "phase": null,
-          "use": "Display source note only; never auto-fill advanced drying energy"
-        }
-      ],
-      "pvT_resource": {
-        "source_id": "S13",
-        "type": "Manufacturer multipoint pvT PDF link announced on product page",
-        "data_integrated": false,
-        "status": "acquire_and_digitize_or_fit"
-      },
-      "pvt": {
-        "status": "not_found_grade_specific_public",
-        "source_ref": null,
-        "calculator_autofill_allowed": false,
-        "measured_or_calibrated_coefficients": null,
-        "graphical_data": "Pendiente pVT validado por grado.",
-        "T_range_C": null,
-        "P_range_MPa": null
-      },
-      "identity_verification": {
-        "status": "pending_official_confirmation",
-        "checked_on": "2026-10-14",
-        "reason": "network_tunnel_403",
-        "source_id": "CAT281"
       }
     },
     {
@@ -9079,7 +7077,7 @@
       ]
     }
   },
-  "catalog_revision": "1.3.1",
+  "catalog_revision": "1.4.0",
   "official_source_audit": {
     "checked_on": "2026-10-14",
     "commercial_profiles": 90,
@@ -9089,9 +7087,20 @@
     "preserved_properties": "Nine original profiles retain the user-supplied verified V1.2 documentation, not a current official recertification. Two proposed Dow values are historical references only."
   },
   "property_coverage": {
-    "manufacturer_partial_records_reviewed": 26,
-    "source_checked_on": "2026-10-15",
-    "interpretation": "El catálogo sigue en auditoría. Los grados no revisados conservan null. Propiedades verificadas ≠ ficha íntegra de material.",
-    "manufacturer_family_expansion": 6
+    "commercial_grades_retained": 59,
+    "manual_generic_profiles": 9,
+    "dropped_due_to_insufficient_data": 31,
+    "property_threshold": 3
+  },
+  "audit_metadata": {
+    "date": "2026-10-15",
+    "original": 99,
+    "commercial_retained": 59,
+    "removed_from_active_catalog": 31,
+    "manual_generic": 9,
+    "min_properties_per_commercial": 3,
+    "rule": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
+    "report_path": "docs/auditoria-estricta-materiales-v1.4.json",
+    "caution": "Ranges are not single values; solid/bulk/melt densities distinct; manual generic have no assumed properties."
   }
 }
