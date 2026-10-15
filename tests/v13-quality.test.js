@@ -21,10 +21,10 @@ test('Auditoría: 90 identidades pendientes con evidencia de bloqueo; ninguna ce
   for (const record of audit.records) {
     const m=data.materials.find(x=>x.id===record.id);
     assert.ok(m.identity_verification);
-    if (m.data_review?.status==='manufacturer_webpage_reviewed') {
+    if (['manufacturer_webpage_reviewed','manufacturer_datasheet_reviewed'].includes(m.data_review?.status)) {
       assert.equal(record.identity_status,'manufacturer_site_confirmed_2026_10_15');
       assert.ok(Object.values(m.properties).some(p=>p!==null));
-      assert.match(record.access_result,/oficial Dow/);
+      assert.match(record.access_result,/(oficial Dow|fabricante)/);
     } else {
       assert.match(record.access_result,/Tunnel connection failed: 403/);
       assert.equal(record.identity_status,'pending_official_confirmation');
