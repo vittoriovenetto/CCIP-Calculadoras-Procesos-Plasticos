@@ -209,11 +209,10 @@
       "grade": "DOW 08262B",
       "source_id": "CAT201",
       "url": "https://www.dow.com/en-us/pdp.dow-08262b-high-density-polyethylene-resin.82162z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -221,12 +220,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-lp-8000",
@@ -235,11 +234,10 @@
       "grade": "DOW HDPE LP 8000",
       "source_id": "CAT202",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-high-density-polyethylene-resin.359059z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -247,12 +245,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-ng6997",
@@ -261,11 +259,10 @@
       "grade": "DOW HDPE NG6997",
       "source_id": "CAT203",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-ng6997-high-density-polyethylene-resin.119863z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -273,12 +270,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-05962b",
@@ -287,11 +284,10 @@
       "grade": "DOW 05962B",
       "source_id": "CAT204",
       "url": "https://www.dow.com/en-us/pdp.dow-05962b-high-density-polyethylene-resin.64720z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -299,12 +295,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-dmda-8007-nt-7",
@@ -313,11 +309,10 @@
       "grade": "DOW DMDA-8007 NT 7",
       "source_id": "CAT205",
       "url": "https://www.dow.com/en-us/pdp.dow-dmda-8007-nt-7-high-density-polyethylene-resin.92941z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -325,12 +320,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-dgda-5004-nt-7",
@@ -339,11 +334,10 @@
       "grade": "DOW DGDA-5004 NT 7",
       "source_id": "CAT206",
       "url": "https://www.dow.com/en-us/pdp.dow-dgda-5004-nt-7-high-density-polyethylene-resin.92904z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -351,12 +345,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-lp-8000-hd",
@@ -365,11 +358,10 @@
       "grade": "DOW HDPE LP 8000 HD",
       "source_id": "CAT207",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-hd-high-density-polyethylene-resin.458736z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -377,12 +369,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-dgda-2484-nt",
@@ -391,11 +383,10 @@
       "grade": "DOW HDPE DGDA-2484 NT",
       "source_id": "CAT208",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2484-nt-high-density-polyethylene-resin.65261z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -403,12 +394,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-dgda-2426-nt",
@@ -469,11 +460,10 @@
       "grade": "DOWLEX 2045.01G",
       "source_id": "CAT211",
       "url": "https://www.dow.com/en-us/pdp.dowlex-204501g-polyethylene-resin.72471z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -481,12 +471,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2645g",
@@ -495,11 +484,10 @@
       "grade": "DOWLEX 2645G",
       "source_id": "CAT212",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -507,12 +495,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2045g-cir",
@@ -521,11 +508,10 @@
       "grade": "DOWLEX 2045G CIR",
       "source_id": "CAT213",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2045g-cir-polyethylene-resin.515268z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -533,12 +519,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2045-11g",
@@ -547,11 +533,10 @@
       "grade": "DOWLEX 2045.11G",
       "source_id": "CAT214",
       "url": "https://www.dow.com/en-us/pdp.dowlex-204511g-polyethylene-resin.7651z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -559,12 +544,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2045",
@@ -573,11 +557,10 @@
       "grade": "DOWLEX 2045",
       "source_id": "CAT215",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2045-polyethylene-resin.24764z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -585,12 +568,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2035",
@@ -599,11 +581,10 @@
       "grade": "DOWLEX 2035",
       "source_id": "CAT216",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2035-polyethylene-resin.24762z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -611,12 +592,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2036-01g",
@@ -625,11 +605,10 @@
       "grade": "DOWLEX 2036.01G",
       "source_id": "CAT217",
       "url": "https://www.dow.com/en-us/pdp.dowlex-203601g-polyethylene-resin.386630z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -637,12 +616,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-lldpe-dowlex-2047g",
@@ -651,11 +629,10 @@
       "grade": "DOWLEX 2047G",
       "source_id": "CAT218",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2047g-polyethylene-resin.10239z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -663,12 +640,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-150e",
@@ -677,11 +653,10 @@
       "grade": "DOW LDPE 150E",
       "source_id": "CAT219",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-150e-low-density-polyethylene-resin.19527z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -689,12 +664,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-7010e",
@@ -703,11 +678,10 @@
       "grade": "DOW LDPE 7010E",
       "source_id": "CAT220",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-7010e-low-density-polyethylene-resin.206483z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -715,12 +689,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-ldpe-dow-5004i",
@@ -729,11 +702,10 @@
       "grade": "DOW 5004I",
       "source_id": "CAT221",
       "url": "https://www.dow.com/en-us/pdp.dow-5004i-low-density-polyethylene-resin.20679z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -741,12 +713,11 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
-        "melt_temperature_recommended",
-        "melting_temperature"
-      ]
+        "melt_temperature_recommended"
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-219m",
@@ -755,11 +726,10 @@
       "grade": "DOW LDPE 219M",
       "source_id": "CAT222",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-219m-low-density-polyethylene-resin.80207z.html",
-      "identity_status": "pending_official_confirmation",
-      "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "identity_status": "manufacturer_site_confirmed_2026_10_15",
+      "access_result": "Producto y propiedades corroborados mediante consulta pública a página oficial Dow, 2026-10-15",
       "preserved_property_basis": null,
       "pending_properties": [
-        "solid_density",
         "melt_density",
         "bulk_density",
         "specific_heat",
@@ -767,12 +737,12 @@
         "drying_time",
         "moisture_target",
         "moisture_max",
-        "mfr",
         "mvr",
         "intrinsic_viscosity",
         "melt_temperature_recommended",
         "melting_temperature"
-      ]
+      ],
+      "revision_status": "partial_properties_verified"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-203m",
@@ -2615,5 +2585,6 @@
       "access_result": "<urlopen error Tunnel connection failed: 403 Forbidden>",
       "http_status": null
     }
-  ]
+  ],
+  "audit_note": "Revisión externa: 20 grados comerciales Dow verificados parcialmente en fabricante (2026-10-15). Los restantes no tienen propiedades numéricas confirmadas en el catálogo. No confundir identidad con ficha completa."
 }
