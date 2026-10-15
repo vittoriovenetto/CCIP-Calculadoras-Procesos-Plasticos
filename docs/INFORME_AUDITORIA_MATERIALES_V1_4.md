@@ -99,7 +99,7 @@ Se auditaron **90 grados comerciales + 9 entradas genéricas**. Se conservan exc
 | PC | Makrolon 3105 | 3 | [Fuente](https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560) |
 | PC | Makrolon 3106 | 3 | [Fuente](https://solutions.covestro.com/en/products/makrolon/makrolon-3106_000000000056628987) |
 | PC | Makrolon 3107 | 4 | [Fuente](https://solutions.covestro.com/en/products/makrolon/makrolon-3107_000000000057534595) |
-| PC | Makrolon 3108 | 3 | [Fuente](https://solutions.covestro.com/en/products/makrolon/makrolon-3108_000000000000006499) |
+| PC | Makrolon 3108 | 8 | [Fuente](https://solutions.covestro.com/en/products/makrolon/makrolon-3108_000000000000006499) |
 
 ## Grados excluidos del catálogo (26)
 
