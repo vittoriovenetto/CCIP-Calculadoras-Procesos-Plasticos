@@ -1,9 +1,9 @@
 // Una ayuda a la vez: hover, foco y toque. El popup no modifica entradas.
 export function bindParameterHelp(root) {
-  let button = null, tip = null, pinned = false, timer;
+  let button = null, tip = null, pinned = false, timer, observer;
   const cancel = () => clearTimeout(timer);
   function close() {
-    cancel();
+    cancel();observer?.disconnect();
     if (tip) tip.hidden = true;
     button?.setAttribute('aria-expanded', 'false');
     button = tip = null;
@@ -37,6 +37,7 @@ export function bindParameterHelp(root) {
     tip.hidden = false;
     button.setAttribute('aria-expanded', 'true');
     position();
+    observer = new ResizeObserver(position);observer.observe(tip);
   }
   root.addEventListener('pointerover', e => {
     if (e.pointerType === 'touch') return;
@@ -51,7 +52,7 @@ export function bindParameterHelp(root) {
     timer = setTimeout(close, 180);
   });
   root.addEventListener('focusin', e => { const next = e.target.closest('[data-help]'); if (next) show(next); });
-  root.addEventListener('focusout', e => { if (e.target === button) close(); });
+  root.addEventListener('focusout', e => { if (!root.contains(e.relatedTarget) || (!tip?.contains(e.relatedTarget) && e.relatedTarget !== button)) close(); });
   root.addEventListener('click', e => {
     const next = e.target.closest('[data-help]');
     if (!next) return;

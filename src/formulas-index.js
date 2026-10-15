@@ -23,7 +23,7 @@ const glossary = {
 };
 function renderIndex() {
   const root = document.getElementById('formulas-exact-index');root.replaceChildren();
-  root.innerHTML = `<p class="muted">${copy('42 salidas calculadas en 7 procesos. Las expresiones se leen directamente del motor.','42 calculated outputs across 7 processes. Expressions are read directly from the engine.')}</p>`;
+  root.innerHTML = `<p class="muted">${copy(`${lessons.length} salidas calculadas en ${modules.length} procesos. Las expresiones se leen directamente del motor.`,`${lessons.length} calculated outputs across ${modules.length} processes. Expressions are read directly from the engine.`)}</p>`;
   for (const module of modules) {
     const outputs = calculate(module.id,{},'advanced').metrics;
     root.insertAdjacentHTML('beforeend',`<section data-index-process="${module.id}"><h3>${safe(t(module.name))}</h3><table class="formula-full-index"><thead><tr>${[copy('Resultado','Output'),copy('Ecuación utilizada','Equation used'),copy('Unidad','Unit')].map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${outputs.map(m=>`<tr data-index-level="${lessonLevel(lessonFor(module.id,m.label))}"><td>${safe(t(m.label))}</td><td>${safe(t(m.formula))}</td><td>${safe(local(m.unit))}</td></tr>`).join('')}</tbody></table></section>`);
@@ -33,7 +33,7 @@ function renderLessons() {
   document.getElementById('formula-nav').innerHTML = modules.map(m=>`<a data-guide-process="${m.id}" href="#guide-${m.id}">${safe(t(m.name))}</a>`).join('');
   document.getElementById('formula-lessons').innerHTML = modules.map(module=>{
     const inputs = examples.find(([id])=>id===module.id)[1], model = calculate(module.id,inputs,'advanced');
-    const cards = lessons.filter(x=>x.module===module.id).map(lesson=>{
+    const cards = model.metrics.map(metric=>lessonFor(module.id,metric.label)).filter(Boolean).map(lesson=>{
       const output = model.metrics.find(x=>x.label===lesson.label), lhs = lesson.equation.split('=')[0].trim();
       const variableRows = lesson.fields.map(key=>{
         const field = module.fields.find(f=>f.key===key);
@@ -41,24 +41,24 @@ function renderLessons() {
       });
       variableRows.push([lhs,t(lesson.label),local(output.unit),'—',copy('Resultado buscado.','Calculated output.')]);
       for (const [symbol,label,unit] of glossary[module.id]) if (new RegExp('(?<![\\p{L}\\p{N}])'+symbol+'(?![\\p{L}\\p{N}])','u').test(lesson.equation) && symbol!==lhs && !variableRows.some(row=>row[0]===symbol)) variableRows.push([symbol,t(label),local(unit),'—',copy('Resultado intermedio; véase su explicación en este proceso.','Intermediate output; see its explanation in this process.')]);
-      return `<article class="equation" id="${lesson.id}" data-lesson="${lesson.id}" data-lesson-level="${lessonLevel(lesson)}"><span class="lesson-level">${copy('Nivel del ejemplo','Example level')}: ${safe(t(levelNames[lessonLevel(lesson)]))}</span><h3>${safe(t(lesson.label))}</h3><p>${copy('Finalidad: estimar','Purpose: estimate')} ${safe(t(lesson.label).toLowerCase())} [${safe(local(output.unit))}].</p><div class="eq-math">${safe(local(lesson.equation))}</div>
-        <details open><summary>${copy('Variables, unidades y datos del ejemplo','Variables, units and example inputs')}</summary><div class="formula-variables">${variableRows.map(([symbol,name,unit,value,description])=>`<div><b>${safe(symbol)} · ${safe(name)}</b><p>${safe(description)}</p><small>${copy('Unidad','Unit')}: ${safe(unit)} · ${copy('Ejemplo','Example')}: ${safe(value)}</small></div>`).join('')}</div></details>
-        <details open class="worked-example"><summary>${copy('Ejemplo resuelto paso a paso','Worked example, step by step')}</summary><p class="muted">${copy('Valores sintéticos, sin asignación a un grado o máquina.','Synthetic values, not assigned to a grade or machine.')}</p><ol>${lesson.steps.map(step=>`<li><code>${safe(local(step))}</code></li>`).join('')}</ol><p><b>${copy('Resultado','Result')}: <span data-example-value="${lesson.expected}">${numbers(lesson.expected)} ${safe(local(output.unit))}</span></b></p></details>
-        <details><summary>${copy('Conversiones, hipótesis, límites y referencias','Conversions, assumptions, limits and references')}</summary><p>${safe(lesson.conversions[getLanguage()])}</p>${model.notes.map(note=>`<p class="note">${safe(t(note))}</p>`).join('')}
+      return `<details class="equation education-panel" id="${lesson.id}" data-lesson="${lesson.id}" data-lesson-level="${lessonLevel(lesson)}"><summary aria-expanded="false">${safe(t(lesson.label))}</summary><div class="lesson-content" tabindex="-1"><span class="lesson-level">${copy('Nivel del ejemplo','Example level')}: ${safe(t(levelNames[lessonLevel(lesson)]))}</span><h3>${safe(t(lesson.label))}</h3><p>${copy('Finalidad: estimar','Purpose: estimate')} ${safe(t(lesson.label).toLowerCase())} [${safe(local(output.unit))}].</p><div class="eq-math">${safe(local(lesson.equation))}</div>
+        <section><h4>${copy('Variables, unidades y datos del ejemplo','Variables, units and example inputs')}</h4><div class="formula-variables">${variableRows.map(([symbol,name,unit,value,description])=>`<div><b>${safe(symbol)} · ${safe(name)}</b><p>${safe(description)}</p><small>${copy('Unidad','Unit')}: ${safe(unit)} · ${copy('Ejemplo','Example')}: ${safe(value)}</small></div>`).join('')}</div></section>
+        <section class="worked-example"><h4>${copy('Ejemplo resuelto paso a paso','Worked example, step by step')}</h4><p class="muted">${copy('Valores sintéticos, sin asignación a un grado o máquina.','Synthetic values, not assigned to a grade or machine.')}</p><ol>${lesson.steps.map(step=>`<li><code>${safe(local(step))}</code></li>`).join('')}</ol><p><b>${copy('Resultado','Result')}: <span data-example-value="${lesson.expected}">${numbers(lesson.expected)} ${safe(local(output.unit))}</span></b></p></section>
+        <section><h4>${copy('Conversiones, hipótesis, límites y referencias','Conversions, assumptions, limits and references')}</h4><p>${safe(lesson.conversions[getLanguage()])}</p>${model.notes.map(note=>`<p class="note">${safe(t(note))}</p>`).join('')}
           <p>${copy('Sin entradas válidas, los resultados dependientes quedan pendientes. No utilizar como validación industrial.','Without valid inputs, dependent outputs remain pending. Do not use as industrial validation.')}</p>
           <p>${copy('Referencia: derivación geométrica, conservación de masa o balance sensible del modelo implementado. Conversiones según unidades SI; fuerza convencional con g₀ = 9.80665 m/s².','Reference: geometric derivation, mass conservation or sensible balance of the implemented model. SI unit conversions; conventional force uses g₀ = 9.80665 m/s².')}</p>
-          <a href="./src/models/${module.id}.js">${copy('Consultar el modelo implementado','Read the implemented model')}</a> · <a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener noreferrer">${copy('Referencia de unidades SI: BIPM','SI unit reference: BIPM')}</a>
-        </details></article>`;
+          <a href="https://www.bipm.org/en/publications/si-brochure">${copy('Referencia de unidades SI: BIPM','SI unit reference: BIPM')}</a>
+        </section></div></details>`;
     }).join('');
     const alternatives = module.id==='inyeccion' || module.id==='extrusion' ? alternateExample(module.id) : '';
-    const auxiliary = module.id==='inyeccion' ? `<article class="equation" data-auxiliary="screw-area"><h3>${copy('Área del husillo (variable auxiliar)','Screw area (auxiliary variable)')}</h3><p>${copy('Sección transversal geométrica para capacidad y carrera; no es el área del canal helicoidal.','Geometric cross section for capacity and stroke; not helical channel area.')}</p><div class="eq-math">A = π D² / 4</div><p>D [mm]; A [mm²]. D = 20 mm → A = π × 20² / 4 ≈ 314.159265 mm².</p></article>` : '';
-    return `<section class="formula-topic" id="guide-${module.id}"><h2>${safe(t(module.name))}</h2><p>${safe(t(module.description))}</p>${auxiliary}${cards}${alternatives}</section>`;
+    const auxiliary = module.id==='inyeccion' ? `<details class="equation education-panel" id="inyeccion-area" data-auxiliary="screw-area"><summary aria-expanded="false">${copy('Área del husillo (variable auxiliar)','Screw area (auxiliary variable)')}</summary><p>${copy('Sección transversal geométrica para capacidad y carrera; no es el área del canal helicoidal.','Geometric cross section for capacity and stroke; not helical channel area.')}</p><div class="eq-math">A = π D² / 4</div><p>D [mm]; A [mm²]. D = 20 mm → A = π × 20² / 4 ≈ 314.159265 mm².</p></details>` : '';
+    return `<details class="formula-topic" id="guide-${module.id}"><summary aria-expanded="false"><h2>${safe(t(module.name))}</h2></summary><p>${safe(t(module.description))}</p>${cards}${auxiliary}${alternatives}</details>`;
   }).join('');
 }
 function alternateExample(id) {
   const inputs = examples.slice(7).find(([module])=>module===id)[1], output = calculate(id,inputs,'advanced');
   const equation = id==='inyeccion' ? 'V₀ = n Vₚ + Vᵣ = 2 × 35 + 5 = 75 cm³; Vₛ = 75 × 1.1 = 82.5 cm³; m₀ = 75 × 0.8 = 60 g; mₛ = 82.5 × 0.8 = 66 g.' : 'A = π (Dₒ² − Dᵢ²)/4 = π (20² − 10²)/4 ≈ 235.619449 mm²; m′ = A × 0.92 ≈ 216.769893 g/m; Qₙ ≈ 130.061936 kg/h.';
-  return `<details class="alternate-example"><summary>${id==='inyeccion'?copy('Alternativa: dosificación por volumen','Alternative: volume metering'):copy('Alternativa: extrusión de tubo','Alternative: tube extrusion')}</summary><p>${safe(equation)}</p><p>${id==='inyeccion'?copy('Vₚ: volumen de fundido por pieza; Vᵣ: volumen de canales, ambos en cm³. ρₘ = 0.8 g/cm³ es un dato sintético manual.','Vₚ: melt-equivalent volume per part; Vᵣ: runner volume, both in cm³. ρₘ = 0.8 g/cm³ is synthetic manual data.'):copy('Dₒ y Dᵢ son diámetros exterior e interior en mm, con 0 ≤ Dᵢ < Dₒ. Los demás datos son los del ejemplo de lámina.','Dₒ and Dᵢ are outer and inner diameters in mm, with 0 ≤ Dᵢ < Dₒ. Other inputs match the sheet example.')}</p><div>${output.metrics.map(m=>`<p data-alternate-level="${lessonLevel(lessonFor(id,m.label))}">${safe(t(m.label))}: ${numbers(m.value)} ${safe(local(m.unit))}</p>`).join('')}</div></details>`;
+  return `<details id="${id}-alternativo" class="alternate-example education-panel"><summary>${id==='inyeccion'?copy('Alternativa: dosificación por volumen','Alternative: volume metering'):copy('Alternativa: extrusión de tubo','Alternative: tube extrusion')}</summary><p>${safe(equation)}</p><p>${id==='inyeccion'?copy('Vₚ: volumen de fundido por pieza; Vᵣ: volumen de canales, ambos en cm³. ρₘ = 0.8 g/cm³ es un dato sintético manual.','Vₚ: melt-equivalent volume per part; Vᵣ: runner volume, both in cm³. ρₘ = 0.8 g/cm³ is synthetic manual data.'):copy('Dₒ y Dᵢ son diámetros exterior e interior en mm, con 0 ≤ Dᵢ < Dₒ. Los demás datos son los del ejemplo de lámina.','Dₒ and Dᵢ are outer and inner diameters in mm, with 0 ≤ Dᵢ < Dₒ. Other inputs match the sheet example.')}</p><div>${output.metrics.map(m=>`<p data-alternate-level="${lessonLevel(lessonFor(id,m.label))}">${safe(t(m.label))}: ${numbers(m.value)} ${safe(local(m.unit))}</p>`).join('')}</div></details>`;
 }
 const matchesLevel = level => filters.level === 'all' || levels[level] <= levels[filters.level];
 function applyFilters() {
@@ -92,22 +92,45 @@ function renderGuide() {
   document.getElementById('formula-level').value = filters.level;
   renderIndex();renderLessons();applyFilters();
 }
-function openTarget() {
-  const id = location.hash.slice(1), target = document.getElementById(id);
-  if (target && !target.hidden && !target.closest('[hidden]')) {
-    for (const details of target.querySelectorAll('details')) details.open = true;
-    target.scrollIntoView();
-  }
-}
-for (const [id,key] of [['formula-process','process'],['formula-level','level']]) {
-  document.getElementById(id).addEventListener('change',e=>{
-    filters[key] = e.target.value;applyFilters();
-    const url = new URL(location.href);
-    for (const name of ['process','level']) filters[name] === 'all' ? url.searchParams.delete(name) : url.searchParams.set(name,filters[name]);
-    // Evita conservar el fragmento de una explicación oculta por el filtro nuevo.
-    url.hash = '';history.replaceState(null,'',url);
+function bindAccordions() {
+  for(const panel of document.querySelectorAll('.education-panel,.formula-topic'))panel.addEventListener('toggle',()=>{
+    if(!panel.isConnected)return;
+    panel.querySelector(':scope > summary')?.setAttribute('aria-expanded',String(panel.open));
+    if(!panel.open)return;
+    if(panel.matches('.education-panel'))for(const other of document.querySelectorAll('.education-panel'))if(other!==panel)other.open=false;
+    if(panel.matches('.formula-topic'))for(const other of document.querySelectorAll('.formula-topic'))if(other!==panel)other.open=false;
   });
 }
-initI18n();renderGuide();openTarget();
-addEventListener('hashchange',openTarget);
-document.addEventListener('ccip-language-change',()=>{renderGuide();});
+export function openGuideTarget(id=location.hash.slice(1)) {
+  const target=document.getElementById(id);
+  if(!target || target.hidden || target.closest('[hidden]'))return;
+  const topic=target.closest('.formula-topic');if(topic)topic.open=true;
+  if(target.matches('details'))target.open=true;
+  const focus=target.querySelector('.lesson-content')||target.querySelector('summary');
+  focus?.focus({preventScroll:true});target.scrollIntoView({block:'start'});
+}
+export function mountGuide(root,options={}) {
+  if(root)root.innerHTML=`<div class="panel formula-controls"><button id="learning-back" type="button">${copy('Volver a calculadora','Back to calculator')}</button><h1>${copy('Aprendizaje','Learning')}</h1><p>${copy('Ejemplos sintéticos de enseñanza; no son datos de un material ni una máquina real.','Synthetic teaching examples; not data for a real material or machine.')}</p><div class="formula-filters"><label>${copy('Proceso','Process')}<select id="formula-process"></select></label><label>${copy('Nivel de aprendizaje','Learning level')}<select id="formula-level"><option value="all">${copy('Todos los niveles','All levels')}</option>${Object.entries(levelNames).map(([key,label])=>`<option value="${key}">${safe(t(label))}</option>`).join('')}</select></label></div><p id="formula-count" role="status"></p></div><nav id="formula-nav" class="formula-nav"></nav><details id="formula-index-details"><summary>${copy('Índice completo de resultados y fórmulas','Complete output and formula index')}</summary><div id="formulas-exact-index"></div></details><div id="formula-lessons"></div>`;
+  filters.process=modules.some(m=>m.id===options.process)?options.process:(root?'all':filters.process);
+  filters.level=Object.hasOwn(levels,options.level)?options.level:(root?'all':filters.level);
+  renderGuide();bindAccordions();
+  for(const [id,key] of [['formula-process','process'],['formula-level','level']])document.getElementById(id).addEventListener('change',e=>{
+    filters[key]=e.target.value;applyFilters();
+    for(const panel of document.querySelectorAll('.education-panel'))if(panel.hidden||panel.closest('[hidden]'))panel.open=false;
+    const url=new URL(location.href);for(const name of ['process','level'])filters[name]==='all'?url.searchParams.delete(name):url.searchParams.set(name,filters[name]);
+    url.hash='';history.replaceState(history.state,'',url);
+  });
+  document.getElementById('learning-back')?.addEventListener('click',()=>options.onBack?.());
+  if(options.lesson)openGuideTarget(options.lesson);else if(!root)openGuideTarget();
+}
+function refreshLanguage() {
+  if(!document.getElementById('formula-lessons'))return;
+  const opened=document.querySelector('.education-panel[open]')?.id;
+  const processes=[...document.querySelectorAll('.formula-topic[open]')].map(x=>x.id);
+  renderGuide();bindAccordions();
+  for(const id of processes){const el=document.getElementById(id);if(el)el.open=true;}
+  if(opened){const el=document.getElementById(opened);if(el)el.open=true;}
+}
+if(document.getElementById('formula-lessons')){initI18n();mountGuide(null);}
+addEventListener('hashchange',()=>{if(document.getElementById('formula-lessons'))openGuideTarget();});
+document.addEventListener('ccip-language-change',refreshLanguage);

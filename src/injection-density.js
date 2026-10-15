@@ -50,7 +50,7 @@ export function applyFamilyMeltDensity(state, module, values, level, catalog = f
   const previous = state.provenance.meltDensity;
   const family = state.grade_snapshot?.family;
   const reference = familyReference(family, state.context, catalog);
-  const allowed = state.context.meltDensityPolicy === 'reference_allowed' && state.context.familyMeltReferenceAccepted === true;
+  const allowed = state.context.meltDensityPolicy === 'reference_allowed' && (state.context.familyMeltReferenceMode === "automatic" || state.context.familyMeltReferenceAccepted === true);
   if (familyOrigin(previous) && (!allowed || !reference || previous.family !== family || previous.reference?.variant !== reference.variant)) {
     values.meltDensity = '';delete state.provenance.meltDensity;
   }
@@ -97,7 +97,7 @@ export function calculateWithMeltDensity(moduleId, inputs, level, state) {
   const rejected = densityActive && strict && !verified && !isBlank(effective.meltDensity);
   const recordedReference = familyOrigin(entry) ? familyReference(entry.family, state.context, { schema_version: '1.0.0', scope: 'family_reference', entries: [entry.reference] }) : null;
   const invalidReference = densityActive && familyOrigin(entry) &&
-    (state.context.familyMeltReferenceAccepted !== true || !recordedReference || entry.family !== state.grade_snapshot?.family || recordedReference.canonical_value !== n(effective.meltDensity));
+    ((state.context.familyMeltReferenceMode !== "automatic" && state.context.familyMeltReferenceAccepted !== true) || !recordedReference || entry.family !== state.grade_snapshot?.family || recordedReference.canonical_value !== n(effective.meltDensity));
   if (rejected || invalidReference) effective.meltDensity = '';
   const result = calculate(moduleId, effective, level);
   const used = densityActive && positive(n(effective.meltDensity));
@@ -114,6 +114,7 @@ export function calculateWithMeltDensity(moduleId, inputs, level, state) {
   if (invalidReference) result.warnings.push('Referencia de familia fuera de sus condiciones documentadas o sin evidencia válida; no se extrapola la densidad.');
   result.density_assessment = {
     policy: strict ? 'verified_only' : 'reference_allowed', used, verified, approximate: estimated,
+    reference_application: familyOrigin(entry) && used ? (state.context.familyMeltReferenceMode === 'automatic' ? 'automatic_family_reference' : 'explicit_acceptance') : null,
     origin: used ? (entry?.origin || 'manual') : 'not_used',
     verification: verified ? (entry?.origin === 'library' ? 'documented_grade' : 'user_declaration_with_evidence') : null,
     manual_confirmed_at_calculation: used && ['manual','user_override','user_custom'].includes(entry?.origin || 'manual'),

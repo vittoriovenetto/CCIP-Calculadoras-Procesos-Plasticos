@@ -43,13 +43,12 @@ test('inventario: seis pendientes, PC/ABS exactos solo gráficos y PA6 de otro g
   assert.deepEqual(current.pvt_reference_sources.PV01.pressure_MPa, [0.1, 20, 40, 80, 120, 160, 200]);
   assert.deepEqual(current.pvt_reference_sources.PV03.pressure_MPa, [0.1]);
 });
-test('PC: Cp histórico agrupado se muestra, no se usa; J a kJ correcto y fuente histórica local', () => {
+test('PC: Cp histórico agrupado se conserva en datos; no bloque vacío ni autofill', () => {
   const s = setup(current, current.materials.find(m => m.family === 'PC').id);
   const ref = s.grade_snapshot.reference_properties_not_for_autofill[0];
   assert.equal(ref.value, 1172 / 1000); assert.equal(ref.temperature_range, null); assert.equal(ref.phase, null);
   const view = renderAudit(s, 'advanced');
-  assert.ok(view.includes('1.172')); assert.ok(view.includes('S10')); assert.ok(view.includes('histórico agrupado'));
-  assert.ok(view.includes('120, 160, 200 MPa')); assert.ok(!view.includes('<svg'));
+  assert.ok(s.references_snapshot.sources.S10); assert.ok(!view.includes('pvt-section')); assert.ok(!view.includes('<svg'));
   assert.ok(materialWarnings(s, 'secado').some(w => w.includes('no autocompleta')));
 });
 test('PET: humedad recibida separada de objetivo/máximo de secado; secado de otro grado es referencia bloqueada', () => {
@@ -57,7 +56,7 @@ test('PET: humedad recibida separada de objetivo/máximo de secado; secado de ot
   assert.equal(s.grade_snapshot.incoming_product_moisture.value, 0.15);
   assert.equal(s.grade_snapshot.incoming_product_moisture.max, 0.3);
   assert.equal(s.grade_snapshot.properties.moisture_target, null); assert.equal(s.grade_snapshot.properties.moisture_max, null);
-  const html = renderAudit(s, 'basic'); assert.ok(html.includes('producto recibido')); assert.ok(html.includes('S17')); assert.ok(html.includes('S11'));
+  const html = renderAudit(s, 'basic'); assert.ok(html.includes('producto recibido')); assert.ok(html.includes('S17')); assert.ok(s.references_snapshot.sources.S11);
   assert.ok(materialWarnings(s, 'secado').some(w => w.includes('0.15 %') && w.includes('no objetivo')));
 });
 test('ABS: 24 puntos exactos del adjunto y seis isobaras orientativas; nunca lookup/interpolación de rho', () => {
@@ -73,7 +72,7 @@ test('ABS: 24 puntos exactos del adjunto y seis isobaras orientativas; nunca loo
 });
 test('PA6: ficha B3S no es R03; gráfico de ABS nunca aparece en ese grado', () => {
   const s = setup(current, current.materials.find(m => m.family === 'PA6').id);
-  const html = renderAudit(s, 'advanced'); assert.ok(html.includes('Referencia de B3S — no validada para R03')); assert.ok(!html.includes('<svg'));
+  const html = renderAudit(s, 'advanced'); assert.ok(!html.includes('pvt-section')); assert.equal(s.grade_snapshot.pvt.status,'related_base_grade_chart_only'); assert.ok(!html.includes('<svg'));
   assert.equal(s.references_snapshot.pvt_sample, null);
 });
 test('control pVT rechaza desbloquear figuras, datos incompletos, grados sin fuente, NaN y unidades ajenas', () => {

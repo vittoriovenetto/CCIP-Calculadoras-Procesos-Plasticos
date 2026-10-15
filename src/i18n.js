@@ -1,8 +1,9 @@
+import { leanTranslations } from "./i18n-lean.js";
 import { auditTranslations } from "./i18n-audit.js";
 import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
-export const translations = { ...extraTranslations, ...auditTranslations,
+export const translations = { ...extraTranslations, ...auditTranslations, ...leanTranslations,
 "Calculadoras de procesos plásticos":"Plastic process calculators",
 "Calculadoras de Procesos Plásticos":"Plastic Process Calculators",
 "CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS":"CCIP · INTEC · POLYMER PROCESSING",
@@ -141,6 +142,8 @@ export function t(value, lang = getLanguage()) {
   return raw;
 }
 const patterns = [
+  [/^(.+): introduce un valor para este cálculo\.$/,m=>t(m[1],'en')+': enter a value for this calculation.'],
+  [/^Elige explícitamente un tiempo entre (.+) y (.+) h; no se usa un promedio\.$/,m=>'Explicitly choose a time between '+m[1]+' and '+m[2]+' h; no average is selected.'],
   [/^([\d.,– -]+) % masa$/,m=>m[1]+' wt %'],
   [/^(⚠\s*)(.+)$/,m=>m[1]+t(m[2],'en')],
   [/^(.+): referencia sin verificación oficial; no autocompletar$/,m=>t(m[1],'en')+': reference without official verification; no autofill'],

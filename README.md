@@ -1,5 +1,11 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Auditoría Lean de diez capturas — pendiente de revisión
+
+La rama `feature/auditoria-lean-10-capturas` implementa la auditoría visual aprobada por el usuario: referencias fundidas automáticas y editables, resultados calculables, secado filtrado, evidencias y avisos contextuales, y aprendizaje integrado con acordeón exclusivo. No modifica los siete motores, el catálogo ni las versiones archivadas. **Esta auditoría no se publica ni se fusiona**.
+
+[Informe por requisito P0-01 a P0-10](docs/auditoria-lean-10-capturas.md) · [Capturas de los cambios](docs/capturas/lean/README.md) · [Diez capturas originales](docs/capturas/lean-originales/integrity.json)
+
 ## Inyección — referencias fundidas y perfil físico (para revisión)
 
 La rama `feature/ux-lean-materiales-v1.5`, basada en `audit/materiales-minimo-3-propiedades`, incorpora referencias genéricas de densidad fundida con aceptación explícita, edición manual y modo «solo datos verificados». El cálculo por masa sigue funcionando sin densidad. La biblioteca comercial no cambia.

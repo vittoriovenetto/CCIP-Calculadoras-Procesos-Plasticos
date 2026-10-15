@@ -82,8 +82,8 @@ test('Enlaces de resultados alcanzan su lección y habilitan un nivel suficiente
     assert.equal(url.searchParams.get('process'),lesson.module);
     assert.equal(url.searchParams.get('level'),lessonLevel(lesson));
   }
-  assert.equal(guideHref('inyeccion','technical','Fuerza de cierre teórica'),'./formulas.html?process=inyeccion&level=advanced#inyeccion-8');
-  assert.equal(guideHref('secado','invalid'),'./formulas.html?process=secado&level=advanced#guide-secado');
+  assert.equal(guideHref('inyeccion','technical','Fuerza de cierre teórica'),'./?view=learning&process=inyeccion&level=advanced#inyeccion-8');
+  assert.equal(guideHref('secado','invalid'),'./?view=learning&process=secado&level=advanced#guide-secado');
 });
 for (const [key,value,unit,wanted] of [
   ['solid_density',950,'kg/m3',.95],['melt_density',800,'kg/m3',.8],['bulk_density',500,'kg/m3',.5],
