@@ -2,7 +2,7 @@
   "schema_version": "1.3.0",
   "dataset_name": "ccip-90-grade-candidates-and-9-generic-families",
   "retrieved_on": "2026-10-14",
-  "publication_notice": "Índice preliminar de 90 identidades comerciales y 9 familias genéricas. Las referencias deben verificarse contra la ficha concreta y vigente de cada grado; valores no comprobados se dejan null. No interpretar el catálogo como nueve series de propiedades certificadas.",
+  "publication_notice": "Índice de 90 grados comerciales y nueve genéricos. Se amplían 20 grados Dow con datos parciales de páginas oficiales. Los demás registros siguen pendientes de verificar individualmente. Condiciones de ensayo obligatorias. No usar propiedades no documentadas.",
   "null_policy": "Mantener NULL si no está en fuente; nunca usar densidad sólida como fundida, ni aparente como sólida.",
   "sources": {
     "S01": {
@@ -1567,10 +1567,22 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW 08262B",
-      "process_tags": [],
+      "process_tags": [
+        "inyección"
+      ],
       "source_id": "CAT201",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.96,
+          "unit": "g/cm3",
+          "source_id": "CAT201",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1578,15 +1590,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 8,
+          "unit": "g/10min",
+          "source_id": "CAT201",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1609,6 +1631,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT201"
+      },
+      "additional_properties": [
+        {
+          "key": "tensile_strength_yield",
+          "value": 29,
+          "unit": "MPa",
+          "method": "ASTM D638",
+          "condition": "tracción",
+          "source_id": "CAT201",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-08262b-high-density-polyethylene-resin.82162z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1616,10 +1656,22 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW HDPE LP 8000",
-      "process_tags": [],
+      "process_tags": [
+        "soplado"
+      ],
       "source_id": "CAT202",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.945,
+          "unit": "g/cm3",
+          "source_id": "CAT202",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1627,15 +1679,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 6.7,
+          "unit": "g/10min",
+          "source_id": "CAT202",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 21.6 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1658,6 +1720,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT202"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 0.22,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 5.0 kg",
+          "source_id": "CAT202",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-high-density-polyethylene-resin.359059z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1665,10 +1745,22 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW HDPE NG6997",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada"
+      ],
       "source_id": "CAT203",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.944,
+          "unit": "g/cm3",
+          "source_id": "CAT203",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1676,15 +1768,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 11,
+          "unit": "g/10min",
+          "source_id": "CAT203",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 21.6 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1707,6 +1809,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT203"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 0.36,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 5.0 kg",
+          "source_id": "CAT203",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-ng6997-high-density-polyethylene-resin.119863z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1714,10 +1834,23 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW 05962B",
-      "process_tags": [],
+      "process_tags": [
+        "inyección",
+        "extrusión"
+      ],
       "source_id": "CAT204",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.958,
+          "unit": "g/cm3",
+          "source_id": "CAT204",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1725,15 +1858,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 5,
+          "unit": "g/10min",
+          "source_id": "CAT204",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1756,6 +1899,13 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT204"
+      },
+      "additional_properties": [],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-05962b-high-density-polyethylene-resin.64720z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1763,10 +1913,23 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW DMDA-8007 NT 7",
-      "process_tags": [],
+      "process_tags": [
+        "inyección",
+        "extrusión"
+      ],
       "source_id": "CAT205",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.965,
+          "unit": "g/cm3",
+          "source_id": "CAT205",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1774,15 +1937,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 8.3,
+          "unit": "g/10min",
+          "source_id": "CAT205",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1805,6 +1978,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT205"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 180,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 21.6 kg",
+          "source_id": "CAT205",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-dmda-8007-nt-7-high-density-polyethylene-resin.92941z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1812,10 +2003,23 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW DGDA-5004 NT 7",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión",
+        "termoformado"
+      ],
       "source_id": "CAT206",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.961,
+          "unit": "g/cm3",
+          "source_id": "CAT206",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1823,15 +2027,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 0.8,
+          "unit": "g/10min",
+          "source_id": "CAT206",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 133,
+          "unit": "°C",
+          "source_id": "CAT206",
+          "method": "Ficha Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1854,6 +2078,44 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT206"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 57,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 21.6 kg",
+          "source_id": "CAT206",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        },
+        {
+          "key": "hardness_shore_d",
+          "value": 66,
+          "unit": "Shore D",
+          "method": null,
+          "condition": "",
+          "source_id": "CAT206",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        },
+        {
+          "key": "vicat_temperature",
+          "value": 131,
+          "unit": "°C",
+          "method": null,
+          "condition": "",
+          "source_id": "CAT206",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-dgda-5004-nt-7-high-density-polyethylene-resin.92904z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1861,10 +2123,22 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW HDPE LP 8000 HD",
-      "process_tags": [],
+      "process_tags": [
+        "soplado"
+      ],
       "source_id": "CAT207",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.952,
+          "unit": "g/cm3",
+          "source_id": "CAT207",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1872,15 +2146,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 5.5,
+          "unit": "g/10min",
+          "source_id": "CAT207",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 21.6 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1903,6 +2187,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT207"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 0.19,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 5.0 kg",
+          "source_id": "CAT207",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-hd-high-density-polyethylene-resin.458736z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -1910,10 +2212,22 @@
       "family": "HDPE",
       "manufacturer": "Dow",
       "grade": "DOW HDPE DGDA-2484 NT",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión"
+      ],
       "source_id": "CAT208",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.949,
+          "unit": "g/cm3",
+          "source_id": "CAT208",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -1921,15 +2235,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 0.07,
+          "unit": "g/10min",
+          "source_id": "CAT208",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -1952,6 +2276,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT208"
+      },
+      "additional_properties": [
+        {
+          "key": "mfr_secondary",
+          "value": 7,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 21.6 kg",
+          "source_id": "CAT208",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2484-nt-high-density-polyethylene-resin.65261z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2100,10 +2442,22 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045.01G",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada"
+      ],
       "source_id": "CAT211",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.922,
+          "unit": "g/cm3",
+          "source_id": "CAT211",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2111,15 +2465,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 1,
+          "unit": "g/10min",
+          "source_id": "CAT211",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 122,
+          "unit": "°C",
+          "source_id": "CAT211",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2155,6 +2529,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT211"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 13,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT211",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-204501g-polyethylene-resin.72471z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2162,10 +2554,22 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2645G",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada"
+      ],
       "source_id": "CAT212",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.919,
+          "unit": "g/cm3",
+          "source_id": "CAT212",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2173,15 +2577,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 0.9,
+          "unit": "g/10min",
+          "source_id": "CAT212",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 120,
+          "unit": "°C",
+          "source_id": "CAT212",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2204,6 +2628,34 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT212"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 12,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT212",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        },
+        {
+          "key": "dart_impact",
+          "value": 300,
+          "unit": "g",
+          "method": "ASTM D1709A",
+          "condition": "película",
+          "source_id": "CAT212",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2211,10 +2663,22 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045G CIR",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada"
+      ],
       "source_id": "CAT213",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.92,
+          "unit": "g/cm3",
+          "source_id": "CAT213",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2222,15 +2686,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 1,
+          "unit": "g/10min",
+          "source_id": "CAT213",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2253,6 +2727,13 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT213"
+      },
+      "additional_properties": [],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045g-cir-polyethylene-resin.515268z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2260,10 +2741,22 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045.11G",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada"
+      ],
       "source_id": "CAT214",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.922,
+          "unit": "g/cm3",
+          "source_id": "CAT214",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2271,15 +2764,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 1,
+          "unit": "g/10min",
+          "source_id": "CAT214",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 122,
+          "unit": "°C",
+          "source_id": "CAT214",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2315,6 +2828,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT214"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 20,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT214",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-204511g-polyethylene-resin.7651z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2322,10 +2853,23 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada",
+        "extrusión"
+      ],
       "source_id": "CAT215",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.92,
+          "unit": "g/cm3",
+          "source_id": "CAT215",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2333,15 +2877,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 1,
+          "unit": "g/10min",
+          "source_id": "CAT215",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 122,
+          "unit": "°C",
+          "source_id": "CAT215",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2364,6 +2928,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT215"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 9,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT215",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045-polyethylene-resin.24764z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2371,10 +2953,24 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2035",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión",
+        "película soplada",
+        "inyección"
+      ],
       "source_id": "CAT216",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.919,
+          "unit": "g/cm3",
+          "source_id": "CAT216",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2382,15 +2978,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 6,
+          "unit": "g/10min",
+          "source_id": "CAT216",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 124,
+          "unit": "°C",
+          "source_id": "CAT216",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2413,6 +3029,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT216"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 0.8,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT216",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-2035-polyethylene-resin.24762z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2420,10 +3054,22 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2036.01G",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión"
+      ],
       "source_id": "CAT217",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.933,
+          "unit": "g/cm3",
+          "source_id": "CAT217",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2431,15 +3077,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 2.5,
+          "unit": "g/10min",
+          "source_id": "CAT217",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 125,
+          "unit": "°C",
+          "source_id": "CAT217",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2462,6 +3128,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT217"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 2.6,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT217",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-203601g-polyethylene-resin.386630z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2469,10 +3153,22 @@
       "family": "LLDPE",
       "manufacturer": "Dow",
       "grade": "DOWLEX 2047G",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión"
+      ],
       "source_id": "CAT218",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.918,
+          "unit": "g/cm3",
+          "source_id": "CAT218",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2480,15 +3176,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 2.5,
+          "unit": "g/10min",
+          "source_id": "CAT218",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 122,
+          "unit": "°C",
+          "source_id": "CAT218",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2511,6 +3227,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT218"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 0.4,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT218",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dowlex-2047g-polyethylene-resin.10239z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2561,10 +3295,22 @@
       "family": "LDPE",
       "manufacturer": "Dow",
       "grade": "DOW LDPE 150E",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada"
+      ],
       "source_id": "CAT219",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.921,
+          "unit": "g/cm3",
+          "source_id": "CAT219",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2572,15 +3318,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 0.25,
+          "unit": "g/10min",
+          "source_id": "CAT219",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2603,6 +3359,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT219"
+      },
+      "additional_properties": [
+        {
+          "key": "vicat_temperature",
+          "value": 96,
+          "unit": "°C",
+          "method": null,
+          "condition": "",
+          "source_id": "CAT219",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-150e-low-density-polyethylene-resin.19527z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2610,10 +3384,22 @@
       "family": "LDPE",
       "manufacturer": "Dow",
       "grade": "DOW LDPE 7010E",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión"
+      ],
       "source_id": "CAT220",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.919,
+          "unit": "g/cm3",
+          "source_id": "CAT220",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2621,15 +3407,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 8.5,
+          "unit": "g/10min",
+          "source_id": "CAT220",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 108,
+          "unit": "°C",
+          "source_id": "CAT220",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2652,6 +3458,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT220"
+      },
+      "additional_properties": [
+        {
+          "key": "vicat_temperature",
+          "value": 91,
+          "unit": "°C",
+          "method": null,
+          "condition": "",
+          "source_id": "CAT220",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-7010e-low-density-polyethylene-resin.206483z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2659,10 +3483,22 @@
       "family": "LDPE",
       "manufacturer": "Dow",
       "grade": "DOW 5004I",
-      "process_tags": [],
+      "process_tags": [
+        "extrusión"
+      ],
       "source_id": "CAT221",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.924,
+          "unit": "g/cm3",
+          "source_id": "CAT221",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2670,15 +3506,35 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 4.2,
+          "unit": "g/10min",
+          "source_id": "CAT221",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
-        "melting_temperature": null
+        "melting_temperature": {
+          "value": 112,
+          "unit": "°C",
+          "source_id": "CAT221",
+          "method": "DSC, método Dow",
+          "condition": "transición en DSC / resultado típico",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        }
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2701,6 +3557,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT221"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 12.9,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT221",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-5004i-low-density-polyethylene-resin.20679z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -2708,10 +3582,23 @@
       "family": "LDPE",
       "manufacturer": "Dow",
       "grade": "DOW LDPE 219M",
-      "process_tags": [],
+      "process_tags": [
+        "película soplada",
+        "extrusión"
+      ],
       "source_id": "CAT222",
       "properties": {
-        "solid_density": null,
+        "solid_density": {
+          "value": 0.921,
+          "unit": "g/cm3",
+          "source_id": "CAT222",
+          "method": "ASTM D792",
+          "condition": "Producto sólido",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "melt_density": null,
         "bulk_density": null,
         "specific_heat": null,
@@ -2719,15 +3606,25 @@
         "drying_time": null,
         "moisture_target": null,
         "moisture_max": null,
-        "mfr": null,
+        "mfr": {
+          "value": 2,
+          "unit": "g/10min",
+          "source_id": "CAT222",
+          "method": "ASTM D1238",
+          "condition": "190 °C / 2.16 kg",
+          "range": null,
+          "status": "manufacturer_typical",
+          "note": "Datos típicos de fabricante (NO certificados de lote). No comparar MFR con cargas distintas.",
+          "verification_basis": "pagina_producto_Dow_revisada_2026-10-15"
+        },
         "mvr": null,
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
         "melting_temperature": null
       },
       "revision_review_required": false,
-      "record_status": "catalog_identity_pending_grade_data_verification",
-      "notes": "Identidad comercial pendiente de verificación oficial.",
+      "record_status": "grade_with_manufacturer_data_partial",
+      "notes": "Identidad y propiedades puntuales verificadas en página de producto Dow; otras propiedades siguen pendientes. No utilizar densidad sólida para volumen del fundido.",
       "missing_data_audit": {
         "melt_density": "missing_grade_specific_pvT_at_temperature_pressure",
         "specific_heat_curve": "missing_grade_specific_cp_vs_T_and_phase",
@@ -2750,6 +3647,24 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "CAT222"
+      },
+      "additional_properties": [
+        {
+          "key": "haze",
+          "value": 8,
+          "unit": "%",
+          "method": "ASTM D1003",
+          "condition": "película",
+          "source_id": "CAT222",
+          "status": "manufacturer_typical",
+          "note": "Solo comparación bajo idénticos métodos y probetas."
+        }
+      ],
+      "data_review": {
+        "status": "manufacturer_webpage_reviewed",
+        "review_date": "2026-10-15",
+        "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-219m-low-density-polyethylene-resin.80207z.html",
+        "property_conditions_present": true
       }
     },
     {
@@ -6376,7 +7291,7 @@
       ]
     }
   },
-  "catalog_revision": "1.3.0",
+  "catalog_revision": "1.3.1",
   "official_source_audit": {
     "checked_on": "2026-10-14",
     "commercial_profiles": 90,
@@ -6384,5 +7299,10 @@
     "pending_official_confirmation": 90,
     "access": "network_tunnel_403",
     "preserved_properties": "Nine original profiles retain the user-supplied verified V1.2 documentation, not a current official recertification. Two proposed Dow values are historical references only."
+  },
+  "property_coverage": {
+    "manufacturer_partial_records_reviewed": 20,
+    "source_checked_on": "2026-10-15",
+    "interpretation": "El catálogo sigue en auditoría. Los grados no revisados conservan null. Propiedades verificadas ≠ ficha íntegra de material."
   }
 }
