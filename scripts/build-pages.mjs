@@ -2,6 +2,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } fr
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { versionPagesAssets } from './version-pages-assets.mjs';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const site = join(root, 'dist');
 const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
@@ -19,5 +20,7 @@ for (const file of git(['ls-files', 'index.html', 'formulas.html', '.nojekyll', 
   cpSync(join(root, file), target, { dereference: false });
 }
 const library = JSON.parse(readFileSync(join(site, 'src/data/materials.v1.3.json'), 'utf8'));
-writeFileSync(join(site, 'deployment.json'), JSON.stringify({ repository: owner, source_commit: git(['rev-parse', 'HEAD']), material_library: (library.catalog_revision || library.schema_version) }, null, 2) + '\n');
+const sourceCommit = git(['rev-parse', 'HEAD']);
+versionPagesAssets(site, sourceCommit);
+writeFileSync(join(site, 'deployment.json'), JSON.stringify({ repository: owner, source_commit: sourceCommit, material_library: (library.catalog_revision || library.schema_version) }, null, 2) + '\n');
 console.log('Artefacto listo: dist/; biblioteca', (library.catalog_revision || library.schema_version));

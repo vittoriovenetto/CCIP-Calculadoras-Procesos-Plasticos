@@ -1,9 +1,9 @@
 name: Validate CCIP web
 on:
   push:
-    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "feature/buscador-comparador-catalogo", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas"]
+    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "feature/buscador-comparador-catalogo", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache"]
   pull_request:
-    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5"]
+    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas"]
 permissions:
   contents: read
 jobs:
@@ -37,6 +37,10 @@ jobs:
         run: |
           mkdir -p test-artifacts
           python tests/browser_smoke.py 2>&1 | tee test-artifacts/browser.log
+      - name: Check built Pages assets against stale browser cache
+        run: |
+          npm run build:pages
+          python tests/browser_pages_cache.py
       - name: Save browser screenshots and log
         if: always()
         uses: actions/upload-artifact@v7.0.2
