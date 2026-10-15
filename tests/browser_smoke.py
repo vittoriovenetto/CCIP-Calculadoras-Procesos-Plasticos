@@ -405,7 +405,7 @@ class BrowserSmoke(unittest.TestCase):
         with self.page.expect_download() as info:
             self.page.locator('#export').click()
         data = json.loads(Path(info.value.path()).read_text())
-        self.assertEqual(data['material']['dataset']['version'], '1.3.0')
+        self.assertEqual(data['material']['dataset']['version'], '1.4.0')
         self.assertEqual(data['material']['context']['pvtTemperatureC'], '230')
         self.assertEqual(data['material']['context']['pvtPressureMPa'], '40')
         self.assertIsNone(data['material']['grade_snapshot']['properties']['melt_density'])
@@ -857,7 +857,7 @@ class BrowserSmoke(unittest.TestCase):
         self.fill_case('inyeccion',VARIANTS[0][1])
         self.page.locator('#save').click()
         snapshot=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))[0]")
-        self.assertEqual(snapshot['material']['dataset']['version'],'1.3.0')
+        self.assertEqual(snapshot['material']['dataset']['version'],'1.4.0')
         self.page.locator('#language').select_option('en')
         self.page.goto(self.url+'versions/v1/')
         self.page.locator('[data-history="0"]').click()
