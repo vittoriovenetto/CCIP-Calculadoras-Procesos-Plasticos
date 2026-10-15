@@ -48,9 +48,22 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
   // Muestra solo las propiedades realmente informadas por una ficha o usuario.
   // Cero es válido; null, valores no numéricos y rangos incompletos no.
   const properties = documentedProperties(grade);
+  const extra = (Array.isArray(grade?.additional_properties) ? grade.additional_properties : []).filter(p => p && typeof p.value === "number" && Number.isFinite(p.value));
+  const extraNames = {
+    tensile_strength_yield: ["Resistencia a tracción en fluencia","Tensile yield strength"],
+    mfr_secondary: ["Índice de fluidez (otra carga)","Melt index (other test load)"],
+    hardness_shore_d: ["Dureza Shore D","Shore D hardness"],
+    vicat_temperature: ["Temperatura Vicat","Vicat temperature"],
+    haze: ["Neblina óptica","Haze"],
+    dart_impact: ["Impacto dardo","Dart drop impact"]
+  };
+  const extraMarkup = extra.length ? `<div class="property-list">${extra.map(p=>{
+    const label=extraNames[p.key]?.[document.documentElement.lang==="en"?1:0]||p.key;
+    return `<article class="material-property" data-property="${safe(p.key)}"><b>${safe(label)}</b><span>${safe(p.value)} ${safe(p.unit)}</span><small>${safe(p.method||"")}${p.condition?" · "+safe(p.condition):""} · ${safe(p.status||"")}</small></article>`;
+  }).join("")}</div>` : "";
   const generic = grade?.record_status === "generic_unverified";
   const en = document.documentElement.lang === "en";
-  const count = properties.length;
+  const count = properties.length + extra.length;
   const compactText = !grade
     ? (en ? "Select a family or add your own grade." : "Selecciona una familia o agrega tu propio material.")
     : generic
@@ -77,10 +90,10 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
     <p class="material-compact">${safe(compactText)}</p>
     <details id="material-details" ${detailsOpen ? 'open' : ''}><summary>${safe(detailsTitle)}</summary><div class="material-details-body">
     ${grade ? `<div class="material-summary"><h3>${safe(grade.family)} · <span ${grade.record_status === "user_entered_unverified" && grade.manufacturer !== "Usuario" ? "data-i18n-ignore" : ""}>${safe(grade.manufacturer)}</span> · <span ${grade.record_status === "user_entered_unverified" ? "data-i18n-ignore" : ""}>${safe(grade.grade)}</span></h3><p>${safe(grade.notes)}</p>${grade.identity_verification ? '<p class="warning">Identidad comercial pendiente de verificación oficial.</p>' : ""}${sourceDetails}
-      ${properties.length ? `<details id="material-properties" ${level === "basic" ? "" : "open"}><summary>Ficha: valores, unidades, fase y condiciones</summary><div class="property-list">${properties.map(([key, label]) => {
+      ${count ? `<details id="material-properties" ${level === "basic" ? "" : "open"}><summary>Ficha: valores, unidades, fase y condiciones</summary><div class="property-list">${properties.map(([key, label]) => {
         const p = grade.properties[key];
         return `<article data-property="${key}" class="material-property"><b>${safe(label)}</b><span>${safe(display(p))}</span><small>${safe(p?.phase || phase(key))}${p ? ` · ${safe(statusLabels[p.status] || "Referencia")} [${safe(p.source_id)}]` : ""}</small>${p ? `<small><span>Método:</span> <span ${p.status === "user_entered" && p.method && p.method !== "Indicado por usuario" ? "data-i18n-ignore" : ""}>${safe(p.method || "no documentado")}</span> · <span>Condiciones:</span> <span ${p.status === "user_entered" && p.condition ? "data-i18n-ignore" : ""}>${safe(p.condition || "no documentadas")}</span></small>${p.note ? `<small ${p.status === "user_entered" && !["Datos introducidos por usuario", "Origen manual; comprobar con ficha técnica o medición."].includes(p.note) ? "data-i18n-ignore" : ""}>${safe(p.note)}</small>` : ""}` : ""}</article>`;
-      }).join("")}</div></details>` : ""}
+      }).join("")}</div>${extraMarkup}</details>` : ""}
       ${renderAudit(materialState, level)}${level !== "basic" ? '<p class="muted">MFR/MVR/IV solo se comparan con iguales métodos, temperatura, carga y unidades. No se convierten a viscosidad reológica, presión, caudal ni productividad.</p>' : ""}<div class="material-context">
       ${["extrusion", "pelicula", "soplado", "termoformado", "inyeccion"].includes(module.id) ? check('compatible', 'Confirmo el grado/formulación y la compatibilidad de fase, método y condiciones. Si faltan condiciones en la ficha, he validado el valor para mi caso.') : ""}
       ${outsideProcess(grade, module.id) ? check('processConfirmed', 'He validado el uso en este proceso, que no figura entre las aplicaciones de la ficha.') : ""}
