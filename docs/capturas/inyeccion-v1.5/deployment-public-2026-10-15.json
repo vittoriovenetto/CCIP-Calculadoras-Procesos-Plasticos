@@ -1,0 +1,17 @@
+{
+  "checked_on": "2026-10-15T11:57:37.675804-04:00",
+  "http_200_and_sha256_matches": 82,
+  "deployment": {
+    "repository": "vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos",
+    "source_commit": "0c83631180e8c3fcd50a584d6cfad70e8c4a50c0",
+    "material_library": "1.4.0"
+  },
+  "current_url": "https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/?v=20261015-inyeccion-perfil",
+  "previous_url": "https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/versions/antes-inyeccion-2026-10-15/",
+  "zip_url": "https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/downloads/CCIP-Web-Anterior-2026-10-15.zip",
+  "previous_source": "e52269f0d2faa87da32b48022727c5c5252fbbc0",
+  "source_zip_sha256": "740e644f9e95a4f1ffd87460bd2f137e69ee7883ac2209753c49045886ad602b",
+  "spanish_default": true,
+  "no_historical_menu_links": true,
+  "original_v1_preserved": true
+}

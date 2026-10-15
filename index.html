@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#c8102e">
   <title>CCIP | Calculadoras de procesos plásticos</title>
   <link rel="icon" href="./src/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./src/styles.css?v=20261014-lateral">
+  <link rel="stylesheet" href="./src/styles.css?v=20261015-inyeccion-perfil">
 </head>
 <body>
   <header><div class="shell top">
@@ -16,19 +16,19 @@
   <main class="shell">
     <section class="hero"><p class="kicker">CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS</p><h1>Calculadoras de procesos plásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></section>
     <div class="layout">
-      <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><nav class="learning-nav" aria-label="Aprendizaje"><a id="learn-page" href="./formulas.html?v=20261014-lateral" target="_blank" rel="noopener"><b>Aprendizaje</b><span>Fórmulas y ejemplos</span></a></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
+      <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><nav class="learning-nav" aria-label="Aprendizaje"><a id="learn-page" href="./formulas.html?v=20261015-inyeccion-perfil" target="_blank" rel="noopener"><b>Aprendizaje</b><span>Fórmulas y ejemplos</span></a></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
       <section class="work">
         <div class="bar"><div><p class="kicker">MÓDULO ACTIVO</p><h2 id="module-title"></h2><p id="module-desc" class="muted"></p></div><label class="level" for="level">Nivel de cálculo<select id="level"><option value="basic">Básico</option><option value="technical" selected>Técnico</option><option value="advanced">Avanzado</option></select></label></div>
         <section id="materials" class="panel material-panel" aria-labelledby="materials-title"></section><section id="custom-material-editor" class="panel" aria-label="Agregar material / Add custom material"></section>
         <div class="calculation-grid">
-          <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section>
-          <section class="panel results-panel"><div class="results-heading"><h2>Resultados principales</h2><small id="result-date" class="muted">Pendientes</small></div><div id="calculation-output" aria-live="polite" aria-atomic="true"><div id="summary-metrics"></div><div id="usage"></div><details id="results-details"><summary>Todos los resultados y ecuaciones</summary><div id="metrics"></div></details><details id="result-notes"><summary>Advertencias, hipótesis y límites</summary><div id="messages"></div></details></div></section>
+          <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div id="injection-density" hidden></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section>
+          <section class="panel results-panel"><div class="results-heading"><h2>Resultados principales</h2><small id="result-date" class="muted">Pendientes</small></div><div id="calculation-output" aria-live="polite" aria-atomic="true"><div id="summary-metrics"></div><div id="usage"></div><details id="results-details"><summary>Todos los resultados y ecuaciones</summary><div id="metrics"></div></details><details id="result-notes"><summary>Advertencias, hipótesis y límites</summary><div id="messages"></div></details></div><div id="injection-profile" hidden></div></section>
         </div>
         <section class="panel"><h2>Historial local</h2><div id="history"></div></section><section id="comparison" class="panel" aria-label="Comparar resultados guardados"></section>
       </section>
     </div>
     <footer>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</footer>
   </main>
-  <script type="module" src="./src/app.js?v=20261014-lateral"></script>
+  <script type="module" src="./src/app.js?v=20261015-inyeccion-perfil"></script>
 </body>
 </html>

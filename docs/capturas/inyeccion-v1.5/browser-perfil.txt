@@ -1,0 +1,11 @@
+test_30_physical_profile_graph_positions_restore_and_responsive (__main__.BrowserSmoke.test_30_physical_profile_graph_positions_restore_and_responsive) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.218s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Estados biblioteca × proceso × nivel × pantalla: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /workspace/scratch/ccip-density-captures

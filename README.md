@@ -1,5 +1,13 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Inyección — referencias fundidas y perfil físico (para revisión)
+
+La rama `feature/ux-lean-materiales-v1.5`, basada en `audit/materiales-minimo-3-propiedades`, incorpora referencias genéricas de densidad fundida con aceptación explícita, edición manual y modo «solo datos verificados». El cálculo por masa sigue funcionando sin densidad. La biblioteca comercial no cambia.
+
+En **avanzado** se añade el perfil geométrico físico **L1/L2/L3**, opcional y distinto de los tres niveles: porcentajes 30/50/20 editables que deben sumar 100, gráfico, volúmenes, recorridos individuales/acumulados y coordenadas únicamente con origen y sentido definidos. Se usa la dosificación sin reserva ni colchón automático, sin inventar velocidades o presiones.
+
+Consulta [fórmulas, fuentes, límites y pruebas](docs/inyeccion-densidad-perfil-v1.5.md). El usuario autorizó posteriormente publicar conservando la web anterior; véase el [registro de publicación y copias](docs/despliegue-inyeccion-2026-10-15.md). No se fusiona `main`.
+
 ## Catálogo depurado v1.4 — vigente en esta rama (15/10/2026)
 
 **Prioridad: calidad sobre cantidad.** Tras auditar 99 registros históricos, el catálogo seleccionable contiene **64 grados comerciales con un mínimo de tres propiedades numéricas atribuidas a fabricante** y **9 perfiles genéricos exclusivamente manuales**. Se retiraron **26 grados sin datos suficientes**; esos registros ya no están disponibles para nuevas selecciones.
@@ -7,7 +15,7 @@
 - [Informe técnico con nombres y justificación de los 31 excluidos](docs/INFORME_AUDITORIA_MATERIALES_V1_4.md).
 - [Matriz JSON de trazabilidad por los 99 registros evaluados](docs/auditoria-estricta-materiales-v1.4.json).
 - **Aclaración:** el archivo `docs/cobertura-99-materiales-y-fuentes.md` es la fotografía histórica anterior a esta auditoría y no refleja el catálogo vigente.
-- Se mantienen entradas manuales «GENÉRICO» para HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6 y PC. Nunca completan densidad o parámetros de proceso automáticamente.
+- Se mantienen entradas «GENÉRICO» sin propiedades propias de ficha para HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6 y PC. En esta rama se ofrece una referencia fundida **separada**, solo con aceptación explícita y fuera del modo «solo datos verificados». No se infiere una propiedad del grado.
 - Los valores son típicos de ficha y solo se comparan bajo métodos, carga, temperatura, presentación y condiciones equivalentes. No son certificados de lote ni validación industrial.
 - El filtrado no elimina el historial local de cálculos ni materiales propios ya guardados.
 - Antes de publicar, comprobar los trabajos unitarios y de Playwright y revisar las fuentes exactas con el CCIP.
