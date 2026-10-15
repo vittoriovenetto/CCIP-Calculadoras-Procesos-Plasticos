@@ -6,9 +6,9 @@ import {modules} from "../src/schema.js";
 import {makeCustomMaterial,mergeCustomMaterials,FAMILIES} from "../src/custom-materials.js";
 import {t} from "../src/i18n.js";
 const raw=JSON.parse(readFileSync(new URL("../src/data/materials.v1.3.json",import.meta.url),"utf8"));
-test("68 curated profiles: 59 published commercial grades plus nine generic manual families",()=>{
+test("73 curated profiles: 64 published commercial grades plus nine generic manual families",()=>{
  const lib=validateLibrary(raw);
- assert.equal(lib.materials.length,68);
+ assert.equal(lib.materials.length,73);
  assert.equal(lib.catalog_revision,"1.4.0");
  for(const family of FAMILIES){
    const entries=lib.materials.filter(x=>x.family===family);
@@ -42,7 +42,7 @@ test("custom user material is explicitly unverified and fields absent remain nul
  assert.equal(m.properties.specific_heat,null);
  assert.equal(m.properties.mfr,null);
  const all=validateLibrary(mergeCustomMaterials(raw,[m]));
- assert.equal(all.materials.length,69);
+ assert.equal(all.materials.length,74);
  const materialState=createMaterialState();const values={meltDensity:"",cavities:1};
  selectMaterial(all,materialState,values,m.id);
  applyMaterial(materialState,modules.find(x=>x.id==="inyeccion"),values,"technical");
