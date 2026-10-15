@@ -1,0 +1,1971 @@
+{
+  "schema": "ccip-materials-audit/1.4",
+  "date": "2026-10-15",
+  "criterion": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
+  "note": "Los registros excluidos no están en la lista seleccionable; se conservan motivos y fuentes aquí, no sus valores como propiedades activas.",
+  "counts": {
+    "original": 99,
+    "commercial_retained": 59,
+    "generic_manual_retained": 9,
+    "removed": 31
+  },
+  "records": [
+    {
+      "id": "dow-dow-12450n",
+      "family": "HDPE",
+      "grade": "DOW 12450N",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_strength_yield",
+        "secant_modulus"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-12450n-high-density-polyethylene-resin.47054z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "dow-dowlex-2045g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045g-polyethylene-resin.7650z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "dow-dow-ldpe-132g",
+      "family": "LDPE",
+      "grade": "DOW LDPE 132G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-132g-low-density-polyethylene-resin.110928z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "lyondellbasell-moplen-hp500n",
+      "family": "PP",
+      "grade": "Moplen HP500N",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "flexural_modulus",
+        "tensile_strength_yield",
+        "deflection_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP500N/e8c2d3bb-d271-459f-a439-629a5d85a7da",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "indorama-ventures-polyclear-refresh-pet-1101",
+      "family": "PET",
+      "grade": "Polyclear Refresh PET 1101",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "bulk_density",
+        "intrinsic_viscosity",
+        "melting_temperature"
+      ],
+      "source_url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Refresh-PET-1101-Rev-16.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "westlake-westlake-pvc-1195",
+      "family": "PVC",
+      "grade": "Westlake PVC 1195",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "other"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value",
+        "volatile_max",
+        "particle_fines_max"
+      ],
+      "source_url": "https://www.westlake.com/sites/default/files/1195_1.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "ineos-styrolution-terluran-gp-22",
+      "family": "ABS",
+      "grade": "Terluran GP-22",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "mvr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://www.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "basf-ultramid-b3s-r03",
+      "family": "PA6",
+      "grade": "Ultramid B3S R03",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 7,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "bulk_density",
+        "drying_temperature",
+        "drying_time",
+        "moisture_target",
+        "mvr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fd64903145168/en/ULTRAMID%253Csup%253E%25C2%25AE%253Csup%253E_B3S_R03",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "covestro-makrolon-2405",
+      "family": "PC",
+      "grade": "Makrolon 2405",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 7,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "bulk_density",
+        "drying_temperature",
+        "drying_time",
+        "moisture_max",
+        "mvr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2405_000000000000945088",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-08262b",
+      "family": "HDPE",
+      "grade": "DOW 08262B",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-08262b-high-density-polyethylene-resin.82162z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-lp-8000",
+      "family": "HDPE",
+      "grade": "DOW HDPE LP 8000",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "mfr_secondary"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-high-density-polyethylene-resin.359059z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-ng6997",
+      "family": "HDPE",
+      "grade": "DOW HDPE NG6997",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "mfr_secondary"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-ng6997-high-density-polyethylene-resin.119863z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-05962b",
+      "family": "HDPE",
+      "grade": "DOW 05962B",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 2,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-05962b-high-density-polyethylene-resin.64720z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 2 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-hdpe-dow-dmda-8007-nt-7",
+      "family": "HDPE",
+      "grade": "DOW DMDA-8007 NT 7",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "mfr_secondary"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-dmda-8007-nt-7-high-density-polyethylene-resin.92941z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-dgda-5004-nt-7",
+      "family": "HDPE",
+      "grade": "DOW DGDA-5004 NT 7",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 6,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "mfr_secondary",
+        "hardness_shore_d",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-dgda-5004-nt-7-high-density-polyethylene-resin.92904z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-lp-8000-hd",
+      "family": "HDPE",
+      "grade": "DOW HDPE LP 8000 HD",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "mfr_secondary"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-hd-high-density-polyethylene-resin.458736z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-dgda-2484-nt",
+      "family": "HDPE",
+      "grade": "DOW HDPE DGDA-2484 NT",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "mfr_secondary"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2484-nt-high-density-polyethylene-resin.65261z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-dgda-2426-nt",
+      "family": "HDPE",
+      "grade": "DOW HDPE DGDA-2426 NT",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2426-nt-bimodal-polyethylene-resin.442623z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "generic-hdpe",
+      "family": "HDPE",
+      "grade": "HDPE — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2049g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2049G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2049g-polyethylene-resin.9597z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045-01g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045.01G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-204501g-polyethylene-resin.72471z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2645g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2645G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze",
+        "dart_impact"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045g-cir",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045G CIR",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 2,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045g-cir-polyethylene-resin.515268z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 2 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045-11g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045.11G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-204511g-polyethylene-resin.7651z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045-polyethylene-resin.24764z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2035",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2035",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2035-polyethylene-resin.24762z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2036-01g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2036.01G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-203601g-polyethylene-resin.386630z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2047g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2047G",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dowlex-2047g-polyethylene-resin.10239z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "generic-lldpe",
+      "family": "LLDPE",
+      "grade": "LLDPE — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-150e",
+      "family": "LDPE",
+      "grade": "DOW LDPE 150E",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-150e-low-density-polyethylene-resin.19527z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-7010e",
+      "family": "LDPE",
+      "grade": "DOW LDPE 7010E",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-7010e-low-density-polyethylene-resin.206483z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-ldpe-dow-5004i",
+      "family": "LDPE",
+      "grade": "DOW 5004I",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "melting_temperature",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-5004i-low-density-polyethylene-resin.20679z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-219m",
+      "family": "LDPE",
+      "grade": "DOW LDPE 219M",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "haze"
+      ],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-219m-low-density-polyethylene-resin.80207z.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-203m",
+      "family": "LDPE",
+      "grade": "DOW LDPE 203M",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-203m-low-density-polyethylene-resin.80210z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-310lg",
+      "family": "LDPE",
+      "grade": "DOW LDPE 310LG",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-310lg-low-density-polyethylene-resin.188542z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-352e",
+      "family": "LDPE",
+      "grade": "DOW LDPE 352E",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-352e-low-density-polyethylene-resin.20966z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-220m",
+      "family": "LDPE",
+      "grade": "DOW LDPE 220M",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-220m-low-density-polyethylene-resin.80215z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-432e",
+      "family": "LDPE",
+      "grade": "DOW LDPE 432E",
+      "manufacturer": "Dow",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-432e-low-density-polyethylene-resin.403830z.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "generic-ldpe",
+      "family": "LDPE",
+      "grade": "LDPE — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-pp-moplen-hp501m",
+      "family": "PP",
+      "grade": "Moplen HP501M",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP501M/1f2b1127-1a74-4107-870e-7d04f3132220",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-hp400r",
+      "family": "PP",
+      "grade": "Moplen HP400R",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP400R/b8c2b2d7-cbc5-46e4-8506-8031418ef728",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-hp548r",
+      "family": "PP",
+      "grade": "Moplen HP548R",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-hp648t",
+      "family": "PP",
+      "grade": "Moplen HP648T",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-rp348r",
+      "family": "PP",
+      "grade": "Moplen RP348R",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-rp248r",
+      "family": "PP",
+      "grade": "Moplen RP248R",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-rp398t",
+      "family": "PP",
+      "grade": "Moplen RP398T",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-rp348t-hp",
+      "family": "PP",
+      "grade": "Moplen RP348T HP",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pp-moplen-rp248u",
+      "family": "PP",
+      "grade": "Moplen RP248U",
+      "manufacturer": "LyondellBasell",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mfr",
+        "tensile_modulus",
+        "tensile_strength_yield",
+        "vicat_temperature"
+      ],
+      "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "generic-pp",
+      "family": "PP",
+      "grade": "PP — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-pet-polyclear-pet-t-94g",
+      "family": "PET",
+      "grade": "Polyclear PET T-94G",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.indoramaventures.com/en/our-products/pet",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pet-polyclear-preserve-pet-2201",
+      "family": "PET",
+      "grade": "Polyclear Preserve PET 2201",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "thermal",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "bulk_density",
+        "intrinsic_viscosity",
+        "melting_temperature",
+        "chip_count"
+      ],
+      "source_url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Preserve-PET-2201-Rev-13.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pet-polyclear-preserve-pet-2201-d",
+      "family": "PET",
+      "grade": "Polyclear Preserve PET 2201-D",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.indoramaventures.com/en/our-products/pet",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pet-polyclear-splash-pet-3301",
+      "family": "PET",
+      "grade": "Polyclear Splash PET 3301",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 4,
+      "categories": [
+        "density",
+        "flow",
+        "other"
+      ],
+      "property_keys": [
+        "solid_density",
+        "bulk_density",
+        "intrinsic_viscosity",
+        "chip_count"
+      ],
+      "source_url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear%20%C2%AE%20Splash%20PET%203301%20Rev%2015.pdf",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pet-polyclear-titan-pet-t94-ti",
+      "family": "PET",
+      "grade": "Polyclear TITAN PET T94-Ti",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.indoramaventures.com/en/our-products/pet",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pet-preformance-pet",
+      "family": "PET",
+      "grade": "Preformance PET",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.indoramaventures.com/en/our-products/pet",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pet-polyclear-ebm-pet-5505",
+      "family": "PET",
+      "grade": "Polyclear EBM PET 5505",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://beta.indoramaventures.com/storage/downloads/specialty-polymers/indorama_ventures_specialtiy_polymers_product_overview_for-website_12.2025.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pet-polyclear-ebm-pet-5507",
+      "family": "PET",
+      "grade": "Polyclear EBM PET 5507",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://beta.indoramaventures.com/storage/downloads/specialty-polymers/indorama_ventures_specialtiy_polymers_product_overview_for-website_12.2025.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pet-polyclear-aero-pet-5605",
+      "family": "PET",
+      "grade": "Polyclear AERO PET 5605",
+      "manufacturer": "Indorama Ventures",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://beta.indoramaventures.com/storage/downloads/specialty-polymers/indorama_ventures_specialtiy_polymers_product_overview_for-website_12.2025.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "generic-pet",
+      "family": "PET",
+      "grade": "PET — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2060",
+      "family": "PVC",
+      "grade": "Westlake PVC 2060",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-1185",
+      "family": "PVC",
+      "grade": "Westlake PVC 1185",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-5265",
+      "family": "PVC",
+      "grade": "Westlake PVC 5265",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2070",
+      "family": "PVC",
+      "grade": "Westlake PVC 2070",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-5305",
+      "family": "PVC",
+      "grade": "Westlake PVC 5305",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2079",
+      "family": "PVC",
+      "grade": "Westlake PVC 2079",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2082",
+      "family": "PVC",
+      "grade": "Westlake PVC 2082",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-1230p",
+      "family": "PVC",
+      "grade": "Westlake PVC 1230P",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-1230s",
+      "family": "PVC",
+      "grade": "Westlake PVC 1230S",
+      "manufacturer": "Westlake",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow"
+      ],
+      "property_keys": [
+        "bulk_density",
+        "inherent_viscosity",
+        "k_value"
+      ],
+      "source_url": "https://www.westlake.com/pvc-technical-data",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "generic-pvc",
+      "family": "PVC",
+      "grade": "PVC — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-abs-terluran-gp-35",
+      "family": "ABS",
+      "grade": "Terluran GP-35",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 6,
+      "categories": [
+        "density",
+        "drying",
+        "flow"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "mfr",
+        "mvr",
+        "mfr_secondary"
+      ],
+      "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-abs-terluran-hi-10",
+      "family": "ABS",
+      "grade": "Terluran HI-10",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "mfr",
+        "vicat_temperature",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-HI-10_SKU300600120831.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-abs-terluran-sp-6",
+      "family": "ABS",
+      "grade": "Terluran SP-6",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.ineos-styrolution.com/Product/Terluran_ID30060012_lang_ja_JP.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-abs-terluran-gp-35-white",
+      "family": "ABS",
+      "grade": "Terluran GP-35 White",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://www.ineos-styrolution.com/Product/Terluran_ID30060012_lang_ja_JP.html",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-abs-novodur-h605",
+      "family": "ABS",
+      "grade": "Novodur H605",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus",
+        "vicat_temperature",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://www.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-H605_SKU302200150405.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-abs-novodur-hh-106",
+      "family": "ABS",
+      "grade": "Novodur HH-106",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "mvr",
+        "tensile_modulus",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-HH-106_SKU302200150417.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-abs-novodur-hh-112",
+      "family": "ABS",
+      "grade": "Novodur HH-112",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "mvr",
+        "tensile_modulus",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_Novodur-HH-112_SKU302200150418.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-abs-novodur-p2mc",
+      "family": "ABS",
+      "grade": "Novodur P2MC",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus",
+        "vicat_temperature",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://www.ineos-styrolution.com/Product/Novodur_Novodur-P2MC_SKU302100140449.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-abs-novodur-p2h-at",
+      "family": "ABS",
+      "grade": "Novodur P2H-AT",
+      "manufacturer": "INEOS Styrolution",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus",
+        "vicat_temperature",
+        "tensile_strength_yield"
+      ],
+      "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur_NOVODUR-P2H-AT_SKU302100140442.html",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "generic-abs",
+      "family": "ABS",
+      "grade": "ABS — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3k",
+      "family": "PA6",
+      "grade": "Ultramid B3K",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 6,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "moisture_target",
+        "mvr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fd659928f6ca1/en/ULTRAMID%25C2%25AE_B3K",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3l",
+      "family": "PA6",
+      "grade": "Ultramid B3L",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3s",
+      "family": "PA6",
+      "grade": "Ultramid B3S",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3z2",
+      "family": "PA6",
+      "grade": "Ultramid B3Z2",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3eg6",
+      "family": "PA6",
+      "grade": "Ultramid B3EG6",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fdf6c58512210/en/Ultramid%3Csup%3E%C2%AE%3Csup%3E_%28PA%29_%E2%80%92_Product_Range",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3u30g6",
+      "family": "PA6",
+      "grade": "Ultramid B3U30G6",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3u50g6",
+      "family": "PA6",
+      "grade": "Ultramid B3U50G6",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3u42g6",
+      "family": "PA6",
+      "grade": "Ultramid B3U42G6",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3zg6",
+      "family": "PA6",
+      "grade": "Ultramid B3ZG6",
+      "manufacturer": "BASF",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://plastics-rubber.basf.com/northamerica/en/performance_polymers/industries/pp_powertools",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "generic-pa6",
+      "family": "PA6",
+      "grade": "PA6 — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    },
+    {
+      "id": "catalog-pc-makrolon-2407",
+      "family": "PC",
+      "grade": "Makrolon 2407",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "mvr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2407_000000000086286874",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pc-makrolon-2805",
+      "family": "PC",
+      "grade": "Makrolon 2805",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "thermal"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "mvr",
+        "melt_temperature_recommended"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2805_000000000057534382",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pc-makrolon-2807",
+      "family": "PC",
+      "grade": "Makrolon 2807",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pc-makrolon-2856",
+      "family": "PC",
+      "grade": "Makrolon 2856",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 5,
+      "categories": [
+        "density",
+        "drying",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "drying_temperature",
+        "drying_time",
+        "mvr",
+        "tensile_modulus"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2856_000000000057534439",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pc-makrolon-2858",
+      "family": "PC",
+      "grade": "Makrolon 2858",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pc-makrolon-3105",
+      "family": "PC",
+      "grade": "Makrolon 3105",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 3,
+      "categories": [
+        "density",
+        "flow",
+        "mechanical"
+      ],
+      "property_keys": [
+        "solid_density",
+        "mvr",
+        "tensile_modulus"
+      ],
+      "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560",
+      "manufacturer_source": true,
+      "decision": "KEEP",
+      "reason": "Apto"
+    },
+    {
+      "id": "catalog-pc-makrolon-3106",
+      "family": "PC",
+      "grade": "Makrolon 3106",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pc-makrolon-3107",
+      "family": "PC",
+      "grade": "Makrolon 3107",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "catalog-pc-makrolon-3108",
+      "family": "PC",
+      "grade": "Makrolon 3108",
+      "manufacturer": "Covestro",
+      "record_type": "commercial",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/whitepapers/marking-products-made-of-technical-thermoplastics.pdf",
+      "manufacturer_source": true,
+      "decision": "REMOVE",
+      "reason": "Solo 0 propiedades técnicas documentadas (mínimo 3)"
+    },
+    {
+      "id": "generic-pc",
+      "family": "PC",
+      "grade": "PC — Genérico (grado desconocido)",
+      "manufacturer": "Genérico / Generic",
+      "record_type": "generic",
+      "recorded_properties": 0,
+      "categories": [],
+      "property_keys": [],
+      "source_url": null,
+      "manufacturer_source": false,
+      "decision": "KEEP_MANUAL_GENERIC",
+      "reason": "Familia sin grado: entrada manual, no ficha comercial"
+    }
+  ]
+}
