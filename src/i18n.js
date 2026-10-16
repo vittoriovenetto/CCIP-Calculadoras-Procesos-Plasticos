@@ -3,7 +3,9 @@ import { auditTranslations } from "./i18n-audit.js";
 import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
-export const translations = { ...extraTranslations, ...auditTranslations, ...leanTranslations,
+export const translations = {
+"Formato de exportación":"Export format",
+"Exportar estado activo":"Export active state", ...extraTranslations, ...auditTranslations, ...leanTranslations,
 "Calculadora de procesos de transformación termoplásticos":"Thermoplastic processing calculator",
 "CCIP | Calculadora de procesos de transformación termoplásticos":"CCIP | Thermoplastic processing calculator",
 "CCIP · INTEC · Procesos 1: inyección":"CCIP · INTEC · Processes 1: injection molding",

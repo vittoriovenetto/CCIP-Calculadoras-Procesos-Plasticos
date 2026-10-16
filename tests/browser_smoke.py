@@ -127,8 +127,13 @@ class BrowserSmoke(unittest.TestCase):
         for key,value in {'partMass':30,'cavities':2,'runnerMass':5,'screwD':20,'screwMaxStroke':400}.items():
             self.page.locator(f'[data-field="{key}"]').fill(str(value))
 
-    def record(self):
+    def save_case(self, name='Caso de prueba'):
         self.page.locator('#save').click()
+        self.page.locator('#save-name').fill(name)
+        self.page.locator('#save-confirm').click()
+
+    def record(self):
+        self.save_case()
         return self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))[0]")
 
     def test_T01_no_empty_pvt(self):
@@ -362,7 +367,7 @@ class BrowserSmoke(unittest.TestCase):
         dialogs = []
         self.page.on('dialog', lambda dialog: (dialogs.append(dialog.message), dialog.accept()))
         self.page.locator('#save').click()
-        self.assertEqual(dialogs, ['No se pudo guardar el historial en este navegador.'])
+        self.assertEqual(dialogs, ['No se pudo escribir el historial. Comprueba el almacenamiento del navegador.'])
 
     def test_G26_keyboard_and_labels(self):
         self.page.locator('label[for="field-partMass"]').click()
@@ -477,12 +482,12 @@ class BrowserSmoke(unittest.TestCase):
         record=self.page.evaluate("""async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const record=makeCustomMaterial({family:'PP',grade:'Caso propio de compatibilidad',melt_density:.8,source:'Demostración sintética, no medición'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([record]));return record;}""")
         self.page.reload();self.select_grade(record)
         self.fill_case('inyeccion',VARIANTS[0][1])
-        self.page.locator('#save').click()
+        self.save_case()
         snapshot=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))[0]")
         self.assertEqual(snapshot['material']['dataset']['version'],'1.4.0')
         self.page.locator('#language').select_option('en')
         self.page.goto(self.url+'versions/v1/')
-        self.page.locator('[data-history="0"]').click()
+        self.page.locator('[data-history]').nth(0).click()
         self.assertEqual(self.page.locator('#material-grade').count(),1)
         self.assertIn(record['grade'],self.page.locator('.material-summary').inner_text())
         with self.page.expect_download() as info:self.page.locator('#export').click()
@@ -505,10 +510,10 @@ class BrowserSmoke(unittest.TestCase):
         self.page.set_viewport_size({'width':390,'height':844})
         self.assert_layout()
         self.fill_case('inyeccion',VARIANTS[0][1])
-        self.page.locator('#save').click()
+        self.save_case()
         self.page.locator('[data-field="partMass"]').fill('45')
         self.page.locator('#calculate').click()
-        self.page.locator('#save').click()
+        self.save_case()
         self.assertEqual(self.page.locator('#compare-a').locator('option').count(),3)
         self.assertIn('Shot calculado',self.page.locator('#comparison-output').inner_text())
         with self.page.expect_download() as downloaded:
@@ -528,27 +533,27 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_G38_rename_history_and_clear_comparison(self):
         self.page.locator('#level').select_option('basic')
-        self.page.locator('#save').click()
+        self.save_case()
         self.page.locator('[data-field="partMass"]').fill('45')
-        self.page.locator('#save').click()
+        self.save_case()
         before=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))")
         name='Molde piloto <prueba>'
         self.page.once('dialog',lambda d:d.accept(name))
-        self.page.locator('[data-history-rename="0"]').click()
+        self.page.locator('[data-history-rename]').nth(0).click()
         after=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))")
-        self.assertEqual(after,[dict(before[0],name=name),before[1]])
+        self.assertEqual(after,[dict(before[0],name=name,updated_at=after[0]['updated_at']),before[1]])
         self.assertIn(name,self.page.locator('#history').inner_text())
         self.assertIn(name,self.page.locator('#compare-a option').nth(1).text_content())
         self.page.once('dialog',lambda d:d.dismiss())
-        self.page.locator('[data-history-rename="0"]').click()
+        self.page.locator('[data-history-rename]').nth(0).click()
         self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))"),after)
         self.page.reload()
-        self.page.locator('[data-history-rename="0"]').wait_for()
+        self.page.locator('[data-history-rename]').nth(0).wait_for()
         self.assertIn(name,self.page.locator('#history').inner_text())
         for width in [390,768,1440]:
             self.page.set_viewport_size({'width':width,'height':1000})
-            self.page.locator('#compare-a').select_option('0')
-            self.page.locator('#compare-b').select_option('1')
+            self.page.locator('#compare-a').select_option(self.page.locator('#compare-a option').nth(1).get_attribute('value'))
+            self.page.locator('#compare-b').select_option(self.page.locator('#compare-b option').nth(2).get_attribute('value'))
             self.assertEqual(self.page.locator('.comparison-table').count(),1)
             self.page.locator('#comparison-clear').click()
             self.assertEqual(self.page.locator('#compare-a').input_value(),'')
@@ -560,16 +565,16 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('#level').select_option('technical')
         self.assertEqual(self.page.locator('#compare-a').input_value(),'')
         self.assertEqual(self.page.locator('#compare-b').input_value(),'')
-        self.page.locator('#compare-a').select_option('0')
+        self.page.locator('#compare-a').select_option(self.page.locator('#compare-a option').nth(1).get_attribute('value'))
         self.assertEqual(self.page.locator('.comparison-table').count(),0)
-        self.page.locator('#compare-b').select_option('1')
+        self.page.locator('#compare-b').select_option(self.page.locator('#compare-b option').nth(2).get_attribute('value'))
         with self.page.expect_download() as downloaded:
             self.page.locator('#comparison-json').click()
         payload=json.loads(Path(downloaded.value.path()).read_text())
         self.assertEqual(payload['caseA']['name'],name)
         self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))"),after)
         self.page.locator('#language').select_option('en')
-        self.assertEqual(self.page.locator('[data-history-rename="0"]').inner_text(),'Rename')
+        self.assertEqual(self.page.locator('[data-history-rename]').nth(0).inner_text(),'Rename')
         self.assertEqual(self.page.locator('#comparison-clear').inner_text(),'Clear selection')
         self.assertIn(name,self.page.locator('#history').inner_text())
 
@@ -695,7 +700,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.set_viewport_size({'width':390,'height':1000})
         self.grade('generic-hdpe')
         self.page.locator('[data-field="partMass"]').fill('47')
-        self.page.locator('#save').click()
+        self.save_case()
         self.select_process('extrusion')
         self.page.locator('[data-field="width"]').fill('630')
         self.page.locator('#level').select_option('advanced')
@@ -709,7 +714,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-field="width"]').input_value(),'630')
         self.page.set_viewport_size({'width':390,'height':1000})
         self.assertEqual(self.page.locator('#process-select').input_value(),'extrusion')
-        self.page.locator('[data-history="0"]').click()
+        self.page.locator('[data-history]').nth(0).click()
         self.assertEqual(self.page.locator('#process-select').input_value(),'inyeccion')
         self.page.locator('#learn-page').click()
         self.assertIn('view=learning',self.page.url)
@@ -862,7 +867,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('#profile-fraction-1').fill('40');self.page.locator('#profile-initial').fill('300');self.page.locator('#profile-direction').select_option('decreasing');r=self.record()
         self.assertEqual(r['injection_profile']['stages'][0]['start_position_mm'],300)
         self.page.locator('#level').select_option('basic');self.assertTrue(self.page.locator('#injection-profile').is_hidden())
-        self.page.locator('[data-history="0"]').click();self.assertEqual(self.page.locator('#profile-fraction-0').input_value(),'40')
+        self.page.locator('[data-history]').nth(0).click();self.assertEqual(self.page.locator('#profile-fraction-0').input_value(),'40')
 
     def test_G37_custom_drying_filter_and_bulk_phase(self):
         record=self.page.evaluate('''async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const m=makeCustomMaterial({family:'PVC',grade:'PVC propio sintético',source:'Protocolo sintético, no propiedad industrial',drying_time:2,drying_temperature:60,bulk_density:500,bulk_density_unit:'kg/m3',bulk_density_form:'pellets'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([m]));return m}''')

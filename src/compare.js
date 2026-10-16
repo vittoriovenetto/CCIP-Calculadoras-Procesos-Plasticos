@@ -1,3 +1,4 @@
+import { t } from "./i18n.js";
 // Comparador y exportador offline. Usa los snapshots guardados; no recalcula
 // resultados con propiedades que pudieron cambiar desde la fecha de guardado.
 export function compareRecords(a,b){
@@ -40,11 +41,12 @@ export function renderComparison(root,history,modules){
  const lang=document.documentElement.lang==="en"?"en":"es";
  const tr=(es,en)=>lang==="en"?en:es;
  const eligible=(history||[]).filter(x=>x&&Array.isArray(x.metrics)&&x.metrics.length&&x.module);
- const keys=eligible.map((h,i)=>String(i));
+ const keys=eligible.map(h=>h.id);
+ if((state.a&&!keys.includes(state.a))||(state.b&&!keys.includes(state.b)))state.manualSelection=true;
  if(!keys.includes(state.a))state.a=state.manualSelection?"":keys[0]||"";
- if(!keys.includes(state.b))state.b=state.manualSelection?"":keys[1]||"";
+ if(!keys.includes(state.b))state.b=state.manualSelection?"":keys.find(key=>key!==state.a)||"";
  const option=(id,label)=>'<option value="'+safe(id)+'">'+safe(label)+'</option>';
- const labels=eligible.map((x,i)=>option(i,[typeof x.name==='string'?x.name:'',modules.find(m=>m.id===x.module)?.name||x.module,x.material?.grade_snapshot?.grade||"",new Date(x.date).toLocaleString("es-DO")].filter(Boolean).join(" · "))).join("");
+ const labels=eligible.map(x=>option(x.id,[typeof x.name==='string'?x.name:'',t(modules.find(m=>m.id===x.module)?.name||x.module),x.material?.grade_snapshot?.grade||"",new Date(x.updated_at||x.date).toLocaleString(lang==="en"?"en-US":"es-DO")].filter(Boolean).join(" · ")).replace('<option ','<option data-i18n-ignore ')).join("");
  root.innerHTML='<h2>'+tr("Comparar resultados guardados","Compare saved results")+'</h2>'+
  '<p class="muted">'+tr("Guarda primero dos cálculos del mismo proceso. La comparación utiliza los valores y fuentes originales, sin recalcularlos.","Save two calculations of the same process first. The comparison retains their original results and sources without recalculation.")+'</p>'+
  '<div class="comparison-selectors">'+
@@ -54,7 +56,7 @@ export function renderComparison(root,history,modules){
  const a=root.querySelector("#compare-a"),b=root.querySelector("#compare-b");
  a.value=state.a;b.value=state.b;
  const out=root.querySelector("#comparison-output");
- const selected=control=>control.value===''?undefined:eligible[Number(control.value)];
+ const selected=control=>control.value===''?undefined:eligible.find(item=>item.id===control.value);
  const redraw=()=>{
    const one=selected(a),two=selected(b);
    const result=compareRecords(one,two);
