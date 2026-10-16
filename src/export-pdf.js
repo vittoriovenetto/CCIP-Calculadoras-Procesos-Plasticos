@@ -31,7 +31,7 @@ export async function generatePdf(data) {
     table([tr('Resultado', 'Result'), tr('Valor', 'Value'), tr('Unidad', 'Unit'), tr('Fórmula / modelo', 'Formula / model')], data.results.map(r => [r.label + (r.estimated ? tr(' (estimación)', ' (estimate)') : ''), r.value, r.unit, r.formula]), [115, 80, 65, '*'])
   ];
   if (data.profile.length) content.push(heading(tr('Perfil físico L1/L2/L3', 'Physical L1/L2/L3 profile')),
-    { text: (data.record.injection_profile?.approximate ? tr('Estimación con densidad de familia. ', 'Estimate using family density. ') : '') + tr('Volumen de dosificación sin margen ni colchón añadido. Recorridos en mm; no son velocidades ni presiones.', 'Metered volume without added margin or cushion. Strokes in mm; not velocities or pressures.') },
+    { text: (data.record.injection_profile?.approximate ? data.record.injection_profile?.estimate_basis==='mixture_model'?tr('Estimación con densidad de formulación. ','Estimate using formulation density. '):tr('Estimación con densidad de familia. ', 'Estimate using family density. ') : '') + tr('Volumen de dosificación sin margen ni colchón añadido. Recorridos en mm; no son velocidades ni presiones.', 'Metered volume without added margin or cushion. Strokes in mm; not velocities or pressures.') },
     table(['L', '%', 'cm³', 'g', 'Δs mm', 'Σ mm', tr('Inicio', 'Start'), tr('Fin', 'End')], data.profile, [26, 24, 65, 65, 65, 65, '*', '*']));
   content.push(heading(tr('4. Observaciones, límites y fuentes', '4. Observations, limitations and sources')), ...observations);
   const definition = { pageSize: 'A4', pageMargins: [36, 36, 36, 45], defaultStyle: { font: 'CaseFont', fontSize: 8, lineHeight: 1.2 },

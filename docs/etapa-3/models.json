@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ideal_additive_specific_volumes/1",
+    "equation": "ρ = 1 / (wᵥ/ρᵥ + wᵣ/ρᵣ)",
+    "units": "w: mass fraction; ρ: g/cm³",
+    "hypotheses": [
+      "same_declared_family",
+      "same_phase",
+      "same_temperature",
+      "same_pressure",
+      "additive_specific_volumes",
+      "no_reaction_or_excess_volume"
+    ],
+    "scope": "Preliminary ideal estimate at the documented point; no universal family validity or industrial certification.",
+    "evidence_kind": "documented_model_estimate",
+    "basis": "mass",
+    "implementation": "src/recycled.js:formulationDensity",
+    "validity": "Only the explicitly supplied matching T/P point and phase of identified same-family components; no calibrated interval or industrial validity is claimed.",
+    "source": "User-specified model and mass/volume conservation derivation in modelos.md",
+    "not_estimated": [
+      "MFR",
+      "MVR",
+      "tensile",
+      "impact",
+      "Tg",
+      "Tm",
+      "Cp",
+      "drying",
+      "contamination"
+    ]
+  }
+]

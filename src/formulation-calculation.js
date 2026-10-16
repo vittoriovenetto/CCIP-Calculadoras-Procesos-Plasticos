@@ -11,7 +11,7 @@ export function calculateFormulationCase(moduleId,inputs,level,state) {
  if(!activeFormulation(state))return calculateWithMeltDensity(moduleId,inputs,level,state);
  const recipe=state.formulation,field=moduleId==='inyeccion'?'meltDensity':moduleId==='secado'?null:'density';
  const entry=field?state.provenance[field]:null,effective={...inputs};
- const owned=entry?.formulation_id===recipe.id;
+ const owned=!!recipe?.id&&entry?.formulation_id===recipe.id;
  let rejection=null;
  if(field&&!isBlank(effective[field])&&!owned){effective[field]='';rejection='property_not_linked_to_formulation';}
  if(moduleId==='secado')return {...calculateWithMeltDensity(moduleId,{},level,state),formulation_assessment:{used:false,reason:'drying_formulation_not_implemented'}};

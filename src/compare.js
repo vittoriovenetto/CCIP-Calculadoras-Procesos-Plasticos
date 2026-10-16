@@ -14,7 +14,7 @@ export function compareRecords(a,b){
    const pct=diff!==null&&av!==0?100*diff/Math.abs(av):null;
    return {name:m.label,unit:m.unit,first:av,second:bv,diff,pct,comparable,first_estimated:m.density_estimate===true,second_estimated:second.density_estimate===true};
  });
- return {rows,error:null,commonInputs:Object.keys(a.inputs||{}).filter(k=>JSON.stringify(a.inputs[k])===JSON.stringify(b.inputs?.[k])),module:a.module,gradeA:a.material?.grade_snapshot?.grade||"",gradeB:b.material?.grade_snapshot?.grade||""};
+ return {rows,error:null,commonInputs:Object.keys(a.inputs||{}).filter(k=>JSON.stringify(a.inputs[k])===JSON.stringify(b.inputs?.[k])),module:a.module,gradeA:a.material?.formulation?.name||a.material?.grade_snapshot?.grade||"",gradeB:b.material?.formulation?.name||b.material?.grade_snapshot?.grade||""};
 }
 const safe=t=>String(t??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
 const fmt=n=>n===null||n===undefined?"—":Number(n).toLocaleString("es-DO",{maximumFractionDigits:3});
@@ -46,7 +46,7 @@ export function renderComparison(root,history,modules){
  if(!keys.includes(state.a))state.a=state.manualSelection?"":keys[0]||"";
  if(!keys.includes(state.b))state.b=state.manualSelection?"":keys.find(key=>key!==state.a)||"";
  const option=(id,label)=>'<option value="'+safe(id)+'">'+safe(label)+'</option>';
- const labels=eligible.map(x=>option(x.id,[typeof x.name==='string'?x.name:'',t(modules.find(m=>m.id===x.module)?.name||x.module),x.material?.grade_snapshot?.grade||"",new Date(x.updated_at||x.date).toLocaleString(lang==="en"?"en-US":"es-DO")].filter(Boolean).join(" · ")).replace('<option ','<option data-i18n-ignore ')).join("");
+ const labels=eligible.map(x=>option(x.id,[typeof x.name==='string'?x.name:'',t(modules.find(m=>m.id===x.module)?.name||x.module),x.material?.formulation?.name||x.material?.grade_snapshot?.grade||"",new Date(x.updated_at||x.date).toLocaleString(lang==="en"?"en-US":"es-DO")].filter(Boolean).join(" · ")).replace('<option ','<option data-i18n-ignore ')).join("");
  root.innerHTML='<h2>'+tr("Comparar resultados guardados","Compare saved results")+'</h2>'+
  '<p class="muted">'+tr("Guarda primero dos cálculos del mismo proceso. La comparación utiliza los valores y fuentes originales, sin recalcularlos.","Save two calculations of the same process first. The comparison retains their original results and sources without recalculation.")+'</p>'+
  '<div class="comparison-selectors">'+
@@ -66,7 +66,7 @@ export function renderComparison(root,history,modules){
    if(result.error){
     out.innerHTML='<p class="muted">'+safe(tr(result.error,result.error==="Selecciona dos cálculos guardados."?"Select two saved cases.":"Choose calculations from the same process."))+'</p>';return;
    }
-   const rows=result.rows.filter(r=>r.first!==null||r.second!==null).map(r=>'<tr><th scope="row">'+safe(r.name)+((r.first_estimated||r.second_estimated)?'<small class="density-estimate">'+tr('Estimación con densidad de familia','Estimate using family density')+' · '+[r.first_estimated?'A':'',r.second_estimated?'B':''].filter(Boolean).join(' / ')+'</small>':'')+'</th><td>'+safe(r.unit)+'</td><td>'+fmt(r.first)+'</td><td>'+fmt(r.second)+'</td><td>'+fmt(r.diff)+'</td><td>'+fmt(r.pct)+(r.pct===null?"":" %")+'</td></tr>').join("");
+   const rows=result.rows.filter(r=>r.first!==null||r.second!==null).map(r=>'<tr><th scope="row">'+safe(r.name)+((r.first_estimated||r.second_estimated)?'<small class="density-estimate">'+tr('Estimación con densidad de referencia o formulación','Estimate using reference or formulation density')+' · '+[r.first_estimated?'A':'',r.second_estimated?'B':''].filter(Boolean).join(' / ')+'</small>':'')+'</th><td>'+safe(r.unit)+'</td><td>'+fmt(r.first)+'</td><td>'+fmt(r.second)+'</td><td>'+fmt(r.diff)+'</td><td>'+fmt(r.pct)+(r.pct===null?"":" %")+'</td></tr>').join("");
    out.innerHTML='<div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>'+tr("Resultado","Output")+'</th><th>'+tr("Unidad","Unit")+'</th><th>A</th><th>B</th><th>Δ</th><th>Δ %</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
    '<p class="muted">'+tr("— significa falta de datos, unidades incompatibles o división no definida. Las diferencias no prueban que un material sea mejor.","— means missing data, incompatible units or undefined division. Differences alone do not prove a material is better.")+'</p>';
  };

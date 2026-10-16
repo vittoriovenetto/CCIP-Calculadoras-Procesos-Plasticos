@@ -1,0 +1,155 @@
+[
+  {
+    "material_id": "westlake-westlake-pvc-1195",
+    "grade": "Westlake PVC 1195",
+    "url_attempted": "https://www.westlake.com/sites/default/files/1195_1.pdf",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pp-moplen-hp548r",
+    "grade": "Moplen HP548R",
+    "url_attempted": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+    "source_status": 404,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pp-moplen-rp348r",
+    "grade": "Moplen RP348R",
+    "url_attempted": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+    "source_status": 404,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pp-moplen-rp248r",
+    "grade": "Moplen RP248R",
+    "url_attempted": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+    "source_status": 404,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pp-moplen-rp398t",
+    "grade": "Moplen RP398T",
+    "url_attempted": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+    "source_status": 404,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pp-moplen-rp348t-hp",
+    "grade": "Moplen RP348T HP",
+    "url_attempted": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+    "source_status": 404,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pp-moplen-rp248u",
+    "grade": "Moplen RP248U",
+    "url_attempted": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+    "source_status": 404,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-2060",
+    "grade": "Westlake PVC 2060",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-1185",
+    "grade": "Westlake PVC 1185",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-5265",
+    "grade": "Westlake PVC 5265",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-2070",
+    "grade": "Westlake PVC 2070",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-5305",
+    "grade": "Westlake PVC 5305",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-2079",
+    "grade": "Westlake PVC 2079",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-2082",
+    "grade": "Westlake PVC 2082",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-1230p",
+    "grade": "Westlake PVC 1230P",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pvc-westlake-pvc-1230s",
+    "grade": "Westlake PVC 1230S",
+    "url_attempted": "https://www.westlake.com/pvc-technical-data",
+    "source_status": 403,
+    "content_read": false,
+    "status": "inaccessible_or_unavailable",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  },
+  {
+    "material_id": "catalog-pc-makrolon-2858",
+    "grade": "Makrolon 2858",
+    "url_attempted": "https://solutions.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1556888808.pdf?hash=6C670B9A7B2F77CD2BF485F9C9DD2988&rev=3230968946",
+    "source_status": 200,
+    "content_read": true,
+    "status": "accessible_insufficient_exact_grade_evidence",
+    "decision": "Keep prior catalog values and their original verification state; do not infer properties from search results."
+  }
+]

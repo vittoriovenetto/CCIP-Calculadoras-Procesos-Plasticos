@@ -1,3 +1,4 @@
+import {activeFormulation} from './recycled.js';
 import { families, manufacturers, grades, propertyLabels, statusLabels, safeSourceUrl, outsideProcess } from "./materials.js";
 import { renderAudit } from "./materials-audit-view.js";
 import { t } from "./i18n.js";
@@ -21,6 +22,7 @@ export function documentedProperties(grade) {
 export function provenanceText(entry) {
   if (!entry) return "Entrada manual / sin ficha aplicada";
   if (entry.origin === 'family_reference') return `Referencia de familia · estimación · ${entry.family} · ${entry.value} g/cm³`;
+  if(entry.formulation_id)return `${entry.origin==='mixture_model'?t('Estimación de mezcla'):t('Dato manual de formulación')} · ${entry.value} ${entry.unit||''}`;
   const reference = entry.reference;
   return `${statusLabels[entry.origin] || "Manual"}${reference ? ` · ${statusLabels[reference.status] || "Referencia"} [${entry.source_id}] · referencia: ${display(reference)}` : ""}`;
 }
@@ -28,7 +30,7 @@ export function renderMaterialFeedback(root, materialState, module, values, leve
   const grade = materialState.grade_snapshot;
   // La evidencia completa sigue en el snapshot y la exportación. Aquí solo
   // aparece una acción cuando la aplicación al proceso necesita confirmación.
-  const mismatch = grade && outsideProcess(grade,module.id) && !materialState.context.processConfirmed;
+  const mismatch = !activeFormulation(materialState) && grade && outsideProcess(grade,module.id) && !materialState.context.processConfirmed;
   const feedback=root.querySelector('#material-feedback');
   if (!feedback) return;
   feedback.innerHTML = mismatch ? `<p class="warning">El proceso activo no está indicado en la ficha; confirma su compatibilidad antes de aplicar propiedades.</p>` : '';
@@ -60,6 +62,7 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
     volatile_max: ["Contenido máximo de volátiles","Maximum volatile content"],
     particle_fines_max: ["Fracción de finos máxima","Maximum fines fraction"],
     drying_temperature_source_f: ["Temperatura de secado publicada (°F)","Published drying temperature (°F)"],
+    mvr_secondary: ["Índice volumétrico de fluidez (otra condición)","Melt volume rate (other conditions)"],
     mfr_secondary: ["Índice de fluidez (otra carga)","Melt index (other test load)"],
     hardness_shore_d: ["Dureza Shore D","Shore D hardness"],
     vicat_temperature: ["Temperatura Vicat","Vicat temperature"],
@@ -106,7 +109,7 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
         const p=grade.properties[key];
         return `<article data-property="${key}" class="material-property"><b>${safe(label)}</b><span>${safe(display(p))}</span><small>${safe(p.phase||phase(key))} · ${safe(statusLabels[p.status]||'Referencia')} [${safe(p.source_id)}]</small><small><span>Método:</span> <span ${p.status==='user_entered'?'data-i18n-ignore':''}>${safe(p.method||'no documentado')}</span> · <span>Condiciones:</span> <span ${p.status==='user_entered'?'data-i18n-ignore':''}>${safe(p.condition||'no documentadas')}</span></small>${p.note?`<small ${p.status==='user_entered'?'data-i18n-ignore':''}>${safe(p.note)}</small>`:''}</article>`;
       }).join('')}</div>${extraMarkup}</details>${renderAudit(materialState,level)}</div></details>` : ''}
-    ${outsideProcess(grade,module.id) ? check('processConfirmed','He validado el uso en este proceso, que no figura entre las aplicaciones de la ficha.') : ''}
+    ${!activeFormulation(materialState)&&outsideProcess(grade,module.id) ? check('processConfirmed','He validado el uso en este proceso, que no figura entre las aplicaciones de la ficha.') : ''}
     ${Object.values(materialState.provenance).some(e=>e.origin==='user_override') ? `<details class="manual-justification"><summary>Justificación de los cambios manuales</summary><label for="material-conditionsNote">Condiciones y justificación del caso / cambios manuales</label><textarea id="material-conditionsNote" data-material-context="conditionsNote" rows="2">${safe(materialState.context.conditionsNote)}</textarea></details>` : ''}
     <div id="material-feedback" aria-live="polite"></div>`;
 

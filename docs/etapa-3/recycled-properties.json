@@ -1,0 +1,5142 @@
+[
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Resin",
+      "T m (°C)",
+      "T c (°C)",
+      "χ (%)",
+      "MFI (g/10 min)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "vHDPE",
+      "130.8",
+      "118.7",
+      "72.8",
+      "0.67"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "rHDPE",
+      "128.2",
+      "115.9",
+      "55.7",
+      "6.7"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "C m (wt.%)",
+      "Parameter",
+      "0",
+      "25",
+      "50",
+      "60",
+      "70",
+      "80",
+      "90",
+      "100"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "PM",
+      "m",
+      "−0.396",
+      "−0.382",
+      "−0.456",
+      "−0.417",
+      "−0.474",
+      "−0.466",
+      "−0.449",
+      "−0.474"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "m’",
+      "−0.439 (−0.44)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "A",
+      "53.41",
+      "59.32",
+      "61.44",
+      "66.82",
+      "65.08",
+      "70.69",
+      "77.99",
+      "83.02"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "EM",
+      "m",
+      "−0.394",
+      "−0.365",
+      "−0.455",
+      "−0.388",
+      "−0.435",
+      "−0.461",
+      "−0.531",
+      "−0.504"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "m’",
+      "−0.442 (−0.44)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "A",
+      "38.04",
+      "51.32",
+      "57.21",
+      "72.75",
+      "71.85",
+      "58.53",
+      "55.02",
+      "59.2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Concentration (wt.%)",
+      "Mfr.",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "rHDPE",
+      "Services Conseil Sinclair",
+      "100",
+      "75",
+      "50",
+      "40",
+      "30",
+      "20",
+      "10",
+      "0"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "source_id": "REC-01",
+    "component_identity": "Solvay A60-7019 / recycled rigid HDPE bottles supplied by Service Conseil Sinclair",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "vHDPE",
+      "Solvay, A60-7019",
+      "0",
+      "25",
+      "50",
+      "60",
+      "70",
+      "80",
+      "90",
+      "100"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "DSC",
+      "Differential Scanning Calorimetry"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "LOM",
+      "Law of Mixtures"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "MFI",
+      "Melt Flow Index"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "OIT",
+      "Oxidation Induction Time"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "PP r",
+      "Post-consumer recycled polypropylene"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "PP v",
+      "Virgin polypropylene"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "rPPcw",
+      "Non-homogenized recycled PP"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "TGA",
+      "Thermogravimetric Analysis"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "T e",
+      "End degradation temperature"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "T on",
+      "Onset degradation temperature"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "T p",
+      "Peak degradation temperature"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "σ b",
+      "Ultimate tensile strength"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "σ y",
+      "Yield strength"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "ε b",
+      "Elongation at break"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "χ",
+      "Crystallinity degree"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Batch",
+      "PP v (wt.%)",
+      "PP r (wt.%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "PP v",
+      "100",
+      "0"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "25%PP r",
+      "75",
+      "25"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "50%PP r",
+      "50",
+      "50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "75%PP r",
+      "25",
+      "75"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "PP r",
+      "0",
+      "100"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Processing Parameter",
+      "Value"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Plasticization chamber temperature (°C)",
+      "230"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Mold temperature (°C)",
+      "40"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Injection time (s)",
+      "3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Injection pressure (bar)",
+      "300"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Packing time (s)",
+      "17"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Packing pressure (bar)",
+      "240"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "Material Composition",
+      "H c (J/g)",
+      "T c (°C)",
+      "H f (J/g)",
+      "T f (°C)",
+      "χ (%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "PP v",
+      "102.16 1. (±) 1.89",
+      "112.25 (±) 0.37",
+      "101.59 (±) 2.06",
+      "163.61 (±) 0.12",
+      "wi"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "25%PPr",
+      "99.60 (±) 0.36",
+      "123.68 (±) 0.39",
+      "103.60 (±) 0.75",
+      "164.44 (±) 0.19",
+      "50.05"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "50%PPr",
+      "94.23 (±) 1.61",
+      "124.41 (±) 0.10",
+      "97.37 (±) 3.50",
+      "163.75 (±) 0.07",
+      "47.04"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "75%PPr",
+      "92.04 (±) 0.73",
+      "124.30 (±) 0.12",
+      "95.40 (±) 0.71",
+      "163.30 (±) 0.07",
+      "46.09"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "PP r",
+      "86.82 (±) 0.58",
+      "124.19 (±) 0.02",
+      "92.04 (±) 1.37",
+      "162.63 (±) 0.09",
+      "44.46"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "2. rPPcw",
+      "3. -",
+      "122.23 (±) 0.16",
+      "99.05 (±) 0.54",
+      "162.32 (±) 0.21",
+      "48.00"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "Material Composition",
+      "1. ∆H c (%)",
+      "∆T c (%)",
+      "∆H f (%)",
+      "∆T f (%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "25%PP r",
+      "2. ↓ 2.51",
+      "3. ↑ 10.18",
+      "↑ 1.98",
+      "↑ 0.51"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "50%PP r",
+      "↓ 7.76",
+      "↑ 10.83",
+      "↓ 4.15",
+      "↑ 0.09"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "75%PP r",
+      "↓ 9.91",
+      "↑ 10.73",
+      "↓ 6.09",
+      "↓ 0.19"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "PP r",
+      "↓ 15.02",
+      "↑ 10.64",
+      "↓ 9.40",
+      "↓ 0.60"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "Material Composition",
+      "OIT (s) 1. (±)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "PP v",
+      "277.6 (±) 55.3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "25%PP r",
+      "81.3 (±) 6.9"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "50%PP r",
+      "75.4 (±) 7.7"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "75%PP r",
+      "64.0 (±) 6.9"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "PP r",
+      "50.8 (±) 8.3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 5,
+    "row_original": [
+      "2. rPPcw",
+      "41.6 (±) 5.54"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 6,
+    "row_original": [
+      "Material Composition",
+      "T on (°C)",
+      "T e (°C)",
+      "T p (°C)",
+      "ΔT = T e − T p (°C)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 6,
+    "row_original": [
+      "PP v",
+      "325.5",
+      "497.6",
+      "463.3",
+      "172.1"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 6,
+    "row_original": [
+      "25%PP r",
+      "345.0",
+      "501.0",
+      "464.5",
+      "156.0"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 6,
+    "row_original": [
+      "50%PP r",
+      "344.2",
+      "501.8",
+      "462.6",
+      "157.6"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 6,
+    "row_original": [
+      "75%PP r",
+      "344.1",
+      "501.9",
+      "464.0",
+      "157.8"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 6,
+    "row_original": [
+      "PP r",
+      "344.2",
+      "500.8",
+      "469.3",
+      "156.6"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "Material Composition",
+      "E (MPa)",
+      "σy (MPa)",
+      "σb (MPa)",
+      "εb (%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "PP v",
+      "1377.95 1. (±) 109.99",
+      "36.67 (±) 0.93",
+      "22.80 (±) 3.39",
+      "293.86 (±) 21.00"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "25%PP r",
+      "1315.45 (±) 114.16",
+      "37.16 (±) 0.32",
+      "14.30 (±) 4.16",
+      "233.07 (±) 24.99"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "50%PP r",
+      "1266.98 (±) 103.95",
+      "35.22 (±) 0.41",
+      "11.07 (±) 3.83",
+      "199.37 (±) 30.40"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "75%PP r",
+      "1156.32 (±) 92.92",
+      "33.48 (±) 0.26",
+      "11.59 (±) 4.67",
+      "226.32 (±) 32.37"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "PP r",
+      "983.99 (±) 86.11",
+      "31.08 (±) 0.34",
+      "3.30 (±) 1.21",
+      "109.79 (±) 21.90"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "source_id": "REC-02",
+    "component_identity": "CAPILENE R 50 / post-consumer PP from yellow-bin collection",
+    "percentage_basis": "mass",
+    "table_index": 7,
+    "row_original": [
+      "2. rPPcw",
+      "1379.72 (±) 59.13",
+      "33.90 (±) 0.70",
+      "23.32 (±) 4.45",
+      "18.75 (±) 4.17"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Property",
+      "Synthetic Polymers (PA6, PA66, HDPE, PP, PES) [ 5 ]",
+      "Biodegradable Polymers (PLA, PBS, PBAT, PHA) [ 6 , 7 , 8 ]"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Origin",
+      "Derived from fossil resources",
+      "Mostly derived from renewable biological resources (e.g., PLA, PHA); PBAT is typically fossil-derived despite being biodegradable; PBS can be produced from either fossil or renewable feedstocks"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Biodegradability",
+      "Generally non-biodegradable and persistent in the marine environment",
+      "Biodegradable, although the rate strongly depends on polymer type and environmental conditions (e.g., soil vs. marine)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Mechanical performance",
+      "High tensile strength, toughness, and abrasion resistance, ensuring reliable performance under severe marine conditions",
+      "Strongly dependent on polymer type and formulation; generally lower load-bearing capacity than conventional synthetic fibers unless enhanced through engineering approaches (e.g., nanocomposites, bioinspired architectures)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Resistance in marine environments",
+      "High resistance to water, salinity and prolonged exposure, contributing to long-term durability",
+      "Variable stability; several bio-based polymers show reduced long-term durability under real marine operating conditions"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 0,
+    "row_original": [
+      "Current use in fishing gear",
+      "Dominant material choice due to proven long-term reliability, but a major contributor to marine plastic persistence",
+      "Industrial uptake in fisheries remains limited due to insufficient long-term durability and reliability under real operational conditions [ 9 ]"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Sample",
+      "Sample Code"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Post-consumer fishing net 1",
+      "NET_1"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Post-consumer fishing net 2",
+      "NET_2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Post-consumer fishing net 1+ post-consumer fishing net 2; (50:50)",
+      "PCN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Virgin Polypropylene Moplen ® RP340H",
+      "Virgin PP"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Polypropylene + 10%wt post-consumer fishing nets",
+      "PP + 10%_PCN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 1,
+    "row_original": [
+      "Polypropylene + 30%wt post-consumer fishing nets",
+      "PP + 30%_PCN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "Samples",
+      "E [MPa]",
+      "TS [MPa]",
+      "EB [%]"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "NET_1",
+      "2594 ± 142",
+      "299 ± 45",
+      "75 ± 19"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 2,
+    "row_original": [
+      "NET_2",
+      "2233 ± 198",
+      "264 ± 40",
+      "118 ± 15"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "Samples",
+      "Tm [°C]",
+      "ΔHm [J/g]",
+      "ꭓc [%]"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "NET_1",
+      "133.2",
+      "154.25",
+      "75"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 3,
+    "row_original": [
+      "NET_2",
+      "133.5",
+      "115.68",
+      "56"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "Sample",
+      "E [MPa]",
+      "TS [MPa]",
+      "EB [%]"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "PP",
+      "438 ± 54",
+      "16 ± 1",
+      "695 ± 33"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "PP + 10%_PCN",
+      "483 ± 11",
+      "13 ± 5",
+      "22 ± 6"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "PP + 30%_PCN",
+      "495 ± 23",
+      "18 ± 5",
+      "12 ± 5"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "source_id": "REC-03",
+    "component_identity": "Moplen RP340H / post-consumer PP fishing nets",
+    "percentage_basis": "mass",
+    "table_index": 4,
+    "row_original": [
+      "PCN",
+      "533 ± 46",
+      "18 ± 2",
+      "7 ± 1"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Plastic Material",
+      "LDPE"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Trade name/Grade",
+      "Sumikathe 206P"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Supplier",
+      "Prime Polymer Co. Ltd."
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Melt density",
+      "0.79516 g/cm 3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Solid density",
+      "0.92219 g/cm 3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Specific Heat",
+      "3095 J/kg °C"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Thermal conductivity",
+      "0.25 W/m °C"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Maximum shear stress",
+      "0.1 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Mould temperature",
+      "40–60 °C"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Melt temperature",
+      "160–180 °C"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Filling Time (s)",
+      "5.5"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Mould Temperature (°C)",
+      "50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Melt Temperature (°C)",
+      "170"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "V/P switch-over (mm)",
+      "22.50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Packing time (s)",
+      "18.03"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Packing pressure (MPa)",
+      "15.15"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Cooling Time (s)",
+      "22.32"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Shear Rate (1/s)",
+      "1437.0"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Factor",
+      "Levels"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Low",
+      "High"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Mould Temperature (°C)",
+      "40",
+      "60"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Melt Temperature (°C)",
+      "160",
+      "180"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Packing pressure (MPa)",
+      "12.20",
+      "18.56"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Cooling time (s)",
+      "19.42",
+      "26.54"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "Run",
+      "Setting Parameters",
+      "Responses"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "Mould Temperature (°C)",
+      "Melt Temperature (°C)",
+      "Packing Pressure (MPa)",
+      "Cooling Time (s)",
+      "Shrinkage in x Direction (%)",
+      "Shrinkage in y Direction (%)",
+      "Tensile Strength (MPa)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "1",
+      "40",
+      "160",
+      "12.2",
+      "19.42",
+      "2.77",
+      "2.12",
+      "8.99"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "2",
+      "60",
+      "160",
+      "12.2",
+      "19.42",
+      "3.03",
+      "2.20",
+      "9.34"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "3",
+      "40",
+      "180",
+      "12.2",
+      "19.42",
+      "2.72",
+      "2.25",
+      "9.38"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "4",
+      "60",
+      "180",
+      "12.2",
+      "19.42",
+      "2.69",
+      "2.32",
+      "9.38"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "5",
+      "40",
+      "160",
+      "18.56",
+      "19.42",
+      "2.43",
+      "2.10",
+      "9.73"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "6",
+      "60",
+      "160",
+      "18.56",
+      "19.42",
+      "2.52",
+      "2.22",
+      "9.63"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "7",
+      "40",
+      "180",
+      "18.56",
+      "19.42",
+      "2.25",
+      "1.96",
+      "9.78"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "8",
+      "60",
+      "180",
+      "18.56",
+      "19.42",
+      "2.50",
+      "1.93",
+      "9.79"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "9",
+      "40",
+      "160",
+      "12.2",
+      "26.54",
+      "2.89",
+      "2.21",
+      "9.48"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "10",
+      "60",
+      "160",
+      "12.2",
+      "26.54",
+      "2.63",
+      "2.35",
+      "9.76"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "11",
+      "40",
+      "180",
+      "12.2",
+      "26.54",
+      "2.78",
+      "2.28",
+      "9.73"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "12",
+      "60",
+      "180",
+      "12.2",
+      "26.54",
+      "2.55",
+      "2.40",
+      "9.76"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "13",
+      "40",
+      "160",
+      "18.56",
+      "26.54",
+      "2.43",
+      "2.13",
+      "9.39"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "14",
+      "60",
+      "160",
+      "18.56",
+      "26.54",
+      "2.21",
+      "2.34",
+      "9.51"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "15",
+      "40",
+      "180",
+      "18.56",
+      "26.54",
+      "2.15",
+      "1.98",
+      "9.67"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "16",
+      "60",
+      "180",
+      "18.56",
+      "26.54",
+      "2.08",
+      "2.32",
+      "9.46"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "17",
+      "50",
+      "170",
+      "15.38",
+      "22.98",
+      "2.20",
+      "2.07",
+      "9.47"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "18",
+      "50",
+      "170",
+      "15.38",
+      "22.98",
+      "2.15",
+      "2.07",
+      "9.43"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "19",
+      "50",
+      "170",
+      "15.38",
+      "22.98",
+      "2.19",
+      "2.12",
+      "9.45"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "20",
+      "50",
+      "170",
+      "15.38",
+      "22.98",
+      "2.13",
+      "2.09",
+      "9.41"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "21",
+      "40",
+      "170",
+      "15.38",
+      "22.98",
+      "1.87",
+      "2.13",
+      "9.42"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "22",
+      "60",
+      "170",
+      "15.38",
+      "22.98",
+      "1.88",
+      "2.23",
+      "9.50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "23",
+      "50",
+      "160",
+      "15.38",
+      "22.98",
+      "2.57",
+      "2.24",
+      "9.60"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "24",
+      "50",
+      "180",
+      "15.38",
+      "22.98",
+      "2.31",
+      "2.18",
+      "9.77"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "25",
+      "50",
+      "170",
+      "12.2",
+      "22.98",
+      "2.89",
+      "2.27",
+      "9.62"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "26",
+      "50",
+      "170",
+      "18.56",
+      "22.98",
+      "2.67",
+      "2.14",
+      "9.55"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "27",
+      "50",
+      "170",
+      "15.38",
+      "19.42",
+      "2.54",
+      "2.29",
+      "9.10"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "28",
+      "50",
+      "170",
+      "15.38",
+      "26.54",
+      "2.53",
+      "2.24",
+      "9.21"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "29",
+      "50",
+      "170",
+      "15.38",
+      "22.98",
+      "2.19",
+      "2.12",
+      "9.47"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "30",
+      "50",
+      "170",
+      "15.38",
+      "22.98",
+      "2.11",
+      "2.07",
+      "9.41"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "",
+      "% Contribution of Shrinkage"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "Parameters",
+      "x Direction",
+      "y Direction"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "A. Mould Temperature",
+      "14.60",
+      "18.71"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "B. Melt Temperature",
+      "14.60",
+      "16.65"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "C. Packing pressure",
+      "47.31",
+      "36.47"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "D. Cooling Time",
+      "0.58",
+      "1.50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "Tools/Parameters",
+      "Mould Temperature (°C)",
+      "Melt Temperature (°C)",
+      "Packing Pressure (MPa)",
+      "Cooling Time (s)",
+      "Shrinkage Percentages (%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "Simulation (recommended)",
+      "50",
+      "170",
+      "15.2",
+      "22.32",
+      "( x ) = 1.95% ( y ) = 1.85%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "RSM",
+      "( x -direction)",
+      "40",
+      "160",
+      "18.6",
+      "26.54",
+      "1.78%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "( y -direction)",
+      "40",
+      "160",
+      "18.6",
+      "26.14",
+      "1.69%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "PSO",
+      "( x -direction)",
+      "40",
+      "161",
+      "18.6",
+      "25.35",
+      "1.78%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "( y -direction)",
+      "53",
+      "160",
+      "18.5",
+      "22.33",
+      "1.67%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Specimens",
+      "R0",
+      "R30",
+      "R40",
+      "R50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Most significant parameter",
+      "x direction",
+      "Packing pressure",
+      "Packing pressure",
+      "Packing pressure",
+      "Packing pressure"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "y direction",
+      "Packing pressure",
+      "Mould temperature",
+      "Mould Temperature",
+      "Mould Temperature"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Tensile strength",
+      "Packing pressure",
+      "Packing pressure",
+      "Mould Temperature",
+      "Mould temperature"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "Responses",
+      "Specimens",
+      "Mould Temperature (°C)",
+      "Melt Temperature (°C)",
+      "Packing Pressure (MPa)",
+      "Cooling Time (s)",
+      "Optimal Values"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "RSM",
+      "Shrinkage in x direction",
+      "R0",
+      "59.20",
+      "175.41",
+      "15.85",
+      "22.21",
+      "1.85%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R30",
+      "42.41",
+      "160",
+      "18.56",
+      "19.42",
+      "2.45%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R40",
+      "41.42",
+      "160",
+      "18.51",
+      "19.42",
+      "2.65%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R50",
+      "46.53",
+      "170.42",
+      "16.49",
+      "19.48",
+      "2.80%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "Shrinkage in y direction",
+      "R0",
+      "40.35",
+      "179.77",
+      "18.48",
+      "22.65",
+      "1.92%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R30",
+      "48.03",
+      "178.92",
+      "12.82",
+      "24.43",
+      "2.01%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R40",
+      "49.36",
+      "180",
+      "12.72",
+      "25.23",
+      "2.05%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R50",
+      "46.92",
+      "177.15",
+      "13.96",
+      "25.27",
+      "2.08%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "Tensile strength",
+      "R0",
+      "49.95",
+      "179.96",
+      "12.46",
+      "24.08",
+      "9.86 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R30",
+      "57.36",
+      "167.43",
+      "18.5",
+      "23.84",
+      "9.81 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R40",
+      "51.67",
+      "177.31",
+      "14.39",
+      "19.49",
+      "9.66 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R50",
+      "59.56",
+      "167.79",
+      "16.18",
+      "23.96",
+      "9.57 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "PSO",
+      "Shrinkage in x direction",
+      "R0",
+      "60.00",
+      "174.16",
+      "16.08",
+      "23.62",
+      "1.71%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R30",
+      "40.48",
+      "160.25",
+      "18.25",
+      "19.72",
+      "2.56%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R40",
+      "41.46",
+      "160.35",
+      "18.55",
+      "19.66",
+      "2.75%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R50",
+      "40.09",
+      "170.58",
+      "17.88",
+      "19.48",
+      "2.75%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "Shrinkage in y direction",
+      "R0",
+      "40.09",
+      "179.91",
+      "18.41",
+      "22.67",
+      "1.92%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R30",
+      "48.7",
+      "179.88",
+      "18.54",
+      "24.26",
+      "1.87%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R40",
+      "48.77",
+      "179.62",
+      "12.28",
+      "26.50",
+      "2.01%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R50",
+      "47",
+      "179.96",
+      "12.33",
+      "26.48",
+      "1.97%"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "Tensile strength",
+      "R0",
+      "52.46",
+      "179.8",
+      "18.52",
+      "22.01",
+      "9.97 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R30",
+      "59.92",
+      "165.05",
+      "18.51",
+      "25.34",
+      "9.71 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R40",
+      "49.95",
+      "179.88",
+      "12.78",
+      "19.43",
+      "9.71 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 7,
+    "row_original": [
+      "R50",
+      "59.99",
+      "167.92",
+      "12.38",
+      "26.47",
+      "9.62 MPa"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Parameter/Response",
+      "R0",
+      "R30",
+      "R40",
+      "R50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Mould temperature (°C)",
+      "59.20",
+      "60.00",
+      "42.41",
+      "40.48",
+      "41.42",
+      "41.46",
+      "46.53",
+      "40.09"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Melttemperature (°C)",
+      "175.41",
+      "174.16",
+      "160.00",
+      "160.25",
+      "160.00",
+      "160.35",
+      "170.42",
+      "170.58"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Packing pressure (MPa)",
+      "15.85",
+      "16.08",
+      "18.56",
+      "18.25",
+      "18.51",
+      "18.55",
+      "16.49",
+      "17.88"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Cooling time (s)",
+      "22.21",
+      "23.62",
+      "19.42",
+      "19.72",
+      "19.42",
+      "19.66",
+      "19.48",
+      "19.48"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Shrinkage, % (by optimisation method)",
+      "1.85",
+      "1.71",
+      "2.45",
+      "2.56",
+      "2.65",
+      "2.75",
+      "2.80",
+      "2.75"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Shrinkage, % (validation test)",
+      "1.95",
+      "1.86",
+      "2.49",
+      "2.68",
+      "2.67",
+      "2.79",
+      "3.02",
+      "2.90"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 8,
+    "row_original": [
+      "Error (%)",
+      "5.13",
+      "8.07",
+      "1.61",
+      "4.48",
+      "0.75",
+      "1.43",
+      "7.28",
+      "5.17"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Parameter/Response",
+      "R0",
+      "R30",
+      "R40",
+      "R50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Mould temperature (°C)",
+      "40.35",
+      "40.09",
+      "48.03",
+      "48.70",
+      "49.36",
+      "48.77",
+      "46.92",
+      "47.00"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Melt temperature (°C)",
+      "179.77",
+      "179.91",
+      "178.92",
+      "179.88",
+      "180.00",
+      "179.62",
+      "177.15",
+      "179.96"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Packing pressure (MPa)",
+      "18.48",
+      "18.41",
+      "12.82",
+      "18.54",
+      "12.72",
+      "12.28",
+      "13.96",
+      "12.33"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Cooling time (s)",
+      "22.65",
+      "22.67",
+      "24.43",
+      "24.26",
+      "25.23",
+      "26.50",
+      "25.27",
+      "26.48"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Shrinkage (by optimisation method) (%)",
+      "1.92",
+      "1.92",
+      "2.01",
+      "1.87",
+      "2.05",
+      "2.01",
+      "2.08",
+      "1.97"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Shrinkage (validation test) (%)",
+      "2.08",
+      "2.01",
+      "2.08",
+      "2.05",
+      "2.16",
+      "2.11",
+      "2.19",
+      "2.10"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 9,
+    "row_original": [
+      "Error (%)",
+      "7.69",
+      "4.48",
+      "3.37",
+      "8.78",
+      "5.09",
+      "4.74",
+      "5.02",
+      "6.19"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Parameter/Response",
+      "R0",
+      "R30",
+      "R40",
+      "R50"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO",
+      "RSM",
+      "PSO"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Mould temperature (°C)",
+      "49.95",
+      "52.46",
+      "57.36",
+      "59.92",
+      "51.67",
+      "49.95",
+      "59.56",
+      "59.56"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Melt temperature (°C)",
+      "179.96",
+      "179.80",
+      "167.43",
+      "165.05",
+      "177.31",
+      "179.88",
+      "167.79",
+      "167.79"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Packing pressure (MPa)",
+      "12.46",
+      "18.52",
+      "18.50",
+      "18.51",
+      "14.39",
+      "12.78",
+      "16.18",
+      "16.18"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Cooling time (s)",
+      "24.08",
+      "22.01",
+      "23.84",
+      "25.34",
+      "19.49",
+      "19.43",
+      "23.96",
+      "23.96"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Tensile strength (by optimisation method) (MPa)",
+      "9.86",
+      "9.97",
+      "9.81",
+      "9.71",
+      "9.66",
+      "9.71",
+      "9.57",
+      "9.62"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Tensile strength (validation test) (Mpa)",
+      "9.73",
+      "9.77",
+      "9.69",
+      "9.58",
+      "9.64",
+      "9.54",
+      "9.45",
+      "9.56"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 10,
+    "row_original": [
+      "Error (%)",
+      "1.34",
+      "2.05",
+      "1.24",
+      "1.36",
+      "0.21",
+      "1.75",
+      "1.27",
+      "0.62"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-04",
+    "family": "LDPE",
+    "source_id": "REC-04",
+    "component_identity": "Sumikathe 206P / study-specific recycled LDPE",
+    "percentage_basis": null,
+    "table_index": 11,
+    "row_original": [
+      "",
+      "Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "AN",
+      "Acrylonitrile"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "ABS",
+      "Acrylonitrile–Butadiene–Styrene"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "gABS",
+      "grafted ABS"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "mABS",
+      "ABS obtained by mass polymerization"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "eABS",
+      "ABS obtained by emulsion polymerization"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "vABS",
+      "Virgin ABS (original material)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "wABS",
+      "ABS waste (post-consumer and post-industrial)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "rwABS",
+      "Mechanically recycled wABS"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "SAN",
+      "Copolymer of styrene and acrylonitrile"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "mSAN",
+      "SAN from mABS after the Möbius process"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "eSAN",
+      "SAN from eABS after the Möbius process"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "rwSAN",
+      "SAN from rwABS after the Möbius process"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "PBR",
+      "Polybutadiene rubber"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "MB",
+      "Masterbatch (50% SAN + 50% PBR)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "XRF",
+      "X-ray fluorescence"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "ICP-OES",
+      "Inductively coupled plasma–optical emission spectrometry"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "GC-MS",
+      "Gas chromatography–mass spectrometry"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "IC",
+      "Ion chromatography"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "PBR Content",
+      "Tensile Strength [MPa]",
+      "Elongation at Break [%]"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "[%]",
+      "SAN 1",
+      "SAN 2",
+      "SAN 1",
+      "SAN 2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "3",
+      "44.3",
+      "72.3",
+      "2.7",
+      "1.2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "7",
+      "45.7",
+      "55.6",
+      "4.4",
+      "2.3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "12",
+      "46.4",
+      "40.9",
+      "6.3",
+      "2.9"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "17",
+      "42.3",
+      "41.1",
+      "5.3",
+      "2.5"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "26",
+      "39.1",
+      "37.5",
+      "6.2",
+      "4.0"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "35",
+      "36.7",
+      "23.0",
+      "6.2",
+      "4.1"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "PBR Content [%]",
+      "eABS, SAN 1",
+      "eABS, SAN 2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "0",
+      "101.4",
+      "100.4"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "17",
+      "96.3",
+      "96.2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "26",
+      "94.6",
+      "94.8"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "35",
+      "92.1",
+      "93.9"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "Sample",
+      "Original ABS",
+      "ABS with Recycled SAN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "",
+      "E (GPa)",
+      "σ (MPa)",
+      "ε (%)",
+      "E (GPa)",
+      "σ (MPa)",
+      "ε (%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "mABS",
+      "1.35",
+      "36.4",
+      "23.7",
+      "1.32",
+      "41.8",
+      "16.8"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "eABS",
+      "1.48",
+      "44.6",
+      "12.1",
+      "1.41",
+      "38.4",
+      "12.2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "rwABS",
+      "1.30",
+      "50.0",
+      "10.2",
+      "1.39",
+      "37.7",
+      "17.6"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "Sample",
+      "Original ABS",
+      "ABS with Recycled SAN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "",
+      "23 °C",
+      "−30 °C",
+      "23 °C",
+      "−30 °C"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "mABS",
+      "18.5",
+      "10.4",
+      "20.5",
+      "11.7"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "eABS",
+      "19.0",
+      "9.0",
+      "21.6",
+      "12.2"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 4,
+    "row_original": [
+      "rwABS",
+      "10.7",
+      "5.2",
+      "22.2",
+      "14.7"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "Sample",
+      "Original ABS",
+      "ABS Based on Recycled SAN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "mABS-",
+      "10.8",
+      "23.8"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "eABS-",
+      "27.0",
+      "26.3"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 5,
+    "row_original": [
+      "rwABS-",
+      "27.2",
+      "24.1"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Substance [mg/Kg]",
+      "eABS",
+      "eSAN",
+      "mABS",
+      "mSAN",
+      "rwABS",
+      "rwSAN"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Styrene",
+      "200",
+      "<0.5",
+      "170",
+      "<0.5",
+      "120",
+      "90"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Bisphenol A",
+      "<1",
+      "<1",
+      "<1",
+      "<1",
+      "320",
+      "130"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Triphenyl phosphate",
+      "<1",
+      "<1",
+      "<1",
+      "<1",
+      "42",
+      "4.1"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "DEHP",
+      "<5",
+      "<5",
+      "<5",
+      "<5",
+      "40",
+      "28"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Irganox 1076",
+      "1400",
+      "10",
+      "2300",
+      "<10",
+      "3100",
+      "470"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Bromine",
+      "<20",
+      "<20",
+      "<20",
+      "<20",
+      "270",
+      "40"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Cadmium",
+      "<25",
+      "<25",
+      "<25",
+      "<25",
+      "43",
+      "<25"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Solvents and unknowns",
+      "530",
+      "2600",
+      "270",
+      "450",
+      "310",
+      "1800"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-05",
+    "family": "ABS",
+    "source_id": "REC-05",
+    "component_identity": "ABS/SAN systems regenerated by selective dissolution; not ordinary virgin/regrind blends",
+    "percentage_basis": null,
+    "table_index": 6,
+    "row_original": [
+      "Oligomers",
+      "9500",
+      "79",
+      "3800",
+      "170",
+      "3000",
+      "2800"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Property",
+      "PA6",
+      "PA66"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Density, g/cm 3",
+      "1.18",
+      "1.14"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Molding shrinkage, %",
+      "1.1–1.5",
+      ""
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Water absorption (Equilibrium, 23 °C, 50% RH), %",
+      "2.5",
+      "2.6"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Tensile modulus, MPa",
+      "2900",
+      "3100"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Tensile stress, MPa",
+      "70",
+      "82"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Tensile strain, %",
+      "4.0",
+      "4.5"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Flexural modulus, MPa",
+      "3100",
+      "2800"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Flexural stress (strain de 3.5%), MPa",
+      "85",
+      "115"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Heat deflection temperature 1.8 MPa, unannealed, °C",
+      "80",
+      "70"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Coefficient of thermal expansion, cm/cm/°C",
+      "6.0 × 10 −5",
+      "1.0 × 10 −4"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 0,
+    "row_original": [
+      "Thermal conductivity, W/m·K",
+      "0.34",
+      "0.16"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Injection Parameters, Units",
+      "PA6",
+      "PA66"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Processing melt temperature, °C",
+      "240–260",
+      "280–300"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Mold temperature, °C",
+      "60–80",
+      "50–90"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Holding pressure, MPa",
+      "140",
+      "100"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Back pressure, MPa",
+      "15",
+      "-"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 1,
+    "row_original": [
+      "Screw Speed, m/min",
+      "30",
+      "24"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "Materials",
+      "Loads, kg",
+      "T, °C"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "PA6",
+      "1.2",
+      "235"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 2,
+    "row_original": [
+      "PA66",
+      "0.325",
+      "275"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "Number of Recycling Cycles",
+      "Mean Area of Inclusion (μm 2 )",
+      "Total Area of Inclusion (µm 2 )",
+      "Area of Porosity (µm 2 )"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "0",
+      "68.3",
+      "5532.0 (10.2%)",
+      "6822.7 (12.6%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "1",
+      "52.3",
+      "3823.9 (7.1%)",
+      "7542.0 (14.0%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "2",
+      "42.8",
+      "3602.3 (6.6%)",
+      "9318.1 (17.3%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "3",
+      "37.2",
+      "2420.1 (4.5%)",
+      "10,374.0 (19.2%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "4",
+      "33.9",
+      "2376.8 (4.4%)",
+      "15,341.2 (28.5%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "5",
+      "27.3",
+      "2184.5 (4.0%)",
+      "17,719.2 (32.9%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  },
+  {
+    "experiment_id": "experiment-REC-06",
+    "family": "PA6",
+    "source_id": "REC-06",
+    "component_identity": "Study-specific PA6 and PA66; keep both polymer columns separate",
+    "percentage_basis": null,
+    "table_index": 3,
+    "row_original": [
+      "6",
+      "13.3",
+      "1122.8 (2%)",
+      "17,854.5 (33.1%)"
+    ],
+    "automatic_application_allowed": false,
+    "scope": "Original experiment only; cells may be headings, model parameters or study machine conditions, not universal properties."
+  }
+]
