@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ISO 1133-1:2022",
+    "publisher": "ISO",
+    "title": "ISO 1133-1:2022 - Plastics — Determination of the melt mass-flow rate (MFR) and melt volume-flow rate (MVR) of thermoplastics — Part 1: Standard method",
+    "url": "https://www.iso.org/standard/83905.html",
+    "status_observed": "Published",
+    "publication_date": "2022-06",
+    "checked_on": "2026-10-16",
+    "sha256": "c3a1f877fd3447d61823b59098ff074664b02a5cd62b1fe14265a68f67e10d06",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "ISO 1133-2:2011",
+    "publisher": "ISO",
+    "title": "ISO 1133-2:2011 - Plastics — Determination of the melt mass-flow rate (MFR) and melt volume-flow rate (MVR) of thermoplastics — Part 2: Method for materials sensitive to time-temperature history and/or moisture",
+    "url": "https://www.iso.org/standard/44274.html",
+    "status_observed": "Published",
+    "publication_date": "2011-12",
+    "checked_on": "2026-10-16",
+    "sha256": "f38b9fe239b0891965aed04c7a7a82e86d89cbd48d070ae1c60d4cb0014137c0",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "ASTM D1238-26",
+    "publisher": "ASTM",
+    "title": "D1238 Standard Test Method for Melt Flow Rates of Thermoplastics by Extrusion Plastometer",
+    "url": "https://store.astm.org/d1238-26.html",
+    "status_observed": "Active",
+    "publication_date": null,
+    "checked_on": "2026-10-16",
+    "sha256": "f7cdc2f9ee322e2cdfda4f8f48287d267152993e947c69f0cb31317221719a96",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "ISO 15270:2008",
+    "publisher": "ISO",
+    "title": "ISO 15270:2008 - Plastics — Guidelines for the recovery and recycling of plastics waste",
+    "url": "https://www.iso.org/standard/45089.html",
+    "status_observed": "Published",
+    "publication_date": "2008-06",
+    "checked_on": "2026-10-16",
+    "sha256": "e672669610d5d760b7b5c14ac9ca2b4f1fa0539044955385235ae7131f1b9f31",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": "Potential replacement by the ISO 15270 series is announced on the catalogue page; check again before regulatory use."
+  },
+  {
+    "id": "BS EN 15344:2025",
+    "publisher": "BSI",
+    "title": "Plastics. Recycled plastics. Characterization of Polyethylene (PE) recyclates",
+    "url": "https://knowledge.bsigroup.com/products/plastics-recycled-plastics-characterization-of-polyethylene-pe-recyclates-2",
+    "status_observed": "Current",
+    "publication_date": null,
+    "checked_on": "2026-10-16",
+    "sha256": "9b1d30bd46b16fa4024423e1f75977cd8446650cadd0fb454e5055437309f760",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "BS EN 15345:2025",
+    "publisher": "BSI",
+    "title": "Plastics. Recycled plastics. Characterization of polypropylene (PP) recyclates",
+    "url": "https://knowledge.bsigroup.com/products/plastics-recycled-plastics-characterization-of-polypropylene-pp-recyclates-1",
+    "status_observed": "Current",
+    "publication_date": null,
+    "checked_on": "2026-10-16",
+    "sha256": "3385e899d6c76e7120093555594e7e9254a79d2c8486d476028425873e7a93fc",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "BS EN 15346:2024",
+    "publisher": "BSI",
+    "title": "Plastics. Recycled plastics. Characterization of poly(vinyl chloride) (PVC) recyclates",
+    "url": "https://knowledge.bsigroup.com/products/plastics-recycled-plastics-characterization-of-polyvinyl-chloride-pvc-recyclates-2",
+    "status_observed": "Current",
+    "publication_date": null,
+    "checked_on": "2026-10-16",
+    "sha256": "a07df334f7569eb100e7a9dfa4c479b6b0e242ec6b2442a03a78ca84da9ccb4c",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "BS EN 15348:2024",
+    "publisher": "BSI",
+    "title": "Plastics. Recycled plastics. Characterization of poly(ethylene terephthalate) (PET) recyclates",
+    "url": "https://knowledge.bsigroup.com/products/plastics-recycled-plastics-characterization-of-polyethylene-terephthalate-pet-recyclates-2",
+    "status_observed": "Current",
+    "publication_date": null,
+    "checked_on": "2026-10-16",
+    "sha256": "959eca25592dc859a9b39f828929c267566d5bc321c7bad8e7c0957ccddc913a",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  },
+  {
+    "id": "BS EN 15343:2007",
+    "publisher": "BSI",
+    "title": "Plastics. Recycled plastics. Plastics recycling traceability and assessment of conformity and recycled content",
+    "url": "https://knowledge.bsigroup.com/products/plastics-recycled-plastics-plastics-recycling-traceability-and-assessment-of-conformity-and-recycled-content",
+    "status_observed": "Current",
+    "publication_date": null,
+    "checked_on": "2026-10-16",
+    "sha256": "469ec82bda45791225a5288e62f323a10d000d2366d28fb95b96d7546b4a24d9",
+    "scope": "Public catalogue metadata; full standard not reproduced or used to invent numerical properties.",
+    "note": null
+  }
+]
