@@ -153,3 +153,20 @@ aside .learning-nav{display:block;overflow:visible;margin-top:16px;padding-top:1
 /* El desplegable móvil comparte selectProcess con los botones de escritorio. */
 .mobile-process-picker{display:none}
 @media(max-width:800px){.mobile-process-picker{display:grid;gap:6px}.mobile-process-picker label{font-size:12px;font-weight:700}.mobile-process-picker select{width:100%;min-height:44px}aside #modules{display:none}}
+
+/* Etapa 2: acciones compactas y diálogo nativo; sin cambiar calculadoras. */
+.historyRow { flex-wrap: wrap; gap: .7rem; }
+.historyRow > span { flex: 1 1 18rem; overflow-wrap: anywhere; }
+.history-actions { display:flex;flex-wrap:wrap;gap:.5rem;align-items:end; }
+.history-actions label,.export-picker { display:grid;gap:.3rem;font-size:.85rem; }
+.history-actions select { width:auto;min-height:44px; }
+.save-dialog { width:min(34rem,calc(100vw - 2rem));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:1rem;padding:1.5rem; }
+.save-dialog::backdrop { background:#15223699; }
+.save-dialog label { display:grid;gap:.5rem;margin:1rem 0; }
+.save-dialog .overwrite-confirm { display:flex;align-items:center; }
+.save-dialog .overwrite-confirm input { width:auto; }
+.save-dialog [hidden] { display:none; }
+.save-dialog select { max-width:100%; }
+#save-target-detail { overflow-wrap:anywhere; }
+.inputs-panel .actions { align-items:end; }
+.export-picker select { min-height:44px; }

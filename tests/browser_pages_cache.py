@@ -58,11 +58,18 @@ try:
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
             if width == 1440:
                 assert page.locator('#calculator-view > .bar').evaluate('el => getComputedStyle(el).display') == 'flex'
+            # Las dependencias diferidas también deben resolver dentro del SHA del artefacto.
+            for fmt,magic in [('xlsx',b'PK'),('pdf',b'%PDF')]:
+                page.locator('#export-format').select_option(fmt)
+                with page.expect_download(timeout=90000) as download:
+                    page.locator('#export').click()
+                assert Path(download.value.path()).read_bytes().startswith(magic)
+                page.wait_for_function("!document.getElementById('export').disabled")
             assert not stale_requests, stale_requests
             assert not errors, errors
             context.close()
         browser.close()
-    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; sin mezclar recursos antiguos.')
+    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF diferidos válidos y sin mezclar recursos antiguos.')
 finally:
     server.shutdown()
     server.server_close()

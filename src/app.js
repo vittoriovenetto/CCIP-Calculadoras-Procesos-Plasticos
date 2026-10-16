@@ -3,13 +3,13 @@ import { initI18n, getLanguage, t } from "./i18n.js";
 import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
 import { calculateWithMeltDensity, applyFamilyMeltDensity } from "./injection-density.js";
 import { renderInjectionDensity } from "./injection-density-view.js";
-import { readHistory, renameHistoryItem, storageKey } from "./history.js";
+import { mountHistory } from "./history-view.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
 import { fieldGroups, primaryLabels } from "./presentation.js";
 import { bindParameterHelp } from "./tooltips.js";
 import { safe, renderMaterials, renderMaterialFeedback, provenanceText } from "./materials-view.js";
 import { guideHref } from "./formula-learning.js";
-import { renderComparison } from "./compare.js";
+
 import { defaultInjectionProfile, restoreInjectionProfile, calculateInjectionProfile } from "./injection-profile.js";
 import { renderInjectionProfile } from "./injection-profile-view.js";
 import { renderManualData } from "./materials-audit-view.js";
@@ -27,10 +27,9 @@ let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
 const initialValues = () => Object.fromEntries(mod().fields.map(f => [f.key, f.default ?? ""]));
-const loadHistory = () => {
-  // Acceder al propio localStorage también puede fallar en contextos restringidos.
-  try { return readHistory(localStorage); } catch { return []; }
-};
+let historyView;
+const renderHistory = () => historyView?.render();
+const initialOrigins = () => Object.fromEntries(mod().fields.filter(f => f.default !== undefined && f.default !== "").map(f => [f.key,"default_example"]));
 
 function invalidate() {
   $("result-date").textContent = "Pendientes";
@@ -45,11 +44,12 @@ function invalidate() {
 
 function selectProcess(id) {
   if (!modules.some(m => m.id === id)) return;
-  sessions.set(state.id, { values: state.values, material: state.material, filters: state.filters });
+  sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, filters: state.filters });
   const selectedGrade = state.material.grade_snapshot?.id;
   state.id = id;
   const session = sessions.get(state.id);
   state.values = session?.values || initialValues();
+  state.origins = session?.origins || initialOrigins();
   state.material = session?.material || freshMaterial();
   state.filters = session?.filters || { family: "", manufacturer: "" };
   if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
@@ -222,6 +222,7 @@ function drawFields() {
   document.querySelectorAll("[data-field]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => {
     state.values[el.dataset.field] = el.validity.badInput ? "invalid" : el.value;
     markManual(state.material, state.id, el.dataset.field, state.values[el.dataset.field]);
+    state.origins[el.dataset.field] = "manual";
     if(state.id==='secado'&&['residence','targetT'].includes(el.dataset.field)) {
       const property=state.material.grade_snapshot?.properties[el.dataset.field==='residence'?'drying_time':'drying_temperature'];
       const number=Number(el.value);
@@ -269,7 +270,7 @@ function compute() {
   const issues=inputIssues(state.id,inputs,state.level,a);
   for(const issue of issues)if(!a.warnings.includes(issue.message))a.warnings.push(issue.message);
   const visible=displayMetrics(a);
-  const item = {input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
+  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins}},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => visible.find(m => m.label === label)).filter(Boolean);
@@ -290,60 +291,26 @@ function compute() {
   return item;
 }
 
-function renderHistory() {
-  const items = loadHistory();
-  $("history").innerHTML = items.length ? items.slice(0, 15).map((x, i) => `<div class="historyRow"><span>${typeof x.name === 'string' && x.name ? `<b data-i18n-ignore>${safe(x.name)}</b> · ` : ''}${safe(modules.find(m => m.id === x.module).name)} · ${safe(new Date(x.date).toLocaleString("es-DO"))}</span><button type="button" data-history-rename="${i}">Renombrar</button><button data-history="${i}">Recuperar</button></div>`).join("") : "<p class='muted'>Aún no hay cálculos guardados en este navegador.</p>";
-  renderComparison($("comparison"), items, modules);
-  $("history").querySelectorAll('[data-history-rename]').forEach(button => button.addEventListener('click', () => {
-    const index = Number(button.dataset.historyRename), item = items[index];
-    const name = prompt(t('Nombre del cálculo (máximo 120 caracteres):'), typeof item.name === 'string' ? item.name : t(modules.find(m => m.id === item.module).name));
-    if (name === null) return;
-    if (!name.trim() || name.trim().length > 120) { alert(t('Introduce un nombre de 1 a 120 caracteres.')); return; }
-    try { renameHistoryItem(localStorage, index, name); renderHistory(); }
-    catch { alert(t('No se pudo renombrar el cálculo en este navegador.')); }
-  }));
-  document.querySelectorAll("[data-history]").forEach(b => b.addEventListener("click", () => {
-    const item = items[Number(b.dataset.history)];
+function restoreHistoryItem(item) {
     state.id = item.module;
     state.level = item.level;
     state.values = { ...initialValues(), ...item.inputs };
+    state.origins = {...item.calculation_metadata?.input_origins};
     state.material = restoreMaterial(item.material);
     if (state.id === 'inyeccion') state.profile = restoreInjectionProfile(item.injection_profile_settings);
     state.filters = { family: state.material.grade_snapshot?.family || "", manufacturer: state.material.grade_snapshot?.manufacturer || "" };
-    // Recuperar conserva el snapshot: no volver a aplicar datos actuales ni ocultos.
     nav();
     $("level").value = state.level;
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
-    drawFields();
-    drawMaterials();
-    drawProfile(null);
-    renderHistory();
-    compute();
-  }));
+    drawFields();drawMaterials();drawProfile(null);renderHistory();compute();
 }
 
 $("calculate").addEventListener("click", compute);
-$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.material = freshMaterial(); state.filters = { family: "", manufacturer: "" }; draw(); });
+$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw(); });
-$("save").addEventListener("click", () => {
-  const item = compute();
-  const history = loadHistory();
-  history.unshift(item);
-  try {
-    localStorage.setItem(storageKey, JSON.stringify(history.slice(0, 60)));
-    renderHistory();
-  } catch { alert(t("No se pudo guardar el historial en este navegador.")); }
-});
-$("export").addEventListener("click", () => {
-  const item = compute();
-  const blob = new Blob([JSON.stringify(item, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob), a = document.createElement("a");
-  a.href = url;
-  a.download = "ccip-" + item.module + "-" + item.date.slice(0, 10) + ".json";
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-});
+historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:compute,onRestore:restoreHistoryItem});
+state.origins = initialOrigins();
 state.values = initialValues();
 draw();
 initI18n();
