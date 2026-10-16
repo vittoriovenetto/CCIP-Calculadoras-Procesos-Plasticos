@@ -29,6 +29,8 @@ No publica. El workflow de validación incluye esta rama, PR hacia Etapa 3 y la 
 | Historial y archivos reales Etapa 2 | **6/6** |
 | Regresión documental y formulaciones Etapa 3 | **10/10** |
 | Biblioteca y contribuciones Etapa 4 | **7/7** |
+| Build estático local | Correcto; no publicado |
+| Artefacto con caché obsoleta | Correcto en 390 / 768 / 1440 px; incluye biblioteca y XLSX de ficha |
 
 [Logs de ejecución](logs/) · [24 capturas ES/EN y seis anchos](capturas/README.md).
 
@@ -68,3 +70,5 @@ La activación y el ensayo remoto completo de Actions están pendientes, como de
 reconfirmaron externamente las fuentes aceptadas de Etapa 3. Permanecen los 17 grados sin nuevo
 enriquecimiento numérico y las limitaciones de curvas/condiciones de ensayo de sus fuentes.
 No hay validación de compatibilidad de mezclas, equipos o formulaciones por el hecho de consultarlas.
+
+[Integridad de motores, datos originales y archivos históricos](integridad.json): comparación byte a byte con la base aceptada.
