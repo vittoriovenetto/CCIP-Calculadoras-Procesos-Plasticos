@@ -43,20 +43,26 @@ function invalidate() {
   for(const input of document.querySelectorAll('[data-field]')) input.removeAttribute('aria-invalid');
 }
 
+function selectProcess(id) {
+  if (!modules.some(m => m.id === id)) return;
+  sessions.set(state.id, { values: state.values, material: state.material, filters: state.filters });
+  const selectedGrade = state.material.grade_snapshot?.id;
+  state.id = id;
+  const session = sessions.get(state.id);
+  state.values = session?.values || initialValues();
+  state.material = session?.material || freshMaterial();
+  state.filters = session?.filters || { family: "", manufacturer: "" };
+  if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
+  closeLearning();draw();
+}
+
 function nav() {
   $("modules").innerHTML = modules.map(m => `<button data-module="${m.id}" aria-pressed="${m.id === state.id}" class="${m.id === state.id ? "active" : ""}">${safe(m.name)}</button>`).join("");
-  document.querySelectorAll("[data-module]").forEach(b => b.addEventListener("click", () => {
-    sessions.set(state.id, { values: state.values, material: state.material, filters: state.filters });
-    const selectedGrade = state.material.grade_snapshot?.id;
-    state.id = b.dataset.module;
-    const session = sessions.get(state.id);
-    state.values = session?.values || initialValues();
-    state.material = session?.material || freshMaterial();
-    state.filters = session?.filters || { family: "", manufacturer: "" };
-    if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
-    closeLearning();draw();
-  }));
+  document.querySelectorAll("[data-module]").forEach(b => b.addEventListener("click", () => selectProcess(b.dataset.module)));
+  $("process-select").innerHTML = modules.map(m => `<option value="${m.id}">${safe(m.name)}</option>`).join("");
+  $("process-select").value = state.id;
 }
+$("process-select").addEventListener("change", event => selectProcess(event.target.value));
 
 function draw() {
   nav();
