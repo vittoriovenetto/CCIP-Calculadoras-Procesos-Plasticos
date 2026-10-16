@@ -1,3 +1,7 @@
+import {readHistory} from './history.js';
+import {createExplorer} from './material-explorer-view.js';
+import {mergeSharedAndLocal,emptySharedCatalog,validateSharedCatalog} from './shared-materials.js';
+import {listUserMaterials,persistUserMaterials,makeCustomMaterial} from './custom-materials.js';
 import {renderRecycled} from './recycled-view.js';
 import {renderResearch} from './material-research-view.js';
 import {applyFormulationInput,leaveFormulation} from './formulation-state.js';
@@ -5,7 +9,7 @@ import {activeFormulation} from './recycled.js';
 import {calculateFormulationCase} from "./formulation-calculation.js";
 import { modules, activeFields } from "./schema.js";
 import { initI18n, getLanguage, t } from "./i18n.js";
-import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
+import { renderCustomEditor } from "./custom-materials.js";
 import { applyFamilyMeltDensity } from "./injection-density.js";
 import { renderInjectionDensity } from "./injection-density-view.js";
 import { mountHistory } from "./history-view.js";
@@ -27,6 +31,7 @@ const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), filters: { family: "", manufacturer: "" } };
 state.profile = defaultInjectionProfile();
 const sessions = new Map();
+let sharedCatalog=emptySharedCatalog(), sharedAvailable=false, explorer;
 let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
@@ -85,16 +90,17 @@ function draw() {
 const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}">Ver fórmula y ejemplo</a>`;
 
 const calculatorUrl = new URL(location.href);
-for(const key of ['view','process','level'])calculatorUrl.searchParams.delete(key);
+for(const key of ['view','process','level','material'])calculatorUrl.searchParams.delete(key);
 calculatorUrl.hash='';
 function closeLearning(push=true) {
-  if($("learning-view").hidden)return;
+  if($("learning-view").hidden && $("materials-view").hidden)return;
+  explorer?.returnEditor();$("materials-view").hidden=true;$("materials-page").removeAttribute("aria-current");$("calculator-page").setAttribute("aria-current","page");
   $("learning-view").hidden=true;$("calculator-view").hidden=false;$("learn-page").removeAttribute("aria-current");
   if(push)history.pushState({ccipView:'calculator'},'',calculatorUrl);
   $("module-title").setAttribute('tabindex','-1');$("module-title").focus({preventScroll:true});
 }
 function showLearning(href,push=true) {
-  parameterHelp.close();
+  parameterHelp.close();$("calculator-page").removeAttribute("aria-current");explorer?.returnEditor();$("materials-view").hidden=true;$("materials-page").removeAttribute("aria-current");
   const requested=new URL(href,location.href),url=new URL(calculatorUrl);
   url.searchParams.set('view','learning');
   for(const key of ['process','level'])if(requested.searchParams.has(key))url.searchParams.set(key,requested.searchParams.get(key));
@@ -109,11 +115,20 @@ document.addEventListener('click',event=>{
   if(!link||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;
   event.preventDefault();showLearning(link.href);
 });
-addEventListener('popstate',()=>new URL(location.href).searchParams.get('view')==='learning'?showLearning(location.href,false):closeLearning(false));
+function showMaterials(key='',push=true){
+  parameterHelp.close();$("calculator-page").removeAttribute('aria-current');const url=new URL(calculatorUrl);url.searchParams.set('view','materials');if(key)url.searchParams.set('material',key);
+  if(push)history.pushState({ccipView:'materials'},'',url);
+  $("calculator-view").hidden=true;$("learning-view").hidden=true;$("materials-view").hidden=false;$("learn-page").removeAttribute('aria-current');$("materials-page").setAttribute('aria-current','page');explorer.render(key);
+}
+$("calculator-page").addEventListener("click",e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();closeLearning();});
+$("materials-page").addEventListener('click',e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();showMaterials();});
+function routeView(){const url=new URL(location.href),view=url.searchParams.get('view');if(view==='learning')showLearning(url,false);else if(view==='materials')showMaterials(url.searchParams.get('material')||'',false);else closeLearning(false);}
+addEventListener('popstate',routeView);
+
 
 function refreshPersonalCatalog() {
   const base = catalogBase || {schema_version:"1.3.0",dataset_name:"Personal materials",retrieved_on:new Date().toISOString().slice(0,10),sources:{},materials:[]};
-  const merged = mergeCustomMaterials(base);
+  const merged = mergeSharedAndLocal(base,sharedCatalog);
   library = merged.materials.length ? validateLibrary(merged) : null;
   if (library) loadStatus = `${library.materials.length} opciones · catálogo ${library.catalog_revision || library.schema_version} · revisión ${library.retrieved_on}`;
 }
@@ -121,6 +136,7 @@ function drawCustomEditor() {
   renderCustomEditor($("custom-material-editor"), {
     onSave: record => {
       refreshPersonalCatalog();
+      if(!$("materials-view").hidden){drawCustomEditor();showMaterials(record.id+(sharedCatalog.materials.some(x=>x.id===record.id)?'~local':''));return;}
       for (const session of sessions.values()) if (session.material.grade_snapshot?.id === record.id) selectMaterial(library,session.material,session.values,record.id);
       selectMaterial(library,state.material,state.values,record.id);
       state.filters = {family:record.family,manufacturer:record.manufacturer};
@@ -128,11 +144,12 @@ function drawCustomEditor() {
     },
     onDelete: id => {
       refreshPersonalCatalog();
+      if(!$("materials-view").hidden){drawCustomEditor();showMaterials();return;}
       for (const session of sessions.values()) if (session.material.grade_snapshot?.id === id) {selectMaterial(library,session.material,session.values,null);session.filters={family:"",manufacturer:""};}
       if (state.material.grade_snapshot?.id === id) {selectMaterial(library,state.material,state.values,null);state.filters={family:"",manufacturer:""};}
       drawCustomEditor();draw();
     },
-    onImport: () => {refreshPersonalCatalog();drawCustomEditor();draw();$("custom-panel").open=true;}
+    onImport: () => {refreshPersonalCatalog();drawCustomEditor();if(!$("materials-view").hidden){explorer.render();}else draw();$("custom-panel").open=true;}
   });
 }
 
@@ -332,13 +349,24 @@ state.origins = initialOrigins();
 state.values = initialValues();
 draw();
 initI18n();
-document.addEventListener('ccip-language-change',drawMaterials);
-if(new URL(location.href).searchParams.get('view')==='learning')showLearning(location.href,false);
+explorer=createExplorer($("materials-view"),{
+ getShared:()=>sharedCatalog,getSharedAvailable:()=>sharedAvailable,getCatalog:()=>catalogBase,getFormulations:()=>[state.material.formulation,...[...sessions.values()].map(s=>s.material.formulation),...readHistory().map(x=>x.material?.formulation)].filter(Boolean),
+ onRoute:key=>showMaterials(key),onBack:()=>closeLearning(),editor:$("custom-material-editor"),
+ onNew:()=>{$("custom-panel").open=true;$("custom-form").elements.grade.focus();},
+ onUse:entry=>{refreshPersonalCatalog();selectMaterial(library,state.material,state.values,entry.id);state.filters={family:entry.family,manufacturer:entry.manufacturer};closeLearning();draw();},
+ onEdit:entry=>{
+   const locals=listUserMaterials();if(!locals.some(x=>x.id===entry.id)){persistUserMaterials([...locals,entry.material]);localStorage.setItem('ccip-shared-base-'+entry.id,String(entry.material.shared_revision));drawCustomEditor();}
+   explorer.editHost();$("custom-material-editor").querySelector(`[data-personal-edit="${entry.id}"]`)?.click();
+ },
+ onCopy:entry=>{const copy=structuredClone(entry.material);copy.id=makeCustomMaterial({family:copy.family,grade:copy.grade}).id;copy.grade+=' (copia local)';delete copy.shared_metadata;delete copy.shared_revision;persistUserMaterials([...listUserMaterials(),copy]);refreshPersonalCatalog();drawCustomEditor();showMaterials(copy.id);}
+});
+document.addEventListener('ccip-language-change',()=>{drawMaterials();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
+routeView();
 
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
 fetch(new URL("./data/materials.v1.3.json", import.meta.url))
   .then(response => { if (!response.ok) throw Error(`HTTP ${response.status}`); return response.json(); })
-  .then(data => { catalogBase = validateLibrary(data); library = validateLibrary(mergeCustomMaterials(catalogBase)); loadStatus = `${library.materials.length} opciones · catálogo ${data.catalog_revision || data.schema_version} · revisión ${library.retrieved_on}`; })
+  .then(async data => {catalogBase=validateLibrary(data);try{const r=await fetch(new URL('./data/user-materials.v1.json',import.meta.url));if(!r.ok)throw Error();sharedCatalog=validateSharedCatalog(await r.json());sharedAvailable=true;refreshPersonalCatalog();}catch{refreshPersonalCatalog();loadStatus+=' · Biblioteca compartida no disponible';}})
   .catch(() => { loadStatus = "Catálogo no disponible: puedes continuar con material personalizado y datos manuales."; })
-  .finally(drawMaterials);
+  .finally(()=>{drawMaterials();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get("material")||"");});

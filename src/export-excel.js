@@ -24,12 +24,12 @@ export async function generateExcel(data) {
     }); });
     return ws;
   };
-  sheet(tr('Resumen', 'Summary'), [tr('Campo', 'Field'), tr('Valor', 'Value')], data.summary, [34, 90]);
-  sheet(tr('Parámetros', 'Parameters'), [tr('Parámetro', 'Parameter'), tr('Valor', 'Value'), tr('Unidad', 'Unit'), tr('Procedencia', 'Provenance'), tr('Entrada original', 'Original input'), 'source_id'],
+  sheet(data.report_labels?.summary||tr('Resumen', 'Summary'), [tr('Campo', 'Field'), tr('Valor', 'Value')], data.summary, [34, 90]);
+  sheet(data.report_labels?.parameters||tr('Parámetros', 'Parameters'), [tr('Parámetro', 'Parameter'), tr('Valor', 'Value'), tr('Unidad', 'Unit'), tr('Procedencia', 'Provenance'), tr('Entrada original', 'Original input'), 'source_id'],
     data.parameters.map(p => [p.label, p.value, p.unit, p.origin, p.original, p.source_id]), [35, 24, 18, 55, 30, 18]);
-  sheet(tr('Resultados', 'Results'), [tr('Resultado', 'Result'), tr('Valor', 'Value'), tr('Unidad', 'Unit'), tr('Fórmula', 'Formula'), tr('Estimación', 'Estimate')],
+  sheet(data.report_labels?.results||tr('Resultados', 'Results'), [tr('Resultado', 'Result'), tr('Valor', 'Value'), tr('Unidad', 'Unit'), tr('Fórmula', 'Formula'), tr('Estimación', 'Estimate')],
     data.results.map(r => [r.label, r.value, r.unit, r.formula, r.estimated ? tr('Sí', 'Yes') : '']), [45, 25, 20, 65, 20]);
-  sheet(tr('Fuentes y observaciones', 'Sources and observations'), [tr('Referencia / tipo', 'Reference / type'), tr('Contenido / condiciones', 'Content / conditions'), 'URL'],
+  sheet(data.report_labels?.sources||tr('Fuentes y observaciones', 'Sources and observations'), [tr('Referencia / tipo', 'Reference / type'), tr('Contenido / condiciones', 'Content / conditions'), 'URL'],
     [...data.sources, ...data.observations], [50, 110, 70]);
   if (data.profile.length) sheet(tr('Perfil L1 L2 L3', 'L1 L2 L3 profile'), [tr('Tramo', 'Stage'), '%', 'cm³', 'g', 'Δs [mm]', tr('Acumulado [mm]', 'Cumulative [mm]'), tr('Inicio [mm]', 'Start [mm]'), tr('Fin [mm]', 'End [mm]')], data.profile, [18, 16, 24, 24, 24, 24, 24, 24]);
   const buffer = await book.xlsx.writeBuffer();

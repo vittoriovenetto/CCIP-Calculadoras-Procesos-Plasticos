@@ -1,3 +1,4 @@
+import {EXTRA_NUMERICS,EXTRA_UNITS,USER_CATEGORY,userDetails,testDetails,validRevision,validTimestamp} from './user-material-details.js';
 /** Local, unverified records. Validate and normalize before storage or merging. */
 import { getLanguage, t } from './i18n.js';
 export const USER_KEY = 'ccip-user-materials-v1';
@@ -10,13 +11,13 @@ export const NUMERICS = {
   mfr: ['MFR','g/10min',1000], mvr: ['MVR','cm3/10min',1000],
   intrinsic_viscosity: ['Viscosidad intrínseca (IV)','dL/g',20],
   melt_temperature_recommended: ['Temperatura recomendada de procesado','°C',500],
-  melting_temperature: ['Temperatura de fusión','°C',500]
+  melting_temperature: ['Temperatura de fusión','°C',500], ...EXTRA_NUMERICS
 };
 export const UNITS = {
   solid_density: ['g/cm3','kg/m3'], melt_density: ['g/cm3','kg/m3'], bulk_density: ['kg/L','kg/m3','g/cm3'],
   specific_heat: ['kJ/kg·K','J/kg·K'], drying_temperature: ['°C','K'], drying_time: ['h','min'],
   moisture_target: ['%'], moisture_max: ['%'], mfr: ['g/10min'], mvr: ['cm3/10min'],
-  intrinsic_viscosity: ['dL/g'], melt_temperature_recommended: ['°C','K'], melting_temperature: ['°C','K']
+  intrinsic_viscosity: ['dL/g'], melt_temperature_recommended: ['°C','K'], melting_temperature: ['°C','K'], ...EXTRA_UNITS
 };
 const expectedPhase = key => key === 'solid_density' ? 'solid' : key === 'melt_density' ? 'melt' : key === 'bulk_density' ? 'bulk' : key === 'specific_heat' ? 'unknown' : 'test';
 const phases = ['unknown','solid','melt','bulk','test'];
@@ -39,6 +40,7 @@ export function convertProperty(key, value, unit = NUMERICS[key]?.[1]) {
   let number = Number(value);
   if (!Number.isFinite(number)) fail('La propiedad debe ser un número finito.');
   if (unit === 'kg/m3' || unit === 'J/kg·K') number /= 1000;
+  if (unit === 'GPa') number *= 1000;
   if (unit === 'K') number -= 273.15;
   if (key === 'drying_time' && unit === 'min') number /= 60;
   const min = NUMERICS[key][1] === '°C' ? -273.15 : 0;
@@ -46,7 +48,7 @@ export function convertProperty(key, value, unit = NUMERICS[key]?.[1]) {
   if (number > NUMERICS[key][2] || (allowZero ? number < min : number <= min)) fail('Valor fuera de rango: ' + NUMERICS[key][0]);
   return number;
 }
-export function makeCustomMaterial(form, existingId) {
+export function makeCustomMaterial(form, existingId, previous) {
   if (!form || typeof form !== 'object' || Array.isArray(form)) fail('Formato de material no válido.');
   const family = text(form.family,10), grade = text(form.grade,100), manufacturer = text(form.manufacturer,100,'Usuario');
   if (!FAMILIES.includes(family) || grade.length < 2) fail('Nombre, familia o fabricante no válido.');
@@ -69,23 +71,24 @@ export function makeCustomMaterial(form, existingId) {
       phase,physical_form:physicalForm,method:text(form[key+'_method'],160,method) || 'Indicado por usuario',
       condition:text(form[key+'_conditions'],500,conditions) || null,
       note:description || 'Origen manual; comprobar con ficha técnica o medición.',
-      evidence:{url:propertyUrl,description:description || 'Datos introducidos por usuario',manufacturer,grade,entered:true},
+      evidence:{url:propertyUrl,description:description || 'Datos introducidos por usuario',manufacturer,grade,entered:true,test_details:testDetails(form,key)},
       entered_value:Number(raw),entered_unit:enteredUnit };
   }
-  return { id,family,manufacturer,grade,source_id:sourceId,process_tags:[],properties,
+  const details=userDetails(form),now=new Date().toISOString();
+  return { id,family,manufacturer,grade,source_id:sourceId,process_tags:details.applications.map(x=>({inyeccion:'inyección',extrusion:'extrusión',pelicula:'película soplada',soplado:'soplado',termoformado:'termoformado',secado:'secado',costos:'costos'})[x]),properties,category:USER_CATEGORY,user_details:details,revision:previous?validRevision(previous.revision)+1:1,created_at:previous?.created_at??(previous?null:now),
     record_status:'user_entered_unverified',revision_review_required:false,
     notes:'Material creado por usuario. Datos no verificados por CCIP; uso condicionado a la trazabilidad y validación del usuario.',
     missing_data_audit:{},reference_properties_not_for_autofill:[],
     pvt:{status:'not_found_grade_specific_public',source_ref:null,calculator_autofill_allowed:false,measured_or_calibrated_coefficients:null,
       graphical_data:'No hay modelo pVT validado para este registro.',T_range_C:null,P_range_MPa:null},
     user_source:{manufacturer,grade,url,description:source || 'Datos introducidos por usuario',entered:true},
-    local_updated_on:new Date().toISOString() };
+    local_updated_on:now };
 }
 export function validateUserMaterial(record) {
   if (!record || typeof record !== 'object' || Array.isArray(record) || typeof record.id !== 'string' ||
       !record.properties || typeof record.properties !== 'object' || Array.isArray(record.properties)) fail('Registro personal no válido.');
   const form = {family:record.family,grade:record.grade,manufacturer:record.manufacturer,
-    url:record.user_source?.url,source:record.user_source?.description};
+    url:record.user_source?.url,source:record.user_source?.description,user_details:record.user_details};
   for (const [key,p] of Object.entries(record.properties)) {
     if (!Object.hasOwn(NUMERICS,key)) fail('Propiedad personal desconocida.');
     if (p === null) continue;
@@ -93,6 +96,7 @@ export function validateUserMaterial(record) {
     // Imported source IDs/statuses cannot impersonate original manufacturer records.
     form[key] = p.value; form[key+'_unit'] = p.unit; form[key+'_phase'] = p.phase;
     form[key+'_form'] = p.physical_form; form[key+'_method'] = p.method; form[key+'_conditions'] = p.condition;
+    form[key+'_test_details']=p.evidence?.test_details;
     form[key+'_source'] = p.evidence?.description || p.note; form[key+'_url'] = p.evidence?.url;
   }
   const clean = makeCustomMaterial(form,record.id);
@@ -103,10 +107,11 @@ export function validateUserMaterial(record) {
     clean.properties[key].entered_value = p.entered_value;
   }
   if (typeof record.local_updated_on === 'string' && Number.isFinite(Date.parse(record.local_updated_on))) clean.local_updated_on = record.local_updated_on;
+  clean.revision=validRevision(record.revision);clean.created_at=validTimestamp(record.created_at,true);
   return clean;
 }
-function unique(records) {
-  if (!Array.isArray(records) || records.length > 120) fail('Máximo 120 materiales personales.');
+function unique(records,max=120) {
+  if (!Array.isArray(records) || records.length > max) fail('Máximo 120 materiales personales.');
   const ids = new Set(), names = new Set();
   return records.map(record => {
     const clean = validateUserMaterial(record), name = clean.family+':'+clean.grade.toLowerCase();
@@ -144,9 +149,9 @@ export function parseUserImport(raw, existing = listUserMaterials()) {
   }
   return unique(records); // Atomic: no write occurs until the entire import is valid.
 }
-export function mergeCustomMaterials(catalog, records = listUserMaterials()) {
+export function mergeCustomMaterials(catalog, records = listUserMaterials(), {maxRecords=120} = {}) {
   const data = clone(catalog), found = new Set(data.materials.map(x=>x.id));
-  for (const record of unique(records)) {
+  for (const record of unique(records,maxRecords)) {
     if (found.has(record.id)) fail('Un material personal no puede reemplazar el catálogo original.');
     data.sources[record.source_id] = clone(record.user_source);
     for (const p of Object.values(record.properties).filter(Boolean)) data.sources[p.source_id] = clone(p.evidence);
@@ -163,15 +168,15 @@ export function renderCustomEditor(root,{onSave,onDelete,onImport} = {}) {
     <label>Familia<select name="family" required>${FAMILIES.map(x=>`<option>${x}</option>`).join('')}</select></label>
     ${input('grade','Nombre del material/grado',100)}${input('manufacturer','Fabricante / procedencia',100)}
     ${input('url','Fuente o ficha (HTTPS)',500,'url')}${input('source','Descripción de fuente')}
-    ${input('method','Método de medida',160)}${input('conditions','Condiciones (temperatura, presión, fase, lote...)')}
-    </div></fieldset><details id="custom-properties"><summary>Propiedades y evidencia por dato</summary>
+    ${input('subfamily','Subfamilia',100)}${input('code','Código / identificador',100)}${input('lot','Lote',100)}${input('provenance','Procedencia documentada',1000)}${input('physical_form','Presentación física',100)}${input('formulation','Formulación conocida',1000)}<label>Tipo de material<select name="material_kind"><option value="unspecified">Sin especificar</option><option value="virgin">Virgen</option><option value="recycled">Reciclado</option><option value="blend">Mezcla virgen/reciclado</option></select></label><label>Origen del reciclado<select name="origin"><option value="not_specified">Sin especificar</option><option>PIR</option><option>PCR</option><option value="internal_regrind">Regranulado interno</option><option value="commercial_recycled">Reciclado comercial</option></select></label>${input('observations','Observaciones del material',2000)}<label class="material-check"><input type="checkbox" name="verification_declaration">Declaro este aporte como dato de usuario no verificado por CCIP.</label>${input('method','Método de medida',160)}${input('conditions','Condiciones (temperatura, presión, fase, lote...)')}
+    </div><details><summary>Aplicaciones declaradas por el usuario</summary>${['inyeccion','extrusion','pelicula','soplado','termoformado','secado','costos'].map(x=>`<label class="material-check"><input name="application" value="${x}" type="checkbox">${t(({inyeccion:'Moldeo por inyección',extrusion:'Extrusión',pelicula:'Película soplada',soplado:'Soplado de envases',termoformado:'Termoformado',secado:'Secado y acondicionamiento',costos:'Producción y costos'})[x])}</label>`).join('')}</details></fieldset><details id="custom-properties"><summary>Propiedades y evidencia por dato</summary>
     <p class="muted">Deja vacías las propiedades desconocidas. Cada dato conserva unidad, fase, fuente, método y condiciones; puede usar la fuente general.</p>
     ${Object.entries(NUMERICS).map(([key,[label,unit,max]])=>`<details class="custom-property" id="custom-property-${key}" name="personal-property"><summary>${label}</summary><fieldset class="parameter-group"><legend>${label}</legend><div class="fields">
     <label>${label}<input name="${key}" type="number" step="any" placeholder="—"></label>
     <label>Unidad<select name="${key}_unit">${UNITS[key].map(u=>`<option value="${u}">${u}</option>`).join('')}</select></label>
     <label>Fase<select name="${key}_phase">${phases.map(p=>`<option value="${p}" ${p===expectedPhase(key)?'selected':''}>${({unknown:'Sin confirmar',solid:'Sólido',melt:'Fundido',bulk:'Material a granel',test:'Ensayo / proceso'})[p]}</option>`).join('')}</select></label>
     ${key === 'bulk_density' ? '<label>Presentación real del material<select name="bulk_density_form"><option value="">Sin confirmar</option><option value="pellets">pellets</option><option value="powder">powder</option></select></label>' : ''}${input(key+'_source','Fuente de esta propiedad')}${input(key+'_url','Enlace de esta propiedad (HTTPS)',500,'url')}
-    ${input(key+'_method','Método de esta propiedad',160)}${input(key+'_conditions','Condiciones de esta propiedad')}
+    ${input(key+'_method','Método de esta propiedad',160)}${input(key+'_conditions','Condiciones de esta propiedad')}${input(key+'_standard','Norma de ensayo',160)}${input(key+'_temperature_C','Temperatura de ensayo (°C)',50,'number')}${input(key+'_pressure_MPa','Presión de ensayo (MPa)',50,'number')}${input(key+'_load_kg','Carga de ensayo (kg)',50,'number')}${input(key+'_preconditioning','Acondicionamiento',500)}${input(key+'_sample_state','Estado de la muestra',200)}${input(key+'_test_date','Fecha de ensayo',40,'date')}
     </div></fieldset></details>`).join('')}</details>
     <div class="actions"><button type="submit" class="primary">Guardar material local</button><button id="custom-cancel" type="button">Nuevo / cancelar edición</button><button id="custom-export" type="button">Exportar catálogo personal JSON</button></div></form>
     <label class="import-label">Importar materiales JSON<input id="custom-import" type="file" accept="application/json,.json"></label>
@@ -182,7 +187,9 @@ export function renderCustomEditor(root,{onSave,onDelete,onImport} = {}) {
     e.preventDefault();
     try {
       if ([...form.elements].some(el=>el.validity?.badInput)) fail('La propiedad debe ser un número finito.');
-      const editing = form.dataset.editing || null, record = makeCustomMaterial(Object.fromEntries(new FormData(form)),editing), saved = listUserMaterials();
+      const editing=form.dataset.editing||null,saved=listUserMaterials(),previous=saved.find(x=>x.id===editing);
+      const input=Object.fromEntries(new FormData(form));input.applications=[...form.querySelectorAll('[name=application]:checked')].map(x=>x.value);input.verification_declaration=form.elements.verification_declaration.checked;
+      const record=makeCustomMaterial(input,editing,previous);
       if (editing && !saved.some(x=>x.id===editing)) fail('El material a editar no existe.');
       persistUserMaterials(editing ? saved.map(x=>x.id===editing?record:x) : [...saved,record]);onSave?.(record);
     } catch(error) { feedback(error.message); }
@@ -191,9 +198,11 @@ export function renderCustomEditor(root,{onSave,onDelete,onImport} = {}) {
   root.querySelectorAll('[data-personal-edit]').forEach(button=>button.addEventListener('click',()=>{
     const record = listUserMaterials().find(x=>x.id===button.dataset.personalEdit);if (!record) return;
     form.reset();form.dataset.editing = record.id;
-    const values = {family:record.family,grade:record.grade,manufacturer:record.manufacturer,url:record.user_source.url || '',source:record.user_source.description};
+    const values = {family:record.family,grade:record.grade,manufacturer:record.manufacturer,url:record.user_source.url || '',source:record.user_source.description,...record.user_details};
     for (const [key,p] of Object.entries(record.properties)) if (p) Object.assign(values,{[key]:p.entered_value ?? p.value,[key+'_unit']:p.entered_unit || p.unit,[key+'_phase']:p.phase,[key+'_form']:p.physical_form || '',[key+'_source']:p.evidence.description,[key+'_url']:p.evidence.url || '',[key+'_method']:p.method,[key+'_conditions']:p.condition || ''});
-    for (const [key,value] of Object.entries(values)) if (form.elements.namedItem(key)) form.elements.namedItem(key).value = value;
+    for(const [key,p]of Object.entries(record.properties))if(p)for(const [name,value]of Object.entries(p.evidence?.test_details||{}))values[key+'_'+name]=value??'';
+    for (const [key,value] of Object.entries(values)) if (form.elements.namedItem(key)) {const el=form.elements.namedItem(key);if(el.type==='checkbox')el.checked=value===true;else el.value=value;}
+    for(const el of form.querySelectorAll('[name=application]'))el.checked=record.user_details.applications.includes(el.value);
     root.querySelector('#custom-panel').open = true;root.querySelector('#custom-properties').open = true;form.elements.grade.focus();feedback('Editando material existente');
   }));
   root.querySelectorAll('[data-personal-delete]').forEach(button=>button.addEventListener('click',()=>{

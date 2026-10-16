@@ -74,6 +74,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
       input_issues: record.input_issues, calculation_metadata: record.calculation_metadata,
       profile_settings: record.injection_profile_settings, profile_note: record.injection_profile?.note,
       profile_assessment: record.injection_profile ? {valid:record.injection_profile.valid,error:record.injection_profile.error,approximate:record.injection_profile.approximate,basis:record.injection_profile.basis,thermal_correction_applied:record.injection_profile.thermal_correction_applied,absolute_machine_positions:record.injection_profile.absolute_machine_positions}:null,
+      user_material_trace:grade?.record_status==='user_entered_unverified'?{id:grade.id,revision:grade.revision,shared_revision:grade.shared_revision,catalog_origin:grade.catalog_origin,user_details:grade.user_details,shared_metadata:grade.shared_metadata,properties:grade.properties,created_at:grade.created_at,local_updated_on:grade.local_updated_on}:null,
       grade_notes: grade?.notes })
   ];
   const sources = flattenEvidence({ material_source: record.material?.source,

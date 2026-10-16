@@ -1,5 +1,15 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Etapa 4 — biblioteca integral y aportes (para revisión)
+
+Parte del commit aceptado `7de3816` del PR #12. Añade **Materiales** como apartado independiente,
+fichas trazables, filtros combinados, comparación y Excel/PDF/JSON. Amplía el editor propio y
+prepara propuestas públicas de GitHub con recepción verificable y biblioteca compartida separada.
+La automatización de Issues está **pendiente de activación en la rama predeterminada** y revisión
+humana; no se ha fusionado, publicado ni añadido ningún aporte ficticio como aprobado.
+
+[Guía y alcance](docs/etapa-4/README.md) · [Protocolo y activación pendiente](docs/etapa-4/aportes-github.md) · [Validación y capturas](docs/etapa-4/validacion.md)
+
 ## Etapa 3 — materiales, fluidez y formulaciones (para revisión)
 
 Esta rama parte de la Etapa 2 (PR #11), conserva los 73 registros y añade evidencia documental trazable, varias mediciones MFR/MVR y recetas locales V/R en masa. Las propiedades ausentes no se inventan ni se heredan del virgen. La densidad ideal es una estimación explícita con componentes, fase y condiciones documentadas. **Sin merge ni deploy.** Se incorpora evidencia adicional en 47 grados; otros 17 comerciales permanecen sin enriquecimiento numérico adicional. Investigar 73 identidades no certifica toda la biblioteca.

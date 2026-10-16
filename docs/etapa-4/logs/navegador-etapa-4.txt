@@ -1,0 +1,16 @@
+test_F01_navigation_history_preserves_results_and_draft (__main__.Stage4.test_F01_navigation_history_preserves_results_and_draft) ... ok
+test_F02_all_original_fichas_multiple_flows_experiments_and_filters (__main__.Stage4.test_F02_all_original_fichas_multiple_flows_experiments_and_filters) ... ok
+test_F03_comparison_and_real_exports (__main__.Stage4.test_F03_comparison_and_real_exports) ... ok
+test_F04_local_crud_receipt_mock_and_no_implicit_submission (__main__.Stage4.test_F04_local_crud_receipt_mock_and_no_implicit_submission) ... ok
+test_F05_responsive_bilingual_screenshots_no_page_overflow (__main__.Stage4.test_F05_responsive_bilingual_screenshots_no_page_overflow) ... ok
+test_F06_shared_fixture_conflict_snapshots_and_update_proposal (__main__.Stage4.test_F06_shared_fixture_conflict_snapshots_and_update_proposal) ... ok
+test_F07_html_is_text_and_prepared_proposal_can_resume_after_reload (__main__.Stage4.test_F07_html_is_text_and_prepared_proposal_can_resume_after_reload) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 62.773s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-stage4-browser-review

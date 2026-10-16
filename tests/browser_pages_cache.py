@@ -70,11 +70,23 @@ try:
             page.locator('#material-origin').select_option('blend')
             assert page.locator('[data-field="meltDensity"]').input_value() == ''
             assert page.locator('#blend-ratio').input_value() == '80/20'
+            page.locator('#materials-page').click()
+            page.locator('#explorer-query').wait_for()
+            page.locator('#explorer-query').fill('Terluran GP-35')
+            page.locator('[data-entry="catalog-abs-terluran-gp-35"]').click()
+            page.locator('#explorer-ficha h2').wait_for()
+            assert 'MFR' in page.locator('#explorer-ficha').inner_text()
+            assert 'MVR' in page.locator('#explorer-ficha').inner_text()
+            with page.expect_download(timeout=90000) as download:
+                page.locator('[data-export=ficha][data-format=xlsx]').click()
+            assert Path(download.value.path()).read_bytes().startswith(b'PK')
+            page.locator('#materials-back').click()
+            assert page.locator('#blend-ratio').input_value() == '80/20'
             assert not stale_requests, stale_requests
             assert not errors, errors
             context.close()
         browser.close()
-    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF y evidencia de Etapa 3 diferidos válidos, formulación sin herencia y sin mezclar recursos antiguos.')
+    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia y sin mezclar recursos antiguos.')
 finally:
     server.shutdown()
     server.server_close()
