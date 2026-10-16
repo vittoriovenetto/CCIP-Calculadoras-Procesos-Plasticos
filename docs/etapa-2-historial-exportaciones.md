@@ -76,7 +76,7 @@ python tests/browser_pages_cache.py
 
 El build exige los archivos de aplicación confirmados en Git. Solo construye `dist`; no publica. El workflow ejecuta estas validaciones y conserva capturas/logs como artefactos durante 30 días.
 
-- Pruebas unitarias: migración, nombres repetidos, IDs, sobrescritura, preservación de campos desconocidos, eliminación, 60 registros, cuota, permisos, corrupción, escrituras ignoradas y cambio concurrente. Preparación de exportaciones y SHA-256 de dependencias.
+- Pruebas unitarias: **570 satisfactorias**. Migración, nombres repetidos, IDs, sobrescritura, preservación de campos desconocidos, eliminación, 60 registros, cuota, permisos, corrupción, escrituras ignoradas y cambio concurrente. Preparación de exportaciones y SHA-256 de dependencias.
 - Regresión de navegador: 42 pruebas; 135 estados proceso/variante × nivel × pantalla, 73 perfiles de materiales y 27 cambios ES/EN/ES. Incluye materiales propios, secado, aprendizaje, comparación, archivos archivados e identidad móvil.
 - Etapa 2: 6 pruebas de integración; operaciones reales de almacenamiento, cancelaciones, conservación del comparador, 15/30/45/60 filas, ausencia de sobrescritura al calcular y fallos de generación recuperables.
 - Matriz de exportación: 7 procesos × ES/EN × activo/guardado × XLSX/PDF = **56 archivos**, más los JSON históricos. Excel leído con **openpyxl**, PDF con **pypdf y PyMuPDF**. Se comprueban cifras, entradas originales, unidades, hojas, ausencia de fórmulas inyectadas, A4, límites geométricos del texto y pies numerados en todas las páginas.

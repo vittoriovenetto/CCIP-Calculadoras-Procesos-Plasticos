@@ -663,3 +663,12 @@ Estados módulo/variante × nivel × pantalla comprobados: 0
 Perfiles iniciales comprobados en navegador: 0
 Casos con cambio de idioma ES/EN/ES: 0
 Capturas: /tmp/ccip-stage2-delivery
+
+Build local (sin publicación) y caché de Pages
+OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF diferidos válidos y sin mezclar recursos antiguos.
+
+Ramas remotas verificadas sin modificación:
+main: 423c04b1710f8f009c811c893873184d363f1b66
+gh-pages: 3f4a4f5893fa96864292edf5d69f2412525908ad
+Etapa 1: b3d41a3a92110e8abdf53d2a2dd11a5f758a782a
+129 archivos protegidos idénticos a la base (integridad.json).
