@@ -57,7 +57,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     const evidence = record.material?.used_fields?.[key] || record.material?.field_states?.[key];
     const origin = evidence?.origin || record.calculation_metadata?.input_origins?.[key] || 'historical_unknown';
     return { key, label: label(field?.label || key), value: exportValue(raw), original: raw === null ? '' : text(raw),
-      unit: field?.unit || evidence?.unit || '', origin: origins[origin] || label(origin), source_id: evidence?.source_id || '' };
+      unit: label(field?.unit || evidence?.unit || ''), origin: origins[origin] || label(origin), source_id: evidence?.source_id || '' };
   });
   const results = (Array.isArray(record.metrics) ? record.metrics : []).map(metric => ({
     label: label(metric.label), value: typeof metric.value === 'number' && Number.isFinite(metric.value) ? metric.value : null,

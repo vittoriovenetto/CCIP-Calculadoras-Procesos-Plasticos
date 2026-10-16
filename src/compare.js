@@ -44,7 +44,7 @@ export function renderComparison(root,history,modules){
  const keys=eligible.map(h=>h.id);
  if((state.a&&!keys.includes(state.a))||(state.b&&!keys.includes(state.b)))state.manualSelection=true;
  if(!keys.includes(state.a))state.a=state.manualSelection?"":keys[0]||"";
- if(!keys.includes(state.b))state.b=state.manualSelection?"":keys[1]||"";
+ if(!keys.includes(state.b))state.b=state.manualSelection?"":keys.find(key=>key!==state.a)||"";
  const option=(id,label)=>'<option value="'+safe(id)+'">'+safe(label)+'</option>';
  const labels=eligible.map(x=>option(x.id,[typeof x.name==='string'?x.name:'',t(modules.find(m=>m.id===x.module)?.name||x.module),x.material?.grade_snapshot?.grade||"",new Date(x.updated_at||x.date).toLocaleString(lang==="en"?"en-US":"es-DO")].filter(Boolean).join(" · ")).replace('<option ','<option data-i18n-ignore ')).join("");
  root.innerHTML='<h2>'+tr("Comparar resultados guardados","Compare saved results")+'</h2>'+

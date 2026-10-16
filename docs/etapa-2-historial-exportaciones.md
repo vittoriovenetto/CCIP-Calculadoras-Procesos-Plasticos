@@ -46,7 +46,7 @@ Para volver a un lector anterior se puede conservar el mismo arreglo: ignora los
 
 Las referencias de familia siguen identificadas como estimaciones; no se confunden con propiedades certificadas de grado. Se preservan fuente, condiciones, política de densidad, aceptación, ausencia de corrección térmica y evaluación del perfil. Si un legado no registra el origen de una entrada, el reporte declara **origen no registrado** en lugar de inferirlo. Los textos técnicos capturados se conservan; los rótulos disponibles se traducen según ES/EN.
 
-CSV/JSON e impresión del comparador se mantienen. Se pospone el Excel de varios registros: era opcional y requeriría introducir una selección adicional en el historial. La comparación de dos casos sigue disponible.
+CSV/JSON e impresión del comparador se mantienen. La selección automática inicial usa dos IDs distintos, aunque el segundo registro se añada después del primero; las selecciones explícitas se conservan. Se pospone el Excel de varios registros: era opcional y requeriría introducir una selección adicional en el historial. La comparación de dos casos sigue disponible.
 
 ## Dependencias locales
 
@@ -76,7 +76,7 @@ python tests/browser_pages_cache.py
 
 El build exige los archivos de aplicación confirmados en Git. Solo construye `dist`; no publica. El workflow ejecuta estas validaciones y conserva capturas/logs como artefactos durante 30 días.
 
-- Pruebas unitarias: **570 satisfactorias**. Migración, nombres repetidos, IDs, sobrescritura, preservación de campos desconocidos, eliminación, 60 registros, cuota, permisos, corrupción, escrituras ignoradas y cambio concurrente. Preparación de exportaciones y SHA-256 de dependencias.
+- Pruebas unitarias: **571 satisfactorias**. Migración, nombres repetidos, IDs, sobrescritura, preservación de campos desconocidos, eliminación, 60 registros, cuota, permisos, corrupción, escrituras ignoradas y cambio concurrente. Preparación de exportaciones y SHA-256 de dependencias.
 - Regresión de navegador: 42 pruebas; 135 estados proceso/variante × nivel × pantalla, 73 perfiles de materiales y 27 cambios ES/EN/ES. Incluye materiales propios, secado, aprendizaje, comparación, archivos archivados e identidad móvil.
 - Etapa 2: 6 pruebas de integración; operaciones reales de almacenamiento, cancelaciones, conservación del comparador, 15/30/45/60 filas, ausencia de sobrescritura al calcular y fallos de generación recuperables.
 - Matriz de exportación: 7 procesos × ES/EN × activo/guardado × XLSX/PDF = **56 archivos**, más los JSON históricos. Excel leído con **openpyxl**, PDF con **pypdf y PyMuPDF**. Se comprueban cifras, entradas originales, unidades, hojas, ausencia de fórmulas inyectadas, A4, límites geométricos del texto y pies numerados en todas las páginas.

@@ -67,6 +67,7 @@ class Stage2(BrowserSmoke):
         self.save_case('Duplicado');first=self.stored()[0]
         self.save_case('Duplicado');second=self.stored()[0]
         self.assertNotEqual(first['id'],second['id'])
+        self.assertNotEqual(self.page.locator('#compare-a').input_value(),self.page.locator('#compare-b').input_value(),'La selección automática debe comparar registros distintos')
         self.page.locator('[data-history]').nth(1).click()
         self.page.locator('[data-field="partMass"]').fill('55.125')
         before=self.stored();self.page.locator('#calculate').click();self.assertEqual(self.stored(),before)

@@ -17,3 +17,8 @@ test('fuentes inseguras no se activan como enlaces y datos antiguos incompletos 
  const data=prepareExport({...snapshot,material:null,warnings:'bad',notes:{},metrics:null});assert.deepEqual(data.results,[]);assert.equal(data.profile.length,0);
  assert.equal(exportValue(''),null);assert.equal(exportValue(null),null);assert.equal(exportValue(Infinity),null);assert.equal(exportValue('=1+1'),'=1+1');
 });
+
+test('unidades de parámetros se localizan sin convertir cantidades ni mutar el snapshot',()=>{
+ const s={...snapshot,module:'costos',inputs:{resinCost:'12.50'}};
+ const data=prepareExport(s,{language:'en'});assert.equal(data.parameters[0].unit,'currency/kg');assert.equal(data.parameters[0].value,12.5);assert.equal(data.record.inputs.resinCost,'12.50');
+});
