@@ -223,6 +223,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(),'80')
         self.assertEqual(self.page.locator('[data-field="specificHeat"]').input_value(),'')
         self.assertIn('residencia nominal',self.page.locator('#drying-status').inner_text())
+        self.page.locator('[data-field="throughput"]').fill('50')
         r=self.record();self.assertEqual(r['metrics'][0]['value'],200)
         self.assertEqual(r['material']['used_fields']['residence']['reference']['value'],4)
 
@@ -231,12 +232,14 @@ class BrowserSmoke(unittest.TestCase):
         self.assertTrue(self.page.locator('#calculation-grid').is_hidden())
         self.assertIn('no tiene tiempo/temperatura',self.page.locator('#drying-status').inner_text())
         self.page.locator('#drying-manual').click();self.assertTrue(self.page.locator('#calculation-grid').is_visible())
+        self.page.locator('[data-field="throughput"]').fill('50')
         self.page.locator('[data-field="residence"]').fill('3');r=self.record();self.assertEqual(r['metrics'][0]['value'],150)
 
     def test_T13_ranges_require_choice(self):
         self.select_process('secado');self.page.locator('#level').select_option('advanced');self.grade('covestro-makrolon-2405')
-        self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'')
+        self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'3')
         self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(),'120')
+        self.page.locator('[data-field="throughput"]').fill('50')
         self.page.locator('[data-field="residence"]').fill('2.5');r=self.record()
         self.assertEqual(r['material']['used_fields']['residence']['origin'],'range_selection')
         self.assertEqual(r['material']['used_fields']['residence']['reference']['range'],[2,3])

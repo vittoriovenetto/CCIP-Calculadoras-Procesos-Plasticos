@@ -1,5 +1,10 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Etapa 5 — secado trazable (PR de revisión)
+
+Se conserva la selección de nueve grados documentados; caudal inicialmente vacío y editable, temperatura de entrada de 25 °C como supuesto editable, y límite superior del rango de tiempo como propuesta nominal trazable. La potencia sensible requiere Cp sólido documentado y un intervalo térmico compatible; no predice potencia eléctrica total, humedad final ni dimensionamiento definitivo. Véase [especificación y pruebas](docs/etapa-5-secado.md). Sin merge ni deploy.
+
+
 ## Etapa 4 — biblioteca integral y aportes (para revisión)
 
 Parte del commit aceptado `7de3816` del PR #12. Añade **Materiales** como apartado independiente,

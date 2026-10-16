@@ -17,7 +17,7 @@ export const statusLabels = {
   manufacturer_typical: "Valor típico", manufacturer_recommendation: "Recomendación",
   library: "De ficha", user_custom: "Dato ingresado por usuario", user_entered: "Dato ingresado por usuario", range_selection: "Rango seleccionado por usuario",
   user_override: "Modificado por usuario", manual: "Manual",
-  family_reference: "Referencia de familia · estimación"
+  family_reference: "Referencia de familia · estimación", manufacturer_range_upper: "Extremo superior de rango de ficha · supuesto nominal"
 };
 const mappings = {
   inyeccion: { meltDensity: ["melt_density", "g/cm3", "fundido"] },
@@ -66,7 +66,7 @@ export const expectedForm = material => material.record_status === "user_entered
 // Las entradas manuales sin vínculo de formulación conservan el comportamiento previo.
 export function clearAutomatic(materialState, values) {
   for (const [field, entry] of Object.entries(materialState.provenance)) {
-    if (entry.formulation_id || ["library", "range_selection", "user_custom", "family_reference"].includes(entry.origin)) {
+    if (entry.formulation_id || ["library", "range_selection", "manufacturer_range_upper", "user_custom", "family_reference"].includes(entry.origin)) {
       values[field] = "";
       delete materialState.provenance[field];
     }
@@ -128,12 +128,17 @@ export function materialCandidates(materialState, module, values, level) {
       if(!source||!conditions)reason="Documenta fuente y condiciones de la propiedad antes de autocompletar.";
     }
     if (outsideProcess(material, module.id) && !materialState.context.processConfirmed) reason = "El proceso no figura en las aplicaciones de ficha; requiere validación explícita.";
+    let automaticUpper = false;
     if (property.range) {
-      value = n(key === "drying_temperature" ? materialState.context.dryingTemperature : materialState.context.dryingTime);
-      if (!["drying_time","drying_temperature"].includes(key) || !Number.isFinite(value) || value < property.range[0] || value > property.range[1]) reason = "Selecciona explícitamente un valor dentro del rango documentado.";
+      const requested = n(key === "drying_temperature" ? materialState.context.dryingTemperature : materialState.context.dryingTime);
+      automaticUpper = module.id === "secado" && key === "drying_time" && materialState.context.leanInterface === true &&
+        material.record_status !== "user_entered_unverified" && !Number.isFinite(requested);
+      value = automaticUpper ? property.range[1] : requested;
+      if (!["drying_time","drying_temperature"].includes(key) || !Number.isFinite(value) || value < property.range[0] || value > property.range[1])
+        reason = "Selecciona explícitamente un valor dentro del rango documentado.";
     }
     if (!Number.isFinite(value) || (unit !== "°C" && value <= 0)) reason ||= "Dato numérico no documentado.";
-    return [{ field: field.key, property_key: key, property, unit, phase, value, reason }];
+    return [{ field: field.key, property_key: key, property, unit, phase, value, reason, automaticUpper }];
   });
 }
 export function applyMaterial(materialState, module, values, level) {
@@ -146,11 +151,11 @@ export function applyMaterial(materialState, module, values, level) {
     values[candidate.field] = candidate.value;
     materialState.provenance[candidate.field] = {
       property_key: candidate.property_key, unit: candidate.unit, phase: candidate.phase,
-      origin: candidate.property.status === "user_entered" ? "user_custom" : (candidate.property.range ? "range_selection" : "library"),
+      origin: candidate.property.status === "user_entered" ? "user_custom" : (candidate.automaticUpper ? "manufacturer_range_upper" : (candidate.property.range ? "range_selection" : "library")),
       value: candidate.value, grade_id: materialState.grade_snapshot.id,
       source_id: candidate.property.source_id, source: clone(candidate.property.evidence || materialState.source), reference: clone(candidate.property),
       original_value: candidate.property.value,
-      selection_reason: candidate.property.range ? "Valor elegido explícitamente dentro del rango de ficha tras confirmar condiciones" : null
+      selection_reason: candidate.automaticUpper ? "Extremo superior del rango de secado documentado: supuesto nominal automático editable, no confirmación de humedad final ni garantía del equipo" : candidate.property.range ? "Valor elegido explícitamente dentro del rango de ficha tras confirmar condiciones" : null
     };
   }
   if(!activeFormulation(materialState))applyFamilyMeltDensity(materialState, module, values, level);
@@ -186,6 +191,7 @@ export function materialWarnings(materialState, moduleId, values = {}, level = "
   if (material.id === "dow-dow-ldpe-132g") warnings.push("170–230 °C es intervalo de procesado de película; no es temperatura de fusión DSC.");
   if (moduleId === "inyeccion" && !material.properties.melt_density) warnings.push("Densidad del fundido no documentada en la ficha: solicita pVT o medición a temperatura/presión de proceso. La densidad sólida no se aplica al shot.");
   if (moduleId === "secado") {
+    if (materialState.provenance.residence?.origin === "manufacturer_range_upper") warnings.push("Tiempo de secado: se precargó el extremo superior de la ficha como residencia nominal editable; confirma humedad inicial, punto de rocío y capacidad del secador.");
     if (!material.properties.specific_heat) warnings.push("Calor específico no documentado en la ficha: solicita cp del grado y del intervalo térmico. La potencia sensible queda pendiente si no introduces ese dato.");
     if (!material.properties.drying_time || !material.properties.drying_temperature) warnings.push("No hay instrucciones completas de secado para este grado; no se deducen de Tg o fusión.");
     if (material.properties.drying_time || material.properties.drying_temperature) warnings.push("Secado condicionado por equipo, humedad inicial, punto de rocío y almacenamiento; confirma compatibilidad antes de aplicar recomendaciones.");
