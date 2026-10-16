@@ -6,7 +6,7 @@ import { renderComparison } from './compare.js';
 import { exportFile } from './export-file.js';
 
 const words = {
- 'Guardar como nuevo':'Save as new','Sobrescribir existente':'Overwrite existing','Nombre del cálculo':'Calculation name',
+ 'Seleccionar formato':'Choose format','Guardar como nuevo':'Save as new','Sobrescribir existente':'Overwrite existing','Nombre del cálculo':'Calculation name',
  'Confirmo que deseo reemplazar este cálculo.':'I confirm that I want to replace this calculation.',
  'Cancelar':'Cancel','Confirmar guardado':'Confirm save','Mostrar más':'Show more','Exportar':'Export','Renombrar':'Rename',
  'Eliminar':'Delete','Recuperar':'Restore','Seleccionar cálculo':'Select calculation',
@@ -47,7 +47,7 @@ export function mountHistory({root,comparison,getSnapshot,onRestore}) {
    try {loaded=loadHistoryState(localStorage);} catch {loaded={items:[],error:'storage'};}
    const {items,error}=loaded;
    if(error)report(errorText(error));
-   root.innerHTML=items.length?items.slice(0,count).map(item=>`<div class="historyRow"><span data-i18n-ignore>${safe(detail(item))}</span><div class="history-actions"><button type="button" data-history="${safe(item.id)}">${tr('Recuperar')}</button><button type="button" data-history-rename="${safe(item.id)}">${tr('Renombrar')}</button><button type="button" data-history-delete="${safe(item.id)}">${tr('Eliminar')}</button><label>${tr('Exportar')}<select data-history-export="${safe(item.id)}"><option value="">${tr('Seleccionar cálculo')}</option><option value="json">JSON</option><option value="xlsx">Excel (.xlsx)</option><option value="pdf">PDF</option></select></label></div></div>`).join(''):`<p>${tr('Aún no hay cálculos guardados en este navegador.')}</p>`;
+   root.innerHTML=items.length?items.slice(0,count).map(item=>`<div class="historyRow"><span data-i18n-ignore>${safe(detail(item))}</span><div class="history-actions"><button type="button" data-history="${safe(item.id)}">${tr('Recuperar')}</button><button type="button" data-history-rename="${safe(item.id)}">${tr('Renombrar')}</button><button type="button" data-history-delete="${safe(item.id)}">${tr('Eliminar')}</button><label>${tr('Exportar')}<select data-history-export="${safe(item.id)}"><option value="">${tr('Seleccionar formato')}</option><option value="json">JSON</option><option value="xlsx">Excel (.xlsx)</option><option value="pdf">PDF</option></select></label></div></div>`).join(''):`<p>${tr('Aún no hay cálculos guardados en este navegador.')}</p>`;
    if(items.length>count)root.insertAdjacentHTML('beforeend',`<button type="button" id="history-more">${tr('Mostrar más')}</button>`);
    root.querySelector('#history-more')?.addEventListener('click',()=>{count+=15;render();});
    root.querySelectorAll('[data-history]').forEach(button=>button.onclick=()=>{const item=items.find(x=>x.id===button.dataset.history);recoveredId=item.id;onRestore(structuredClone(item));});
