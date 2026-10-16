@@ -121,6 +121,12 @@ export function materialCandidates(materialState, module, values, level) {
     } else if (!materialState.context.compatible && !materialState.context.leanInterface) {
       reason = "Confirma fase, formulación, método y condiciones del valor.";
     }
+    if(material.record_status==='user_entered_unverified' && ['solid_density','melt_density','specific_heat'].includes(key)){
+      const evidence=property.evidence,details=evidence?.test_details;
+      const source=evidence?.description&&evidence.description!=='Datos introducidos por usuario';
+      const conditions=property.condition||details?.temperature_C!=null||materialState.context.compatible;
+      if(!source||!conditions)reason="Documenta fuente y condiciones de la propiedad antes de autocompletar.";
+    }
     if (outsideProcess(material, module.id) && !materialState.context.processConfirmed) reason = "El proceso no figura en las aplicaciones de ficha; requiere validación explícita.";
     if (property.range) {
       value = n(key === "drying_temperature" ? materialState.context.dryingTemperature : materialState.context.dryingTime);

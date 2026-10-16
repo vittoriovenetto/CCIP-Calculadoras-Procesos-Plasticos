@@ -24,16 +24,16 @@ export async function generatePdf(data) {
   const content = [
     { text: 'CCIP · INTEC', style: 'brand' }, { text: data.title, style: 'title' },
     { text: wrap(data.name), bold: true, fontSize: 12, margin: [0, 8, 0, 8] },
-    heading(tr('1. Información del caso', '1. Case information')), table([tr('Campo', 'Field'), tr('Valor', 'Value')], data.summary, [135, '*']),
-    heading(tr('2. Parámetros de entrada', '2. Input parameters')),
+    heading(data.report_labels?.summary||tr('1. Información del caso', '1. Case information')), table([tr('Campo', 'Field'), tr('Valor', 'Value')], data.summary, [135, '*']),
+    heading(data.report_labels?.parameters||tr('2. Parámetros de entrada', '2. Input parameters')),
     table([tr('Parámetro', 'Parameter'), tr('Valor original', 'Original value'), tr('Unidad', 'Unit'), tr('Origen', 'Origin')], data.parameters.map(p => [p.label, p.original || data.unavailable, p.unit, p.origin]), [120, 90, 65, '*']),
-    heading(tr('3. Resultados', '3. Results')),
+    heading(data.report_labels?.results||tr('3. Resultados', '3. Results')),
     table([tr('Resultado', 'Result'), tr('Valor', 'Value'), tr('Unidad', 'Unit'), tr('Fórmula / modelo', 'Formula / model')], data.results.map(r => [r.label + (r.estimated ? tr(' (estimación)', ' (estimate)') : ''), r.value, r.unit, r.formula]), [115, 80, 65, '*'])
   ];
   if (data.profile.length) content.push(heading(tr('Perfil físico L1/L2/L3', 'Physical L1/L2/L3 profile')),
     { text: (data.record.injection_profile?.approximate ? data.record.injection_profile?.estimate_basis==='mixture_model'?tr('Estimación con densidad de formulación. ','Estimate using formulation density. '):tr('Estimación con densidad de familia. ', 'Estimate using family density. ') : '') + tr('Volumen de dosificación sin margen ni colchón añadido. Recorridos en mm; no son velocidades ni presiones.', 'Metered volume without added margin or cushion. Strokes in mm; not velocities or pressures.') },
     table(['L', '%', 'cm³', 'g', 'Δs mm', 'Σ mm', tr('Inicio', 'Start'), tr('Fin', 'End')], data.profile, [26, 24, 65, 65, 65, 65, '*', '*']));
-  content.push(heading(tr('4. Observaciones, límites y fuentes', '4. Observations, limitations and sources')), ...observations);
+  content.push(heading(data.report_labels?.sources||tr('4. Observaciones, límites y fuentes', '4. Observations, limitations and sources')), ...observations);
   const definition = { pageSize: 'A4', pageMargins: [36, 36, 36, 45], defaultStyle: { font: 'CaseFont', fontSize: 8, lineHeight: 1.2 },
     styles: { brand: { bold: true, color: '#c8102e', fontSize: 14 }, title: { bold: true, color: '#203f68', fontSize: 16 }, section: { bold: true, color: '#c8102e', fontSize: 11 } },
     footer: (current, total) => ({ text: `CCIP · ${tr('Página', 'Page')} ${current} / ${total}`, alignment: 'center', fontSize: 8, margin: [0, 14, 0, 0] }), content };

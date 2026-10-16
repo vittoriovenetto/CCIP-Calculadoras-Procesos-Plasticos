@@ -6,7 +6,7 @@ const link = (source, id) => {
   return url ? `<a href="${safe(url)}" target="_blank" rel="noopener noreferrer">Abrir fuente [${safe(id)}]</a>` : '<span>Fuente no disponible</span>';
 };
 
-function chart(sample) {
+export function chart(sample) {
   if (!validVisualization(sample)) return '';
   const width = 760, height = 380, left = 70, top = 35, w = 650, h = 260;
   const ts = sample.T_C, values = sample.isobars.flatMap(line => line.specific_volume_cm3_g);

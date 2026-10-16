@@ -479,7 +479,7 @@ class BrowserSmoke(unittest.TestCase):
         self.english_ui_is_complete()
 
     def test_G30_history_snapshot_readable_in_frozen_v1(self):
-        record=self.page.evaluate("""async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const record=makeCustomMaterial({family:'PP',grade:'Caso propio de compatibilidad',melt_density:.8,source:'Demostración sintética, no medición'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([record]));return record;}""")
+        record=self.page.evaluate("""async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const record=makeCustomMaterial({family:'PP',grade:'Caso propio de compatibilidad',melt_density:.8,melt_density_conditions:'220 °C; 5 MPa; synthetic fixture',source:'Demostración sintética, no medición'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([record]));return record;}""")
         self.page.reload();self.select_grade(record)
         self.fill_case('inyeccion',VARIANTS[0][1])
         self.save_case()
