@@ -72,8 +72,15 @@ class BrowserSmoke(unittest.TestCase):
         finally:
             self.context.close()
 
+    def select_process(self, module):
+        picker = self.page.locator('#process-select')
+        if picker.count() and picker.is_visible():
+            picker.select_option(module)
+        else:
+            self.page.locator(f'[data-module="{module}"]').click()
+
     def fill_case(self, module, values, level="advanced"):
-        self.page.locator(f'[data-module="{module}"]').click()
+        self.select_process(module)
         self.page.locator('#level').select_option(level)
         if module=='secado' and self.page.locator('#calculation-grid').is_hidden():
             self.page.locator('#drying-manual').click()
@@ -92,7 +99,6 @@ class BrowserSmoke(unittest.TestCase):
 
     def assert_layout(self):
         self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Desbordamiento horizontal de página')
-        # El menú móvil tiene desplazamiento horizontal intencional.
         outside = self.page.locator('input, select, .actions button, .metric strong, .help').evaluate_all('''els => els.filter(el => {
           const r = el.getBoundingClientRect();
           return r.width > 0 && (r.left < -1 || r.right > innerWidth + 1);
@@ -205,7 +211,7 @@ class BrowserSmoke(unittest.TestCase):
         r=self.record();self.assertEqual(len(r['metrics']),11);self.assertIsNone(r['metrics'][8]['value']);self.assertGreater(len(r['notes']),0)
 
     def test_T11_drying_filter_and_autofill(self):
-        self.page.locator('[data-module="secado"]').click();self.page.locator('#level').select_option('advanced')
+        self.select_process('secado');self.page.locator('#level').select_option('advanced')
         self.assertEqual(set(self.page.locator('#material-family option').evaluate_all('els=>els.map(e=>e.value)')),{'','ABS','PA6','PC'})
         self.grade('basf-ultramid-b3s-r03')
         self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'4')
@@ -216,14 +222,14 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(r['material']['used_fields']['residence']['reference']['value'],4)
 
     def test_T12_unavailable_drying_keeps_manual_path(self):
-        self.grade('generic-hdpe');self.page.locator('[data-module="secado"]').click()
+        self.grade('generic-hdpe');self.select_process('secado')
         self.assertTrue(self.page.locator('#calculation-grid').is_hidden())
         self.assertIn('no tiene tiempo/temperatura',self.page.locator('#drying-status').inner_text())
         self.page.locator('#drying-manual').click();self.assertTrue(self.page.locator('#calculation-grid').is_visible())
         self.page.locator('[data-field="residence"]').fill('3');r=self.record();self.assertEqual(r['metrics'][0]['value'],150)
 
     def test_T13_ranges_require_choice(self):
-        self.page.locator('[data-module="secado"]').click();self.page.locator('#level').select_option('advanced');self.grade('covestro-makrolon-2405')
+        self.select_process('secado');self.page.locator('#level').select_option('advanced');self.grade('covestro-makrolon-2405')
         self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'')
         self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(),'120')
         self.page.locator('[data-field="residence"]').fill('2.5');r=self.record()
@@ -236,7 +242,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertIn('fuera del rango',r['material']['used_fields']['residence']['selection_reason'])
 
     def test_T14_no_inferred_cp(self):
-        self.page.locator('[data-module="secado"]').click();self.page.locator('#level').select_option('advanced');self.grade('basf-ultramid-b3s-r03')
+        self.select_process('secado');self.page.locator('#level').select_option('advanced');self.grade('basf-ultramid-b3s-r03')
         r=self.record();self.assertIsNone(r['metrics'][2]['value']);self.assertIsNone(r['material']['grade_snapshot']['properties']['specific_heat'])
         self.assertNotIn('Potencia térmica',self.page.locator('#calculation-output').inner_text())
         self.help('bulkDensity');self.page.locator('#material-physicalForm').select_option('pellets')
@@ -244,9 +250,9 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(),'0.7')
 
     def test_T15_filters_are_process_specific(self):
-        self.grade('generic-hdpe');self.page.locator('[data-module="secado"]').click()
+        self.grade('generic-hdpe');self.select_process('secado')
         self.assertEqual(self.page.locator('#material-family option[value="HDPE"]').count(),0)
-        self.page.locator('[data-module="inyeccion"]').click()
+        self.select_process('inyeccion')
         self.assertEqual(self.page.locator('#material-grade').input_value(),'generic-hdpe')
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'0.73')
 
@@ -300,9 +306,9 @@ class BrowserSmoke(unittest.TestCase):
         self.density(level='advanced');self.page.locator('#profile-details > summary').click();self.page.locator('#calculate').click()
         for scene in ['inyeccion','secado','sin-ficha','aprendizaje']:
             if scene=='secado':
-                self.page.locator('[data-module="secado"]').click();self.grade('basf-ultramid-b3s-r03');self.page.locator('#calculate').click()
+                self.select_process('secado');self.grade('basf-ultramid-b3s-r03');self.page.locator('#calculate').click()
             if scene=='sin-ficha':
-                self.page.locator('[data-module="inyeccion"]').click();self.grade('generic-hdpe')
+                self.select_process('inyeccion');self.grade('generic-hdpe')
             if scene=='aprendizaje':
                 self.page.locator('#learn-page').click();self.page.locator('#guide-inyeccion > summary').click();self.page.locator('#inyeccion-1 > summary').click()
             for width in [320,390,768,1024,1440]:
@@ -327,11 +333,11 @@ class BrowserSmoke(unittest.TestCase):
         self.assertTrue(all(x is None for x in r['material']['grade_snapshot']['properties'].values()))
         self.assertEqual(r['density_assessment']['origin'],'family_reference')
         self.assertIsNone(r['material']['grade_snapshot']['properties']['melt_density'])
-        self.page.locator('[data-module="secado"]').click();self.assertEqual(self.page.locator('#material-grade option[value="'+record['id']+'"]').count(),0)
+        self.select_process('secado');self.assertEqual(self.page.locator('#material-grade option[value="'+record['id']+'"]').count(),0)
 
     def test_T24_english_essential_flows(self):
         self.density();self.help('meltDensity');self.page.locator('#language').select_option('en');self.english_ui_is_complete()
-        self.page.keyboard.press('Escape');self.page.locator('[data-module="secado"]').click();self.english_ui_is_complete()
+        self.page.keyboard.press('Escape');self.select_process('secado');self.english_ui_is_complete()
         self.grade('basf-ultramid-b3s-r03');self.page.locator('#level').select_option('advanced');self.help('residence');self.english_ui_is_complete()
         self.page.keyboard.press('Escape');self.page.locator('#learn-page').click();self.page.locator('#guide-inyeccion > summary').click();self.page.locator('#inyeccion-1 > summary').click();self.english_ui_is_complete()
     def open_custom_property(self, key):
@@ -579,7 +585,7 @@ class BrowserSmoke(unittest.TestCase):
             self.assertEqual(self.page.locator('.academic-credits strong').count(),0)
             styles=self.page.locator('.academic-credits li').evaluate_all('els=>els.map(el=>{const s=getComputedStyle(el);return s.color+"|"+s.fontWeight})')
             self.assertEqual(len(set(styles)),1)
-            for width in [360,390,768,1024,1440]:
+            for width in [360,390,540,768,1024,1440]:
                 self.page.set_viewport_size({'width':width,'height':1000})
                 self.assert_layout()
                 self.assertTrue(self.page.locator('#manual-open').is_visible())
@@ -613,7 +619,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-lesson]').count(),42)
 
     def test_G40_stage1_official_logos_divider_and_clearspace(self):
-        for width in [360,390,768,1024,1440]:
+        for width in [360,390,540,768,1024,1440]:
             self.page.set_viewport_size({'width':width,'height':1000})
             for lang in ['es','en']:
                 self.page.locator('#language').select_option(lang)
@@ -631,11 +637,17 @@ class BrowserSmoke(unittest.TestCase):
                 self.assertGreaterEqual(name.bounding_box()['x'],box['x']+box['width'])
                 self.assertGreaterEqual(name.bounding_box()['x']-box['x']-box['width'],2*38*box['width']/801)
                 if width<=540:
-                    self.assertLessEqual(ccip['y']+ccip['height'],box['y'])
+                    self.assertLessEqual(ccip['y']+ccip['height'],divider['y'])
+                    self.assertLessEqual(divider['y']+divider['height'],box['y'])
+                    self.assertLessEqual(divider['height'],1.1)
+                    identity=self.page.locator('.institutional-identity').bounding_box()
+                    self.assertAlmostEqual(divider['x'],identity['x'],delta=1)
+                    self.assertAlmostEqual(divider['width'],identity['width'],delta=1)
+                    self.assertAlmostEqual(ccip['x']+ccip['width']/2,identity['x']+identity['width']/2,delta=1)
                 else:
                     self.assertLessEqual(ccip['x']+ccip['width'],divider['x'])
-                self.assertLess(divider['x'],box['x'])
-                self.assertLessEqual(divider['width'],1.1)
+                    self.assertLess(divider['x'],box['x'])
+                    self.assertLessEqual(divider['width'],1.1)
                 if width>540:
                     self.assertAlmostEqual(ccip['y']+ccip['height']/2,box['y']+box['height']/2,delta=1)
                 padding=logo.evaluate('el=>parseFloat(getComputedStyle(el.parentElement).paddingLeft)')
@@ -644,6 +656,75 @@ class BrowserSmoke(unittest.TestCase):
                 language=self.page.locator('#language').bounding_box()
                 self.assertTrue(language['x']>=box['x']+box['width'] or language['y']>=box['y']+box['height'])
         self.assertEqual(self.page.locator('.brand').get_attribute('href'),'./')
+
+    def test_G41_mobile_process_picker_and_desktop_buttons(self):
+        ids=['inyeccion','extrusion','pelicula','soplado','termoformado','secado','costos']
+        spanish=['Moldeo por inyección','Extrusión','Película soplada','Soplado de envases','Termoformado','Secado y acondicionamiento','Producción y costos']
+        english=['Injection molding','Extrusion','Blown film','Blow molding','Thermoforming','Drying and conditioning','Production and costs']
+        for width in [360,390,540,768,1024,1440]:
+            self.page.set_viewport_size({'width':width,'height':1000})
+            for language in ['es','en']:
+                self.page.locator('#language').select_option(language)
+                picker=self.page.locator('#process-select')
+                self.assertEqual(picker.locator('option').count(),7)
+                self.assertEqual(picker.locator('option').evaluate_all('els=>els.map(el=>el.value)'),ids)
+                self.assertEqual(picker.locator('option').all_text_contents(),spanish if language=='es' else english)
+                self.assertEqual(self.page.locator('label[for="process-select"]').text_content(),'Seleccionar proceso' if language=='es' else 'Select process')
+                self.assertEqual(picker.is_visible(),width<=800)
+                self.assertEqual(self.page.locator('#modules').is_visible(),width>800)
+                for i,module in enumerate(ids):
+                    self.select_process(module)
+                    self.assertEqual(picker.input_value(),module)
+                    self.assertEqual(self.page.locator('#modules .active').get_attribute('data-module'),module)
+                    selected=picker.locator('option:checked').text_content()
+                    self.assertEqual(self.page.locator('#module-title').text_content(),selected)
+                    level=['basic','technical','advanced'][i%3]
+                    self.page.locator('#level').select_option(level)
+                    if module=='secado':
+                        self.grade('ineos-styrolution-terluran-gp-22')
+                        drying=next(m for m in MATERIALS if m['id']=='ineos-styrolution-terluran-gp-22')['properties']['drying_time']
+                        duration=drying['value'] if drying['value'] is not None else drying['range'][0]
+                        self.page.locator('[data-field="residence"]').fill(str(duration))
+                    self.page.locator('#calculate').click()
+                    self.assertGreater(self.page.locator('.kpi').count(),0,(width,language,module,self.page.locator('#calculation-output').inner_text(),self.page.locator('input[data-field]').evaluate_all('els=>els.map(e=>[e.dataset.field,e.value])')))
+                    self.assertEqual(self.page.locator('#level').input_value(),level)
+                    self.assert_layout()
+                self.assertTrue(self.page.locator('aside').evaluate('el=>el.scrollWidth<=el.clientWidth'))
+
+    def test_G42_process_picker_sync_sessions_learning_and_history(self):
+        self.page.set_viewport_size({'width':390,'height':1000})
+        self.grade('generic-hdpe')
+        self.page.locator('[data-field="partMass"]').fill('47')
+        self.page.locator('#save').click()
+        self.select_process('extrusion')
+        self.page.locator('[data-field="width"]').fill('630')
+        self.page.locator('#level').select_option('advanced')
+        self.select_process('inyeccion')
+        self.assertEqual(self.page.locator('[data-field="partMass"]').input_value(),'47')
+        self.assertEqual(self.page.locator('#material-grade').input_value(),'generic-hdpe')
+        self.assertEqual(self.page.locator('#level').input_value(),'advanced')
+        self.page.set_viewport_size({'width':1440,'height':1000})
+        self.page.locator('[data-module="extrusion"]').click()
+        self.assertEqual(self.page.locator('#process-select').input_value(),'extrusion')
+        self.assertEqual(self.page.locator('[data-field="width"]').input_value(),'630')
+        self.page.set_viewport_size({'width':390,'height':1000})
+        self.assertEqual(self.page.locator('#process-select').input_value(),'extrusion')
+        self.page.locator('[data-history="0"]').click()
+        self.assertEqual(self.page.locator('#process-select').input_value(),'inyeccion')
+        self.page.locator('#learn-page').click()
+        self.assertIn('view=learning',self.page.url)
+        self.page.locator('#process-select').select_option('costos')
+        self.assertTrue(self.page.locator('#learning-view').is_hidden())
+        self.assertEqual(self.page.locator('#process-select').input_value(),'costos')
+        self.page.go_back()
+        self.assertTrue(self.page.locator('#learning-view').is_visible())
+        self.page.go_forward()
+        self.assertTrue(self.page.locator('#learning-view').is_hidden())
+        self.assertEqual(self.page.locator('#process-select').input_value(),'costos')
+        self.page.locator('#language').select_option('en')
+        self.assertEqual(self.page.locator('#process-select').input_value(),'costos')
+        self.select_process('extrusion')
+        self.assertEqual(self.page.locator('[data-field="width"]').input_value(),'630')
 
     def test_G32_custom_crud_import_export_persistence_and_units(self):
         self.open_custom_property('melt_density')
@@ -785,7 +866,7 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_G37_custom_drying_filter_and_bulk_phase(self):
         record=self.page.evaluate('''async()=>{const {makeCustomMaterial}=await import('./src/custom-materials.js');const m=makeCustomMaterial({family:'PVC',grade:'PVC propio sintético',source:'Protocolo sintético, no propiedad industrial',drying_time:2,drying_temperature:60,bulk_density:500,bulk_density_unit:'kg/m3',bulk_density_form:'pellets'});localStorage.setItem('ccip-user-materials-v1',JSON.stringify([m]));return m}''')
-        self.page.reload();self.page.locator('[data-module="secado"]').click();self.page.locator('#level').select_option('technical');self.select_grade(record)
+        self.page.reload();self.select_process('secado');self.page.locator('#level').select_option('technical');self.select_grade(record)
         self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'2')
         self.help('bulkDensity');self.page.locator('#material-physicalForm').select_option('pellets')
         self.help('bulkDensity');self.page.locator('#material-bulkCompatible').check()

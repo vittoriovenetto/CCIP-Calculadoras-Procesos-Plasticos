@@ -14,6 +14,8 @@ test_G37_custom_drying_filter_and_bulk_phase (__main__.BrowserSmoke.test_G37_cus
 test_G38_rename_history_and_clear_comparison (__main__.BrowserSmoke.test_G38_rename_history_and_clear_comparison) ... ok
 test_G39_stage1_titles_manual_credits_and_learning (__main__.BrowserSmoke.test_G39_stage1_titles_manual_credits_and_learning) ... ok
 test_G40_stage1_official_logos_divider_and_clearspace (__main__.BrowserSmoke.test_G40_stage1_official_logos_divider_and_clearspace) ... ok
+test_G41_mobile_process_picker_and_desktop_buttons (__main__.BrowserSmoke.test_G41_mobile_process_picker_and_desktop_buttons) ... ok
+test_G42_process_picker_sync_sessions_learning_and_history (__main__.BrowserSmoke.test_G42_process_picker_sync_sessions_learning_and_history) ... ok
 test_T01_no_empty_pvt (__main__.BrowserSmoke.test_T01_no_empty_pvt) ... ok
 test_T02_real_visual_pvt (__main__.BrowserSmoke.test_T02_real_visual_pvt) ... ok
 test_T03_no_empty_datasheet (__main__.BrowserSmoke.test_T03_no_empty_datasheet) ... ok
@@ -40,10 +42,10 @@ test_T23_custom_materials_do_not_inherit (__main__.BrowserSmoke.test_T23_custom_
 test_T24_english_essential_flows (__main__.BrowserSmoke.test_T24_english_essential_flows) ... ok
 
 ----------------------------------------------------------------------
-Ran 40 tests in 129.578s
+Ran 42 tests in 147.902s
 
 OK
 Estados módulo/variante × nivel × pantalla comprobados: 135
 Perfiles iniciales comprobados en navegador: 73
 Casos con cambio de idioma ES/EN/ES: 27
-Capturas: /workspace/scratch/ccip-etapa1/capturas
+Capturas: /workspace/scratch/ccip-pr10-movil/capturas

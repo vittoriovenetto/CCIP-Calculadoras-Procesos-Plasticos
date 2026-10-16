@@ -6,14 +6,14 @@ Base funcional auditada: `feature/historial-nombres-comparacion-limpiar`, PR #9,
 
 | Punto del plan | Resultado | Archivos |
 | --- | --- | --- |
-| 6 · Cabecera | CCIP conservado a la izquierda, divisor vertical y logo comercial oficial INTEC a su derecha. Nombre completo «Instituto Tecnológico de Santo Domingo (INTEC)» junto al logo, sin traducir. Idioma y estado experimental conservados. Cabecera responsive compartida con la ruta histórica de fórmulas | `index.html`, `formulas.html`, `src/styles.css`, `src/assets/logo-intec-comercial.png` |
+| 6 · Cabecera | CCIP conservado a la izquierda, divisor vertical en escritorio / horizontal hasta 540 px y logo comercial oficial INTEC a su derecha o debajo, respectivamente. Nombre completo «Instituto Tecnológico de Santo Domingo (INTEC)» junto al logo, sin traducir. Idioma y estado experimental conservados. Cabecera responsive compartida con la ruta histórica de fórmulas | `index.html`, `formulas.html`, `src/styles.css`, `src/assets/logo-intec-comercial.png` |
 | 7 · Rótulo | `CCIP · INTEC · Procesos 1: inyección`, localizado en inglés, visible también en móvil | `index.html`, `src/i18n.js` |
 | 8 · Título | H1 exacto `Calculadora de procesos de transformación termoplásticos`; pestaña y traducción inglesa coherentes. Se conserva el degradado institucional | `index.html`, `src/styles.css`, `src/i18n.js` |
 | 9 · Manual | Botón visible abre el diálogo nativo con «Manual de uso en preparación». Cierre por botón y Escape, foco contenido y restaurado al botón. Sin manual inventado ni enlace falso | `index.html`, `src/manual-dialog.js`, `src/styles.css`, `src/i18n.js` |
 | 13 · Créditos | Texto académico original conservado, línea divisoria y seis nombres centrados en el orden y ortografía suministrados; todos con el mismo color y peso normal, según el ajuste posterior solicitado en el PR #10. Nombres propios sin traducción | `index.html`, `formulas.html`, `src/styles.css` |
-| 14 · Aprendizaje | Eliminada exclusivamente la fila de enlaces de proceso que duplicaba el selector. Se mantienen selectores proceso/nivel, 42 explicaciones, índice, acordeones, ejemplos, enlaces profundos, retorno y siete botones de la calculadora | `src/formulas-index.js`, `formulas.html` |
+| 14 · Aprendizaje | Eliminada exclusivamente la fila de enlaces de proceso que duplicaba el selector. Se mantienen selectores proceso/nivel, 42 explicaciones, índice, acordeones, ejemplos, enlaces profundos, retorno y navegación de los siete procesos (botones en escritorio, desplegable hasta 800 px) | `src/formulas-index.js`, `formulas.html` |
 
-El cambio de `formulas.html` es necesario para eliminar también la navegación duplicada de la ruta histórica, conservar sus enlaces y mantener una cabecera/pie coherentes. El módulo nuevo `manual-dialog.js` aísla los controles del mensaje del manual: `src/app.js` y la lógica de cálculo quedan intactos. El workflow solo incorpora la rama y base del PR a la validación existente; no añade despliegues.
+El cambio de `formulas.html` es necesario para eliminar también la navegación duplicada de la ruta histórica, conservar sus enlaces y mantener una cabecera/pie coherentes. El módulo nuevo `manual-dialog.js` aísla los controles del mensaje del manual. El ajuste móvil solicitado posteriormente requiere adaptar únicamente la navegación de `src/app.js`: botones y desplegable comparten `selectProcess`, que conserva el cuerpo de selección anterior, sus sesiones por proceso y la restauración de materiales/entradas. La lógica de cálculo permanece intacta. El workflow solo incorpora la rama y base del PR a la validación existente; no añade despliegues.
 
 ## Procedencia y uso del logo INTEC
 
@@ -36,24 +36,34 @@ No se publica ni fusiona: `main` permanece en `423c04b1710f8f009c811c893873184d3
 ## Pruebas
 
 - `npm test`: **550 aprobadas**, cero fallidas u omitidas (549 previas + integridad del logo oficial).
-- `python3 tests/browser_smoke.py`: **40 aprobadas**, cero fallidas u omitidas. Incluye títulos, diálogo, créditos y cabecera con logo original; 135 estados de cálculo de siete procesos/variantes en tres niveles, 73 perfiles y 27 ciclos ES/EN/ES.
-- Las pruebas de Etapa 1 recorren ambos idiomas y 360/390/768/1024/1440 px: ausencia de desbordamiento, imágenes cargadas, proporciones, mínimos, alineación, separación de controles, foco del manual y conservación del estado de aprendizaje/caso.
+- `python3 tests/browser_smoke.py`: **42 aprobadas**, cero fallidas u omitidas. Incluye títulos, diálogo, créditos y cabecera con logo original; 135 estados de cálculo de siete procesos/variantes en tres niveles, 73 perfiles y 27 ciclos ES/EN/ES.
+- Las pruebas de Etapa 1 recorren ambos idiomas y 360/390/540/768/1024/1440 px: ausencia de desbordamiento, imágenes cargadas, proporciones, mínimos, alineación, separación de controles, foco del manual y conservación del estado de aprendizaje/caso.
 - Se verifican las 42 explicaciones, alternativas e índice, y las rutas históricas/deep links de fórmulas.
 - Construcción y prueba de caché del artefacto se registran antes de entregar el PR, sin publicación.
 
 [Registro Node](capturas/etapa-1/node-tests.txt) · [Registro Chromium](capturas/etapa-1/browser-tests.txt).
 
-Se detectó al probar el diálogo que Tab podía mover el foco al navegador cuando solo había un control; se añadió manejo de Tab/Shift+Tab para mantener el foco en Cerrar. La regresión comprueba apertura por teclado, cierre por botón/Escape y retorno al botón en ambos idiomas y cinco anchos.
+Se detectó al probar el diálogo que Tab podía mover el foco al navegador cuando solo había un control; se añadió manejo de Tab/Shift+Tab para mantener el foco en Cerrar. La regresión comprueba apertura por teclado, cierre por botón/Escape y retorno al botón en ambos idiomas y seis anchos.
 
 ## Ajustes solicitados dentro del PR #10
 
 Se añadió el nombre completo junto al logo, conservándolo sin traducción según el manual. En móvil el bloque CCIP ocupa una fila y el conjunto INTEC + nombre otra, manteniendo logo y texto uno al lado del otro, sin reducir el mínimo de la marca ni invadir su protección. Los seis autores mantienen la misma ortografía y ahora comparten color y peso normal; esta instrucción posterior sustituye la jerarquía de negritas del prompt inicial. Se actualizaron las capturas y las pruebas de ambos componentes.
 
-Pruebas específicas del ajuste: cabecera/área de protección, créditos uniformes, manual y aprendizaje, en ambos idiomas y 360/390/768/1024/1440 px. [Registro](capturas/etapa-1/ajustes-pr10.txt).
+Pruebas específicas del ajuste: cabecera/área de protección, créditos uniformes, manual y aprendizaje, en ambos idiomas y 360/390/540/768/1024/1440 px. [Registro](capturas/etapa-1/ajustes-pr10.txt).
+
+## Corrección del divisor y navegación móvil — PR #10
+
+- Hasta 540 px se reutiliza el único divisor institucional: horizontal, ancho útil completo y rojo `var(--red)`, entre CCIP centrado e INTEC + nombre centrados. No se añade otro divisor ni queda una línea vertical. Se conservan la protección del logo, el idioma debajo y el borde rojo inferior del encabezado.
+- Por encima de 540 px la cabecera conserva su distribución previa. Se comprobó que es idéntica píxel a píxel al código `9c6fdfc` del PR, en 1024/1440 px y ES/EN con el mismo estado de foco. [Comparación](capturas/etapa-1/escritorio-sin-cambios.txt).
+- Hasta 800 px, coincidiendo con el breakpoint anterior de la fila desplazable, solo se muestra «Seleccionar proceso». Sus siete opciones se generan desde `modules`, con las mismas traducciones y sin un catálogo de procesos duplicado. Por encima de 800 px solo se muestran los botones de escritorio.
+- Ambos controles llaman a `selectProcess`; `nav()` sincroniza su valor con `state.id`, incluido al recuperar cálculos del historial o cambiar el tamaño de pantalla. Se conserva la misma memoria `sessions` de entradas, filtros y material por módulo, y el nivel activo.
+- Las rutas, filtros y enlaces de Aprendizaje, el cierre de esa vista y Atrás/Adelante se conservan. Los selectores propios de aprendizaje no se modifican.
+- La batería usa el control visible según el ancho, manteniendo las 135 verificaciones matemáticas. G41 añade 84 combinaciones de proceso/ancho/idioma y G42 comprueba botones/desplegable, memoria de entradas/materiales, recuperación del historial y navegación por aprendizaje. La prueba de secado elige expresamente un tiempo dentro del rango documentado; no se cambia la regla de selección explícita.
+- [Pruebas específicas](capturas/etapa-1/menu-movil.txt). No se modificaron motores, propiedades, créditos, manual ni archivos de logos en este ajuste.
 
 ## Evidencia visual
 
-[28 capturas antes/después](capturas/etapa-1/README.md): calculadora en ES/EN a 360/390/768/1024/1440 px, y aprendizaje en ES/EN a 390/1440 px. Las imágenes «antes» se tomaron sobre la base 8335961 antes de modificar los archivos. Las imágenes «después» reflejan la cabecera final con logo oficial.
+[30 capturas antes/después](capturas/etapa-1/README.md): 14 previas y 16 finales. La calculadora final se captura en ES/EN a 360/390/540/768/1024/1440 px, y aprendizaje en ES/EN a 390/1440 px. Las imágenes «antes» se tomaron sobre la base 8335961 antes de modificar los archivos. Las imágenes «después» reflejan la cabecera final con logo oficial.
 
 ## Límites y pendientes
 

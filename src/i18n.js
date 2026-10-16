@@ -11,6 +11,7 @@ export const translations = { ...extraTranslations, ...auditTranslations, ...lea
 "Manual de uso en preparación":"User manual in preparation",
 "Cerrar":"Close",
 "Créditos académicos":"Academic credits",
+"Seleccionar proceso":"Select process",
 "Identidad institucional CCIP e INTEC":"CCIP and INTEC institutional identity",
 "Logo comercial del Instituto Tecnológico de Santo Domingo (INTEC)":"Commercial logo of Instituto Tecnológico de Santo Domingo (INTEC)",
 "Calculadoras de procesos plásticos":"Plastic process calculators",
