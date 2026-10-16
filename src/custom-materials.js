@@ -44,7 +44,7 @@ export function convertProperty(key, value, unit = NUMERICS[key]?.[1]) {
   if (unit === 'K') number -= 273.15;
   if (key === 'drying_time' && unit === 'min') number /= 60;
   const min = NUMERICS[key][1] === '°C' ? -273.15 : 0;
-  const allowZero = ['moisture_target','moisture_max','mfr','mvr'].includes(key);
+  const allowZero = ['moisture_target','moisture_max','mfr','mvr','hardness_shore_d'].includes(key);
   if (number > NUMERICS[key][2] || (allowZero ? number < min : number <= min)) fail('Valor fuera de rango: ' + NUMERICS[key][0]);
   return number;
 }

@@ -43,6 +43,7 @@ test('custom metadata, canonical units, blank drafts and stable edit revision su
  assert.equal(canonical(validateUserMaterial(m)),canonical(m));
  const draft=makeCustomMaterial({family:'PC',grade:'Blank fixture'});assert.ok(Object.values(draft.properties).every(x=>x===null));
  const edit=makeCustomMaterial({family:'PC',grade:'Edited fixture'},draft.id,draft);assert.equal(edit.id,draft.id);assert.equal(edit.revision,2);assert.equal(edit.created_at,draft.created_at);
+ assert.equal(convertProperty('hardness_shore_d',0,'Shore D'),0);assert.throws(()=>convertProperty('hardness_shore_d',-1,'Shore D'));assert.throws(()=>convertProperty('hardness_shore_d',101,'Shore D'));
  assert.throws(()=>convertProperty('tensile_modulus',-1,'GPa'));assert.throws(()=>convertProperty('tensile_modulus',1,'kg'));
 });
 test('proposal requires provenance, declaration and justification, rejects impersonation / extra fields / bad values',async()=>{
