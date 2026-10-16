@@ -1,5 +1,11 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Etapa 3 — materiales, fluidez y formulaciones (para revisión)
+
+Esta rama parte de la Etapa 2 (PR #11), conserva los 73 registros y añade evidencia documental trazable, varias mediciones MFR/MVR y recetas locales V/R en masa. Las propiedades ausentes no se inventan ni se heredan del virgen. La densidad ideal es una estimación explícita con componentes, fase y condiciones documentadas. **Sin merge ni deploy.** Se incorpora evidencia adicional en 47 grados; otros 17 comerciales permanecen sin enriquecimiento numérico adicional. Investigar 73 identidades no certifica toda la biblioteca.
+
+[Revisión regional de GP-35: ASTM y ISO independientes](docs/etapa-3/gp35-regional-review.md) · [Auditoría de los 73 registros, matrices y bibliografía](docs/etapa-3/README.md) · [Modelos y límites](docs/etapa-3/modelos.md) · [Pruebas y capturas](docs/etapa-3/fase-e.md)
+
 ## Auditoría Lean de diez capturas — pendiente de revisión
 
 La rama `feature/auditoria-lean-10-capturas` implementa la auditoría visual aprobada por el usuario: referencias fundidas automáticas y editables, resultados calculables, secado filtrado, evidencias y avisos contextuales, y aprendizaje integrado con acordeón exclusivo. No modifica los siete motores, el catálogo ni las versiones archivadas. **Esta auditoría no se publica ni se fusiona**.
@@ -14,7 +20,7 @@ En **avanzado** se añade el perfil geométrico físico **L1/L2/L3**, opcional y
 
 Consulta [fórmulas, fuentes, límites y pruebas](docs/inyeccion-densidad-perfil-v1.5.md). El usuario autorizó posteriormente publicar conservando la web anterior; véase el [registro de publicación y copias](docs/despliegue-inyeccion-2026-10-15.md). No se fusiona `main`.
 
-## Catálogo depurado v1.4 — vigente en esta rama (15/10/2026)
+## Catálogo depurado v1.4 — base histórica de las 73 identidades (15/10/2026)
 
 **Prioridad: calidad sobre cantidad.** Tras auditar 99 registros históricos, el catálogo seleccionable contiene **64 grados comerciales con un mínimo de tres propiedades numéricas atribuidas a fabricante** y **9 perfiles genéricos exclusivamente manuales**. Se retiraron **26 grados sin datos suficientes**; esos registros ya no están disponibles para nuevas selecciones.
 

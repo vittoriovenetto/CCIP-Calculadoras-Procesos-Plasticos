@@ -1,0 +1,265 @@
+[
+  {
+    "family": "HDPE",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [
+      "REC-01"
+    ],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Specific public experimental evidence read",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "LDPE",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [
+      "REC-04"
+    ],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Specific public experimental evidence read",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "LLDPE",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Family reviewed; no directly applicable experimental values reconfirmed in the consulted accessible sources.",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "PP",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [
+      "REC-02",
+      "REC-03"
+    ],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Specific public experimental evidence read",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "PET",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Family reviewed; no directly applicable experimental values reconfirmed in the consulted accessible sources.",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "PVC",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Family reviewed; no directly applicable experimental values reconfirmed in the consulted accessible sources.",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "ABS",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [
+      "REC-05"
+    ],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Specific public experimental evidence read",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "PA6",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [
+      "REC-06"
+    ],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Specific public experimental evidence read",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  },
+  {
+    "family": "PC",
+    "evaluation": "requires_case_validation",
+    "permitted_analysis_origins": [
+      "PIR",
+      "PCR",
+      "internal_regrind",
+      "commercial_recycled"
+    ],
+    "experimental_source_ids": [],
+    "numeric_properties_inherited": false,
+    "compatibility": "unknown_for_a_new_formulation",
+    "percentage_recommendation": null,
+    "study_status": "Family reviewed; no directly applicable experimental values reconfirmed in the consulted accessible sources.",
+    "required_case_information": [
+      "component identity and source",
+      "declared polymer family and formulation",
+      "origin PIR/PCR/internal/commercial",
+      "processing history and cycles",
+      "humidity and pretreatment",
+      "contamination and compatibility",
+      "application requirements"
+    ],
+    "limitations": [
+      "No universal recycled percentage or industrial suitability is established.",
+      "Food-contact, medical and structural status require case-specific evidence."
+    ]
+  }
+]

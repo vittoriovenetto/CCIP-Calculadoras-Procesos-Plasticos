@@ -1,0 +1,19 @@
+test_E01_origins_presets_invalid_mass_and_no_inheritance (__main__.Stage3.test_E01_origins_presets_invalid_mass_and_no_inheritance) ... ok
+test_E02_model_math_strict_conditions_manual_and_phase (__main__.Stage3.test_E02_model_math_strict_conditions_manual_and_phase) ... ok
+test_E03_research_multiple_measurements_comparisons_and_saved_evidence (__main__.Stage3.test_E03_research_multiple_measurements_comparisons_and_saved_evidence) ... ok
+test_E04_formulation_history_and_real_exports (__main__.Stage3.test_E04_formulation_history_and_real_exports) ... ok
+test_E05_responsive_bilingual_and_drying_filter (__main__.Stage3.test_E05_responsive_bilingual_and_drying_filter) ... ok
+test_E06_measurement_cannot_follow_different_ratio_or_phase (__main__.Stage3.test_E06_measurement_cannot_follow_different_ratio_or_phase) ... ok
+test_E07_families_processes_levels_without_inherited_properties (__main__.Stage3.test_E07_families_processes_levels_without_inherited_properties) ... ok
+test_E08_documentary_and_profile_screenshots (__main__.Stage3.test_E08_documentary_and_profile_screenshots) ... ok
+test_E09_gp35_official_regional_measurements_remain_independent (__main__.Stage3.test_E09_gp35_official_regional_measurements_remain_independent) ... ok
+test_E10_all_fifteen_experimental_formulations_have_provenance_without_autofill (__main__.Stage3.test_E10_all_fifteen_experimental_formulations_have_provenance_without_autofill) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 70.415s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-pr12-review-stage3

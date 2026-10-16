@@ -35,9 +35,9 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     [tr('Modificación', 'Modified'), record.updated_at || record.date || unavailable],
     [tr('Exportación', 'Exported'), record.export_metadata.exported_at],
     [tr('Estado del cálculo', 'Calculation state'), status === 'saved' ? tr('Snapshot guardado; sin recalcular', 'Saved snapshot; not recalculated') : tr('Estado activo; exportar no guarda cambios', 'Active state; exporting does not save changes')],
-    [tr('Material', 'Material'), grade?.grade || tr('Personalizado / sin ficha', 'Custom / no datasheet')],
-    [tr('Familia', 'Family'), grade?.family || unavailable], [tr('Fabricante', 'Manufacturer'), grade?.manufacturer || unavailable],
-    [tr('Grado comercial', 'Commercial grade'), grade?.grade || unavailable], [tr('Validación técnica', 'Technical validation'), validation]
+    [tr('Material', 'Material'), record.material?.formulation?.name || grade?.grade || tr('Personalizado / sin ficha', 'Custom / no datasheet')],
+    [tr('Familia', 'Family'), grade?.family || unavailable], [record.material?.formulation?tr('Fabricante del componente virgen','Virgin component manufacturer'):tr('Fabricante', 'Manufacturer'), grade?.manufacturer || unavailable],
+    [record.material?.formulation?tr('Grado virgen de referencia','Virgin reference grade'):tr('Grado comercial', 'Commercial grade'), grade?.grade || unavailable], [tr('Validación técnica', 'Technical validation'), validation]
   ];
   const origins = {
     family_reference: tr('Referencia de familia — estimación', 'Family reference — estimate'),
@@ -48,6 +48,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     range_selection: tr('Elección explícita en rango de ficha', 'Explicit choice in datasheet range'),
     default_example: tr('Ejemplo precargado editable', 'Editable preloaded example'),
     library: tr('Ficha documental; ver condiciones y estado en fuentes', 'Documented datasheet; see conditions and status in sources'),
+    mixture_model: tr('Estimación de mezcla — modelo ideal documentado', 'Mixture estimate — documented ideal model'),
     user_custom: tr('Material personalizado; dato de usuario no verificado', 'Custom material; unverified user data'),
     default: tr('Ejemplo precargado editable', 'Editable preloaded example'),
     historical_unknown: tr('Origen no registrado en el historial', 'Origin not recorded in history')
@@ -68,6 +69,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     ...(Array.isArray(record.warnings) ? record.warnings : []).map(x => [tr('Advertencia', 'Warning'), label(x)]),
     ...(Array.isArray(record.notes) ? record.notes : []).map(x => [tr('Limitación / modelo', 'Limitation / model'), label(x)]),
     ...flattenEvidence({ applied_properties: record.material?.used_fields, field_states: record.material?.field_states,
+      formulation:record.material?.formulation, formulation_input:record.material?.formulation_input, formulation_assessment:record.formulation_assessment, research_snapshot:record.material?.research_snapshot,
       process_conditions: record.material?.context, density_assessment: record.density_assessment,
       input_issues: record.input_issues, calculation_metadata: record.calculation_metadata,
       profile_settings: record.injection_profile_settings, profile_note: record.injection_profile?.note,
@@ -77,6 +79,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
   const sources = flattenEvidence({ material_source: record.material?.source,
     material_references: record.material?.references_snapshot?.sources,
     pvt_reference: record.material?.references_snapshot?.pvt_sources?.[grade?.pvt?.source_ref],
+    formulation_sources:record.material?.formulation?.density_result, research_sources:record.material?.research_snapshot?.source, flow_sources:record.material?.research_snapshot?.flow_sources,
     density_source: record.density_assessment?.source });
   if (!sources.length) sources.push([tr('Fuentes', 'Sources'), tr('Sin fuente documental registrada; revisar datos manuales', 'No documented source recorded; review manual inputs')]);
   const profile = Array.isArray(record.injection_profile?.stages) ? record.injection_profile.stages.map(s =>

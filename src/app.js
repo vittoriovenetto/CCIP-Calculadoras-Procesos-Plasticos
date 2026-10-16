@@ -1,7 +1,12 @@
+import {renderRecycled} from './recycled-view.js';
+import {renderResearch} from './material-research-view.js';
+import {applyFormulationInput,leaveFormulation} from './formulation-state.js';
+import {activeFormulation} from './recycled.js';
+import {calculateFormulationCase} from "./formulation-calculation.js";
 import { modules, activeFields } from "./schema.js";
 import { initI18n, getLanguage, t } from "./i18n.js";
 import { mergeCustomMaterials, renderCustomEditor } from "./custom-materials.js";
-import { calculateWithMeltDensity, applyFamilyMeltDensity } from "./injection-density.js";
+import { applyFamilyMeltDensity } from "./injection-density.js";
 import { renderInjectionDensity } from "./injection-density-view.js";
 import { mountHistory } from "./history-view.js";
 import { validateLibrary, createMaterialState, selectMaterial, markManual, clearAutomatic, applyMaterial, materialSnapshot, restoreMaterial, materialWarnings } from "./materials.js";
@@ -134,6 +139,16 @@ function drawCustomEditor() {
 function drawMaterials() {
   renderMaterials($("materials"), { library: materialCatalogFor(library,state.id), loadStatus, materialState: state.material, filters: state.filters,
     module: mod(), values: state.values, level: state.level, onChange: materialChanged, detailsOpen: materialDetailsOpen, onDetailsToggle: open => { materialDetailsOpen = open; } });
+  renderRecycled($("materials"),{state:state.material,moduleId:state.id,onVirgin:()=>{leaveFormulation(state.material,state.values);draw();},onChange:(input,redraw)=>{
+    applyFormulationInput(state.material,state.values,input,state.id);drawFields();invalidate();
+    if(redraw){drawMaterials();const details=$("blend-density-details");if(details)details.open=input.density_strategy!=='none';}
+  }});
+  renderResearch($("materials"),state.material,state.id);
+  if(activeFormulation(state.material)){
+    const label=document.querySelector('label[for="material-grade"]');if(label)label.textContent=getLanguage()==='en'?'Virgin reference grade':'Grado virgen de referencia';
+    const compact=document.querySelector('.material-compact');if(compact)compact.textContent=(getLanguage()==='en'?'Virgin component reference: ':'Componente virgen de referencia: ')+(state.material.grade_snapshot?.grade||'');
+    const summary=$("material-details")?.querySelector('summary');if(summary)summary.textContent=getLanguage()==='en'?'Virgin component datasheet — does not apply to the blend':'Ficha del componente virgen — no se aplica a la mezcla';
+  }
 }
 function drawProfile(result) {
   renderInjectionProfile($("injection-profile"), {
@@ -148,10 +163,11 @@ function drawDensity() {
     onUseReference: () => materialChanged('reference','meltDensity')
   });
 }
-const densityBadge = metric => metric.density_estimate ? '<small class="density-estimate">Estimación · densidad de familia</small>' : '';
+const densityBadge = metric => metric.density_estimate ? `<small class="density-estimate">${metric.estimate_basis?.includes('mixture_model')?t('Estimación · densidad de formulación'):t('Estimación · densidad de familia')}</small>` : '';
 
 function materialChanged(action, value) {
   if (action === "reference") {
+    if(activeFormulation(state.material))return;
     if (value === 'meltDensity') state.material.context.familyMeltReferenceAccepted = true;
     state.values[value] = "";
     delete state.material.provenance[value];
@@ -169,7 +185,7 @@ function materialChanged(action, value) {
     }
     if (state.id === 'inyeccion' && ['pvtTemperatureC','pvtPressureMPa'].includes(value.key)) {
       const previous = state.values.meltDensity;
-      applyFamilyMeltDensity(state.material,mod(),state.values,state.level);
+      if(!state.material.formulation||state.material.formulation.recycled_fraction===0)applyFamilyMeltDensity(state.material,mod(),state.values,state.level);
       if (previous !== state.values.meltDensity) {
         if($('field-meltDensity'))$('field-meltDensity').value=state.values.meltDensity;
         if($('provenance-meltDensity'))$('provenance-meltDensity').textContent=state.material.provenance.meltDensity?provenanceText(state.material.provenance.meltDensity):'';
@@ -181,7 +197,7 @@ function materialChanged(action, value) {
     if (value.key === 'dryingManualMode') {draw();return;}
     if (value.key === 'pvcMeltReferenceForm' || (value.key === 'meltDensityPolicy' && value.value === 'verified_only')) state.material.context.familyMeltReferenceAccepted = false;
     if (["compatible", "physicalForm", "bulkCompatible", "dryingCompatible", "processConfirmed", "dryingTime", "meltDensityPolicy", "familyMeltReferenceAccepted", "pvcMeltReferenceForm", "pvcMeltCompoundConfirmed"].includes(value.key)) {
-      clearAutomatic(state.material, state.values);
+      if(!activeFormulation(state.material))clearAutomatic(state.material, state.values);
       applyMaterial(state.material, mod(), state.values, state.level);
       drawFields();
       renderMaterialFeedback($("materials"), state.material, mod(), state.values, state.level);
@@ -193,6 +209,7 @@ function materialChanged(action, value) {
     invalidate();
     return;
   }
+  if(state.material.formulation_mode!=="virgin")leaveFormulation(state.material,state.values);
   if (action === "family" && value && library) {
     const generic = library.materials.find(m => m.family === value && m.record_status === "generic_unverified");
     selectMaterial(library, state.material, state.values, generic?.id || null);
@@ -259,7 +276,7 @@ function fieldHelp(f) {
 function compute() {
   if (state.id === 'inyeccion' && $("profile-details")) state.profile.enabled = $("profile-details").open;
   const inputs = Object.fromEntries(activeFields(mod(), state.values, state.level).map(f => [f.key, state.values[f.key]]));
-  const a = calculateWithMeltDensity(state.id, inputs, state.level, state.material);
+  const a = calculateFormulationCase(state.id, inputs, state.level, state.material);
   if (a.density_provenance?.origin === 'library') {
     state.values.meltDensity = inputs.meltDensity = a.calculation_inputs.meltDensity;
     state.material.provenance.meltDensity = a.density_provenance;
@@ -267,6 +284,7 @@ function compute() {
   }
   a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
   const injectionProfile = state.id === 'inyeccion' ? calculateInjectionProfile(a.calculation_inputs || inputs, state.level, state.profile, a.density_assessment) : null;
+  if(injectionProfile&&a.formulation_assessment?.approximate){injectionProfile.estimate_basis='mixture_model';injectionProfile.note=injectionProfile.note?.replaceAll('densidad de familia','densidad de formulación').replaceAll('referencia de familia','modelo de formulación');}
   const issues=inputIssues(state.id,inputs,state.level,a);
   for(const issue of issues)if(!a.warnings.includes(issue.message))a.warnings.push(issue.message);
   const visible=displayMetrics(a);
@@ -314,6 +332,7 @@ state.origins = initialOrigins();
 state.values = initialValues();
 draw();
 initI18n();
+document.addEventListener('ccip-language-change',drawMaterials);
 if(new URL(location.href).searchParams.get('view')==='learning')showLearning(location.href,false);
 
 

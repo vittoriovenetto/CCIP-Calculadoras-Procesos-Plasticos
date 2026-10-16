@@ -25,7 +25,7 @@ const words = {
 const tr = es => getLanguage() === 'en' ? words[es] || t(es) : es;
 const errorText = error => tr(({corrupt:'El historial está dañado. No se modificaron sus datos.',changed:'El historial cambió en otra pestaña. Revisa la selección e inténtalo nuevamente.',limit:'Se alcanzó el límite de 60 cálculos. Elimina uno explícitamente o sobrescribe uno del mismo proceso.',name:'Introduce un nombre de 1 a 120 caracteres.',not_found:'El cálculo seleccionado ya no existe o pertenece a otro proceso.',wrong_process:'El cálculo seleccionado ya no existe o pertenece a otro proceso.'})[error.code || error] || 'No se pudo escribir el historial. Comprueba el almacenamiento del navegador.');
 const title = item => item.name || t(modules.find(m => m.id === item.module)?.name || item.module);
-const detail = item => [title(item),t(modules.find(m => m.id === item.module)?.name || item.module),item.material?.grade_snapshot?.grade,new Date(item.updated_at || item.date).toLocaleString(getLanguage() === 'en' ? 'en-US' : 'es-DO')].filter(Boolean).join(' · ');
+const detail = item => [title(item),t(modules.find(m => m.id === item.module)?.name || item.module),item.material?.formulation?.name||item.material?.grade_snapshot?.grade,new Date(item.updated_at || item.date).toLocaleString(getLanguage() === 'en' ? 'en-US' : 'es-DO')].filter(Boolean).join(' · ');
 
 export function mountHistory({root,comparison,getSnapshot,onRestore}) {
  let recoveredId = null, count = 15, pending = null;

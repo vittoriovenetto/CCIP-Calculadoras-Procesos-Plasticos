@@ -4,6 +4,16 @@ import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
 export const translations = {
+"Estimación · densidad de formulación":"Estimate · formulation density",
+"Estimación de mezcla":"Mixture estimate",
+"Dato manual de formulación":"Manual formulation data",
+"Densidad fundida estimada — referencia de familia":"Estimated melt density — family reference",
+"Formulación V/R para análisis: compatibilidad y prestaciones requieren validación del caso.":"V/R formulation for analysis: compatibility and performance require case validation.",
+"Los porcentajes de la formulación no son válidos; no se aplican propiedades del grado virgen.":"The formulation percentages are invalid; virgin-grade properties are not applied.",
+"La propiedad no corresponde a esta formulación o a las condiciones declaradas. Los resultados dependientes quedan pendientes.":"The property does not belong to this formulation or the declared conditions. Dependent results remain pending.",
+"La composición V/R no demuestra aptitud del producto ni autoriza transferir propiedades del componente virgen.":"V/R composition does not establish product suitability or allow transferring virgin-component properties.",
+"Estimación con densidad de formulación; modelo ideal o modificación manual identificada. No es una propiedad certificada de grado ni una validación industrial.":"Estimate using formulation density; ideal model or identified manual modification. This is not a certified grade property or industrial validation.",
+
 "Formato de exportación":"Export format",
 "Exportar estado activo":"Export active state", ...extraTranslations, ...auditTranslations, ...leanTranslations,
 "Calculadora de procesos de transformación termoplásticos":"Thermoplastic processing calculator",

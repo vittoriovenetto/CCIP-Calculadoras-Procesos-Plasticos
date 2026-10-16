@@ -1,3 +1,4 @@
+import { activeFormulation } from "./recycled.js";
 import { activeFields } from "./schema.js";
 import { isBlank, n } from "./math.js";
 import { validatePvt, captureReferences } from "./pvt.js";
@@ -57,14 +58,15 @@ export const families = data => [...new Set(data.materials.map(m => m.family))];
 export const manufacturers = (data, family) => [...new Set(data.materials.filter(m => m.family === family).map(m => m.manufacturer))];
 export const grades = (data, family, manufacturer) => data.materials.filter(m => m.family === family && m.manufacturer === manufacturer);
 export const contextDefaults = () => ({ leanInterface: false, familyMeltReferenceMode: "explicit", dryingManualMode: false, dryingTemperature: "", compatible: false, physicalForm: "", bulkCompatible: false, dryingCompatible: false, processConfirmed: false, dryingTime: "", conditionsNote: "", lot: "", pvtTemperatureC: "", pvtPressureMPa: "", meltDensitySource: "", meltDensityPolicy: "reference_allowed", meltDensityVerified: false, familyMeltReferenceAccepted: false, pvcMeltReferenceForm: "", pvcMeltCompoundConfirmed: false, cpMinC: "", cpMaxC: "", cpPhase: "", specificHeatSource: "" });
-export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, references_snapshot: null, provenance: {}, context: contextDefaults() });
+export const createMaterialState = () => ({ grade_snapshot: null, dataset: null, source: null, references_snapshot: null, provenance: {}, formulation:null, formulation_mode:"virgin", formulation_input:null, formulation_original_state:null, research_snapshot:null, context: contextDefaults() });
 export const outsideProcess = (material, moduleId) => !!material && !["generic_unverified", "user_entered_unverified", "grade_identity_referenced_properties_partial", "catalog_identity_pending_grade_data_verification"].includes(material.record_status) && !!processTags[moduleId] && !material.process_tags.some(tag => tag.includes(processTags[moduleId]));
 export const expectedForm = material => material.record_status === "user_entered_unverified" ? (material.properties.bulk_density?.physical_form || null) : material.family === "PVC" ? "powder" : "pellets";
 
-// Una selección invalida únicamente valores automáticos previos; nunca valores manuales.
+// Una selección invalida valores automáticos y los vinculados a otra formulación.
+// Las entradas manuales sin vínculo de formulación conservan el comportamiento previo.
 export function clearAutomatic(materialState, values) {
   for (const [field, entry] of Object.entries(materialState.provenance)) {
-    if (["library", "range_selection", "user_custom", "family_reference"].includes(entry.origin)) {
+    if (entry.formulation_id || ["library", "range_selection", "user_custom", "family_reference"].includes(entry.origin)) {
       values[field] = "";
       delete materialState.provenance[field];
     }
@@ -73,6 +75,7 @@ export function clearAutomatic(materialState, values) {
 export function selectMaterial(data, materialState, values, gradeId) {
   const {meltDensityPolicy:policy,leanInterface,familyMeltReferenceMode} = materialState.context;
   clearAutomatic(materialState, values);
+  materialState.formulation=null;materialState.formulation_input=null;materialState.formulation_mode="virgin";materialState.formulation_original_state=null;materialState.research_snapshot=null;materialState.restored_snapshot=false;delete materialState.formulation_property_signature;
   const material = data?.materials.find(m => m.id === gradeId);
   materialState.grade_snapshot = material ? clone(material) : null;
   materialState.dataset = material ? { name: data.dataset_name, version: data.catalog_revision || data.schema_version, retrieved_on: data.retrieved_on } : null;
@@ -90,13 +93,14 @@ export function markManual(materialState, moduleId, field, value) {
     ...previous, property_key: map[0], unit: map[1], phase: map[2],
     origin: previous?.reference ? "user_override" : "manual", value,
     // Se conserva la identidad de la referencia, incluso al cambiar de grado.
-    grade_id: previous?.grade_id ?? materialState.grade_snapshot?.id ?? null
+    ...(activeFormulation(materialState)?{formulation_id:materialState.formulation?.id}:{}),
+    grade_id: activeFormulation(materialState) ? null : previous?.grade_id ?? materialState.grade_snapshot?.id ?? null
   };
 }
 
 export function materialCandidates(materialState, module, values, level) {
   const material = materialState.grade_snapshot;
-  if (!material) return [];
+  if (!material || activeFormulation(materialState)) return [];
   return activeFields(module, values, level).flatMap(field => {
     const map = mappings[module.id]?.[field.key];
     if (!map) return [];
@@ -143,12 +147,13 @@ export function applyMaterial(materialState, module, values, level) {
       selection_reason: candidate.property.range ? "Valor elegido explícitamente dentro del rango de ficha tras confirmar condiciones" : null
     };
   }
-  applyFamilyMeltDensity(materialState, module, values, level);
+  if(!activeFormulation(materialState))applyFamilyMeltDensity(materialState, module, values, level);
   return candidates;
 }
 export function materialWarnings(materialState, moduleId, values = {}, level = "advanced") {
   const material = materialState.grade_snapshot;
   const warnings = [], context = materialState.context;
+  if(activeFormulation(materialState))return ["Formulación V/R para análisis: compatibilidad y prestaciones requieren validación del caso.",...(materialState.formulation?.valid?[]:["Los porcentajes de la formulación no son válidos; no se aplican propiedades del grado virgen."])];
   if (level !== 'basic' && moduleId === 'inyeccion' && materialState.provenance.meltDensity?.origin !== 'family_reference' && n(values.meltDensity) > 0 &&
       (!Number.isFinite(n(context.pvtTemperatureC)) || n(context.pvtTemperatureC) <= -273.15 ||
        !Number.isFinite(n(context.pvtPressureMPa)) || n(context.pvtPressureMPa) < 0 || !context.meltDensitySource.trim())) {
@@ -205,10 +210,11 @@ export function materialSnapshot(materialState, module, inputs, level) {
   }
   return clone({ grade_id: materialState.grade_snapshot?.id ?? null, source_id: materialState.grade_snapshot?.source_id ?? null,
     dataset: materialState.dataset, grade_snapshot: materialState.grade_snapshot, source: materialState.source, references_snapshot: materialState.references_snapshot,
-    used_fields: used, field_states: fieldStates, context: materialState.context });
+    used_fields: used, field_states: fieldStates, context: materialState.context, formulation:materialState.formulation,formulation_mode:materialState.formulation_mode,formulation_input:materialState.formulation_input,formulation_original_state:materialState.formulation_original_state,formulation_property_signature:materialState.formulation_property_signature,research_snapshot:materialState.research_snapshot });
 }
 export function restoreMaterial(snapshot) {
   const result = createMaterialState();
+  result.restored_snapshot=true;
   if (!snapshot || typeof snapshot !== "object" || Array.isArray(snapshot)) return result;
   const material = snapshot.grade_snapshot;
   // Historial no confiable: validar forma antes de renderizar; URLs se validan por separado.
@@ -232,5 +238,13 @@ export function restoreMaterial(snapshot) {
   for (const key of Object.keys(result.context)) {
     if (typeof snapshot.context?.[key] === typeof result.context[key]) result.context[key] = snapshot.context[key];
   }
+  if(snapshot?.formulation && typeof snapshot.formulation==='object' && !Array.isArray(snapshot.formulation)) {
+    result.formulation=clone(snapshot.formulation);
+    result.formulation_mode=['blend','PIR','PCR','internal_regrind','commercial_recycled'].includes(snapshot.formulation_mode)?snapshot.formulation_mode:'blend';
+    result.formulation_input=snapshot.formulation_input&&typeof snapshot.formulation_input==='object'&&!Array.isArray(snapshot.formulation_input)?clone(snapshot.formulation_input):null;
+    result.formulation_original_state=snapshot.formulation_original_state?.values&&snapshot.formulation_original_state?.provenance&&snapshot.formulation_original_state?.context?clone(snapshot.formulation_original_state):null;
+    result.formulation_property_signature=snapshot.formulation_property_signature;
+  }
+  if(snapshot?.research_snapshot?.schema==='ccip-material-research/1'&&snapshot.research_snapshot.material_id===result.grade_snapshot?.id&&Array.isArray(snapshot.research_snapshot.facts)&&snapshot.research_snapshot.facts.every(row=>Array.isArray(row)&&row.length===6))result.research_snapshot=clone(snapshot.research_snapshot);
   return result;
 }

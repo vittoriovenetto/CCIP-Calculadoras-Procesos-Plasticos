@@ -1,0 +1,16 @@
+{
+  "base_commit": "fdf3a27eca518fe600b07d236e78b334db554232",
+  "baseline_sha256": "f5459412739c164c562b8f44a7f4680407271f902dad734d2a2461452557f0e0",
+  "materials": 73,
+  "commercial": 64,
+  "generic_manual": 9,
+  "numeric_fields_original": 269,
+  "candidate_rows": 1481,
+  "executed_search_requests": 850,
+  "new_properties": 0,
+  "corrected_properties": 0,
+  "active_catalog_byte_identical": true,
+  "removed_ids": [],
+  "added_ids": [],
+  "phase": "A — inventory and evidence collection; B/E not implied complete"
+}

@@ -1,0 +1,15 @@
+{
+  "identities_investigated": 73,
+  "commercial": 64,
+  "commercial_with_new_evidence": 47,
+  "commercial_without_additional_numeric_enrichment": 17,
+  "generic_manual_without_grade_properties": 9,
+  "fully_verified_catalog": false,
+  "full_reverification_claimed": false,
+  "primary_documentary_rows": 1592,
+  "document_sources": 48,
+  "rheology_measurements": 69,
+  "rheology_documented": 56,
+  "rheology_pending_reconfirmation": 13,
+  "experimental_compositions": 15
+}

@@ -170,3 +170,14 @@ aside .learning-nav{display:block;overflow:visible;margin-top:16px;padding-top:1
 #save-target-detail { overflow-wrap:anywhere; }
 .inputs-panel .actions { align-items:end; }
 .export-picker select { min-height:44px; }
+
+/* Etapa 3: paneles documentales y recetas locales, sin afectar motores. */
+.recycled-panel {margin-top:1rem;border-top:1px solid var(--border,#d8dde5);padding-top:1rem}
+.recycled-panel details, #research-details {margin-top:1rem}
+.recycled-panel input[type=checkbox] {width:auto;min-height:1.5rem}
+.research-content {padding-top:1rem;min-width:0}
+.research-table-wrap {max-width:100%;overflow:auto}
+.research-table-wrap table {border-collapse:collapse;width:100%}
+.research-table-wrap th,.research-table-wrap td {padding:.55rem;text-align:left;border-bottom:1px solid #d8dde5;overflow-wrap:anywhere}
+#formulation-editor fieldset {min-width:0}
+#flow-a,#flow-b {max-width:100%}

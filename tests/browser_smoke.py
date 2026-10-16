@@ -484,7 +484,7 @@ class BrowserSmoke(unittest.TestCase):
         self.fill_case('inyeccion',VARIANTS[0][1])
         self.save_case()
         snapshot=self.page.evaluate("JSON.parse(localStorage.getItem('ccip-calculators-web-v1'))[0]")
-        self.assertEqual(snapshot['material']['dataset']['version'],'1.4.0')
+        self.assertEqual(snapshot['material']['dataset']['version'],json.loads((ROOT/'src/data/materials.v1.3.json').read_text())['catalog_revision'])
         self.page.locator('#language').select_option('en')
         self.page.goto(self.url+'versions/v1/')
         self.page.locator('[data-history]').nth(0).click()

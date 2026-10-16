@@ -1,0 +1,13 @@
+# Fase C — mediciones de fluidez y aplicaciones
+
+La biblioteca separada `rheology.v1.json` conserva **69 mediciones MFR/MVR**, de las cuales 56 proceden del contenido de documentos revisados y 13 son valores previos no reconfirmados bajo esas condiciones. Las evidencias anteriores coincidentes se conservan como antecedentes; no se fusionan mediciones de carga, temperatura o método diferentes. GP-35 conserva tanto MFR 34 ASTM/Américas como MVR 34 ISO/EMEA, sin conversión ni sustitución. Además se reconfirman MFR 3,1 (200 °C/5 kg) y MVR 11 (230 °C/3,8 kg) en el PDF ASTM. La conclusión inicial de error universal queda expresamente retirada en la [revisión regional](gp35-regional-review.md).
+
+Cada registro incluye tipo MFR/MVR, unidad, temperatura/carga cuando están declaradas, método, edición si existe, acondicionamiento, grado, fuente, clasificación y condiciones originales. **La norma vigente no se asigna a una ficha que no declare edición.** [Matriz CSV](flow-matrix.csv).
+
+El comparador distingue condiciones incompatibles, insuficientes o coincidentes con detalles pendientes. Temperatura, carga, magnitud, familia, método o edición diferentes impiden una diferencia numérica. Cuando se desconoce edición o acondicionamiento se muestra coincidencia condicionada, sin diferencia numérica que sugiera equivalencia metrológica completa.
+
+Las **54 recomendaciones** describen aplicaciones específicas que el fabricante indica, separadas de la medición de fluidez. No se asignan intervalos MFR universales, no se excluyen grados por MFR y no se presentan velocidades/presiones publicadas para probetas como consignas de máquina. No se encontraron intervalos generales suficientemente reconfirmados para convertirlos en criterios automáticos. [Matriz de aplicaciones](process-matrix.csv).
+
+MFR no es viscosidad absoluta. La conversión MVR→MFR solo está disponible en la función técnica cuando existe densidad fundida validada del mismo grado con fuente y temperatura/presión coincidentes; no se ejecuta automáticamente. Ninguna de las densidades sólidas ni referencias de familia cumple ese contrato. La aplicación no convierte los MVR publicados por defecto.
+
+[Referencias metodológicas verificadas en catálogos oficiales](standards.json): ISO 1133-1:2022; ISO 1133-2:2011; ASTM D1238-26 (activo, actualización 06/08/2026); BS EN 15343:2007; BS EN 15344:2025; BS EN 15345:2025; BS EN 15346:2024; BS EN 15348:2024; ISO 15270:2008 (la página anuncia futuras sustituciones por la serie). Se distinguen los metadatos públicos de los textos normativos completos. No se reproducen normas de pago, no se eluden registros y no se derivan propiedades numéricas de ellas.

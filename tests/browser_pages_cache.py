@@ -65,11 +65,16 @@ try:
                     page.locator('#export').click()
                 assert Path(download.value.path()).read_bytes().startswith(magic)
                 page.wait_for_function("!document.getElementById('export').disabled")
+            page.locator('#research-details > summary').click()
+            page.locator('#research-flow').wait_for()
+            page.locator('#material-origin').select_option('blend')
+            assert page.locator('[data-field="meltDensity"]').input_value() == ''
+            assert page.locator('#blend-ratio').input_value() == '80/20'
             assert not stale_requests, stale_requests
             assert not errors, errors
             context.close()
         browser.close()
-    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF diferidos válidos y sin mezclar recursos antiguos.')
+    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF y evidencia de Etapa 3 diferidos válidos, formulación sin herencia y sin mezclar recursos antiguos.')
 finally:
     server.shutdown()
     server.server_close()
