@@ -1,0 +1,10 @@
+family,evaluation,experimental_source_ids,compatibility,numeric_properties_inherited,percentage_recommendation
+HDPE,requires_case_validation,REC-01,unknown_for_a_new_formulation,False,
+LDPE,requires_case_validation,REC-04,unknown_for_a_new_formulation,False,
+LLDPE,requires_case_validation,,unknown_for_a_new_formulation,False,
+PP,requires_case_validation,REC-02;REC-03,unknown_for_a_new_formulation,False,
+PET,requires_case_validation,,unknown_for_a_new_formulation,False,
+PVC,requires_case_validation,,unknown_for_a_new_formulation,False,
+ABS,requires_case_validation,REC-05,unknown_for_a_new_formulation,False,
+PA6,requires_case_validation,REC-06,unknown_for_a_new_formulation,False,
+PC,requires_case_validation,,unknown_for_a_new_formulation,False,

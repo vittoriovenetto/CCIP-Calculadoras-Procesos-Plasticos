@@ -1,0 +1,16 @@
+id,family,virgin_percent,recycled_percent,percentage_basis,source_id,automatic_application_allowed
+REC-01-V0-R100,HDPE,0,100,mass,REC-01,False
+REC-01-V25-R75,HDPE,25,75,mass,REC-01,False
+REC-01-V50-R50,HDPE,50,50,mass,REC-01,False
+REC-01-V60-R40,HDPE,60,40,mass,REC-01,False
+REC-01-V70-R30,HDPE,70,30,mass,REC-01,False
+REC-01-V80-R20,HDPE,80,20,mass,REC-01,False
+REC-01-V90-R10,HDPE,90,10,mass,REC-01,False
+REC-01-V100-R0,HDPE,100,0,mass,REC-01,False
+REC-02-V0-R100,PP,0,100,mass,REC-02,False
+REC-02-V25-R75,PP,25,75,mass,REC-02,False
+REC-02-V50-R50,PP,50,50,mass,REC-02,False
+REC-02-V75-R25,PP,75,25,mass,REC-02,False
+REC-02-V100-R0,PP,100,0,mass,REC-02,False
+REC-03-V70-R30,PP,70,30,mass,REC-03,False
+REC-03-V90-R10,PP,90,10,mass,REC-03,False

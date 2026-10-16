@@ -1,0 +1,167 @@
+[
+  {
+    "id": "REC-01-V0-R100",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 0,
+    "recycled_percent": 100,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V25-R75",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 25,
+    "recycled_percent": 75,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V50-R50",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 50,
+    "recycled_percent": 50,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V60-R40",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 60,
+    "recycled_percent": 40,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V70-R30",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 70,
+    "recycled_percent": 30,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V80-R20",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 80,
+    "recycled_percent": 20,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V90-R10",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 90,
+    "recycled_percent": 10,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-01-V100-R0",
+    "experiment_id": "experiment-REC-01",
+    "family": "HDPE",
+    "virgin_percent": 100,
+    "recycled_percent": 0,
+    "percentage_basis": "mass",
+    "source_id": "REC-01",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-02-V0-R100",
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "virgin_percent": 0,
+    "recycled_percent": 100,
+    "percentage_basis": "mass",
+    "source_id": "REC-02",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-02-V25-R75",
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "virgin_percent": 25,
+    "recycled_percent": 75,
+    "percentage_basis": "mass",
+    "source_id": "REC-02",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-02-V50-R50",
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "virgin_percent": 50,
+    "recycled_percent": 50,
+    "percentage_basis": "mass",
+    "source_id": "REC-02",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-02-V75-R25",
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "virgin_percent": 75,
+    "recycled_percent": 25,
+    "percentage_basis": "mass",
+    "source_id": "REC-02",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-02-V100-R0",
+    "experiment_id": "experiment-REC-02",
+    "family": "PP",
+    "virgin_percent": 100,
+    "recycled_percent": 0,
+    "percentage_basis": "mass",
+    "source_id": "REC-02",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-03-V70-R30",
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "virgin_percent": 70,
+    "recycled_percent": 30,
+    "percentage_basis": "mass",
+    "source_id": "REC-03",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  },
+  {
+    "id": "REC-03-V90-R10",
+    "experiment_id": "experiment-REC-03",
+    "family": "PP",
+    "virgin_percent": 90,
+    "recycled_percent": 10,
+    "percentage_basis": "mass",
+    "source_id": "REC-03",
+    "automatic_application_allowed": false,
+    "measured_properties_scope": "Use original experimental tables; no interpolated properties assigned to this composition."
+  }
+]
