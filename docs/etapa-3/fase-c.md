@@ -1,6 +1,6 @@
 # Fase C — mediciones de fluidez y aplicaciones
 
-La biblioteca separada `rheology.v1.json` conserva **68 mediciones MFR/MVR**, de las cuales 53 proceden del contenido de documentos revisados y 15 son valores previos no reconfirmados bajo esas condiciones. Las evidencias anteriores coincidentes se conservan como antecedentes; no se fusionan mediciones de carga, temperatura o método diferentes. El MFR 34 erróneo de GP-35 queda en el registro de discrepancias y no como ensayo seleccionable.
+La biblioteca separada `rheology.v1.json` conserva **69 mediciones MFR/MVR**, de las cuales 56 proceden del contenido de documentos revisados y 13 son valores previos no reconfirmados bajo esas condiciones. Las evidencias anteriores coincidentes se conservan como antecedentes; no se fusionan mediciones de carga, temperatura o método diferentes. GP-35 conserva tanto MFR 34 ASTM/Américas como MVR 34 ISO/EMEA, sin conversión ni sustitución. Además se reconfirman MFR 3,1 (200 °C/5 kg) y MVR 11 (230 °C/3,8 kg) en el PDF ASTM. La conclusión inicial de error universal queda expresamente retirada en la [revisión regional](gp35-regional-review.md).
 
 Cada registro incluye tipo MFR/MVR, unidad, temperatura/carga cuando están declaradas, método, edición si existe, acondicionamiento, grado, fuente, clasificación y condiciones originales. **La norma vigente no se asigna a una ficha que no declare edición.** [Matriz CSV](flow-matrix.csv).
 

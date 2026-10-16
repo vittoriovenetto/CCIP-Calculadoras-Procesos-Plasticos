@@ -19,7 +19,12 @@ export function compareFlow(a,b) {
  }
  if(!a.standard||!b.standard)return {status:'pending',reason:'missing_method',difference:null};
  if(a.standard!==b.standard)return {status:'incompatible',reason:'different_method',difference:null};
+ for(const [key,reason]of [['region','different_region'],['variant','different_variant'],['sample_state','different_sample_state']])if(a[key]&&b[key]&&a[key]!==b[key])return {status:'incompatible',reason,difference:null};
+ if(a.sku&&b.sku&&a.sku!==b.sku)return {status:'incompatible',reason:'different_commercial_identity',difference:null};
  const warnings=[];
+ if((a.region||b.region)&&(!a.region||!b.region))warnings.push('region_unknown');
+ if((Object.hasOwn(a,'variant')||Object.hasOwn(b,'variant'))&&(!a.variant||!b.variant))warnings.push('variant_not_specified');
+ if(a.classification==='pending_verification'||b.classification==='pending_verification')warnings.push('measurement_not_reconfirmed');
  if(!a.standard_edition||!b.standard_edition)warnings.push('standard_edition_unknown');
  else if(a.standard_edition!==b.standard_edition)return {status:'incompatible',reason:'different_standard_edition',difference:null};
  if(!a.preconditioning||!b.preconditioning)warnings.push('preconditioning_unknown');

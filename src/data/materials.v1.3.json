@@ -383,10 +383,16 @@
     "CAT255": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Terluran GP-35",
-      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_EMEA",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "content_reviewed_exact_grade",
-      "last_content_review": "2026-10-16"
+      "last_content_review": "2026-10-16",
+      "region": "EMEA",
+      "variant": null,
+      "sample_state": "uncolored_products",
+      "variant_scope": "Typical values for uncolored products; TDS does not assign the measurements to an individual NR/BK10009/color or batch suffix.",
+      "revision_original": "08/01/2022",
+      "documentary_review": "gp35-regional-review.json"
     },
     "CAT256": {
       "manufacturer": "INEOS Styrolution",
@@ -514,6 +520,30 @@
       "description": "Datos de grado exacto identificados en documentación oficial Covestro.",
       "verification_status": "content_reviewed_exact_grade",
       "last_content_review": "2026-10-16"
+    },
+    "R-CAT255-ASTM-AMERICAS": {
+      "source_id": "R-CAT255-ASTM-AMERICAS",
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-35",
+      "document_name": "Terluran GP-35 — Technical Data Sheet ASTM (America)",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_America",
+      "pdf_url": "https://eshop.ineos-styrolution.com/INTERSHOP/web/WFS/Styrolution-Portal-Site/en_US/-/USD/ViewPDF-Print.pdf?SKU=300600120829&RenderPageType=ProductDetail",
+      "pdf_context_required": true,
+      "document_type": "manufacturer_technical_data_sheet_and_regional_table",
+      "sku": "300600120829",
+      "region": "Americas",
+      "variant": null,
+      "sample_state": "uncolored_products",
+      "variant_scope": "Typical values for uncolored products; TDS does not assign the measurements to an individual NR/BK10009/color or batch suffix.",
+      "revision_original": "08/01/2022",
+      "publication_date": null,
+      "revision_date_interpretation": "Original date preserved; day/month convention not stated in the document.",
+      "consulted_on": "2026-10-16",
+      "sha256": "a939799fb4d1bbc5041f94d613327f6aab2a783a01217893d5435921e48ebd6e",
+      "verification_status": "content_reviewed_exact_grade",
+      "scope": "Regional typical data for the same public GP-35 SKU; not evidence of identical formulation, colored variant, production site or batch between regions.",
+      "regional_page_sha256": "810a1f373edaa77b830c3187a4bc823400f00d9da977b649b74354d50bfc48d3",
+      "sha256_scope": "PDF returned after selecting the recorded regional product context"
     }
   },
   "materials": [
@@ -5592,24 +5622,30 @@
         "mfr": {
           "value": 3.1,
           "unit": "g/10min",
-          "source_id": "CAT255",
+          "source_id": "R-CAT255-ASTM-AMERICAS",
           "method": "ASTM D1238",
           "condition": "200 °C / 5 kg",
           "range": null,
           "status": "manufacturer_typical",
           "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
-          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "region": "Americas",
+          "variant": null,
+          "sample_state": "uncolored_products"
         },
         "mvr": {
           "value": 11,
           "unit": "cm3/10min",
-          "source_id": "CAT255",
+          "source_id": "R-CAT255-ASTM-AMERICAS",
           "method": "ASTM D1238",
           "condition": "230 °C / 3.8 kg",
           "range": null,
           "status": "manufacturer_typical",
           "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
-          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "region": "Americas",
+          "variant": null,
+          "sample_state": "uncolored_products"
         },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
@@ -5643,6 +5679,20 @@
       },
       "additional_properties": [
         {
+          "key": "mfr_secondary",
+          "value": 34,
+          "unit": "g/10min",
+          "method": "ASTM D1238",
+          "condition": "220 °C / 10 kg",
+          "status": "manufacturer_typical",
+          "source_id": "R-CAT255-ASTM-AMERICAS",
+          "region": "Americas",
+          "variant": null,
+          "sample_state": "uncolored_products",
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "note": "MFR 34 publicado en ASTM/Américas. Se conserva por separado del MVR 34 ISO/EMEA; no es una conversión ni un error universal."
+        },
+        {
           "key": "mvr_secondary",
           "value": 34,
           "unit": "cm3/10min",
@@ -5650,8 +5700,11 @@
           "condition": "220 °C / 10 kg",
           "status": "manufacturer_typical",
           "source_id": "CAT255",
-          "verification_basis": "official_grade_table_content_reviewed_2026-10-16",
-          "note": "Corrección documental: MVR, no MFR. No es conversión por densidad. Estado anterior conservado en auditoría."
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "note": "MVR 34 publicado en ISO/EMEA. Registro independiente del MFR 34 ASTM/Américas; sufijo de variante/lote no especificado por la tabla.",
+          "region": "EMEA",
+          "variant": null,
+          "sample_state": "uncolored_products"
         }
       ],
       "data_review": {
@@ -7646,7 +7699,7 @@
       ]
     }
   },
-  "catalog_revision": "1.5.0",
+  "catalog_revision": "1.5.1",
   "official_source_audit": {
     "checked_on": "2026-10-14",
     "commercial_profiles": 90,
@@ -7675,6 +7728,6 @@
   "research_extension": {
     "schema": "ccip-material-research/1",
     "file": "material-research.v1.json",
-    "revision": "1.0.0"
+    "revision": "1.0.1"
   }
 }

@@ -1,0 +1,173 @@
+{
+  "schema": "ccip-gp35-regional-review/1",
+  "reviewed_on": "2026-10-16",
+  "previous_pr_head": "8b1fcc432962a0b0fadc2a2756a1b5717e97fd93",
+  "material_id": "catalog-abs-terluran-gp-35",
+  "identity_conclusion": {
+    "same_commercial_name": true,
+    "same_public_sku": true,
+    "sku": "300600120829",
+    "different_regional_table_contexts": true,
+    "same_regional_formulation_proven": false,
+    "same_colored_variant_or_batch_proven": false,
+    "listed_grade_versions": {
+      "Americas": [
+        "Terluran GP-35 BK10009",
+        "Terluran GP-35 NR"
+      ],
+      "EMEA": [
+        "Terluran GP-35 BK10009",
+        "Terluran GP-35 NR"
+      ],
+      "Asia-Pacific": [
+        "Terluran GP-35 BK10009",
+        "Terluran GP-35 NR",
+        "Terluran GP-35 WT010222"
+      ]
+    },
+    "interpretation": "Both 34 measurements are officially published, with different quantities/units/methods. The prior universal MFR-error claim is withdrawn. Equal printed numbers do not constitute a conversion or establish regional/variant equivalence."
+  },
+  "sources": {
+    "R-CAT255-ASTM-AMERICAS": {
+      "source_id": "R-CAT255-ASTM-AMERICAS",
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-35",
+      "document_name": "Terluran GP-35 — Technical Data Sheet ASTM (America)",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_America",
+      "pdf_url": "https://eshop.ineos-styrolution.com/INTERSHOP/web/WFS/Styrolution-Portal-Site/en_US/-/USD/ViewPDF-Print.pdf?SKU=300600120829&RenderPageType=ProductDetail",
+      "pdf_context_required": true,
+      "document_type": "manufacturer_technical_data_sheet_and_regional_table",
+      "sku": "300600120829",
+      "region": "Americas",
+      "variant": null,
+      "sample_state": "uncolored_products",
+      "variant_scope": "Typical values for uncolored products; TDS does not assign the measurements to an individual NR/BK10009/color or batch suffix.",
+      "revision_original": "08/01/2022",
+      "publication_date": null,
+      "revision_date_interpretation": "Original date preserved; day/month convention not stated in the document.",
+      "consulted_on": "2026-10-16",
+      "sha256": "a939799fb4d1bbc5041f94d613327f6aab2a783a01217893d5435921e48ebd6e",
+      "verification_status": "content_reviewed_exact_grade",
+      "scope": "Regional typical data for the same public GP-35 SKU; not evidence of identical formulation, colored variant, production site or batch between regions.",
+      "regional_page_sha256": "810a1f373edaa77b830c3187a4bc823400f00d9da977b649b74354d50bfc48d3",
+      "sha256_scope": "PDF returned after selecting the recorded regional product context"
+    },
+    "R-CAT255": {
+      "source_id": "R-CAT255",
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-35",
+      "document_name": "Terluran GP-35 — Technical Data Sheet ISO (EMEA)",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_EMEA",
+      "pdf_url": "https://eshop.ineos-styrolution.com/INTERSHOP/web/WFS/Styrolution-Portal-Site/en_US/-/USD/ViewPDF-Print.pdf?SKU=300600120829&RenderPageType=ProductDetail",
+      "pdf_context_required": true,
+      "document_type": "manufacturer_technical_data_sheet_and_regional_table",
+      "sku": "300600120829",
+      "region": "EMEA",
+      "variant": null,
+      "sample_state": "uncolored_products",
+      "variant_scope": "Typical values for uncolored products; TDS does not assign the measurements to an individual NR/BK10009/color or batch suffix.",
+      "revision_original": "08/01/2022",
+      "publication_date": null,
+      "revision_date_interpretation": "Original date preserved; day/month convention not stated in the document.",
+      "consulted_on": "2026-10-16",
+      "sha256": "cf46e73a53172218006b9b502a3d581109665f4d8088abb8fd05675c59d531b0",
+      "verification_status": "content_reviewed_exact_grade",
+      "scope": "Regional typical data for the same public GP-35 SKU; not evidence of identical formulation, colored variant, production site or batch between regions.",
+      "regional_page_sha256": "d71af0ef9c45ae26800bedab7470e16390fcfef096afd4353c77825e184a7357",
+      "sha256_scope": "PDF returned after selecting the recorded regional product context"
+    }
+  },
+  "additional_flow_measurements": [
+    {
+      "kind": "MFR",
+      "value": 3.1,
+      "unit": "g/10 min",
+      "temperature_C": 200,
+      "load_kg": 5,
+      "standard": "ASTM D1238",
+      "method_declared": "ASTM D 1238",
+      "label_original": "Melt Flow Rate, 200 °C/5 kg",
+      "source_id": "R-CAT255-ASTM-AMERICAS"
+    },
+    {
+      "kind": "MFR",
+      "value": 34,
+      "unit": "g/10 min",
+      "temperature_C": 220,
+      "load_kg": 10,
+      "standard": "ASTM D1238",
+      "method_declared": "ASTM D 1238",
+      "label_original": "Melt Flow Rate, 220 °C/10 kg",
+      "source_id": "R-CAT255-ASTM-AMERICAS"
+    },
+    {
+      "kind": "MVR",
+      "value": 11,
+      "unit": "cm³/10 min",
+      "temperature_C": 230,
+      "load_kg": 3.8,
+      "standard": "ASTM D1238",
+      "method_declared": "ASTM D 1238",
+      "label_original": "Melt Volume Rate 230 °C/3.8 kg",
+      "source_id": "R-CAT255-ASTM-AMERICAS"
+    }
+  ],
+  "previous_pr_decision": {
+    "material_id": "catalog-abs-terluran-gp-35",
+    "property_key": "mvr_secondary",
+    "before": {
+      "key": "mfr_secondary",
+      "value": 34,
+      "unit": "g/10min",
+      "method": "ASTM D1238",
+      "condition": "220 °C / 10 kg",
+      "status": "manufacturer_typical",
+      "source_id": "CAT255"
+    },
+    "after": {
+      "key": "mvr_secondary",
+      "value": 34,
+      "unit": "cm3/10min",
+      "method": "ISO 1133",
+      "condition": "220 °C / 10 kg",
+      "status": "manufacturer_typical",
+      "source_id": "CAT255",
+      "verification_basis": "official_grade_table_content_reviewed_2026-10-16",
+      "note": "Corrección documental: MVR, no MFR. No es conversión por densidad. Estado anterior conservado en auditoría."
+    },
+    "source_id": "R-CAT255",
+    "reason": "Official table labels 34 as Melt Volume Rate, cm³/10 min, ISO 1133 at 220 °C/10 kg."
+  },
+  "excerpts": [
+    {
+      "source_id": "R-CAT255-ASTM-AMERICAS",
+      "page": 1,
+      "text": "Melt Flow Rate, 220 °C/10 kg | ASTM D 1238 | g/10 min | 34"
+    },
+    {
+      "source_id": "R-CAT255",
+      "page": 1,
+      "text": "Melt Volume Rate 220 °C/10 kg | ISO 1133 | cm³/10 min | 34"
+    },
+    {
+      "source_id": "R-CAT255-ASTM-AMERICAS",
+      "page": 2,
+      "text": "Typical values for uncolored products"
+    }
+  ],
+  "additional_observations": [
+    {
+      "region": "Asia-Pacific",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_Asia",
+      "table": "MVR 34 cm³/10 min, ISO 1133, 220 °C/10 kg",
+      "measurement_not_duplicated": true
+    },
+    {
+      "region": "Americas",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_America",
+      "pdf_url": "https://eshop.ineos-styrolution.com/INTERSHOP/web/WFS/Styrolution-Portal-Site/en_US/-/USD/ViewPDF-Print.pdf?SKU=300600120829&RenderPageType=ProductDetail&ShowISO=true",
+      "pdf_sha256": "b6fcaa0a2897664e410bee009a3c0745ff13ecafbfaa425e1dec135af47add76",
+      "observation": "The Americas page also links an ISO sheet through ShowISO=true; its EMEA contact and ISO 34 row do not establish a distinct Americas experimental MVR."
+    }
+  ]
+}

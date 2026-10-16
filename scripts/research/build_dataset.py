@@ -58,15 +58,11 @@ def build(cache):
    old=current['sources'][material['source_id']];new_url=sources[record['source_id']]['url']
    decisions.append({'source_id':material['source_id'],'material_id':material['id'],'before':old.copy(),'after_url':new_url,'verification':'content_reviewed_exact_grade','sha256':sources[record['source_id']]['sha256'],'scope':'Source identity/content; existing fields retain their individual original provenance.'})
    old.update(url=new_url,verification_status='content_reviewed_exact_grade',last_content_review='2026-10-16')
-  if material['id']=='catalog-abs-terluran-gp-35':
-   for prop in material.get('additional_properties',[]):
-    if prop['key']=='mfr_secondary' and prop['value']==34:
-     before=prop.copy();prop.update(key='mvr_secondary',unit='cm3/10min',method='ISO 1133',condition='220 °C / 10 kg',verification_basis='official_grade_table_content_reviewed_2026-10-16')
-     prop['note']='Corrección documental: MVR, no MFR. No es conversión por densidad. Estado anterior conservado en auditoría.'
-     decisions.append({'material_id':material['id'],'property_key':'mvr_secondary','before':before,'after':prop.copy(),'source_id':record['source_id'],'reason':'Official table labels 34 as Melt Volume Rate, cm³/10 min, ISO 1133 at 220 °C/10 kg.'})
  (ROOT/'src/data/materials.v1.3.json').write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n')
  (ROOT/'docs/etapa-3/source-decisions.json').write_text(json.dumps(decisions,ensure_ascii=False,indent=2)+'\n')
- print(len(records),'identities;',len(sources),'reviewed sources;',sum(len(x['facts']) for x in records.values()),'documentary facts')
+ import subprocess
+ subprocess.run(['node','scripts/research/review-gp35.mjs'],cwd=ROOT,check=True)
+ print(len(records),'identities;',len(sources),'primary reviewed sources plus regional GP-35 evidence;',sum(len(x['facts']) for x in records.values()),'documentary facts')
 if __name__=='__main__':
  import argparse
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--cache',type=Path,required=True);args=parser.parse_args();build(args.cache)

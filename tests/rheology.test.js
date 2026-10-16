@@ -8,7 +8,7 @@ test('varios ensayos por grado mantienen temperatura, carga, norma y evidencia s
  const rows=data.measurements.filter(m=>m.material_id==='catalog-hdpe-dow-hdpe-lp-8000');assert.ok(rows.some(m=>m.load_kg===21.6));assert.ok(rows.some(m=>m.load_kg===5));
  assert.equal(new Set(data.measurements.map(m=>m.id)).size,data.measurements.length);
  for(const m of data.measurements){assert.ok(data.sources[m.source_id]);assert.ok(['MFR','MVR'].includes(m.kind));assert.equal(m.unit,m.kind==='MFR'?'g/10 min':'cm³/10 min');assert.equal(m.standard_edition,null,'No adoptar una edición actual no declarada en la ficha');}
- assert.ok(!data.measurements.some(m=>m.material_id==='catalog-abs-terluran-gp-35'&&m.kind==='MFR'&&m.value===34));
+ assert.ok(data.measurements.some(m=>m.material_id==='catalog-abs-terluran-gp-35'&&m.kind==='MFR'&&m.value===34&&m.standard==='ASTM D1238'&&m.region==='Americas'));
  assert.ok(data.measurements.some(m=>m.material_id==='catalog-abs-terluran-gp-35'&&m.kind==='MVR'&&m.value===34));
 });
 test('comparación rechaza cantidades, familias, cargas, temperaturas y métodos incompatibles',()=>{
@@ -27,4 +27,20 @@ test('MVR no se convierte con densidad sólida, de familia, otro grado o condici
 test('recomendaciones proceden de aplicaciones documentadas, sin rangos MFR universales',()=>{
  assert.ok(data.recommendations.length>0);for(const r of data.recommendations){assert.equal(r.scope,'grade_specific_application');assert.ok(data.sources[r.source_id]);assert.equal(r.mfr_interval,null);assert.equal(r.mvr_interval,null);assert.ok(!['secado','costos'].includes(r.process_id));}
  assert.deepEqual(testConditions('190 °C / 2,16 kg'),{temperature_C:190,load_kg:2.16});assert.deepEqual(testConditions('ASTM D1238'),{temperature_C:null,load_kg:null});
+});
+
+test('GP-35 conserva 34 ASTM y 34 ISO como magnitudes independientes con contexto regional y de muestra',()=>{
+ const rows=data.measurements.filter(m=>m.material_id==='catalog-abs-terluran-gp-35');
+ assert.equal(rows.length,4);
+ const astm=rows.find(m=>m.kind==='MFR'&&m.value===34),iso=rows.find(m=>m.kind==='MVR'&&m.value===34);
+ assert.notEqual(astm.id,iso.id);assert.notEqual(astm.source_id,iso.source_id);
+ for(const m of [astm,iso]){assert.equal(m.temperature_C,220);assert.equal(m.load_kg,10);assert.equal(m.sku,'300600120829');assert.equal(m.variant,null);assert.equal(m.sample_state,'uncolored_products');assert.equal(m.revision_original,'08/01/2022');assert.equal(data.sources[m.source_id].grade,'Terluran GP-35');}
+ assert.equal(astm.unit,'g/10 min');assert.equal(iso.unit,'cm³/10 min');assert.equal(iso.region,'EMEA');assert.equal(iso.standard,'ISO 1133');assert.equal(compareFlow(astm,iso).reason,'different_quantity');
+ assert.ok(rows.every(m=>m.classification==='official_grade_specific'));
+});
+test('una coincidencia numérica o de SKU no certifica regiones o variantes diferentes',()=>{
+ const a={...flow,region:'Americas',variant:null,sku:'300600120829'};
+ assert.equal(compareFlow(a,{...a,region:'EMEA'}).reason,'different_region');
+ assert.equal(compareFlow({...a,variant:'NR'},{...a,variant:'BK10009'}).reason,'different_variant');
+ assert.equal(compareFlow(a,a).status,'conditional');assert.equal(compareFlow(a,a).difference,null);
 });

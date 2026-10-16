@@ -46,3 +46,11 @@ test('evidencia de reciclado mantiene sistemas experimentales separados del catÃ
  for(const experiment of data.experiments){assert.equal(experiment.automatic_application_allowed,false);assert.equal(experiment.virgin_catalog_id,null);assert.ok(data.sources[experiment.source_id].doi);assert.ok(experiment.tables.length>0);}
  const ids=new Set();for(const composition of data.experimental_formulations){assert.equal(composition.virgin_percent+composition.recycled_percent,100);assert.equal(composition.percentage_basis,'mass');assert.ok(!ids.has(composition.id));ids.add(composition.id);assert.equal(composition.automatic_application_allowed,false);}
 });
+
+test('las quince composiciones se consultan con componentes y DOI, sin atribuciÃ³n al grado comercial activo',async()=>{
+ const {readFileSync}=await import('node:fs');const {consultExperimentalFormulations}=await import('../src/recycled.js');const data=JSON.parse(readFileSync(new URL('../src/data/recycling.v1.json',import.meta.url)));
+ const hdpe=consultExperimentalFormulations(data,'HDPE'),pp=consultExperimentalFormulations(data,'PP'),all=[...hdpe,...pp];assert.equal(hdpe.length,8);assert.equal(pp.length,7);assert.equal(all.length,15);
+ assert.deepEqual(all.map(x=>x.id).sort(),data.experimental_formulations.map(x=>x.id).sort());
+ for(const row of all){assert.equal(row.automatic_application_allowed,false);assert.equal(row.virgin_catalog_id,null);assert.ok(row.component_identity_original);assert.ok(row.source.doi);assert.match(row.source.url,/^https:/);assert.equal(row.virgin_percent+row.recycled_percent,100);assert.equal(row.percentage_basis,'mass');}
+ hdpe[0].source.doi='modified';assert.notEqual(data.sources[hdpe[0].source_id].doi,'modified');assert.deepEqual(consultExperimentalFormulations(data,'PC'),[]);
+});

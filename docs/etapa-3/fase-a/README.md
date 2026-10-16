@@ -84,6 +84,6 @@ Base: `fdf3a27eca518fe600b07d236e78b334db554232`. Copia anterior SHA-256: `f5459
 
 El catálogo activo sigue intacto en esta fase. Los nuevos hechos se integrarán únicamente tras revisar identidad, unidad, método, condiciones y procedencia. Los nueve genéricos continúan sin propiedades de grado.
 
-Discrepancia localizada: GP-35 publica MVR 34 cm³/10 min (220 °C/10 kg); el campo secundario anterior lo denominaba MFR. Conservar ambos estados en el registro de decisiones antes de corregir.
+Observación inicial de GP-35 limitada a ISO/EMEA: MVR 34 cm³/10 min (220 °C/10 kg). La [revisión regional posterior](../gp35-regional-review.md) confirma también MFR 34 ASTM/Américas. La observación inicial no demuestra un error universal; se conservan ambos registros. El inventario y la copia anterior de fase A permanecen intactos.
 
 Fuentes con 403/404/503 y DOI sin texto consultable quedan pendientes; no se declara un grado inexistente a partir de un fallo de acceso.

@@ -1,8 +1,8 @@
 # Etapa 3 — auditoría final y cobertura
 
-Base: `fdf3a27eca518fe600b07d236e78b334db554232` (PR #11). Catálogo 1.5.0. Fecha de consulta: 2026-10-16.
+Base: `fdf3a27eca518fe600b07d236e78b334db554232` (PR #11). Catálogo 1.5.1. Fecha de consulta: 2026-10-16.
 
-Se conservan 73 IDs: 64 comerciales y 9 perfiles manuales. Se revisan individualmente las búsquedas y fuentes de los 73 registros; 47 grados cuentan con contenido adicional utilizable (1592 filas documentales). Los otros 17 comerciales conservan sus datos anteriores sin una nueva verificación numérica. Los nueve perfiles manuales permanecen sin propiedades específicas de grado.
+Se conservan 73 IDs: 64 comerciales y 9 perfiles manuales. Se revisan individualmente las búsquedas y fuentes de los 73 registros; 47 grados cuentan con contenido adicional utilizable (1592 filas documentales). Los otros 17 grados comerciales permanecen sin enriquecimiento numérico adicional. Investigar las 73 identidades no significa que toda la biblioteca esté plenamente verificada. Los nueve perfiles manuales permanecen sin propiedades específicas de grado.
 
 Las filas incluyen ensayos bajo condiciones distintas, texto cualitativo, rangos y recomendaciones; no son propiedades físicas nuevas e independientes. Se conserva valor original y normalizado cuando es defendible. No se deducen fase, norma, edición, T/P ni preacondicionamiento ausentes. La matriz de fluidez contiene las condiciones explícitas de sus ensayos.
 
@@ -61,7 +61,7 @@ Las filas incluyen ensayos bajo condiciones distintas, texto cualitativo, rangos
 | catalog-pvc-westlake-pvc-1230p | PVC | Westlake PVC 1230P | 3 | 0 | 0 | 12 | pending_additional_evidence |
 | catalog-pvc-westlake-pvc-1230s | PVC | Westlake PVC 1230S | 3 | 0 | 0 | 12 | pending_additional_evidence |
 | generic-pvc | PVC | PVC — Genérico (grado desconocido) | 0 | 0 | 0 | 13 | generic_manual_no_grade_properties |
-| catalog-abs-terluran-gp-35 | ABS | Terluran GP-35 | 6 | 31 | 1 | 8 | partial_documentary_enrichment |
+| catalog-abs-terluran-gp-35 | ABS | Terluran GP-35 | 6 | 31 | 0 | 8 | partial_documentary_enrichment |
 | catalog-abs-terluran-hi-10 | ABS | Terluran HI-10 | 5 | 34 | 0 | 11 | partial_documentary_enrichment |
 | catalog-abs-novodur-h605 | ABS | Novodur H605 | 5 | 33 | 0 | 11 | partial_documentary_enrichment |
 | catalog-abs-novodur-hh-106 | ABS | Novodur HH-106 | 3 | 31 | 0 | 12 | partial_documentary_enrichment |
@@ -84,11 +84,11 @@ Las filas incluyen ensayos bajo condiciones distintas, texto cualitativo, rangos
 
 ## Decisiones y limitaciones
 
-- GP-35: el antiguo MFR secundario 34 g/10 min es MVR 34 cm³/10 min, ISO 1133, 220 °C/10 kg en la fuente. Se conserva evidencia anterior y posterior en source-decisions.json. Los otros números principales permanecen iguales.
+- GP-35: se retira la conclusión de error universal del MFR 34. Las tablas y PDF oficiales del mismo SKU 300600120829 publican MFR 34 g/10 min ASTM D1238 (Américas) y MVR 34 cm³/10 min ISO 1133 (EMEA; también visible en Asia), ambos a 220 °C/10 kg. Se conservan independientes, con región, fuente y muestra sin colorear. Sufijo de variante y equivalencia entre formulaciones regionales/lotes no demostrados. Véase [revisión regional](gp35-regional-review.md).
 - Tres anomalías de fuente quedan pendientes: dos etiquetas de impacto con unidades contradictorias y Shore D 110. No se promueven a resultados numéricos fiables.
-- Fluidez: 68 mediciones (53 documentadas y 15 anteriores pendientes de reconfirmar). 54 aplicaciones específicas; no se inventan rangos universales por proceso.
+- Fluidez: 69 mediciones (56 documentadas y 13 anteriores pendientes de reconfirmar). 54 aplicaciones específicas; no se inventan rangos universales por proceso.
 - Comparación sin edición de norma o acondicionamiento: condicional, sin diferencia numérica concluyente. MVR y MFR permanecen magnitudes distintas.
-- Reciclados: nueve familias evaluadas, seis sistemas experimentales y quince composiciones publicadas registradas por separado. No son nuevos grados comerciales ni se aplican a otros componentes.
+- Reciclados: nueve familias evaluadas, seis sistemas experimentales y quince composiciones publicadas consultables individualmente con componentes, proporción, experimento, fuente y DOI, registradas por separado. No son nuevos grados comerciales ni se aplican a otros componentes.
 - LLDPE, PET, PC y PVC: no se incorporaron valores experimentales directamente aplicables y verificables a partir de las fuentes accesibles. La ausencia de evidencia no es una prohibición de reciclado.
 - Modelo ideal: conservación de masa y volúmenes específicos aditivos; requiere componentes identificados, ensayos confirmados, fase y punto T/P coincidentes y aceptación de hipótesis. La coincidencia de familia no demuestra compatibilidad industrial. No estima MFR, propiedades mecánicas/térmicas ni secado.
 - Fuentes: se consultó el contenido cuando fue accesible; Google requiere JavaScript y muchos resultados de Bing son ajenos al grado. Un HTTP 200 o un resultado de búsqueda no verifica propiedades. No se eluden registros ni bloqueos.
@@ -104,4 +104,4 @@ Las filas incluyen ensayos bajo condiciones distintas, texto cualitativo, rangos
 - [Modelos y límites](modelos.md), [inventario estructurado](models.json).
 - [Referencias pendientes](references-pending.json), [decisiones](source-decisions.json), [bibliografía](bibliography.json).
 - [Inventario antes de la etapa](fase-a/README.md) y [catálogo anterior inmutable](baseline/manifest.json).
-- [Pruebas y capturas](fase-e.md).
+- [Revisión documental solicitada del PR #12](revision-pr12.md).

@@ -183,6 +183,48 @@ class Stage3(Stage2):
         self.select_process('secado')
         self.assertEqual(self.page.locator('#material-origin').count(),0)
 
+    def test_E09_gp35_official_regional_measurements_remain_independent(self):
+        self.grade('catalog-abs-terluran-gp-35')
+        self.page.locator('#research-details > summary').click()
+        self.page.locator('#research-flow').wait_for()
+        self.page.locator('#research-flow > summary').click()
+        options=self.page.locator('#flow-a option').evaluate_all('els=>els.slice(1).map(e=>({value:e.value,text:e.textContent}))')
+        astm=next(x for x in options if ' MFR 34 ' in x['text'])
+        iso=next(x for x in options if ' MVR 34 ' in x['text'])
+        self.assertIn('Americas',astm['text']);self.assertIn('EMEA',iso['text'])
+        self.page.locator('#flow-a').select_option(astm['value']);self.page.locator('#flow-b').select_option(iso['value'])
+        self.assertEqual(self.page.locator('#flow-comparison').get_attribute('data-reason'),'different_quantity')
+        self.save_case('GP35 ASTM e ISO por región')
+        record=self.stored()[0]['material']['research_snapshot']
+        rows=[x for x in record['flow_measurements'] if x['value']==34]
+        self.assertEqual(len(rows),2);self.assertNotEqual(rows[0]['source_id'],rows[1]['source_id'])
+        for x in rows:self.assertEqual(x['sku'],'300600120829');self.assertIsNone(x['variant']);self.assertIn(x['source_id'],record['flow_sources'])
+        self.page.screenshot(path=str(ARTIFACTS/'revision-gp35-regiones.png'),full_page=True)
+
+    def test_E10_all_fifteen_experimental_formulations_have_provenance_without_autofill(self):
+        ids=set()
+        for language in ['es','en']:
+            self.page.locator('#language').select_option(language)
+            for family,count in [('hdpe',8),('pp',7)]:
+                self.grade('generic-'+family)
+                values=self.page.locator('[data-field]').evaluate_all('els=>els.map(e=>[e.dataset.field,e.value])')
+                self.page.locator('#research-details > summary').click()
+                self.page.locator('#research-recycling').wait_for()
+                self.page.locator('#research-recycling > summary').click()
+                self.page.locator('#research-compositions > summary').click()
+                articles=self.page.locator('[data-experimental-formulation]')
+                self.assertEqual(articles.count(),count)
+                for a in articles.all():
+                    ids.add(a.get_attribute('data-experimental-formulation'))
+                    self.assertIn('DOI:',a.inner_text());self.assertIn('REC-0',a.inner_text());self.assertTrue(a.locator('a[href^="https://www.mdpi.com/"]').count())
+                self.assertEqual(values,self.page.locator('[data-field]').evaluate_all('els=>els.map(e=>[e.dataset.field,e.value])'))
+                if language=='es':self.page.screenshot(path=str(ARTIFACTS/f'revision-composiciones-{family}.png'),full_page=True)
+        self.assertEqual(len(ids),15)
+        self.save_case('Ensayos publicados sin aplicación')
+        rows=self.stored()[0]['material']['research_snapshot']['experimental_formulations']
+        self.assertEqual(len(rows),7)
+        for row in rows:self.assertFalse(row['automatic_application_allowed']);self.assertIsNone(row['virgin_catalog_id']);self.assertTrue(row['source']['doi'])
+
 if __name__=='__main__':
     suite=unittest.TestSuite(Stage3(name) for name in unittest.defaultTestLoader.getTestCaseNames(Stage3) if name.startswith('test_E'))
     result=unittest.TextTestRunner(verbosity=2).run(suite)

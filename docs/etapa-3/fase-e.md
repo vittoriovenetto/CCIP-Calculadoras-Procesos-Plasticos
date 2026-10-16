@@ -1,5 +1,7 @@
 # Fase E — interfaz, integración y validación
 
+La [revisión documental del PR #12](revision-pr12.md) rectifica la interpretación de GP-35 y confirma las quince composiciones publicadas. Las pruebas iniciales se conservan como evidencia histórica; la repetición posterior se registra en `pruebas/revision-pr12/`.
+
 La consulta documental se carga al abrir «Investigación técnica, fluidez y reciclabilidad». Las propiedades mantienen texto original, métodos, unidades y condiciones; los estados ausentes o dudosos permanecen explícitos. Las aplicaciones declaradas se muestran separadas de los índices de fluidez. La comparación bloquea magnitudes, condiciones o métodos incompatibles y avisa cuando faltan edición o acondicionamiento.
 
 El selector conserva los 73 registros, las familias, los fabricantes y los grados originales. Añade origen virgen/PIR/PCR/interno/comercial y formulaciones V/R con once repartos más una opción personalizada en masa. La identidad, lote, ciclos, tratamiento y ensayos se expanden cuando se necesitan. La familia del componente reciclado necesita declaración explícita: no se atribuye automáticamente la del virgen.
@@ -13,10 +15,10 @@ Los nuevos snapshots incluyen receta, composición, ensayos, clasificación, fue
 | Comprobación | Resultado |
 |---|---|
 | Base de Etapa 2 | 571 pruebas unitarias, 42 de navegador y 6 de historial/exportación aprobadas antes de editar |
-| Unitarias actuales | 602 aprobadas; integridad de catálogo, evidencia, reología, recetas, modelo y snapshots |
+| Unitarias actuales | 607 aprobadas; integridad de catálogo, evidencia, reología, recetas, modelo y snapshots |
 | Regresión de navegador | 42 aprobadas; 135 estados de variantes/niveles/pantallas, 73 perfiles, 27 recorridos ES/EN/ES |
 | Historial/exportaciones de Etapa 2 | 6 aprobadas; XLSX/PDF reales leídos con openpyxl, pypdf y PyMuPDF |
-| Integración nueva de Etapa 3 | 8 aprobadas; extremos, recetas inválidas, ensayos y modelo, datos verificados, comparación MFR/MVR, historial y exportación bilingüe |
+| Integración nueva de Etapa 3 | 10 aprobadas; extremos, recetas inválidas, ensayos y modelo, datos verificados, comparación MFR/MVR, historial y exportación bilingüe |
 | Matriz de formulaciones | 9 familias × 6 procesos × 3 niveles = 162 estados sin propiedades heredadas; secado conserva sus 9 grados |
 | Pantallas nuevas | 360, 390, 540, 768, 1024 y 1440 px en ES/EN, sin desbordamiento de la página |
 | Artefacto local | build:pages y browser_pages_cache.py aprobados; recursos y datos diferidos bajo SHA, XLSX/PDF y recetas en 390/768/1440 px; sin publicar |

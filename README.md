@@ -2,9 +2,9 @@
 
 ## Etapa 3 — materiales, fluidez y formulaciones (para revisión)
 
-Esta rama parte de la Etapa 2 (PR #11), conserva los 73 registros y añade evidencia documental trazable, varias mediciones MFR/MVR y recetas locales V/R en masa. Las propiedades ausentes no se inventan ni se heredan del virgen. La densidad ideal es una estimación explícita con componentes, fase y condiciones documentadas. **Sin merge ni deploy.**
+Esta rama parte de la Etapa 2 (PR #11), conserva los 73 registros y añade evidencia documental trazable, varias mediciones MFR/MVR y recetas locales V/R en masa. Las propiedades ausentes no se inventan ni se heredan del virgen. La densidad ideal es una estimación explícita con componentes, fase y condiciones documentadas. **Sin merge ni deploy.** Se incorpora evidencia adicional en 47 grados; otros 17 comerciales permanecen sin enriquecimiento numérico adicional. Investigar 73 identidades no certifica toda la biblioteca.
 
-[Auditoría de los 73 registros, matrices y bibliografía](docs/etapa-3/README.md) · [Modelos y límites](docs/etapa-3/modelos.md) · [Pruebas y capturas](docs/etapa-3/fase-e.md)
+[Revisión regional de GP-35: ASTM y ISO independientes](docs/etapa-3/gp35-regional-review.md) · [Auditoría de los 73 registros, matrices y bibliografía](docs/etapa-3/README.md) · [Modelos y límites](docs/etapa-3/modelos.md) · [Pruebas y capturas](docs/etapa-3/fase-e.md)
 
 ## Auditoría Lean de diez capturas — pendiente de revisión
 

@@ -30,7 +30,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "dow-dowlex-2045g",
@@ -62,7 +62,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "dow-dow-ldpe-132g",
@@ -94,7 +94,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "lyondellbasell-moplen-hp500n",
@@ -127,7 +127,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "indorama-ventures-polyclear-refresh-pet-1101",
@@ -158,7 +158,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "westlake-westlake-pvc-1195",
@@ -190,7 +190,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "ineos-styrolution-terluran-gp-22",
@@ -220,7 +220,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "basf-ultramid-b3s-r03",
@@ -248,7 +248,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "covestro-makrolon-2405",
@@ -276,7 +276,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-08262b",
@@ -309,7 +309,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-hdpe-lp-8000",
@@ -342,7 +342,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-hdpe-ng6997",
@@ -375,7 +375,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-dmda-8007-nt-7",
@@ -408,7 +408,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-dgda-5004-nt-7",
@@ -440,7 +440,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-hdpe-lp-8000-hd",
@@ -473,7 +473,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-hdpe-dow-hdpe-dgda-2484-nt",
@@ -506,7 +506,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-hdpe",
@@ -539,7 +539,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2045-01g",
@@ -571,7 +571,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2645g",
@@ -603,7 +603,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2045-11g",
@@ -635,7 +635,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2045",
@@ -667,7 +667,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2035",
@@ -699,7 +699,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2036-01g",
@@ -731,7 +731,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-lldpe-dowlex-2047g",
@@ -763,7 +763,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-lldpe",
@@ -796,7 +796,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-ldpe-dow-ldpe-150e",
@@ -829,7 +829,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-ldpe-dow-ldpe-7010e",
@@ -861,7 +861,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-ldpe-dow-5004i",
@@ -893,7 +893,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-ldpe-dow-ldpe-219m",
@@ -926,7 +926,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-ldpe",
@@ -959,7 +959,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-hp501m",
@@ -992,7 +992,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-hp400r",
@@ -1025,7 +1025,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-hp548r",
@@ -1056,7 +1056,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-hp648t",
@@ -1089,7 +1089,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-rp348r",
@@ -1120,7 +1120,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-rp248r",
@@ -1151,7 +1151,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-rp398t",
@@ -1182,7 +1182,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-rp348t-hp",
@@ -1213,7 +1213,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pp-moplen-rp248u",
@@ -1244,7 +1244,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-pp",
@@ -1277,7 +1277,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pet-polyclear-preserve-pet-2201",
@@ -1308,7 +1308,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pet-polyclear-splash-pet-3301",
@@ -1340,7 +1340,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-pet",
@@ -1373,7 +1373,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-2060",
@@ -1405,7 +1405,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-1185",
@@ -1437,7 +1437,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-5265",
@@ -1469,7 +1469,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-2070",
@@ -1501,7 +1501,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-5305",
@@ -1533,7 +1533,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-2079",
@@ -1565,7 +1565,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-2082",
@@ -1597,7 +1597,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-1230p",
@@ -1629,7 +1629,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pvc-westlake-pvc-1230s",
@@ -1661,7 +1661,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-pvc",
@@ -1694,7 +1694,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-terluran-gp-35",
@@ -1707,7 +1707,7 @@
     "exact_numeric_rows": 23,
     "range_rows": 5,
     "bound_rows": 0,
-    "corrected_legacy_fields": 1,
+    "corrected_legacy_fields": 0,
     "pending_primary_fields": 8,
     "pending_primary_names": [
       "melt_density",
@@ -1720,11 +1720,12 @@
       "melting_temperature"
     ],
     "source_ids": [
-      "R-CAT255"
+      "R-CAT255",
+      "R-CAT255-ASTM-AMERICAS"
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-terluran-hi-10",
@@ -1757,7 +1758,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-novodur-h605",
@@ -1790,7 +1791,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-novodur-hh-106",
@@ -1824,7 +1825,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-novodur-hh-112",
@@ -1858,7 +1859,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-novodur-p2mc",
@@ -1891,7 +1892,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-abs-novodur-p2h-at",
@@ -1924,7 +1925,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-abs",
@@ -1957,7 +1958,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pa6-ultramid-b3k",
@@ -1986,7 +1987,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-pa6",
@@ -2019,7 +2020,7 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-2407",
@@ -2049,7 +2050,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-2805",
@@ -2079,7 +2080,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-2807",
@@ -2112,7 +2113,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-2856",
@@ -2143,7 +2144,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-2858",
@@ -2175,7 +2176,7 @@
     "source_ids": [],
     "search_attempts": 13,
     "status": "pending_additional_evidence",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-3105",
@@ -2208,7 +2209,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-3106",
@@ -2241,7 +2242,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-3107",
@@ -2274,7 +2275,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "catalog-pc-makrolon-3108",
@@ -2304,7 +2305,7 @@
     ],
     "search_attempts": 13,
     "status": "partial_documentary_enrichment",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   },
   {
     "id": "generic-pc",
@@ -2337,6 +2338,6 @@
     "source_ids": [],
     "search_attempts": 2,
     "status": "generic_manual_no_grade_properties",
-    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original values are preserved except the documented GP-35 MVR correction."
+    "limitations": "Rows include repeated properties under different conditions, source text and process recommendations; not a count of unique new physical properties. Original numeric values are preserved. GP-35 ASTM MFR and ISO MVR are independent regional measurements; the previous universal MFR-error claim is withdrawn."
   }
 ]

@@ -27,7 +27,7 @@ test("cada grado comercial tiene ≥3 propiedades trazables en ≥2 grupos",()=>
  assert.ok(new Set(k.map(category)).size>=2,m.grade);
  const source=lib.sources[m.source_id];assert.match(source.url,/^https:\/\//,m.grade);
  const entries=[...Object.values(m.properties||{}),...(m.additional_properties||[])].filter(valid);
- for(const p of entries)assert.equal(p.source_id,m.source_id,m.grade+" "+p.key);
+ for(const p of entries){const propertySource=lib.sources[p.source_id];assert.ok(propertySource,m.grade+" "+p.key);assert.match(propertySource.url,/^https:\/\//);if(p.source_id!==m.source_id){assert.equal(propertySource.grade,m.grade);assert.equal(propertySource.manufacturer,m.manufacturer);}}
  assert.equal(m.properties.melt_density,null,"Melt density must remain missing for grade without pvT: "+m.grade);
  }
 });

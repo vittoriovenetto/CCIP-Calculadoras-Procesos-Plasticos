@@ -482,36 +482,11 @@
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
       "verification_status": "not_reconfirmed_network_blocked"
     },
-    "after_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html",
+    "after_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_EMEA",
     "verification": "content_reviewed_exact_grade",
     "sha256": "d71af0ef9c45ae26800bedab7470e16390fcfef096afd4353c77825e184a7357",
-    "scope": "Source identity/content; existing fields retain their individual original provenance."
-  },
-  {
-    "material_id": "catalog-abs-terluran-gp-35",
-    "property_key": "mvr_secondary",
-    "before": {
-      "key": "mfr_secondary",
-      "value": 34,
-      "unit": "g/10min",
-      "method": "ASTM D1238",
-      "condition": "220 °C / 10 kg",
-      "status": "manufacturer_typical",
-      "source_id": "CAT255"
-    },
-    "after": {
-      "key": "mvr_secondary",
-      "value": 34,
-      "unit": "cm3/10min",
-      "method": "ISO 1133",
-      "condition": "220 °C / 10 kg",
-      "status": "manufacturer_typical",
-      "source_id": "CAT255",
-      "verification_basis": "official_grade_table_content_reviewed_2026-10-16",
-      "note": "Corrección documental: MVR, no MFR. No es conversión por densidad. Estado anterior conservado en auditoría."
-    },
-    "source_id": "R-CAT255",
-    "reason": "Official table labels 34 as Melt Volume Rate, cm³/10 min, ISO 1133 at 220 °C/10 kg."
+    "scope": "Source identity/content; existing fields retain their individual original provenance.",
+    "regional_review": "gp35-regional-review.json"
   },
   {
     "source_id": "CAT256",
@@ -737,5 +712,96 @@
     "verification": "content_reviewed_exact_grade",
     "sha256": "809ee245e5e09694913e9749954068c3e52fe16bc8e638160f57ac50a23f46f6",
     "scope": "Source identity/content; existing fields retain their individual original provenance."
+  },
+  {
+    "material_id": "catalog-abs-terluran-gp-35",
+    "property_key": "mvr_secondary",
+    "before": {
+      "key": "mfr_secondary",
+      "value": 34,
+      "unit": "g/10min",
+      "method": "ASTM D1238",
+      "condition": "220 °C / 10 kg",
+      "status": "manufacturer_typical",
+      "source_id": "CAT255"
+    },
+    "after": {
+      "key": "mvr_secondary",
+      "value": 34,
+      "unit": "cm3/10min",
+      "method": "ISO 1133",
+      "condition": "220 °C / 10 kg",
+      "status": "manufacturer_typical",
+      "source_id": "CAT255",
+      "verification_basis": "official_grade_table_content_reviewed_2026-10-16",
+      "note": "Corrección documental: MVR, no MFR. No es conversión por densidad. Estado anterior conservado en auditoría."
+    },
+    "source_id": "R-CAT255",
+    "reason": "Initial ISO-only reclassification. Its universal MFR-error interpretation is withdrawn after consulting the official ASTM/Americas table.",
+    "status": "superseded_after_regional_review",
+    "historical_reason": "Official table labels 34 as Melt Volume Rate, cm³/10 min, ISO 1133 at 220 °C/10 kg.",
+    "superseded_by": "GP35-REGIONAL-REVIEW"
+  },
+  {
+    "decision_id": "GP35-REGIONAL-REVIEW",
+    "material_id": "catalog-abs-terluran-gp-35",
+    "status": "active",
+    "review_file": "gp35-regional-review.json",
+    "before_pr_head": "8b1fcc432962a0b0fadc2a2756a1b5717e97fd93",
+    "after_measurements": [
+      {
+        "key": "mfr_secondary",
+        "value": 34,
+        "unit": "g/10min",
+        "method": "ASTM D1238",
+        "condition": "220 °C / 10 kg",
+        "status": "manufacturer_typical",
+        "source_id": "R-CAT255-ASTM-AMERICAS",
+        "region": "Americas",
+        "variant": null,
+        "sample_state": "uncolored_products",
+        "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+        "note": "MFR 34 publicado en ASTM/Américas. Se conserva por separado del MVR 34 ISO/EMEA; no es una conversión ni un error universal."
+      },
+      {
+        "key": "mvr_secondary",
+        "value": 34,
+        "unit": "cm3/10min",
+        "method": "ISO 1133",
+        "condition": "220 °C / 10 kg",
+        "status": "manufacturer_typical",
+        "source_id": "CAT255",
+        "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+        "note": "MVR 34 publicado en ISO/EMEA. Registro independiente del MFR 34 ASTM/Américas; sufijo de variante/lote no especificado por la tabla.",
+        "region": "EMEA",
+        "variant": null,
+        "sample_state": "uncolored_products"
+      }
+    ],
+    "reason": "Both MFR 34 ASTM/Americas and MVR 34 ISO/EMEA are official measurements for public GP-35 SKU 300600120829. Preserve independently; no density conversion or universal misclassification claim.",
+    "identity_limit": {
+      "same_commercial_name": true,
+      "same_public_sku": true,
+      "sku": "300600120829",
+      "different_regional_table_contexts": true,
+      "same_regional_formulation_proven": false,
+      "same_colored_variant_or_batch_proven": false,
+      "listed_grade_versions": {
+        "Americas": [
+          "Terluran GP-35 BK10009",
+          "Terluran GP-35 NR"
+        ],
+        "EMEA": [
+          "Terluran GP-35 BK10009",
+          "Terluran GP-35 NR"
+        ],
+        "Asia-Pacific": [
+          "Terluran GP-35 BK10009",
+          "Terluran GP-35 NR",
+          "Terluran GP-35 WT010222"
+        ]
+      },
+      "interpretation": "Both 34 measurements are officially published, with different quantities/units/methods. The prior universal MFR-error claim is withdrawn. Equal printed numbers do not constitute a conversion or establish regional/variant equivalence."
+    }
   }
 ]

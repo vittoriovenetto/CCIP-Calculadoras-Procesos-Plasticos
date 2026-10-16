@@ -2,7 +2,7 @@
   "base": "fdf3a27eca518fe600b07d236e78b334db554232",
   "date": "2026-10-16",
   "unit": {
-    "passed": 602,
+    "passed": 607,
     "failed": 0
   },
   "browser_regression": {
@@ -17,7 +17,7 @@
     "failed": 0
   },
   "stage3_integration": {
-    "passed": 8,
+    "passed": 10,
     "failed": 0,
     "families_processes_levels": 162
   },
@@ -38,5 +38,12 @@
   "merge": false,
   "deploy": false,
   "local_build": "passed",
-  "cache_artifact": "passed"
+  "cache_artifact": "passed",
+  "review": "docs/etapa-3/revision-pr12.md",
+  "review_base": "8b1fcc432962a0b0fadc2a2756a1b5717e97fd93",
+  "gp35_official_regional_quantities": [
+    "MFR 34 ASTM/Americas",
+    "MVR 34 ISO/EMEA"
+  ],
+  "experimental_formulations_consultable": 15
 }

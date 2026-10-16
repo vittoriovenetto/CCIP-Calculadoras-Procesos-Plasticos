@@ -55,3 +55,12 @@ export function unsupportedMixtureProperty(recipe,key) {
  return {value:null,classification:'not_available',property:key,reason:'No documented model for these exact components and conditions. No automatic averaging or inheritance.'};
 }
 export const activeFormulation = state => state.formulation?.valid===true&&Number.isFinite(state.formulation.recycled_fraction)&&state.formulation.recycled_fraction>=0&&state.formulation.recycled_fraction<=1 ? state.formulation.recycled_fraction>0 : !!state.formulation_mode&&state.formulation_mode!=='virgin';
+
+// Read-only consultation: published systems are not commercial-grade properties.
+export function consultExperimentalFormulations(data,family) {
+ return (data?.experimental_formulations||[]).filter(row=>row.family===family).flatMap(row=>{
+  const experiment=data.experiments?.find(x=>x.id===row.experiment_id),source=data.sources?.[row.source_id];
+  if(!experiment||!source||experiment.source_id!==row.source_id||experiment.family!==row.family)return [];
+  return [{...structuredClone(row),component_identity_original:experiment.component_identity_original,recycled_origin_declared:experiment.recycled_origin_declared,virgin_catalog_id:null,automatic_application_allowed:false,source:structuredClone(source)}];
+ });
+}

@@ -29,14 +29,29 @@ test('el snapshot documental conserva versión y evidencia sin depender del cat�
  const id='covestro-makrolon-2405',snap=researchSnapshot(data,id);const before=structuredClone(data.records[id]);
  snap.facts[0][1]='9999';assert.deepEqual(data.records[id],before);assert.equal(snap.source.grade,'Makrolon 2405');assert.equal(researchSnapshot(data,'unknown'),null);
 });
-test('corrección GP-35 cambia tipo y unidad con evidencia; conserva el valor 34 y el estado anterior',()=>{
- const grade=catalog.materials.find(m=>m.id==='catalog-abs-terluran-gp-35');const corrected=grade.additional_properties.find(p=>p.key==='mvr_secondary');
- assert.equal(corrected.value,34);assert.equal(corrected.unit,'cm3/10min');assert.equal(corrected.method,'ISO 1133');assert.ok(!grade.additional_properties.some(p=>p.key==='mfr_secondary'&&p.value===34));
- const decisions=read('docs/etapa-3/source-decisions.json');const decision=decisions.find(d=>d.property_key==='mvr_secondary');assert.equal(decision.before.unit,'g/10min');assert.equal(decision.after.value,34);
+test('GP-35 restaura el MFR respaldado por ASTM y conserva el MVR ISO sin conversión ni error universal',()=>{
+ const grade=catalog.materials.find(m=>m.id==='catalog-abs-terluran-gp-35');
+ const mfr=grade.additional_properties.find(p=>p.key==='mfr_secondary'),mvr=grade.additional_properties.find(p=>p.key==='mvr_secondary');
+ assert.equal(mfr.value,34);assert.equal(mfr.unit,'g/10min');assert.equal(mfr.method,'ASTM D1238');assert.equal(mfr.region,'Americas');
+ assert.equal(mvr.value,34);assert.equal(mvr.unit,'cm3/10min');assert.equal(mvr.method,'ISO 1133');assert.equal(mvr.region,'EMEA');assert.notEqual(mfr.source_id,mvr.source_id);
+ const decisions=read('docs/etapa-3/source-decisions.json');const historical=decisions.find(d=>d.property_key==='mvr_secondary');assert.equal(historical.status,'superseded_after_regional_review');assert.equal(historical.before.unit,'g/10min');
+ const review=read('docs/etapa-3/gp35-regional-review.json');assert.equal(review.identity_conclusion.same_public_sku,true);assert.equal(review.identity_conclusion.same_regional_formulation_proven,false);assert.equal(review.identity_conclusion.same_colored_variant_or_batch_proven,false);
+ for(const source of Object.values(review.sources)){assert.match(source.sha256,/^[a-f0-9]{64}$/);assert.match(source.url,/SelectedRegion=Region_/);assert.equal(source.revision_original,'08/01/2022');assert.equal(source.publication_date,null);}
 });
 test('datos de otro grado y unidades ambiguas no se promueven por coincidencia de URL',()=>{
  const bad=structuredClone(data);bad.records['generic-pc'].facts=[['Density','1.2','g/cm³',null,null,'Physical']];bad.records['generic-pc'].source_id='R-S09';assert.throws(()=>validateResearch(bad,catalog));
  const cross=structuredClone(data);cross.records['dow-dow-12450n'].source_id='R-S09';assert.throws(()=>validateResearch(cross,catalog),/different grade/);
  assert.equal(normalizeDocumentedValue(['Density Range','.940-.950',null,null,null,'Physical']).available,false);
  const mismatch=normalizeDocumentedValue(['Impact Strength in MPa (psi)','273 kJ/m2 (130 ft lb/in2)',null,null,null,'Physical']);assert.equal(mismatch.classification,'pending_verification');assert.equal(mismatch.value,null);
+});
+test('cobertura parcial: 47 comerciales enriquecidos, 17 sin datos numéricos adicionales y nueve manuales',()=>{
+ const commercial=catalog.materials.filter(m=>m.record_status!=='generic_unverified');
+ assert.equal(commercial.filter(m=>data.records[m.id].facts.length>0).length,47);
+ assert.equal(commercial.filter(m=>data.records[m.id].facts.length===0).length,17);
+ assert.equal(catalog.materials.filter(m=>m.record_status==='generic_unverified').length,9);
+});
+test('la revisión regional conserva todos los números y unidades del catálogo anterior',()=>{
+ const before=read('docs/etapa-3/baseline/materials.pre-etapa3.json');
+ for(const old of before.materials){const current=catalog.materials.find(m=>m.id===old.id);for(const [key,p]of Object.entries(old.properties)){if(p){assert.equal(current.properties[key].value,p.value);assert.deepEqual(current.properties[key].range,p.range);assert.equal(current.properties[key].unit,p.unit);}else assert.equal(current.properties[key],null);}
+ for(const p of old.additional_properties||[]){const now=current.additional_properties.find(x=>x.key===p.key);assert.equal(now.value,p.value);assert.equal(now.unit,p.unit);}}
 });
