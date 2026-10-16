@@ -1,0 +1,33 @@
+{
+  "retrieved_on": "2026-10-16",
+  "timezone": "America/Santo_Domingo",
+  "manual_url": "https://identidad.intec.edu.do/manual-de-uso/logo",
+  "asset_url": "https://identidad.intec.edu.do/images/descargas/INTEC_LOGO_COMERCIAL_FULL_RGB.png",
+  "download_zip_url": "https://identidad.intec.edu.do/images/descargas/INTEC%20Logo%20Comercial%20-%20Full%20color.zip",
+  "zip_member": "INTEC_LOGO_COMERCIAL_FULL_RGB.png",
+  "zip_member_identical": true,
+  "asset_path": "src/assets/logo-intec-comercial.png",
+  "asset_sha256": "0f87ef7f0cc6469c4ce86912340207552f90f0c7b6982e87a63dc4adfd675de8",
+  "dimensions_px": [
+    801,
+    900
+  ],
+  "format": "PNG RGBA",
+  "modifications": "none; original bytes copied without cropping, recoloring or redrawing",
+  "official_rules": {
+    "minimum_width_digital_px": 50,
+    "minimum_width_mobile_px": 75,
+    "white_contour": "included in original and preserved",
+    "clear_space": "at least 2X on all sides; X is width of stem of i",
+    "institution_name": "Instituto Tecnológico de Santo Domingo (INTEC), not translated"
+  },
+  "implementation": {
+    "canvas_width_desktop_px": 104,
+    "canvas_width_mobile_px": 90,
+    "visible_mark_width_mobile_px": 75.0561797752809,
+    "padding_desktop_px": 16,
+    "padding_mobile_px": 12,
+    "X_source_px_approx": 38,
+    "note": "Padding alone exceeds 2X at rendered sizes, additionally to transparent margins in the original."
+  }
+}

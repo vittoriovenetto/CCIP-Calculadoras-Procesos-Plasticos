@@ -567,6 +567,73 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('#comparison-clear').inner_text(),'Clear selection')
         self.assertIn(name,self.page.locator('#history').inner_text())
 
+    def test_G39_stage1_titles_manual_credits_and_learning(self):
+        authors=['Danaee María López Ortiz','Omar Antonio Valenzuela Ventura','Reymildo Jiménez Acosta','Montserrat Benavides Hernández','Euris Andrés Guerrero Pen','Emil Rdriguez Tejada']
+        for language in ['es','en']:
+            self.page.locator('#language').select_option(language)
+            expected='Calculadora de procesos de transformación termoplásticos' if language=='es' else 'Thermoplastic processing calculator'
+            self.assertEqual(self.page.locator('.hero h1').inner_text(),expected)
+            self.assertEqual(self.page.title(),'CCIP | '+expected)
+            self.assertEqual(self.page.locator('.hero .kicker').inner_text(),'CCIP · INTEC · Procesos 1: inyección' if language=='es' else 'CCIP · INTEC · Processes 1: injection molding')
+            self.assertEqual(self.page.locator('.academic-credits li').all_text_contents(),authors)
+            self.assertEqual(self.page.locator('.academic-credits strong').count(),5)
+            for width in [360,390,768,1024,1440]:
+                self.page.set_viewport_size({'width':width,'height':1000})
+                self.assert_layout()
+                self.assertTrue(self.page.locator('#manual-open').is_visible())
+                self.page.locator('#manual-open').focus()
+                self.page.keyboard.press('Enter')
+                self.assertTrue(self.page.locator('#user-manual').evaluate('el=>el.open'))
+                self.assertEqual(self.page.locator('#manual-message').inner_text(),'Manual de uso en preparación' if language=='es' else 'User manual in preparation')
+                self.page.keyboard.press('Tab')
+                self.assertTrue(self.page.evaluate("document.querySelector('#user-manual').contains(document.activeElement)"))
+                self.page.keyboard.press('Escape')
+                self.assertFalse(self.page.locator('#user-manual').evaluate('el=>el.open'))
+                self.assertTrue(self.page.locator('#manual-open').evaluate('el=>el===document.activeElement'))
+                self.page.locator('#manual-open').click()
+                self.page.locator('#user-manual button').click()
+                self.assertFalse(self.page.locator('#user-manual').evaluate('el=>el.open'))
+            self.page.locator('[data-field="partMass"]').fill('37')
+            self.page.locator('#learn-page').click()
+            self.assertEqual(self.page.locator('#formula-nav,[data-guide-process]').count(),0)
+            self.assertEqual(self.page.locator('[data-module]').count(),7)
+            self.page.locator('#formula-process').select_option('extrusion')
+            self.page.locator('#formula-level').select_option('technical')
+            self.page.locator('#language').select_option('es' if language=='en' else 'en')
+            self.assertEqual(self.page.locator('#formula-process').input_value(),'extrusion')
+            self.assertEqual(self.page.locator('#formula-level').input_value(),'technical')
+            self.page.locator('#formula-index-details > summary').click()
+            self.assertTrue(self.page.locator('#formulas-exact-index').is_visible())
+            self.page.locator('#learning-back').click()
+            self.assertEqual(self.page.locator('[data-field="partMass"]').input_value(),'37')
+        self.page.goto(self.url+'formulas.html?process=inyeccion&level=advanced')
+        self.assertEqual(self.page.locator('#formula-nav,[data-guide-process]').count(),0)
+        self.assertEqual(self.page.locator('[data-lesson]').count(),42)
+
+    def test_G40_stage1_official_logos_divider_and_clearspace(self):
+        for width in [360,390,768,1024,1440]:
+            self.page.set_viewport_size({'width':width,'height':1000})
+            for lang in ['es','en']:
+                self.page.locator('#language').select_option(lang)
+                self.assert_layout()
+                logo=self.page.locator('.intec-logo')
+                self.assertTrue(logo.evaluate('el=>el.complete && el.naturalWidth===801 && el.naturalHeight===900'))
+                box=logo.bounding_box();ccip=self.page.locator('.ccip-logo').bounding_box();divider=self.page.locator('.institutional-divider').bounding_box()
+                self.assertAlmostEqual(box['width']/box['height'],801/900,places=3)
+                # El PNG tiene margen transparente: comprobar el ancho de la
+                # marca real (668 de los 801 px), no solo el lienzo del archivo.
+                self.assertGreaterEqual(box['width']*668/801,75 if width<=540 else 50)
+                self.assertLessEqual(ccip['x']+ccip['width'],divider['x'])
+                self.assertLess(divider['x'],box['x'])
+                self.assertLessEqual(divider['width'],1.1)
+                self.assertAlmostEqual(ccip['y']+ccip['height']/2,box['y']+box['height']/2,delta=1)
+                padding=logo.evaluate('el=>parseFloat(getComputedStyle(el.parentElement).paddingLeft)')
+                self.assertGreaterEqual(padding,2*38*box['width']/801)
+                self.assertEqual(logo.evaluate('el=>getComputedStyle(el).filter'),'none')
+                language=self.page.locator('#language').bounding_box()
+                self.assertTrue(language['x']>=box['x']+box['width'] or language['y']>=box['y']+box['height'])
+        self.assertEqual(self.page.locator('.brand').get_attribute('href'),'./')
+
     def test_G32_custom_crud_import_export_persistence_and_units(self):
         self.open_custom_property('melt_density')
         form=self.page.locator('#custom-form')

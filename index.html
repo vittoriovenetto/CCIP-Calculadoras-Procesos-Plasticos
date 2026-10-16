@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c8102e">
-  <title>CCIP | Calculadoras de procesos plásticos</title>
+  <title>CCIP | Calculadora de procesos de transformación termoplásticos</title>
   <link rel="icon" href="./src/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./src/styles.css?v=20261015-inyeccion-perfil">
 </head>
 <body>
   <header><div class="shell top">
-    <a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a>
+    <div class="institutional-identity" aria-label="Identidad institucional CCIP e INTEC"><a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a><span class="institutional-divider" aria-hidden="true"></span><div class="intec-brand"><img class="intec-logo" src="./src/assets/logo-intec-comercial.png" width="801" height="900" alt="Logo comercial del Instituto Tecnológico de Santo Domingo (INTEC)"></div></div>
     <div class="version-links"><label for="language">🌐 Idioma <select id="language" aria-label="Idioma"><option value="es">Español</option><option value="en">English</option></select></label><span class="version">WEB · EXPERIMENTAL</span></div>
   </div></header>
   <main class="shell">
-    <section class="hero"><p class="kicker">CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS</p><h1>Calculadoras de procesos plásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></section>
+    <section class="hero"><div class="hero-copy"><p class="kicker">CCIP · INTEC · Procesos 1: inyección</p><h1>Calculadora de procesos de transformación termoplásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></div><button id="manual-open" type="button" aria-haspopup="dialog" aria-controls="user-manual">Manual de uso</button></section>
     <div class="layout">
       <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><nav class="learning-nav" aria-label="Aprendizaje"><a id="learn-page" href="./?view=learning"><b>Aprendizaje</b><span>Fórmulas y ejemplos</span></a></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
       <section class="work"><div id="calculator-view">
@@ -27,8 +27,10 @@
         <section class="panel"><h2>Historial local</h2><div id="history"></div></section><section id="comparison" class="panel" aria-label="Comparar resultados guardados"></section>
       </div><section id="learning-view" hidden aria-label="Aprendizaje"></section></section>
     </div>
-    <footer>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</footer>
+    <footer><p>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</p><hr class="credits-divider"><ul class="academic-credits" aria-label="Créditos académicos"><li data-i18n-ignore>Danaee María López Ortiz</li><li data-i18n-ignore><strong>Omar Antonio Valenzuela Ventura</strong></li><li data-i18n-ignore><strong>Reymildo Jiménez Acosta</strong></li><li data-i18n-ignore><strong>Montserrat Benavides Hernández</strong></li><li data-i18n-ignore><strong>Euris Andrés Guerrero Pen</strong></li><li data-i18n-ignore><strong>Emil Rdriguez Tejada</strong></li></ul></footer>
   </main>
+  <dialog id="user-manual" aria-labelledby="manual-title" aria-describedby="manual-message"><h2 id="manual-title">Manual de uso</h2><p id="manual-message">Manual de uso en preparación</p><form method="dialog"><button autofocus type="submit">Cerrar</button></form></dialog>
   <script type="module" src="./src/app.js?v=20261015-inyeccion-perfil"></script>
+  <script type="module" src="./src/manual-dialog.js"></script>
 </body>
 </html>

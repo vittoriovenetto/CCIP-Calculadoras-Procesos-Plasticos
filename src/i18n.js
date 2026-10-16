@@ -4,6 +4,15 @@ import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
 export const translations = { ...extraTranslations, ...auditTranslations, ...leanTranslations,
+"Calculadora de procesos de transformación termoplásticos":"Thermoplastic processing calculator",
+"CCIP | Calculadora de procesos de transformación termoplásticos":"CCIP | Thermoplastic processing calculator",
+"CCIP · INTEC · Procesos 1: inyección":"CCIP · INTEC · Processes 1: injection molding",
+"Manual de uso":"User manual",
+"Manual de uso en preparación":"User manual in preparation",
+"Cerrar":"Close",
+"Créditos académicos":"Academic credits",
+"Identidad institucional CCIP e INTEC":"CCIP and INTEC institutional identity",
+"Logo comercial del Instituto Tecnológico de Santo Domingo (INTEC)":"Commercial logo of Instituto Tecnológico de Santo Domingo (INTEC)",
 "Calculadoras de procesos plásticos":"Plastic process calculators",
 "Calculadoras de Procesos Plásticos":"Plastic Process Calculators",
 "CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS":"CCIP · INTEC · POLYMER PROCESSING",
