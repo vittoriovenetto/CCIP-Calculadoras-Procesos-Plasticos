@@ -6,11 +6,11 @@ Base funcional auditada: `feature/historial-nombres-comparacion-limpiar`, PR #9,
 
 | Punto del plan | Resultado | Archivos |
 | --- | --- | --- |
-| 6 · Cabecera | CCIP conservado a la izquierda, divisor vertical y logo comercial oficial INTEC a su derecha. Idioma y estado experimental conservados. Cabecera responsive compartida con la ruta histórica de fórmulas | `index.html`, `formulas.html`, `src/styles.css`, `src/assets/logo-intec-comercial.png` |
+| 6 · Cabecera | CCIP conservado a la izquierda, divisor vertical y logo comercial oficial INTEC a su derecha. Nombre completo «Instituto Tecnológico de Santo Domingo (INTEC)» junto al logo, sin traducir. Idioma y estado experimental conservados. Cabecera responsive compartida con la ruta histórica de fórmulas | `index.html`, `formulas.html`, `src/styles.css`, `src/assets/logo-intec-comercial.png` |
 | 7 · Rótulo | `CCIP · INTEC · Procesos 1: inyección`, localizado en inglés, visible también en móvil | `index.html`, `src/i18n.js` |
 | 8 · Título | H1 exacto `Calculadora de procesos de transformación termoplásticos`; pestaña y traducción inglesa coherentes. Se conserva el degradado institucional | `index.html`, `src/styles.css`, `src/i18n.js` |
 | 9 · Manual | Botón visible abre el diálogo nativo con «Manual de uso en preparación». Cierre por botón y Escape, foco contenido y restaurado al botón. Sin manual inventado ni enlace falso | `index.html`, `src/manual-dialog.js`, `src/styles.css`, `src/i18n.js` |
-| 13 · Créditos | Texto académico original conservado, línea divisoria y seis nombres centrados en el orden y ortografía suministrados; los cinco últimos en negrita discreta. Nombres propios sin traducción | `index.html`, `formulas.html`, `src/styles.css` |
+| 13 · Créditos | Texto académico original conservado, línea divisoria y seis nombres centrados en el orden y ortografía suministrados; todos con el mismo color y peso normal, según el ajuste posterior solicitado en el PR #10. Nombres propios sin traducción | `index.html`, `formulas.html`, `src/styles.css` |
 | 14 · Aprendizaje | Eliminada exclusivamente la fila de enlaces de proceso que duplicaba el selector. Se mantienen selectores proceso/nivel, 42 explicaciones, índice, acordeones, ejemplos, enlaces profundos, retorno y siete botones de la calculadora | `src/formulas-index.js`, `formulas.html` |
 
 El cambio de `formulas.html` es necesario para eliminar también la navegación duplicada de la ruta histórica, conservar sus enlaces y mantener una cabecera/pie coherentes. El módulo nuevo `manual-dialog.js` aísla los controles del mensaje del manual: `src/app.js` y la lógica de cálculo quedan intactos. El workflow solo incorpora la rama y base del PR a la validación existente; no añade despliegues.
@@ -22,7 +22,7 @@ Se descargó de [la página oficial](https://identidad.intec.edu.do/manual-de-us
 - Archivo original RGBA: 801 × 900 px, SHA-256 `0f87ef7f0cc6469c4ce86912340207552f90f0c7b6982e87a63dc4adfd675de8`.
 - Se conserva el contorno blanco y la transparencia originales. No se redibuja, genera, recorta, recolorea ni deforma.
 - Manual: ancho mínimo digital 50 px y móvil 75 px; protección mínima 2X alrededor, donde X es el ancho del tronco de la i. Se usan 104 px de lienzo en escritorio y 90 px en móvil. Incluso el ancho visible de la marca (668/801 del lienzo) supera 75 px en móvil.
-- Padding exterior de 16 px en escritorio y 12 px en móvil: supera por sí solo 2X a esos tamaños, además de los márgenes transparentes originales. El divisor queda fuera de esa protección.
+- Padding exterior y separación entre el logo y el nombre de 16 px en escritorio y 12 px en móvil: ambos superan 2X a esos tamaños, además de los márgenes transparentes originales. El divisor queda fuera de esa protección.
 - Nombre institucional conservado como `Instituto Tecnológico de Santo Domingo (INTEC)`, incluso en inglés, según el manual.
 
 [Metadatos de procedencia y reglas](fuentes/logo-intec-comercial.json).
@@ -44,6 +44,12 @@ No se publica ni fusiona: `main` permanece en `423c04b1710f8f009c811c893873184d3
 [Registro Node](capturas/etapa-1/node-tests.txt) · [Registro Chromium](capturas/etapa-1/browser-tests.txt).
 
 Se detectó al probar el diálogo que Tab podía mover el foco al navegador cuando solo había un control; se añadió manejo de Tab/Shift+Tab para mantener el foco en Cerrar. La regresión comprueba apertura por teclado, cierre por botón/Escape y retorno al botón en ambos idiomas y cinco anchos.
+
+## Ajustes solicitados dentro del PR #10
+
+Se añadió el nombre completo junto al logo, conservándolo sin traducción según el manual. En móvil el bloque CCIP ocupa una fila y el conjunto INTEC + nombre otra, manteniendo logo y texto uno al lado del otro, sin reducir el mínimo de la marca ni invadir su protección. Los seis autores mantienen la misma ortografía y ahora comparten color y peso normal; esta instrucción posterior sustituye la jerarquía de negritas del prompt inicial. Se actualizaron las capturas y las pruebas de ambos componentes.
+
+Pruebas específicas del ajuste: cabecera/área de protección, créditos uniformes, manual y aprendizaje, en ambos idiomas y 360/390/768/1024/1440 px. [Registro](capturas/etapa-1/ajustes-pr10.txt).
 
 ## Evidencia visual
 

@@ -1,0 +1,12 @@
+test_G39_stage1_titles_manual_credits_and_learning (__main__.BrowserSmoke.test_G39_stage1_titles_manual_credits_and_learning) ... ok
+test_G40_stage1_official_logos_divider_and_clearspace (__main__.BrowserSmoke.test_G40_stage1_official_logos_divider_and_clearspace) ... ok
+test_G35_all_formula_examples_filters_and_alternatives (__main__.BrowserSmoke.test_G35_all_formula_examples_filters_and_alternatives) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 14.295s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-browser-kjmu6gry

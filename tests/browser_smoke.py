@@ -576,7 +576,9 @@ class BrowserSmoke(unittest.TestCase):
             self.assertEqual(self.page.title(),'CCIP | '+expected)
             self.assertEqual(self.page.locator('.hero .kicker').inner_text(),'CCIP · INTEC · Procesos 1: inyección' if language=='es' else 'CCIP · INTEC · Processes 1: injection molding')
             self.assertEqual(self.page.locator('.academic-credits li').all_text_contents(),authors)
-            self.assertEqual(self.page.locator('.academic-credits strong').count(),5)
+            self.assertEqual(self.page.locator('.academic-credits strong').count(),0)
+            styles=self.page.locator('.academic-credits li').evaluate_all('els=>els.map(el=>{const s=getComputedStyle(el);return s.color+"|"+s.fontWeight})')
+            self.assertEqual(len(set(styles)),1)
             for width in [360,390,768,1024,1440]:
                 self.page.set_viewport_size({'width':width,'height':1000})
                 self.assert_layout()
@@ -623,10 +625,19 @@ class BrowserSmoke(unittest.TestCase):
                 # El PNG tiene margen transparente: comprobar el ancho de la
                 # marca real (668 de los 801 px), no solo el lienzo del archivo.
                 self.assertGreaterEqual(box['width']*668/801,75 if width<=540 else 50)
-                self.assertLessEqual(ccip['x']+ccip['width'],divider['x'])
+                name=self.page.locator('.institution-name')
+                self.assertEqual(name.inner_text(),'Instituto Tecnológico de Santo Domingo (INTEC)')
+                self.assertTrue(name.is_visible())
+                self.assertGreaterEqual(name.bounding_box()['x'],box['x']+box['width'])
+                self.assertGreaterEqual(name.bounding_box()['x']-box['x']-box['width'],2*38*box['width']/801)
+                if width<=540:
+                    self.assertLessEqual(ccip['y']+ccip['height'],box['y'])
+                else:
+                    self.assertLessEqual(ccip['x']+ccip['width'],divider['x'])
                 self.assertLess(divider['x'],box['x'])
                 self.assertLessEqual(divider['width'],1.1)
-                self.assertAlmostEqual(ccip['y']+ccip['height']/2,box['y']+box['height']/2,delta=1)
+                if width>540:
+                    self.assertAlmostEqual(ccip['y']+ccip['height']/2,box['y']+box['height']/2,delta=1)
                 padding=logo.evaluate('el=>parseFloat(getComputedStyle(el.parentElement).paddingLeft)')
                 self.assertGreaterEqual(padding,2*38*box['width']/801)
                 self.assertEqual(logo.evaluate('el=>getComputedStyle(el).filter'),'none')
