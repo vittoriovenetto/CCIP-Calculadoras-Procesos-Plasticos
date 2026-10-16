@@ -1,0 +1,93 @@
+material_id,process_tag,scope,source_id,numeric_mfr_range,verification
+dow-dow-12450n,inyección,previous_catalog_claim,S01,,not_revalidated_in_phase_A
+dow-dowlex-2045g,película soplada,previous_catalog_claim,S02,,not_revalidated_in_phase_A
+dow-dow-ldpe-132g,película soplada,previous_catalog_claim,S03,,not_revalidated_in_phase_A
+lyondellbasell-moplen-hp500n,inyección,previous_catalog_claim,S04,,not_revalidated_in_phase_A
+indorama-ventures-polyclear-refresh-pet-1101,preformas / inyección-estirado-soplado,previous_catalog_claim,S05,,not_revalidated_in_phase_A
+westlake-westlake-pvc-1195,extrusion,previous_catalog_claim,S06,,not_revalidated_in_phase_A
+westlake-westlake-pvc-1195,inyeccion,previous_catalog_claim,S06,,not_revalidated_in_phase_A
+westlake-westlake-pvc-1195,soplado,previous_catalog_claim,S06,,not_revalidated_in_phase_A
+ineos-styrolution-terluran-gp-22,inyección,previous_catalog_claim,S07,,not_revalidated_in_phase_A
+basf-ultramid-b3s-r03,inyección,previous_catalog_claim,S08,,not_revalidated_in_phase_A
+covestro-makrolon-2405,inyección,previous_catalog_claim,S09,,not_revalidated_in_phase_A
+catalog-hdpe-dow-08262b,inyección,previous_catalog_claim,CAT201,,not_revalidated_in_phase_A
+catalog-hdpe-dow-hdpe-lp-8000,soplado,previous_catalog_claim,CAT202,,not_revalidated_in_phase_A
+catalog-hdpe-dow-hdpe-ng6997,película soplada,previous_catalog_claim,CAT203,,not_revalidated_in_phase_A
+catalog-hdpe-dow-dmda-8007-nt-7,inyección,previous_catalog_claim,CAT205,,not_revalidated_in_phase_A
+catalog-hdpe-dow-dmda-8007-nt-7,extrusión,previous_catalog_claim,CAT205,,not_revalidated_in_phase_A
+catalog-hdpe-dow-dgda-5004-nt-7,extrusión,previous_catalog_claim,CAT206,,not_revalidated_in_phase_A
+catalog-hdpe-dow-dgda-5004-nt-7,termoformado,previous_catalog_claim,CAT206,,not_revalidated_in_phase_A
+catalog-hdpe-dow-hdpe-lp-8000-hd,soplado,previous_catalog_claim,CAT207,,not_revalidated_in_phase_A
+catalog-hdpe-dow-hdpe-dgda-2484-nt,extrusión,previous_catalog_claim,CAT208,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2045-01g,película soplada,previous_catalog_claim,CAT211,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2645g,película soplada,previous_catalog_claim,CAT212,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2045-11g,película soplada,previous_catalog_claim,CAT214,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2045,película soplada,previous_catalog_claim,CAT215,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2045,extrusión,previous_catalog_claim,CAT215,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2035,extrusión,previous_catalog_claim,CAT216,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2035,película soplada,previous_catalog_claim,CAT216,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2035,inyección,previous_catalog_claim,CAT216,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2036-01g,extrusión,previous_catalog_claim,CAT217,,not_revalidated_in_phase_A
+catalog-lldpe-dowlex-2047g,extrusión,previous_catalog_claim,CAT218,,not_revalidated_in_phase_A
+catalog-ldpe-dow-ldpe-150e,película soplada,previous_catalog_claim,CAT219,,not_revalidated_in_phase_A
+catalog-ldpe-dow-ldpe-7010e,extrusión,previous_catalog_claim,CAT220,,not_revalidated_in_phase_A
+catalog-ldpe-dow-5004i,extrusión,previous_catalog_claim,CAT221,,not_revalidated_in_phase_A
+catalog-ldpe-dow-ldpe-219m,película soplada,previous_catalog_claim,CAT222,,not_revalidated_in_phase_A
+catalog-ldpe-dow-ldpe-219m,extrusión,previous_catalog_claim,CAT222,,not_revalidated_in_phase_A
+catalog-pp-moplen-hp501m,inyección,previous_catalog_claim,CAT228,,not_revalidated_in_phase_A
+catalog-pp-moplen-hp400r,inyección,previous_catalog_claim,CAT229,,not_revalidated_in_phase_A
+catalog-pp-moplen-hp548r,inyeccion,previous_catalog_claim,CAT230,,not_revalidated_in_phase_A
+catalog-pp-moplen-hp648t,inyeccion,previous_catalog_claim,CAT231,,not_revalidated_in_phase_A
+catalog-pp-moplen-rp348r,inyeccion,previous_catalog_claim,CAT232,,not_revalidated_in_phase_A
+catalog-pp-moplen-rp248r,inyeccion,previous_catalog_claim,CAT233,,not_revalidated_in_phase_A
+catalog-pp-moplen-rp398t,inyeccion,previous_catalog_claim,CAT234,,not_revalidated_in_phase_A
+catalog-pp-moplen-rp348t-hp,inyeccion,previous_catalog_claim,CAT235,,not_revalidated_in_phase_A
+catalog-pp-moplen-rp248u,inyeccion,previous_catalog_claim,CAT236,,not_revalidated_in_phase_A
+catalog-pet-polyclear-preserve-pet-2201,inyeccion,previous_catalog_claim,CAT238,,not_revalidated_in_phase_A
+catalog-pet-polyclear-preserve-pet-2201,soplado,previous_catalog_claim,CAT238,,not_revalidated_in_phase_A
+catalog-pet-polyclear-splash-pet-3301,inyeccion,previous_catalog_claim,CAT240,,not_revalidated_in_phase_A
+catalog-pet-polyclear-splash-pet-3301,soplado,previous_catalog_claim,CAT240,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2060,extrusion,previous_catalog_claim,CAT246,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2060,inyeccion,previous_catalog_claim,CAT246,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2060,soplado,previous_catalog_claim,CAT246,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1185,extrusion,previous_catalog_claim,CAT247,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1185,inyeccion,previous_catalog_claim,CAT247,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1185,soplado,previous_catalog_claim,CAT247,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-5265,extrusion,previous_catalog_claim,CAT248,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-5265,inyeccion,previous_catalog_claim,CAT248,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-5265,soplado,previous_catalog_claim,CAT248,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2070,extrusion,previous_catalog_claim,CAT249,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2070,inyeccion,previous_catalog_claim,CAT249,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2070,soplado,previous_catalog_claim,CAT249,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-5305,extrusion,previous_catalog_claim,CAT250,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-5305,inyeccion,previous_catalog_claim,CAT250,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-5305,soplado,previous_catalog_claim,CAT250,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2079,extrusion,previous_catalog_claim,CAT251,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2079,inyeccion,previous_catalog_claim,CAT251,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2079,soplado,previous_catalog_claim,CAT251,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2082,extrusion,previous_catalog_claim,CAT252,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2082,inyeccion,previous_catalog_claim,CAT252,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-2082,soplado,previous_catalog_claim,CAT252,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1230p,extrusion,previous_catalog_claim,CAT253,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1230p,inyeccion,previous_catalog_claim,CAT253,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1230p,soplado,previous_catalog_claim,CAT253,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1230s,extrusion,previous_catalog_claim,CAT254,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1230s,inyeccion,previous_catalog_claim,CAT254,,not_revalidated_in_phase_A
+catalog-pvc-westlake-pvc-1230s,soplado,previous_catalog_claim,CAT254,,not_revalidated_in_phase_A
+catalog-abs-terluran-gp-35,inyección,previous_catalog_claim,CAT255,,not_revalidated_in_phase_A
+catalog-abs-terluran-hi-10,inyeccion,previous_catalog_claim,CAT256,,not_revalidated_in_phase_A
+catalog-abs-novodur-h605,inyeccion,previous_catalog_claim,CAT259,,not_revalidated_in_phase_A
+catalog-abs-novodur-hh-106,inyeccion,previous_catalog_claim,CAT260,,not_revalidated_in_phase_A
+catalog-abs-novodur-hh-112,inyeccion,previous_catalog_claim,CAT261,,not_revalidated_in_phase_A
+catalog-abs-novodur-p2mc,inyeccion,previous_catalog_claim,CAT262,,not_revalidated_in_phase_A
+catalog-abs-novodur-p2h-at,inyeccion,previous_catalog_claim,CAT263,,not_revalidated_in_phase_A
+catalog-pa6-ultramid-b3k,inyección,previous_catalog_claim,CAT264,,not_revalidated_in_phase_A
+catalog-pc-makrolon-2407,inyección,previous_catalog_claim,CAT273,,not_revalidated_in_phase_A
+catalog-pc-makrolon-2805,inyección,previous_catalog_claim,CAT274,,not_revalidated_in_phase_A
+catalog-pc-makrolon-2807,inyeccion,previous_catalog_claim,CAT275,,not_revalidated_in_phase_A
+catalog-pc-makrolon-2856,inyeccion,previous_catalog_claim,CAT276,,not_revalidated_in_phase_A
+catalog-pc-makrolon-2858,inyeccion,previous_catalog_claim,CAT277,,not_revalidated_in_phase_A
+catalog-pc-makrolon-3105,inyeccion,previous_catalog_claim,CAT278,,not_revalidated_in_phase_A
+catalog-pc-makrolon-3106,inyeccion,previous_catalog_claim,CAT279,,not_revalidated_in_phase_A
+catalog-pc-makrolon-3107,inyeccion,previous_catalog_claim,CAT280,,not_revalidated_in_phase_A
+catalog-pc-makrolon-3108,inyeccion,previous_catalog_claim,CAT281,,not_revalidated_in_phase_A
