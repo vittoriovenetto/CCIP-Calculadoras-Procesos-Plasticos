@@ -77,3 +77,66 @@ jobs:
           name: ccip-v13-browser-${{ github.run_id }}
           path: test-artifacts
           retention-days: 30
+
+  publish-verified-pages:
+    name: Publish validated Stage 7 with immutable history
+    needs: [unit, browser]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/feature/etapa-7-auditoria-publicacion'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    concurrency:
+      group: ccip-production-pages
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: read
+      pages: read
+    env:
+      GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CCIP_RELEASE_GO_FILE: ${{ runner.temp }}/ccip-stage7-release-go.json
+    steps:
+      - name: Check out the exact tested commit with full history
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Configure Node 24
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Configure Python 3.12
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install browser dependencies
+        run: |
+          python -m pip install -r tests/requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Build and validate the exact distribution without deploying
+        run: |
+          npm run build:pages
+          python tests/browser_pages_cache.py
+          CCIP_STAGE7_DIST=1 python tests/browser_stage7.py
+      - name: Verify Pages, CI, archives, integrity and reproducibility; produce GO evidence
+        run: node scripts/release-stage7-actions.mjs preflight
+      - name: Publish using the guarded existing publisher, never force push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          npm run deploy:pages
+      - name: Check deployed public HTTPS files and preserved version
+        run: node scripts/release-stage7-actions.mjs verify-public
+      - name: Verify the seven processes, histories, files and languages on public Pages
+        env:
+          CCIP_STAGE7_URL: https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/
+          CCIP_TEST_ARTIFACTS: ${{ runner.temp }}/ccip-stage7-public-browser
+        run: python tests/browser_stage7.py
+      - name: Upload the release gate and deployment evidence, even on failure
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: ccip-etapa7-release-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ccip-stage7-*
+          if-no-files-found: warn
+          retention-days: 60
