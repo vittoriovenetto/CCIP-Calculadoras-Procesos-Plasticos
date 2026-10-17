@@ -45,7 +45,12 @@ async function publicJson(path){
 }
 function archiveCheck(previousSha,artifact){
  const manifest=json(join(root,'versions/antes-etapa-7-2026-10-17.json'));
- need(manifest.gh_pages_commit===previousSha,'Previous deployment does not match the immutable pre-Stage7 archive.');
+ if(manifest.gh_pages_commit!==previousSha){
+  git('merge-base','--is-ancestor',manifest.gh_pages_commit,previousSha);
+  const previousSource=JSON.parse(gitBytes(previousSha,'deployment.json').toString('utf8')).source_commit;
+  need(shaPattern.test(previousSource),'Intermediate release lacks an exact source SHA.');
+  git('merge-base','--is-ancestor',previousSource,current());
+ }
  const zip='downloads/CCIP-Web-antes-etapa-7-2026-10-17.zip';
  need(artifact.files[zip]===manifest.zip_sha256,'The backup ZIP differs from its recorded SHA-256.');
  const base='versions/antes-etapa-7-2026-10-17/';
@@ -82,11 +87,16 @@ async function preflight(){
  const stable=JSON.parse(gitBytes(prev,'deployment.json').toString('utf8'));
  need(stable.repository===repo&&shaPattern.test(stable.source_commit),'Previous Pages deployment metadata invalid.');
  const publicBefore=await publicJson('deployment.json?ccip_preflight='+sha.slice(0,12));
- need(publicBefore.repository===repo && publicBefore.source_commit===stable.source_commit,
-   'Public HTTPS version does not match the expected gh-pages rollback baseline.');
+ const originalSha=json(join(root,'versions/antes-etapa-7-2026-10-17.json')).gh_pages_commit;
+ const originalSource=JSON.parse(gitBytes(originalSha,'deployment.json').toString('utf8')).source_commit;
+ need(publicBefore.repository===repo && (
+   publicBefore.source_commit===stable.source_commit ||
+   (prev!==originalSha && publicBefore.source_commit===originalSource)),
+   'Public HTTPS version does not match either the exact previous release or its still-cached protected historical baseline.');
  const actionsRun=await github('/actions/runs/'+process.env.GITHUB_RUN_ID);
  const runsJobs=await github('/actions/runs/'+process.env.GITHUB_RUN_ID+'/jobs?per_page=100');
  const ci=ciEvidence(actionsRun,runsJobs.jobs||[],sha);
+ need(process.env.CCIP_RELEASE_BASE_SHA===prev,'Release artifact was not built with the verified pinned previous Pages assets.');
  const first=verifyArtifact(site,sha);
  // Rebuild twice, independently of the previous job's artifact, and ensure exact-byte identity.
  git('status','--porcelain');
@@ -176,8 +186,9 @@ async function verifyPublic(){
   'downloads/CCIP-Web-antes-etapa-7-2026-10-17.zip'
  ];
  for(const path of essential){
-  need(artifact.files[path],'Mandatory published asset missing in manifest: '+path);
-  await verifyRemoteFile(path,artifact.files[path]);
+  const expected=path==='artifact-integrity.json' ? digest(readFileSync(join(site,path))) : artifact.files[path];
+  need(expected,'Mandatory published asset missing in manifest: '+path);
+  await verifyRemoteFile(path,expected);
  }
  const report={phase:'live_verification',state:'public_essentials_verified',source_commit:sha,
   gh_pages_commit:commit,url:baseUrl,verified_paths:essential.length,

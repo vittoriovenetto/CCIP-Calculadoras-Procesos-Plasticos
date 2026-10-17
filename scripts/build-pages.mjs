@@ -2,7 +2,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } fr
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { versionPagesAssets, preserveArchivedAssets } from './version-pages-assets.mjs';
+import { versionPagesAssets, preserveArchivedAssets, preservePriorReleaseAssets } from './version-pages-assets.mjs';
 import { verifyArtifact } from './pages-integrity.mjs';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const site = join(root, 'dist');
@@ -23,6 +23,7 @@ for (const file of git(['ls-files', 'index.html', 'formulas.html', '.nojekyll', 
 const library = JSON.parse(readFileSync(join(site, 'src/data/materials.v1.3.json'), 'utf8'));
 const sourceCommit = git(['rev-parse', 'HEAD']);
 preserveArchivedAssets(site);
+preservePriorReleaseAssets(site, process.env.CCIP_RELEASE_BASE_SHA);
 versionPagesAssets(site, sourceCommit);
 writeFileSync(join(site, 'deployment.json'), JSON.stringify({ repository: owner, source_commit: sourceCommit, material_library: (library.catalog_revision || library.schema_version) }, null, 2) + '\n');
 writeFileSync(join(site, 'artifact-integrity.json'),JSON.stringify(verifyArtifact(site,sourceCommit),null,2)+'\n');
