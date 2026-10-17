@@ -1,0 +1,17 @@
+test_H01_nine_grades_assumptions_and_manual_persistence (__main__.Stage5.test_H01_nine_grades_assumptions_and_manual_persistence) ... ok
+test_H02_point_cp_or_unconfirmed_bulk_remain_pending_and_raw_inputs_survive (__main__.Stage5.test_H02_point_cp_or_unconfirmed_bulk_remain_pending_and_raw_inputs_survive) ... ok
+test_H03_valid_mean_and_changes_invalidate_confirmation (__main__.Stage5.test_H03_valid_mean_and_changes_invalidate_confirmation) ... ok
+test_H04_saved_exports_evidence_and_history_are_immutable (__main__.Stage5.test_H04_saved_exports_evidence_and_history_are_immutable) ... ok
+test_H05_responsive_bilingual_and_evidence_popup (__main__.Stage5.test_H05_responsive_bilingual_and_evidence_popup) ... ok
+test_H06_invalid_temperatures_and_equal_temperatures (__main__.Stage5.test_H06_invalid_temperatures_and_equal_temperatures) ... ok
+test_H07_save_at_basic_retains_advanced_inputs_evidence_and_origin (__main__.Stage5.test_H07_save_at_basic_retains_advanced_inputs_evidence_and_origin) ... ok
+test_H08_restore_other_process_does_not_retain_drying_messages (__main__.Stage5.test_H08_restore_other_process_does_not_retain_drying_messages) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 37.383s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-e5-popup-capturas

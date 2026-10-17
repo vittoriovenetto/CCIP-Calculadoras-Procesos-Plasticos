@@ -90,8 +90,28 @@ class BrowserSmoke(unittest.TestCase):
         for control in self.page.locator('input[data-field]').all():
             key = control.get_attribute('data-field')
             control.fill(str(values[key]))
+        if module=='secado':self.document_drying(values,level)
         self.page.locator('#calculate').click()
         self.open_results()
+
+    def document_drying(self,values,level):
+        def show_help(key):
+            if self.page.locator('#hint-'+key).is_hidden():self.help(key)
+        # Explicit synthetic evidence for arithmetic fixtures; no real material claim.
+        if level!='basic':
+            show_help('bulkDensity')
+            self.page.locator('#material-physicalForm').select_option('pellets')
+            show_help('bulkDensity');self.page.locator('#material-bulkCompatible').check()
+            show_help('bulkDensity');self.page.locator('#material-bulkDensitySource').fill('Synthetic bulk-density test fixture, no industrial measurement')
+            self.page.keyboard.press('Escape')
+        if level=='advanced':
+            show_help('specificHeat');self.page.locator('#manual-thermodynamic').evaluate('(el)=>el.open=true')
+            for key,value in [('cpMinC',values['startT']),('cpMaxC',values['targetT']),('specificHeatSource','Synthetic interval-mean Cp fixture, not a manufacturer property')]:
+                self.page.locator('#material-'+key).fill(str(value))
+            self.page.locator('#material-cpPhase').select_option('solid')
+            self.page.locator('#material-cpDefinition').select_option('mean_over_interval')
+            self.page.locator('#material-cpNoTransition').check();self.page.locator('#material-cpEvidenceConfirmed').check()
+            self.page.keyboard.press('Escape')
 
     def open_results(self):
         if self.page.locator('#results-details').is_visible() and not self.page.locator('#results-details').evaluate('el => el.open'):
@@ -223,6 +243,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(),'80')
         self.assertEqual(self.page.locator('[data-field="specificHeat"]').input_value(),'')
         self.assertIn('residencia nominal',self.page.locator('#drying-status').inner_text())
+        self.page.locator('[data-field="throughput"]').fill('50')
         r=self.record();self.assertEqual(r['metrics'][0]['value'],200)
         self.assertEqual(r['material']['used_fields']['residence']['reference']['value'],4)
 
@@ -231,12 +252,14 @@ class BrowserSmoke(unittest.TestCase):
         self.assertTrue(self.page.locator('#calculation-grid').is_hidden())
         self.assertIn('no tiene tiempo/temperatura',self.page.locator('#drying-status').inner_text())
         self.page.locator('#drying-manual').click();self.assertTrue(self.page.locator('#calculation-grid').is_visible())
+        self.page.locator('[data-field="throughput"]').fill('50')
         self.page.locator('[data-field="residence"]').fill('3');r=self.record();self.assertEqual(r['metrics'][0]['value'],150)
 
     def test_T13_ranges_require_choice(self):
         self.select_process('secado');self.page.locator('#level').select_option('advanced');self.grade('covestro-makrolon-2405')
-        self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'')
+        self.assertEqual(self.page.locator('[data-field="residence"]').input_value(),'3')
         self.assertEqual(self.page.locator('[data-field="targetT"]').input_value(),'120')
+        self.page.locator('[data-field="throughput"]').fill('50')
         self.page.locator('[data-field="residence"]').fill('2.5');r=self.record()
         self.assertEqual(r['material']['used_fields']['residence']['origin'],'range_selection')
         self.assertEqual(r['material']['used_fields']['residence']['reference']['range'],[2,3])
@@ -687,6 +710,7 @@ class BrowserSmoke(unittest.TestCase):
                     self.page.locator('#level').select_option(level)
                     if module=='secado':
                         self.grade('ineos-styrolution-terluran-gp-22')
+                        self.page.locator('[data-field="throughput"]').fill('50')
                         drying=next(m for m in MATERIALS if m['id']=='ineos-styrolution-terluran-gp-22')['properties']['drying_time']
                         duration=drying['value'] if drying['value'] is not None else drying['range'][0]
                         self.page.locator('[data-field="residence"]').fill(str(duration))
@@ -876,6 +900,7 @@ class BrowserSmoke(unittest.TestCase):
         self.help('bulkDensity');self.page.locator('#material-physicalForm').select_option('pellets')
         self.help('bulkDensity');self.page.locator('#material-bulkCompatible').check()
         self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(),'0.5')
+        self.page.locator('[data-field="throughput"]').fill('50')
         r=self.record();self.assertEqual(r['metrics'][1]['value'],200)
         self.assertEqual(r['material']['grade_snapshot']['properties']['bulk_density']['entered_unit'],'kg/m3')
 

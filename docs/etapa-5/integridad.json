@@ -1,0 +1,78 @@
+{
+  "audit_base": "814652806ba9df0480e352b69b0c12fed26df9bb",
+  "protected_files": [
+    {
+      "path": "src/engine.js",
+      "unchanged": true,
+      "sha256": "bba8e37b8dff3ca1a9c3bb7453f886cf07db0d573df5729e1da0086e0e050d8d"
+    },
+    {
+      "path": "src/math.js",
+      "unchanged": true,
+      "sha256": "7af7f60cc0ad350574368ce0f25e091e0ed7b066451af3c8d33c0fc98ba6ccd0"
+    },
+    {
+      "path": "src/schema.js",
+      "unchanged": true,
+      "sha256": "68b1b3be07a1869955f8a953e357b6c715cce3df19264f1c6e2ad7548a2aae5e"
+    },
+    {
+      "path": "src/data/materials.v1.3.json",
+      "unchanged": true,
+      "sha256": "97643a7d06101fa217a719d435271b9a3a02b9fdc90d0c3f80c93c66190a4a0b"
+    },
+    {
+      "path": "src/data/material-research.v1.json",
+      "unchanged": true,
+      "sha256": "7b9484f77738fc7908b58007014a2c982f0d3449ed0ec6deca31d57be042b692"
+    },
+    {
+      "path": "src/data/rheology.v1.json",
+      "unchanged": true,
+      "sha256": "5a4ca6b6754e9e61012861dafc01e08f91c9db7682746375100d1ec94e20c64e"
+    },
+    {
+      "path": "src/data/recycling.v1.json",
+      "unchanged": true,
+      "sha256": "cff36e5d2433c04c0204ecbb52c49a72cda79c3ee942a0cc61a95745ce4ee166"
+    },
+    {
+      "path": "src/models/soplado.js",
+      "unchanged": true,
+      "sha256": "f4528531a6d3d84184a3bf81d05d3574032233fce5c743c8d24d3661c4cb454c"
+    },
+    {
+      "path": "src/models/extrusion.js",
+      "unchanged": true,
+      "sha256": "6a090589ceb83659400094a781585a409953d9bb346dbe6f65679b31944486c3"
+    },
+    {
+      "path": "src/models/pelicula.js",
+      "unchanged": true,
+      "sha256": "437331ed094d6e022572b4af364d7f0d845e31b2d24cef815b6b7514e2ca202a"
+    },
+    {
+      "path": "src/models/inyeccion.js",
+      "unchanged": true,
+      "sha256": "e88f302265f2b016d2b2819933cdb4cb9e2f7ec771fd043a2e4664d584120a43"
+    },
+    {
+      "path": "src/models/secado.js",
+      "unchanged": true,
+      "sha256": "8d3e2b1663539711db27f8735deb2c4f936bd5d3f256c6953e0b4fdb263782ea"
+    },
+    {
+      "path": "src/models/costos.js",
+      "unchanged": true,
+      "sha256": "fba37254197827b22f232a503e675b20add700167a52ec15ef33fe3ed10b3986"
+    },
+    {
+      "path": "src/models/termoformado.js",
+      "unchanged": true,
+      "sha256": "f9180a4fa2746eb63b2c6811475b070b8345da2a6ae059a1102bc8ae1fc31b86"
+    }
+  ],
+  "original_materials": 73,
+  "archived_versions_and_downloads_unchanged": true,
+  "engine_equations_unchanged": true
+}

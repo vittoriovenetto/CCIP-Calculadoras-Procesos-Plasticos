@@ -17,13 +17,30 @@ export function bindParameterHelp(root) {
     const scale = tip.getBoundingClientRect().width / parseFloat(getComputedStyle(tip).width) || 1;
     const margin = 8, gap = 6;
     tip.style.maxWidth = `${(innerWidth - 2 * margin) / scale}px`;
-    tip.style.maxHeight = `${(innerHeight - 2 * margin) / scale}px`;
-    const box = tip.getBoundingClientRect();
-    let left = anchor.right + gap, top = anchor.top + (anchor.height - box.height) / 2;
-    if (left + box.width > innerWidth - margin) {
-      if (anchor.left - gap - box.width >= margin) left = anchor.left - gap - box.width;
-      else { left = Math.max(margin, Math.min(anchor.left, innerWidth - box.width - margin)); top = anchor.bottom + gap; }
+    const width = tip.getBoundingClientRect().width;
+    let maxHeight = innerHeight - 2 * margin, vertical = false, useBelow;
+    let left = anchor.right + gap;
+    if (left + width > innerWidth - margin) {
+      if (anchor.left - gap - width >= margin) left = anchor.left - gap - width;
+      else {
+        // En móvil el formulario puede ser más alto que el espacio disponible.
+        // Mantener el botón «?» accesible: elegir un lado vertical y permitir
+        // desplazamiento dentro del popup, sin cubrir su propio disparador.
+        const below = Math.max(0, innerHeight - margin - anchor.bottom - gap);
+        const above = Math.max(0, anchor.top - gap - margin);
+        const style = getComputedStyle(tip);
+        const contentHeight = (tip.scrollHeight + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth)) * scale;
+        useBelow = contentHeight <= below || below >= above;
+        maxHeight = useBelow ? below : above;
+        vertical = true;
+        left = Math.max(margin, Math.min(anchor.left, innerWidth - width - margin));
+      }
     }
+    // No expandir temporalmente en cada scroll: eso reiniciaría scrollTop
+    // e impediría alcanzar los últimos controles del formulario.
+    tip.style.maxHeight = `${maxHeight / scale}px`;
+    const box = tip.getBoundingClientRect();
+    const top = vertical ? (useBelow ? anchor.bottom + gap : anchor.top - gap - box.height) : anchor.top + (anchor.height - box.height) / 2;
     tip.style.left = `${Math.max(margin, Math.min(left, innerWidth - box.width - margin)) / scale}px`;
     tip.style.top = `${Math.max(margin, Math.min(top, innerHeight - box.height - margin)) / scale}px`;
   }

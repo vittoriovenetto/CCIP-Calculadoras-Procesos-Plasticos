@@ -82,11 +82,24 @@ try:
             assert Path(download.value.path()).read_bytes().startswith(b'PK')
             page.locator('#materials-back').click()
             assert page.locator('#blend-ratio').input_value() == '80/20'
+            picker=page.locator('#process-select')
+            if picker.is_visible():picker.select_option('secado')
+            else:page.locator('[data-module="secado"]').click()
+            page.locator('#material-family').select_option('PA6')
+            page.locator('#material-manufacturer').select_option('BASF')
+            page.locator('#material-grade').select_option('basf-ultramid-b3s-r03')
+            assert page.locator('#field-throughput').input_value()==''
+            assert page.locator('#field-startT').input_value()=='25'
+            assert page.locator('#field-residence').input_value()=='4'
+            assert page.locator('#field-specificHeat').input_value()==''
+            page.locator('#field-throughput').fill('50');page.locator('#calculate').click()
+            assert '200' in page.locator('#summary-metrics').inner_text()
+            assert 'Cp puntual' in page.locator('#drying-calculation-status').inner_text()
             assert not stale_requests, stale_requests
             assert not errors, errors
             context.close()
         browser.close()
-    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia y sin mezclar recursos antiguos.')
+    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia, secado con caudal manual/Cp pendiente y sin mezclar recursos antiguos.')
 finally:
     server.shutdown()
     server.server_close()
