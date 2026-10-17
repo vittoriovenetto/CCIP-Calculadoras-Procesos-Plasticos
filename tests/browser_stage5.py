@@ -79,6 +79,7 @@ class Stage5(Stage2):
             self.help('specificHeat');self.page.locator('#manual-thermodynamic').evaluate('(el)=>el.open=true')
             self.page.locator('#material-cpMinC').fill('0');self.page.locator('#material-cpMaxC').fill('90');self.page.locator('#material-cpDefinition').select_option('constant_approximation');self.page.locator('#material-cpEvidenceConfirmed').check();self.page.keyboard.press('Escape')
             self.page.locator('#calculate').click();self.save_case('Synthetic edge temperature');self.assertEqual(self.stored()[0]['metrics'][2]['value'],expected)
+            if expected==0:self.assertIn('Cp constante',self.page.locator('#drying-calculation-status').inner_text())
 
     def test_H07_save_at_basic_retains_advanced_inputs_evidence_and_origin(self):
         self.valid_case();self.page.locator('#level').select_option('basic');self.save_case('Synthetic basic snapshot with retained advanced state');record=self.stored()[0]

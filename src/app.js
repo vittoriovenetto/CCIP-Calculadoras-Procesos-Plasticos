@@ -328,7 +328,7 @@ function compute() {
   const dryingStatus=$('drying-calculation-status');dryingStatus.hidden=state.id!=='secado';
   if(state.id==='secado'){
     const status=dryingStatus;
-    status.innerHTML=drying.assessment.pending.length?'<h3>Resultados de secado pendientes</h3>'+drying.assessment.pending.map(p=>`<p>${safe(p.message)}</p>`).join(''):'<p>Resultados nominales del polímero; no certifican capacidad ni potencia de una máquina.</p>';
+    status.innerHTML=(drying.assessment.pending.length?'<h3>Resultados de secado pendientes</h3>'+drying.assessment.pending.map(p=>`<p>${safe(p.message)}</p>`).join(''):'<p>Resultados nominales del polímero; no certifican capacidad ni potencia de una máquina.</p>')+drying.warnings.filter(w=>w.startsWith('Cp constante:')).map(w=>`<p>${safe(w)}</p>`).join('');
   }else dryingStatus.replaceChildren();
   const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins},...(state.id==='secado'?{retained_inputs:{...state.values}}:{})},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");

@@ -98,7 +98,7 @@ independiente; su salida anterior está en `pruebas/reproducciones-antes.txt`.
 
 Se comprobó la interfaz de secado en **320, 360, 390, 768, 1024 y 1440 px**, español e inglés,
 sin desplazamiento horizontal global, con ayudas accesibles. Se incluyen 12 capturas completas
-más 4 de la ayuda Cp en 320/1440 px. El build y su caché se registran después de guardar el código.
+más 4 de la ayuda Cp en 320/1440 px. El build local pasó; la prueba de caché obsoleta también pasó en 390/768/1440 px e incluye secado con caudal inicialmente vacío, Ti supuesta, tiempo documentado y Cp pendiente. No se publica el artefacto.
 
 [Logs de pruebas](pruebas/) · [Capturas](capturas/README.md) · [Integridad byte a byte](integridad.json).
 Los logs y capturas están en `pruebas/` y `capturas/`. El build genera un artefacto local; no publica.
