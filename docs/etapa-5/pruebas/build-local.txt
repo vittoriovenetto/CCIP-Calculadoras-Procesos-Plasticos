@@ -1,0 +1,5 @@
+
+> ccip-calculadoras-procesos-plasticos@1.3.0 build:pages
+> node scripts/build-pages.mjs
+
+Artefacto listo: dist/; biblioteca 1.5.1

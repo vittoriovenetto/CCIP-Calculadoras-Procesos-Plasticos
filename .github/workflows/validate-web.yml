@@ -53,6 +53,10 @@ jobs:
         env:
           CCIP_TEST_ARTIFACTS: test-artifacts/etapa-6
         run: python tests/browser_stage6.py
+      - name: Audit drying evidence, manual persistence and exports
+        env:
+          CCIP_TEST_ARTIFACTS: test-artifacts/etapa-5
+        run: python tests/browser_stage5.py
       - name: Check built Pages assets against stale browser cache
         run: |
           npm run build:pages

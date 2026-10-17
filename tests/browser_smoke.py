@@ -90,8 +90,28 @@ class BrowserSmoke(unittest.TestCase):
         for control in self.page.locator('input[data-field]').all():
             key = control.get_attribute('data-field')
             control.fill(str(values[key]))
+        if module=='secado':self.document_drying(values,level)
         self.page.locator('#calculate').click()
         self.open_results()
+
+    def document_drying(self,values,level):
+        def show_help(key):
+            if self.page.locator('#hint-'+key).is_hidden():self.help(key)
+        # Explicit synthetic evidence for arithmetic fixtures; no real material claim.
+        if level!='basic':
+            show_help('bulkDensity')
+            self.page.locator('#material-physicalForm').select_option('pellets')
+            show_help('bulkDensity');self.page.locator('#material-bulkCompatible').check()
+            show_help('bulkDensity');self.page.locator('#material-bulkDensitySource').fill('Synthetic bulk-density test fixture, no industrial measurement')
+            self.page.keyboard.press('Escape')
+        if level=='advanced':
+            show_help('specificHeat');self.page.locator('#manual-thermodynamic').evaluate('(el)=>el.open=true')
+            for key,value in [('cpMinC',values['startT']),('cpMaxC',values['targetT']),('specificHeatSource','Synthetic interval-mean Cp fixture, not a manufacturer property')]:
+                self.page.locator('#material-'+key).fill(str(value))
+            self.page.locator('#material-cpPhase').select_option('solid')
+            self.page.locator('#material-cpDefinition').select_option('mean_over_interval')
+            self.page.locator('#material-cpNoTransition').check();self.page.locator('#material-cpEvidenceConfirmed').check()
+            self.page.keyboard.press('Escape')
 
     def open_results(self):
         if self.page.locator('#results-details').is_visible() and not self.page.locator('#results-details').evaluate('el => el.open'):
@@ -329,7 +349,7 @@ class BrowserSmoke(unittest.TestCase):
             for module,values in VARIANTS:
                 for level in ['basic','technical','advanced']:
                     self.fill_case(module,values,level)
-                    expected=self.page.evaluate('''async ([id,values,level])=>{const {calculate}=await import('./src/engine.js');return calculate(id,values,level).metrics.filter(m=>m.value!==null && !(id==='secado'&&m.label==='Potencia térmica sensible mínima')).map(m=>({label:m.label,text:Number(m.value).toLocaleString('es-DO',{maximumFractionDigits:m.precision})+' '+m.unit}))}''',[module,values,level])
+                    expected=self.page.evaluate('''async ([id,values,level])=>{const {calculate}=await import('./src/engine.js');return calculate(id,values,level).metrics.filter(m=>m.value!==null).map(m=>({label:m.label,text:Number(m.value).toLocaleString('es-DO',{maximumFractionDigits:m.precision})+' '+m.unit}))}''',[module,values,level])
                     self.assertEqual(self.page.locator('.metric').count(),len(expected),(module,level,width))
                     for i,item in enumerate(expected):
                         row=self.page.locator('.metric').nth(i);self.assertEqual(row.locator('b').inner_text(),item['label']);self.assertEqual(row.locator('strong').inner_text().strip(),item['text'].strip())

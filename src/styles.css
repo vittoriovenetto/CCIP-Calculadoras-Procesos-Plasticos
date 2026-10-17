@@ -203,3 +203,5 @@ aside .learning-nav{display:block;overflow:visible;margin-top:16px;padding-top:1
 #machine-panel > *,#machine-panel details,#machine-panel .machine-spec-grid,#machine-panel .machine-confirm,#machine-panel .machine-check{min-width:0;max-width:100%;overflow-wrap:anywhere}
 #machine-panel select{min-width:0;max-width:100%;width:100%;box-sizing:border-box}
 #machine-panel .machine-check > *{min-width:0;overflow-wrap:anywhere}
+/* La explicación térmica debe conservar contraste dentro de la ayuda azul. */
+#hint-specificHeat .muted{color:#e2ebf7}#hint-specificHeat summary{color:#fff}

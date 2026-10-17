@@ -1,3 +1,4 @@
+import {cpSignature} from './drying-evidence.js';
 import {readHistory} from './history.js';
 import {createExplorer} from './material-explorer-view.js';
 import {mergeSharedAndLocal,emptySharedCatalog,validateSharedCatalog} from './shared-materials.js';
@@ -47,7 +48,7 @@ const initialOrigins = () => Object.fromEntries(mod().fields.filter(f => f.defau
 function invalidate() {
   $("result-date").textContent = "Pendientes";
   $("summary-metrics").innerHTML = '<p class="muted">Los resultados aparecerán aquí al calcular.</p>';
-  $("usage").innerHTML = "";
+  $("usage").innerHTML = "";if($("drying-calculation-status"))$("drying-calculation-status").replaceChildren();
   $("metrics").innerHTML = "<p class='muted'>Introduce los parámetros y pulsa Calcular. Los resultados sin datos válidos quedan pendientes.</p>";
   $("messages").innerHTML = "";
   drawProfile(null);
@@ -207,6 +208,11 @@ function materialChanged(action, value) {
   }
   if (action === "context") {
     state.material.context[value.key] = value.value;
+    if(state.id==='secado'&&['cpPhase','cpMinC','cpMaxC','cpDefinition','cpNoTransition','specificHeatSource','cpEvidenceConfirmed'].includes(value.key)){
+      const c=state.material.context;
+      if(value.key==='cpEvidenceConfirmed')c.cpConfirmedSignature=value.value?cpSignature(state.values.specificHeat,c):'';
+      else{c.cpEvidenceConfirmed=false;c.cpConfirmedSignature='';if($('material-cpEvidenceConfirmed'))$('material-cpEvidenceConfirmed').checked=false;}
+    }
     if (state.id === 'inyeccion' && ['pvtTemperatureC','pvtPressureMPa','meltDensitySource'].includes(value.key)) {
       state.material.context.meltDensityVerified = false;
       if ($('density-verified')) $('density-verified').checked = false;
@@ -261,13 +267,14 @@ function drawFields() {
     const attrs = `id="field-${f.key}" data-field="${f.key}" aria-describedby="hint-${f.key} error-${f.key}"`;
     const control = f.type === "select" ? `<select ${attrs}>${options}</select>` :
       `<input ${attrs} inputmode="decimal" type="number" step="${f.integer ? "1" : "any"}" min="${f.min}" ${f.max == null ? "" : `max="${f.max}"`} value="${safe(state.values[f.key])}" placeholder="Sin dato"/>`;
-    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
+    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):state.id==='secado'&&f.key==='startT'&&state.origins.startT==='operating_assumption'?'25 °C · supuesto operativo editable; no dato de fabricante':""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
   };
   $("fields").innerHTML = fieldGroups(state.id, activeFields(mod(), state.values, state.level)).map(group => `<fieldset class="parameter-group"><legend>${safe(group.label)}</legend><div class="fields">${group.fields.map(renderField).join("")}</div></fieldset>`).join("");
   document.querySelectorAll("[data-field]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => {
     state.values[el.dataset.field] = el.validity.badInput ? "invalid" : el.value;
     markManual(state.material, state.id, el.dataset.field, state.values[el.dataset.field]);
     state.origins[el.dataset.field] = "manual";
+    if(state.id==='secado'&&el.dataset.field==='specificHeat'){state.material.context.cpEvidenceConfirmed=false;state.material.context.cpConfirmedSignature='';if($('material-cpEvidenceConfirmed'))$('material-cpEvidenceConfirmed').checked=false;}
     if(state.id==='secado'&&['residence','targetT'].includes(el.dataset.field)) {
       const property=state.material.grade_snapshot?.properties[el.dataset.field==='residence'?'drying_time':'drying_temperature'];
       const number=Number(el.value);
@@ -275,7 +282,7 @@ function drawFields() {
         const inRange=Number.isFinite(number)&&number>=property.range[0]&&number<=property.range[1];
         state.material.context[el.dataset.field==='residence'?'dryingTime':'dryingTemperature']=inRange?el.value:'';
         const entry=state.material.provenance[el.dataset.field];
-        Object.assign(entry,{origin:inRange?'range_selection':'user_override',reference:structuredClone(property),source:structuredClone(state.material.source),source_id:property.source_id,selection_reason:inRange?'Valor elegido explícitamente por el usuario dentro del rango de ficha':'Anulación manual fuera del rango de ficha; requiere validación técnica'});
+        Object.assign(entry,{origin:inRange?'range_selection':'user_override',manual_selection:true,reference:structuredClone(property),source:structuredClone(state.material.source),source_id:property.source_id,selection_reason:inRange?'Valor elegido explícitamente por el usuario dentro del rango de ficha':'Anulación manual fuera del rango de ficha; requiere validación técnica'});
       }
     }
     $("provenance-" + el.dataset.field).textContent = state.material.provenance[el.dataset.field]?provenanceText(state.material.provenance[el.dataset.field]):"";
@@ -303,7 +310,7 @@ function fieldHelp(f) {
       : `<p>Rango: ${safe(p.range[0])}–${safe(p.range[1])} h. Inicialmente se propone el límite superior ${safe(p.range[1])} h (editable), no un promedio ni un dato medido.</p>`) : '';
     return `<p>${note}</p>${rangeNote}`;
   }
-  if(state.id==='secado'&&f.key==='bulkDensity')return `<label for="material-physicalForm">Presentación real del material</label><select id="material-physicalForm" data-material-context="physicalForm"><option value="">Sin confirmar</option>${['pellets','powder'].map(x=>`<option ${state.material.context.physicalForm===x?'selected':''}>${x}</option>`).join('')}</select><label><input id="material-bulkCompatible" data-material-context="bulkCompatible" type="checkbox" ${state.material.context.bulkCompatible?'checked':''}>Confirmo método y condiciones de densidad aparente, incluida presentación/tamaño del material.</label>`;
+  if(state.id==='secado'&&f.key==='bulkDensity')return `<label for="material-physicalForm">Presentación real del material</label><select id="material-physicalForm" data-material-context="physicalForm"><option value="">Sin confirmar</option>${['pellets','powder'].map(x=>`<option ${state.material.context.physicalForm===x?'selected':''}>${x}</option>`).join('')}</select><label><input id="material-bulkCompatible" data-material-context="bulkCompatible" type="checkbox" ${state.material.context.bulkCompatible?'checked':''}>Confirmo método y condiciones de densidad aparente, incluida presentación/tamaño del material.</label><label for="material-bulkDensitySource">Fuente / método de densidad aparente manual</label><input id="material-bulkDensitySource" data-material-context="bulkDensitySource" value="${safe(state.material.context.bulkDensitySource)}">`;
   return '';
 }
 
@@ -315,6 +322,7 @@ function compute() {
   if (drying) {
     a.warnings.push(...drying.warnings);
     a.drying_assessment = drying.assessment;
+    a.calculation_inputs = drying.effective;
   }
   if (a.density_provenance?.origin === 'library') {
     state.values.meltDensity = inputs.meltDensity = a.calculation_inputs.meltDensity;
@@ -330,7 +338,12 @@ function compute() {
   const issues=inputIssues(state.id,inputs,state.level,a);
   for(const issue of issues)if(!a.warnings.includes(issue.message))a.warnings.push(issue.message);
   const visible=displayMetrics(a);
-  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins}},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, machine:machineSnapshot(state.machine), material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
+  const dryingStatus=$('drying-calculation-status');dryingStatus.hidden=state.id!=='secado';
+  if(state.id==='secado'){
+    const status=dryingStatus;
+    status.innerHTML=(drying.assessment.pending.length?'<h3>Resultados de secado pendientes</h3>'+drying.assessment.pending.map(p=>`<p>${safe(p.message)}</p>`).join(''):'<p>Resultados nominales del polímero; no certifican capacidad ni potencia de una máquina.</p>')+drying.warnings.filter(w=>w.startsWith('Cp constante:')).map(w=>`<p>${safe(w)}</p>`).join('');
+  }else dryingStatus.replaceChildren();
+  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins},...(state.id==='secado'?{retained_inputs:{...state.values}}:{})},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, machine:machineSnapshot(state.machine), material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => visible.find(m => m.label === label)).filter(Boolean);
@@ -354,7 +367,7 @@ function compute() {
 function restoreHistoryItem(item) {
     state.id = item.module;
     state.level = item.level;
-    state.values = { ...initialValues(), ...item.inputs };
+    state.values = { ...initialValues(), ...(state.id==='secado'?Object.fromEntries(mod().fields.filter(f=>['string','number'].includes(typeof item.calculation_metadata?.retained_inputs?.[f.key])).map(f=>[f.key,item.calculation_metadata.retained_inputs[f.key]])):{}), ...item.inputs };
     state.origins = {...item.calculation_metadata?.input_origins};
     state.material = restoreMaterial(item.material);
     state.machine = restoreMachine(item.machine);
