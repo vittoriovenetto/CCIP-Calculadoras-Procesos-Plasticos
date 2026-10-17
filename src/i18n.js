@@ -4,6 +4,9 @@ import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
 export const translations = {
+"Máquina: el caso queda fuera de un límite publicado; verifica la configuración real.":"Machine: the case falls outside a published limit; verify the actual configuration.",
+"Especificación del equipo confirmada":"Confirmed machine specification",
+"Entrada reutilizada de un cálculo identificado":"Input reused from an identified calculation",
 "25 °C · supuesto operativo editable; no dato de fabricante":"25 °C · editable operating assumption; not manufacturer data",
 "Definición del Cp documentado":"Definition of documented Cp",
 "Dato puntual: no equivale al promedio":"Point measurement: not an interval mean",

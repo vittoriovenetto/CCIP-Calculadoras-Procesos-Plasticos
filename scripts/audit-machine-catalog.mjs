@@ -1,0 +1,16 @@
+// Documentary inventory only: does not query manufacturers or certify machine capacity.
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {validateMachineCatalog,catalogReadiness} from '../src/machines.js';
+const data=validateMachineCatalog(JSON.parse(readFileSync(new URL('../src/data/machines.v1.json',import.meta.url),'utf8')));
+const audit=catalogReadiness(data),excluded=new Set(audit.excluded);
+const map={inyeccion:['shot_volume_cm3','screw_max_stroke_mm','clamp_force_kN','max_injection_pressure_bar','max_injection_flow_cm3_s','shot_mass_ABS_g','mold_max_width_mm','mold_max_length_mm','mold_min_thickness_mm'],extrusion:['screw_speed_rpm','output_max_kg_h','line_speed_max_m_min'],pelicula:['die_diameter_mm','die_gap_mm','bubble_max_diameter_mm','film_max_layflat_mm','film_min_thickness_um','film_max_thickness_um','hauloff_speed_m_min','output_max_kg_h'],soplado:['mold_max_width_mm','mold_max_length_mm','clamp_max_stroke_mm'],termoformado:['sheet_max_width_mm','sheet_max_length_mm','sheet_max_thickness_mm','forming_max_height_mm','sheet_max_area_mm2','sheet_thickness_mm','forming_max_width_mm','forming_max_length_mm','tool_max_width_mm','tool_max_length_mm','max_cycle_cpm','bfs_max_cycle_cpm'],secado:['hopper_nominal_L','max_temperature_C','temperature_range_C','ABS_reference_output_kg_h','output_max_kg_h']};
+const matrix=data.machines.map(m=>({id:m.id,process:m.process,manufacturer:m.manufacturer,model:m.model,configuration:m.configuration,scope:m.scope,counted:!excluded.has(m.id),commercial_identity:m.commercial_identity,verification_status:m.verification_status,sources:m.sources||[m.source],parameters:m.specifications,undocumented:m.undocumented_fields||[],autofill:m.autofill_fields,applicable_comparisons:map[m.process].filter(k=>m.specifications[k]),limitations:m.limitations||m.source.scope_note}));
+if(process.argv.includes('--write')){
+ const dir=new URL('../docs/etapa-6/',import.meta.url);mkdirSync(dir,{recursive:true});
+ writeFileSync(new URL('matriz-tecnica.json',dir),JSON.stringify({audit,records:matrix},null,2)+'\n');
+ const safe=v=>String(v??'').replaceAll('|','/').replaceAll('\n',' ');
+ const table=['# Matriz documental de maquinaria','',`Fichas computables: **${audit.qualified_count}**. Registros consultables: **${data.machines.length}**. Series y variantes cuya equivalencia está pendiente no se suman dos veces. Documento revisado no significa ensayo o certificación de máquina.`,'','| Proceso | Fabricante / modelo / variante | Computa | Parámetros disponibles | Sin documentar | Precarga | Comprobaciones aplicables | Fuente / límites |','|---|---|---|---|---|---|---|---|',...matrix.map(m=>'| '+[m.process,m.manufacturer+' · '+m.model+' · '+m.configuration,m.counted?'Sí':'No',Object.entries(m.parameters).map(([k,p])=>`${k}: ${p.value??p.range.join('–')} ${p.unit}`).join('; '),m.undocumented.join(', '),Object.keys(m.autofill||{}).join(', ')||'Ninguna',m.applicable_comparisons.join(', ')||'Sin par numérico documentado en el motor actual',m.sources.map(s=>s.url).join(' · ')+' — '+m.limitations].map(safe).join(' | ')+' |')];
+ writeFileSync(new URL('matriz-tecnica.md',dir),table.join('\n')+'\n');
+}
+console.log(JSON.stringify(audit,null,2));
+if(process.argv.includes('--require-complete')&&!audit.complete)process.exitCode=1;

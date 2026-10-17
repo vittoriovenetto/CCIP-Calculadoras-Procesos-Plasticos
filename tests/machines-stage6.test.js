@@ -2,16 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {calculate} from '../src/engine.js';
-import {validateMachineCatalog,machinesFor,newMachineState,selectMachine,setMachineConfirmed,assessMachine,machineSnapshot,restoreMachine} from '../src/machines.js';
+import {validateMachineCatalog,machinesFor,newMachineState,selectMachine,setMachineConfirmed,assessMachine,machineSnapshot,restoreMachine,catalogReadiness} from '../src/machines.js';
 import {prepareExport} from '../src/export-data.js';
 const raw=JSON.parse(readFileSync(new URL('../src/data/machines.v1.json',import.meta.url),'utf8'));
 const catalog=validateMachineCatalog(raw);
-test('Maquinaria: seis fichas oficiales y ninguna capacidad ficticia para costos',()=>{
- assert.equal(catalog.machines.length,6);
- for(const id of ['inyeccion','extrusion','pelicula','soplado','termoformado','secado'])assert.equal(machinesFor(catalog,id).length,1);
+test('Maquinaria: mínimo de veinte fichas concretas documentadas, sin contar series ni duplicados',()=>{
+ const audit=catalogReadiness(catalog);
+ assert.ok(audit.complete,JSON.stringify(audit));assert.ok(audit.qualified_count>=20);
+ for(const [process,min] of Object.entries(audit.minimum))assert.ok(audit.counts[process]>=min,process);
  assert.equal(machinesFor(catalog,'costos').length,0);
- assert.equal(new Set(catalog.machines.map(x=>x.id)).size,6);
+ assert.equal(new Set(catalog.machines.map(x=>x.id)).size,catalog.machines.length);
  assert.ok(catalog.machines.every(x=>x.source.url.startsWith('https://')));
+ const duplicated=structuredClone(catalog);duplicated.machines.push({...structuredClone(catalog.machines[0]),id:'synthetic-duplicate-id'});
+ assert.equal(catalogReadiness(duplicated).qualified_count,audit.qualified_count);
 });
 test('Maquinaria: rechaza URLs inseguras, duplicados y autofill en series',()=>{
  const a=structuredClone(catalog);a.machines.push(structuredClone(a.machines[0]));assert.throws(()=>validateMachineCatalog(a));
@@ -71,4 +74,58 @@ test('Exportación de snapshot de máquina no recalcula ni cambia las entradas',
  const out=prepareExport(record);assert.ok(out.summary.some(x=>x[1]===s.profile.model));
  assert.ok(out.sources.some(x=>String(x[1]).includes('arburg.com')));
  assert.deepEqual(record,before);
+});
+
+test('Precarga rechaza una dimensión numérica con unidad equivocada y no usa rangos',()=>{
+ const wrong=structuredClone(catalog);wrong.machines[0].specifications.screw_diameter_mm.unit='cm';assert.throws(()=>validateMachineCatalog(wrong));
+ const ranged=structuredClone(catalog);delete ranged.machines[0].specifications.screw_diameter_mm.value;ranged.machines[0].specifications.screw_diameter_mm.range=[20,30];assert.throws(()=>validateMachineCatalog(ranged));
+});
+test('Moiron M2-I: 15 tf, no 15 kN; 20 g ABS no son 20 cm³ ni propiedades M2-II',()=>{
+ const one=catalog.machines.find(m=>m.id==='moiron-m2-i'),two=catalog.machines.find(m=>m.id==='moiron-m2-ii');
+ assert.equal(one.specifications.screw_diameter_mm.value,20);assert.equal(one.specifications.shot_mass_ABS_g.value,20);
+ assert.ok(Math.abs(one.specifications.clamp_force_kN.value-147.09975)<1e-9);
+ assert.equal(one.specifications.max_injection_pressure_bar.value,600);assert.equal(two.specifications.max_injection_pressure_bar.value,1000);
+ assert.equal(two.specifications.shot_mass_ABS_g.value,15);assert.ok(!one.specifications.shot_volume_cm3);assert.ok(!one.autofill_fields.screwMaxStroke);
+ const s=newMachineState(),v={screwD:'',screwMaxStroke:'',partMass:'12'},o={};selectMachine(s,catalog,one.id,'inyeccion',v,o);setMachineConfirmed(s,true,v,o);
+ assert.equal(v.screwD,20);assert.equal(v.screwMaxStroke,'');assert.equal(v.partMass,'12');
+ const r=calculate('inyeccion',{method:'mass',cavities:1,partMass:12,runnerMass:0,meltDensity:.97,screwD:20},'advanced');
+ const a=assessMachine(s,'inyeccion',r,v);assert.equal(a.checks.some(c=>c.key==='shot_volume_cm3'),false);assert.ok(a.pending.some(p=>p.key==='shot_mass_ABS_g'));
+ s.operation={capacityConditionsConfirmed:true,capacityMaterial:'ABS'};
+ assert.equal(assessMachine(s,'inyeccion',r,v).checks.find(c=>c.key==='shot_mass_ABS_g').actual,12);
+});
+test('XH-430B-25: monocapa separada de tricapa; dado sí, caudal y extremos de rango no',()=>{
+ const mono=catalog.machines.find(m=>m.id==='xihua-xh-430b-25'),tri=catalog.machines.find(m=>m.id==='xihua-xh-430b-25-3');
+ assert.equal(mono.specifications.layer_count.value,1);assert.equal(tri.specifications.layer_count.value,3);
+ assert.equal(mono.specifications.die_diameter_mm.value,25);assert.equal(tri.specifications.die_diameter_mm.value,30);
+ assert.ok(!mono.specifications.bubble_max_diameter_mm);assert.equal(tri.specifications.bubble_max_diameter_mm.value,300);
+ assert.ok(!mono.specifications.output_max_kg_h);assert.ok(!mono.specifications.film_max_thickness_um);
+ const s=newMachineState(),v={dieDiameter:'',dieGap:'',lineSpeed:'12'},o={};selectMachine(s,catalog,mono.id,'pelicula',v,o);setMachineConfirmed(s,true,v,o);
+ assert.equal(v.dieDiameter,25);assert.equal(v.dieGap,'');assert.equal(v.lineSpeed,'12');
+ v.dieDiameter='40';o.dieDiameter='manual';selectMachine(s,catalog,tri.id,'pelicula',v,o);setMachineConfirmed(s,true,v,o);assert.equal(v.dieDiameter,'40');
+});
+test('Fuentes de las capturas conservan variantes, unidades y discrepancias sin mezclarlas',()=>{
+ const moiron=catalog.machines.find(m=>m.id==='moiron-page104-16mm-100kn'),xh=catalog.machines.find(m=>m.id==='dongguan-xihua-xh430b-2-2kw');
+ assert.equal(moiron.specifications.screw_diameter_mm.value,16);assert.equal(moiron.specifications.clamp_force_kN.value,100);assert.equal(moiron.specifications.mold_opening_stroke_mm.value,135);assert.ok(!moiron.specifications.screw_max_stroke_mm);assert.ok(!moiron.specifications.max_injection_pressure_bar);
+ assert.equal(xh.specifications.motor_installed_kW.value,2.2);assert.equal(xh.specifications.film_min_thickness_um.value,20);assert.equal(xh.specifications.film_max_thickness_um.value,200);assert.ok(!xh.specifications.film_max_layflat_mm);assert.ok(!xh.specifications.bubble_max_diameter_mm);
+ assert.ok(catalogReadiness(catalog).excluded.includes(moiron.id));assert.ok(catalogReadiness(catalog).excluded.includes(xh.id));
+});
+test('Kiefel: no confundir superficie de conformado, herramienta, lámina ni modos de producción',()=>{
+ const s=catalog.machines.find(m=>m.id==='kiefel-kmd642speed').specifications;
+ assert.equal(s.forming_max_width_mm.value,620);assert.equal(s.tool_max_width_mm.value,640);assert.equal(s.sheet_max_width_mm.value,670);assert.equal(s.forming_max_height_mm.value,120);assert.equal(s.max_cycle_cpm.value,50);assert.equal(s.bfs_max_cycle_cpm.value,45);assert.ok(!s.sheet_max_length_mm);
+ const record=structuredClone(catalog);record.machines[0].sources.push({id:'unsafe',url:'javascript:alert(1)'});assert.throws(()=>validateMachineCatalog(record));
+});
+test('Snapshot separa precarga retenida de campos activos realmente usados y overrides manuales',()=>{
+ const s=newMachineState(),v={screwD:'',screwMaxStroke:''},o={};selectMachine(s,catalog,catalog.machines[0].id,'inyeccion',v,o);setMachineConfirmed(s,true,v,o);
+ assert.deepEqual(machineSnapshot(s,{},o).used_fields,{});assert.deepEqual(machineSnapshot(s,v,o).used_fields,{screwD:30,screwMaxStroke:150});
+ v.screwD='35';o.screwD='manual';assert.deepEqual(machineSnapshot(s,v,o).used_fields,{screwMaxStroke:150});
+});
+test('Costos conserva la procedencia de entradas reutilizadas al cambiar o quitar la ficha activa',()=>{
+ const s=newMachineState(),values={partMass:'12'},origins={partMass:'saved_calculation'};s.reused_from={id:'source',applied:{partMass:'12'}};
+ selectMachine(s,catalog,'moiron-m2-i','costos',values,origins);assert.equal(s.reused_from.id,'source');assert.equal(values.partMass,'12');
+ selectMachine(s,catalog,'','costos',values,origins);assert.equal(machineSnapshot(s).reused_from.id,'source');assert.equal(values.partMass,'12');
+});
+test('Básico no confunde parámetros de máquina no activos con una variante incorrecta',()=>{
+ const s=newMachineState(),v={screwD:'',screwMaxStroke:''},o={};selectMachine(s,catalog,catalog.machines[0].id,'inyeccion',v,o);setMachineConfirmed(s,true,v,o);
+ const a=assessMachine(s,'inyeccion',{metrics:[{label:'Shot calculado (volumen)',value:35,unit:'cm³'}]},{});
+ assert.ok(!a.notes.includes('screw_configuration_mismatch'));assert.equal(a.checks.find(c=>c.key==='shot_volume_cm3').actual,35);
 });

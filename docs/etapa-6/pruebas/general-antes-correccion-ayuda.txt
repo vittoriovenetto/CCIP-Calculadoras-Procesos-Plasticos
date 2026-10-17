@@ -1,0 +1,92 @@
+test_G25_storage_blocked_still_calculates (__main__.BrowserSmoke.test_G25_storage_blocked_still_calculates) ... ok
+test_G26_keyboard_and_labels (__main__.BrowserSmoke.test_G26_keyboard_and_labels) ... ok
+test_G27_tooltips_mouse_keyboard_touch_and_layout (__main__.BrowserSmoke.test_G27_tooltips_mouse_keyboard_touch_and_layout) ... ok
+test_G28_language_switch_preserves_all_case_inputs_results_and_drafts (__main__.BrowserSmoke.test_G28_language_switch_preserves_all_case_inputs_results_and_drafts) ... ok
+test_G29_invalid_import_and_corrupt_storage_do_not_break_calculation (__main__.BrowserSmoke.test_G29_invalid_import_and_corrupt_storage_do_not_break_calculation) ... ok
+test_G30_history_snapshot_readable_in_frozen_v1 (__main__.BrowserSmoke.test_G30_history_snapshot_readable_in_frozen_v1) ... ok
+test_G31_material_search_compare_and_csv (__main__.BrowserSmoke.test_G31_material_search_compare_and_csv) ... ok
+test_G32_custom_crud_import_export_persistence_and_units (__main__.BrowserSmoke.test_G32_custom_crud_import_export_persistence_and_units) ... ok
+test_G33_archived_versions_and_download_integrity (__main__.BrowserSmoke.test_G33_archived_versions_and_download_integrity) ... ok
+test_G34_all_catalog_profiles_english_and_layout (__main__.BrowserSmoke.test_G34_all_catalog_profiles_english_and_layout) ... ok
+test_G35_all_formula_examples_filters_and_alternatives (__main__.BrowserSmoke.test_G35_all_formula_examples_filters_and_alternatives) ... ok
+test_G36_strict_pvc_pa6_and_physical_profile (__main__.BrowserSmoke.test_G36_strict_pvc_pa6_and_physical_profile) ... ERROR
+test_G37_custom_drying_filter_and_bulk_phase (__main__.BrowserSmoke.test_G37_custom_drying_filter_and_bulk_phase) ... ok
+test_G38_rename_history_and_clear_comparison (__main__.BrowserSmoke.test_G38_rename_history_and_clear_comparison) ... ok
+test_G39_stage1_titles_manual_credits_and_learning (__main__.BrowserSmoke.test_G39_stage1_titles_manual_credits_and_learning) ... ok
+test_G40_stage1_official_logos_divider_and_clearspace (__main__.BrowserSmoke.test_G40_stage1_official_logos_divider_and_clearspace) ... ok
+test_G41_mobile_process_picker_and_desktop_buttons (__main__.BrowserSmoke.test_G41_mobile_process_picker_and_desktop_buttons) ... ok
+test_G42_process_picker_sync_sessions_learning_and_history (__main__.BrowserSmoke.test_G42_process_picker_sync_sessions_learning_and_history) ... ok
+test_T01_no_empty_pvt (__main__.BrowserSmoke.test_T01_no_empty_pvt) ... ok
+test_T02_real_visual_pvt (__main__.BrowserSmoke.test_T02_real_visual_pvt) ... ok
+test_T03_no_empty_datasheet (__main__.BrowserSmoke.test_T03_no_empty_datasheet) ... ok
+test_T04_partial_properties_sources (__main__.BrowserSmoke.test_T04_partial_properties_sources) ... ok
+test_T05_mass_without_density (__main__.BrowserSmoke.test_T05_mass_without_density) ... ok
+test_T06_automatic_editable_density (__main__.BrowserSmoke.test_T06_automatic_editable_density) ... ok
+test_T07_manual_density_and_trace (__main__.BrowserSmoke.test_T07_manual_density_and_trace) ... ok
+test_T08_family_change_and_override (__main__.BrowserSmoke.test_T08_family_change_and_override) ... ok
+test_T09_results_follow_level (__main__.BrowserSmoke.test_T09_results_follow_level) ... ok
+test_T10_optional_results_hidden (__main__.BrowserSmoke.test_T10_optional_results_hidden) ... ok
+test_T11_drying_filter_and_autofill (__main__.BrowserSmoke.test_T11_drying_filter_and_autofill) ... ok
+test_T12_unavailable_drying_keeps_manual_path (__main__.BrowserSmoke.test_T12_unavailable_drying_keeps_manual_path) ... ok
+test_T13_ranges_require_choice (__main__.BrowserSmoke.test_T13_ranges_require_choice) ... ok
+test_T14_no_inferred_cp (__main__.BrowserSmoke.test_T14_no_inferred_cp) ... ok
+test_T15_filters_are_process_specific (__main__.BrowserSmoke.test_T15_filters_are_process_specific) ... ok
+test_T16_critical_validation_inline (__main__.BrowserSmoke.test_T16_critical_validation_inline) ... ok
+test_T17_no_code_links (__main__.BrowserSmoke.test_T17_no_code_links) ... ok
+test_T18_same_tab_preserves_case_language (__main__.BrowserSmoke.test_T18_same_tab_preserves_case_language) ... ok
+test_T19_exclusive_accordion_keyboard (__main__.BrowserSmoke.test_T19_exclusive_accordion_keyboard) ... ok
+test_T20_result_opens_requested_formula (__main__.BrowserSmoke.test_T20_result_opens_requested_formula) ... ok
+test_T21_responsive_and_evidence_captures (__main__.BrowserSmoke.test_T21_responsive_and_evidence_captures) ... ok
+test_T22_seven_models_levels_methods_and_viewports (__main__.BrowserSmoke.test_T22_seven_models_levels_methods_and_viewports) ... ok
+test_T23_custom_materials_do_not_inherit (__main__.BrowserSmoke.test_T23_custom_materials_do_not_inherit) ... ok
+test_T24_english_essential_flows (__main__.BrowserSmoke.test_T24_english_essential_flows) ... ok
+
+======================================================================
+ERROR: test_G36_strict_pvc_pa6_and_physical_profile (__main__.BrowserSmoke.test_G36_strict_pvc_pa6_and_physical_profile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_smoke.py", line 862, in test_G36_strict_pvc_pa6_and_physical_profile
+    self.page.locator('#density-policy').select_option('verified_only')
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 20069, in select_option
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_locator.py", line 633, in select_option
+    return await self._frame.select_option(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 814, in select_option
+    return await self._channel.send("selectOption", self._timeout, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#density-policy")
+    - locator resolved to <select id="density-policy">…</select>
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - element is not visible
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - element is not visible
+    - retrying select option action
+      - waiting 100ms
+    59 × waiting for element to be visible and enabled
+       - element is not visible
+     - retrying select option action
+       - waiting 500ms
+
+
+----------------------------------------------------------------------
+Ran 42 tests in 193.718s
+
+FAILED (errors=1)
+Estados módulo/variante × nivel × pantalla comprobados: 135
+Perfiles iniciales comprobados en navegador: 73
+Casos con cambio de idioma ES/EN/ES: 27
+Capturas: /tmp/ccip-browser-it4zh_9m

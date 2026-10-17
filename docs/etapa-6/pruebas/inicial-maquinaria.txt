@@ -1,0 +1,20 @@
+test_H01_variant_optin_and_units (__main__.Stage6.test_H01_variant_optin_and_units) ... ok
+test_H02_series_no_autofill_and_language (__main__.Stage6.test_H02_series_no_autofill_and_language) ... ok
+test_H03_snapshot_saved_and_mobile (__main__.Stage6.test_H03_snapshot_saved_and_mobile) ... FAIL
+
+======================================================================
+FAIL: test_H03_snapshot_saved_and_mobile (__main__.Stage6.test_H03_snapshot_saved_and_mobile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CCIP-Calculadoras-Procesos-Plasticos/tests/browser_stage6.py", line 57, in test_H03_snapshot_saved_and_mobile
+    self.assertLessEqual(overflow['scroll'],width+1,(width,overflow))
+AssertionError: 363 not less than or equal to 361 : (360, {'viewport': 360, 'scroll': 363, 'offenders': [{'tag': 'SPAN', 'id': '', 'cl': '', 'width': 15, 'right': 363, 'scrollWidth': 15, 'text': 'Confirmo que mi máquina corresponde exactamente a esta configuración. Precargar solo diámetro y'}]})
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.031s
+
+FAILED (failures=1)
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-browser-3r7a2dhf

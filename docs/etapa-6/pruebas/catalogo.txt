@@ -1,0 +1,29 @@
+{
+  "minimum": {
+    "inyeccion": 4,
+    "extrusion": 3,
+    "pelicula": 4,
+    "soplado": 3,
+    "termoformado": 3,
+    "secado": 3
+  },
+  "counts": {
+    "inyeccion": 4,
+    "extrusion": 3,
+    "pelicula": 4,
+    "soplado": 3,
+    "termoformado": 3,
+    "secado": 3
+  },
+  "qualified_count": 20,
+  "excluded": [
+    "battenfeld-cincinnati-uniex-series",
+    "reifenhauser-evo-ffs-series",
+    "geiss-t11-series",
+    "moiron-page104-16mm-100kn",
+    "dongguan-xihua-xh430b-2-2kw"
+  ],
+  "priorities_present": true,
+  "complete": true,
+  "industrial_approval": false
+}

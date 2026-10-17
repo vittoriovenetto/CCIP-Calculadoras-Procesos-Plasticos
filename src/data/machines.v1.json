@@ -1,6 +1,6 @@
 {
   "schema_version": "ccip-machines/1",
-  "retrieved_on": "2026-10-16",
+  "retrieved_on": "2026-10-17",
   "purpose": "Perfiles documentales; no certifican capacidad real ni compatibilidad industrial",
   "machines": [
     {
@@ -13,56 +13,122 @@
         "url": "https://www.arburg.com/media/daten/publications/technical_data/hydraulic_machines/allrounder_s/ARBURG_ALLROUNDER_370S_multi-component_TD_528998_fr.pdf",
         "title": "ARBURG ALLROUNDER 370 S multicomponente — datos técnicos",
         "type": "manufacturer_datasheet",
-        "scope_note": "Configuración 370 S 700-290, husillo 30 mm; otras unidades/husillos tienen datos distintos; presión y caudal máximos pueden ser incompatibles simultáneamente."
+        "scope_note": "Configuración 370 S 700-290, husillo 30 mm; otras unidades/husillos tienen datos distintos; presión y caudal máximos pueden ser incompatibles simultáneamente.",
+        "id": "EQ-19A7656A04C4",
+        "retrieved_on": "2026-10-17",
+        "sha256": "bcf1422517751e9912b37f3ab4c80ef11dc658b71ee8dd5126ba0fca98c1aebb",
+        "http_status": 200
       },
       "specifications": {
         "clamp_force_kN": {
           "value": 700,
           "unit": "kN",
           "note": "Fuerza de cierre nominal máxima publicada para 370 S 700",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published nominal clamping force for the specified model column."
         },
         "screw_diameter_mm": {
           "value": 30,
           "unit": "mm",
           "note": "Variante específica de husillo 30 mm / unidad 290",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Specific published screw diameter; confirm the installed injection unit."
         },
         "screw_max_stroke_mm": {
           "value": 150,
           "unit": "mm",
           "note": "Carrera máxima publicada de la unidad 290",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published maximum screw stroke, not nozzle or mould-opening stroke."
         },
         "shot_volume_cm3": {
           "value": 106,
           "unit": "cm³",
           "note": "Volumen máximo de inyección para husillo de 30 mm; valor geométrico publicado",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published maximum shot volume for this screw; not a mass rating."
         },
         "max_injection_pressure_bar": {
           "value": 2500,
           "unit": "bar",
           "note": "Presión máxima de inyección, no es presión media en la cavidad",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Maximum machine injection pressure, not mean cavity pressure."
         },
         "max_injection_flow_cm3_s": {
           "value": 316,
           "unit": "cm³/s",
           "note": "Depende de la variante de accionamiento; no utilizar como caudal garantizado",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Drive-dependent published maximum; simultaneous maximum flow and pressure may be incompatible."
         },
         "plasticizing_rate_PS_kg_h": {
           "value": 17,
           "unit": "kg/h",
           "note": "Rendimiento máximo para PS específicamente; no transferir a otros polímeros",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "conditions": {
+            "material": "PS",
+            "scope": "Maximum published PS plasticizing rate; confirm drive and complete datasheet conditions; not another polymer"
+          },
+          "note_en": "Published PS plasticizing rate only; confirm material, drive and complete source conditions."
         }
       },
       "autofill_fields": {
         "screwD": "screw_diameter_mm",
         "screwMaxStroke": "screw_max_stroke_mm"
-      }
+      },
+      "verification_status": "document_checked",
+      "configuration": "370 S 700-290/290 multicomponente; unidad horizontal 290, husillo Ø30 mm (página 5)",
+      "machine_type": "inyeccion",
+      "sources": [
+        {
+          "url": "https://www.arburg.com/media/daten/publications/technical_data/hydraulic_machines/allrounder_s/ARBURG_ALLROUNDER_370S_multi-component_TD_528998_fr.pdf",
+          "title": "ARBURG ALLROUNDER 370 S multicomponente — datos técnicos",
+          "type": "manufacturer_datasheet",
+          "scope_note": "Configuración 370 S 700-290, husillo 30 mm; otras unidades/husillos tienen datos distintos; presión y caudal máximos pueden ser incompatibles simultáneamente.",
+          "id": "EQ-19A7656A04C4",
+          "retrieved_on": "2026-10-17",
+          "sha256": "bcf1422517751e9912b37f3ab4c80ef11dc658b71ee8dd5126ba0fca98c1aebb",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "screw_speed_rpm",
+        "mold_max_width_mm",
+        "mold_max_length_mm",
+        "mold_min_thickness_mm",
+        "tiebar_horizontal_mm",
+        "tiebar_vertical_mm",
+        "platen_width_mm",
+        "platen_height_mm",
+        "max_temperature_C",
+        "connected_power_kW"
+      ],
+      "commercial_identity": "arburg-allrounder-370s-700-290-s30",
+      "catalog_revision": "1.1.0",
+      "model_en": "ALLROUNDER 370 S 700-290/290 (Ø30 mm)",
+      "configuration_en": "370 S 700-290/290 multi-component; horizontal injection unit 290, Ø30 mm screw (page 5)"
     },
     {
       "id": "battenfeld-cincinnati-uniex-series",
@@ -74,7 +140,11 @@
         "url": "https://www.battenfeld-cincinnati.com/products/detail/uniex",
         "title": "uniEX — ficha oficial de la serie",
         "type": "manufacturer_product_page",
-        "scope_note": "Familia modular; el diámetro de husillo, la producción y el material cambian según la configuración. Los extremos de la serie no representan un único equipo."
+        "scope_note": "Familia modular; el diámetro de husillo, la producción y el material cambian según la configuración. Los extremos de la serie no representan un único equipo.",
+        "id": "EQ-FB86A6BFAB95",
+        "retrieved_on": "2026-10-17",
+        "sha256": "64dd4faf1a1bb15cf6e1eebe1b6c7f218c19c9390287d1308fcea75e731314e6",
+        "http_status": 200
       },
       "specifications": {
         "screw_diameter_range_mm": {
@@ -84,13 +154,21 @@
           ],
           "unit": "mm",
           "note": "Rango de diámetro en la serie",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-FB86A6BFAB95",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Whole-series diameter range, not one configured extruder."
         },
         "screw_L_over_D": {
           "value": 30,
           "unit": "—",
           "note": "Relación L/D de la unidad de proceso declarada para la serie",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-FB86A6BFAB95",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published processing-unit L/D ratio; does not determine output."
         },
         "output_series_range_kg_h": {
           "range": [
@@ -99,10 +177,41 @@
           ],
           "unit": "kg/h",
           "note": "Intervalo de capacidades de toda la serie, no de una configuración específica",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-FB86A6BFAB95",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Output range across the series; not a specific machine capacity."
         }
       },
-      "autofill_fields": {}
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "uniEX — serie de extrusoras monohusillo",
+      "machine_type": "extrusion",
+      "sources": [
+        {
+          "url": "https://www.battenfeld-cincinnati.com/products/detail/uniex",
+          "title": "uniEX — ficha oficial de la serie",
+          "type": "manufacturer_product_page",
+          "scope_note": "Familia modular; el diámetro de husillo, la producción y el material cambian según la configuración. Los extremos de la serie no representan un único equipo.",
+          "id": "EQ-FB86A6BFAB95",
+          "retrieved_on": "2026-10-17",
+          "sha256": "64dd4faf1a1bb15cf6e1eebe1b6c7f218c19c9390287d1308fcea75e731314e6",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "screw_diameter_mm",
+        "screw_speed_rpm",
+        "output_max_kg_h",
+        "motor_installed_kW",
+        "connected_power_kW",
+        "line_speed_max_m_min"
+      ],
+      "commercial_identity": "battenfeld-cincinnati-uniex-series",
+      "catalog_revision": "1.1.0",
+      "model_en": "uniEX — single-screw extruder series",
+      "configuration_en": "uniEX — single-screw extruder series — verify configuration against cited document"
     },
     {
       "id": "reifenhauser-evo-ffs-series",
@@ -114,7 +223,11 @@
         "url": "https://reifenhauser.com/en/lines-components/extrusion-lines/blown-film-lines/evo-ffs",
         "title": "EVO FFS — datos de la familia",
         "type": "manufacturer_product_page",
-        "scope_note": "Rangos de distintas configuraciones, no una combinación garantizada para una sola línea."
+        "scope_note": "Rangos de distintas configuraciones, no una combinación garantizada para una sola línea.",
+        "id": "EQ-41756E78458D",
+        "retrieved_on": "2026-10-17",
+        "sha256": "785c8e3254319a9039f9df264244157ebbc18dfc5f130c8a7a5644ec6dafe84f",
+        "http_status": 200
       },
       "specifications": {
         "die_diameter_range_mm": {
@@ -124,7 +237,11 @@
           ],
           "unit": "mm",
           "note": "Rango de diámetro de dado para las configuraciones de la serie",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-41756E78458D",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Die diameter range across the series; combinations must be confirmed."
         },
         "extruder_diameter_range_mm": {
           "range": [
@@ -133,7 +250,11 @@
           ],
           "unit": "mm",
           "note": "Rango de diámetro de extrusora en la serie",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-41756E78458D",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Extruder diameter range across the series; not a selected machine."
         },
         "layer_count_range": {
           "range": [
@@ -142,10 +263,47 @@
           ],
           "unit": "capas",
           "note": "Gama declarada de número de capas",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-41756E78458D",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published layer-count range across the series."
         }
       },
-      "autofill_fields": {}
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "EVO FFS — línea de película soplada",
+      "machine_type": "pelicula",
+      "sources": [
+        {
+          "url": "https://reifenhauser.com/en/lines-components/extrusion-lines/blown-film-lines/evo-ffs",
+          "title": "EVO FFS — datos de la familia",
+          "type": "manufacturer_product_page",
+          "scope_note": "Rangos de distintas configuraciones, no una combinación garantizada para una sola línea.",
+          "id": "EQ-41756E78458D",
+          "retrieved_on": "2026-10-17",
+          "sha256": "785c8e3254319a9039f9df264244157ebbc18dfc5f130c8a7a5644ec6dafe84f",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "screw_diameter_mm",
+        "screw_L_over_D",
+        "screw_speed_rpm",
+        "die_diameter_mm",
+        "die_gap_mm",
+        "bubble_max_diameter_mm",
+        "film_max_layflat_mm",
+        "film_min_thickness_um",
+        "film_max_thickness_um",
+        "output_max_kg_h",
+        "hauloff_max_speed_m_min",
+        "supply_voltage_V"
+      ],
+      "commercial_identity": "reifenhauser-evo-ffs-series",
+      "catalog_revision": "1.1.0",
+      "model_en": "EVO FFS — configurable blown-film line series",
+      "configuration_en": "EVO FFS — configurable blown-film line series — verify configuration against cited document"
     },
     {
       "id": "kautex-kbb40",
@@ -155,37 +313,82 @@
       "scope": "specific_model",
       "source": {
         "url": "https://www.kautex-group.com/en/machine/kbb/",
-        "title": "KBB series — tabla oficial KBB 40",
+        "title": "Kautex KBB series — technical table with model-specific columns",
         "type": "manufacturer_product_page",
-        "scope_note": "Valores tomados de la columna KBB 40. El área máxima de molde no equivale automáticamente a dimensiones máximas del envase."
+        "scope_note": "Valores tomados de la columna KBB 40. El área máxima de molde no equivale automáticamente a dimensiones máximas del envase.",
+        "id": "EQ-041120FFA90B",
+        "retrieved_on": "2026-10-17",
+        "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+        "http_status": 200
       },
       "specifications": {
         "clamp_force_kN": {
           "value": 250,
           "unit": "kN",
           "note": "Fuerza de cierre publicada KBB 40",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published nominal clamping force for the specified model column."
         },
         "clamp_max_stroke_mm": {
           "value": 250,
           "unit": "mm",
           "note": "Carrera máxima de cierre publicada",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published maximum clamping-unit stroke for the selected column."
         },
         "mold_max_width_mm": {
           "value": 610,
           "unit": "mm",
           "note": "Ancho máximo de molde; no ancho de botella",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published maximum mould width; not maximum container width."
         },
         "mold_max_length_mm": {
           "value": 430,
           "unit": "mm",
           "note": "Longitud máxima de molde; no altura útil de botella",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published maximum mould length; not maximum container height."
         }
       },
-      "autofill_fields": {}
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "KBB 40 — soplado de envases",
+      "machine_type": "soplado",
+      "sources": [
+        {
+          "url": "https://www.kautex-group.com/en/machine/kbb/",
+          "title": "Kautex KBB series — technical table with model-specific columns",
+          "type": "manufacturer_product_page",
+          "scope_note": "Valores tomados de la columna KBB 40. El área máxima de molde no equivale automáticamente a dimensiones máximas del envase.",
+          "id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "product_max_volume_L",
+        "output_max_kg_h",
+        "connected_power_kW"
+      ],
+      "commercial_identity": "kautex-kbb40",
+      "catalog_revision": "1.1.0",
+      "model_en": "KBB 40",
+      "configuration_es": "KBB 40 — soplado de envases — columna del modelo; soplado por extrusión continua",
+      "configuration_en": "KBB 40 — verify configuration against cited document"
     },
     {
       "id": "geiss-t11-series",
@@ -197,35 +400,84 @@
         "url": "https://www.geiss-ttt.com/en/products/thermoforming-systems/t11-thermoforming-machine/",
         "title": "GEISS T11 — datos oficiales de configuración",
         "type": "manufacturer_product_page",
-        "scope_note": "Máquina paramétrica; 1000 × 900 mm es la dimensión nominal mínima configurable, NO la máxima. Borde de sujeción 20 mm perimetral."
+        "scope_note": "Máquina paramétrica; 1000 × 900 mm es la dimensión nominal mínima configurable, NO la máxima. Borde de sujeción 20 mm perimetral.",
+        "id": "EQ-DEBA9037BBD9",
+        "retrieved_on": "2026-10-17",
+        "sha256": "0413457f963b4669dcab6afb4038d4fe851963da124401a26ce83115bd9441ff",
+        "http_status": 200
       },
       "specifications": {
         "min_nominal_sheet_width_mm": {
           "value": 1000,
           "unit": "mm",
           "note": "Dimensión nominal mínima de la variante configurable, no máxima",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-DEBA9037BBD9",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Minimum configurable nominal sheet width, not maximum sheet size of a machine."
         },
         "min_nominal_sheet_length_mm": {
           "value": 900,
           "unit": "mm",
           "note": "Dimensión nominal mínima de la variante configurable, no máxima",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-DEBA9037BBD9",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Minimum configurable nominal sheet length, not maximum sheet size of a machine."
         },
         "clamping_rim_mm": {
           "value": 20,
           "unit": "mm",
           "note": "Borde de sujeción a cada lado",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-DEBA9037BBD9",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Clamping rim per side; not available forming area."
         },
         "standard_tool_height_mm": {
           "value": 620,
           "unit": "mm",
           "note": "Altura estándar de herramienta, ampliable según pedido",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-DEBA9037BBD9",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Standard tool height, optionally increased on request; not a universal forming-height limit."
         }
       },
-      "autofill_fields": {}
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "T11 — termoformadora configurable",
+      "machine_type": "termoformado",
+      "sources": [
+        {
+          "url": "https://www.geiss-ttt.com/en/products/thermoforming-systems/t11-thermoforming-machine/",
+          "title": "GEISS T11 — datos oficiales de configuración",
+          "type": "manufacturer_product_page",
+          "scope_note": "Máquina paramétrica; 1000 × 900 mm es la dimensión nominal mínima configurable, NO la máxima. Borde de sujeción 20 mm perimetral.",
+          "id": "EQ-DEBA9037BBD9",
+          "retrieved_on": "2026-10-17",
+          "sha256": "0413457f963b4669dcab6afb4038d4fe851963da124401a26ce83115bd9441ff",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "sheet_max_width_mm",
+        "sheet_max_length_mm",
+        "sheet_max_thickness_mm",
+        "forming_max_height_mm",
+        "sheet_max_area_mm2",
+        "forming_useful_area_mm2",
+        "connected_power_kW",
+        "minimum_cycle_s"
+      ],
+      "commercial_identity": "geiss-t11-series",
+      "catalog_revision": "1.1.0",
+      "model_en": "T11 — configurable thermoformer",
+      "configuration_en": "T11 — configurable thermoformer — verify configuration against cited document"
     },
     {
       "id": "motan-luxor-hd-lhd30",
@@ -235,49 +487,2479 @@
       "scope": "specific_model",
       "source": {
         "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
-        "title": "motan — LUXOR HD (tabla técnica LHD 30)",
+        "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
         "type": "manufacturer_datasheet",
-        "scope_note": "Secador de aire caliente LHD 30; caudales publicados de aplicaciones tienen condiciones específicas. Volumen nominal de tolva no es volumen útil certificado."
+        "scope_note": "Secador de aire caliente LHD 30; caudales publicados de aplicaciones tienen condiciones específicas. Volumen nominal de tolva no es volumen útil certificado.",
+        "id": "EQ-76D9EC18E626",
+        "retrieved_on": "2026-10-17",
+        "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+        "http_status": 200
       },
       "specifications": {
         "hopper_nominal_L": {
           "value": 30,
           "unit": "L",
           "note": "Capacidad nominal de tolva, no volumen útil verificado",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Nominal hopper capacity; not verified useful volume."
         },
         "process_airflow_m3_h": {
           "value": 25,
           "unit": "m³/h",
           "note": "Caudal nominal de aire de proceso",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published nominal process airflow."
         },
         "max_temperature_C": {
           "value": 130,
           "unit": "°C",
           "note": "Temperatura máxima declarada del equipo",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published maximum equipment temperature; not a resin drying recommendation."
         },
         "heater_installed_kW": {
           "value": 1.5,
           "unit": "kW",
           "note": "Potencia instalada del calentador, no consumo real ni potencia térmica neta del granulado",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Installed heater rating; not average electricity consumption or net polymer heating power."
         },
         "connected_power_kW": {
           "value": 2,
           "unit": "kW",
           "note": "Potencia eléctrica conectada publicada, no consumo medio",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "Published connected electrical rating; not measured average operating power."
         },
         "ABS_reference_output_kg_h": {
           "value": 8,
           "unit": "kg/h",
           "note": "Referencia de rendimiento de la tabla para ABS bajo sus hipótesis; no rendimiento general de la máquina",
-          "scope": "published"
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": {
+            "material": "ABS",
+            "temperature_C": 80,
+            "residence_h": [
+              2,
+              3
+            ],
+            "scope": "Surface moisture removal only; not deep drying of hygroscopic granules"
+          },
+          "note_en": "ABS reference output at 80 °C, 2–3 h; surface moisture removal only, not universal drying performance."
         }
       },
-      "autofill_fields": {}
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "LUXOR HD — LHD 30 (tolva de aire caliente)",
+      "machine_type": "hot_air_surface_dryer",
+      "sources": [
+        {
+          "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+          "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
+          "type": "manufacturer_datasheet",
+          "scope_note": "Secador de aire caliente LHD 30; caudales publicados de aplicaciones tienen condiciones específicas. Volumen nominal de tolva no es volumen útil certificado.",
+          "id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "hopper_useful_L",
+        "dew_point_C",
+        "temperature_range_C",
+        "output_max_kg_h"
+      ],
+      "commercial_identity": "motan-luxor-hd-lhd30",
+      "catalog_revision": "1.1.0",
+      "model_en": "LUXOR HD — LHD 30",
+      "configuration_es": "LUXOR HD — LHD 30 (tolva de aire caliente) — secador de aire caliente para humedad superficial",
+      "configuration_en": "LUXOR HD — LHD 30 — verify configuration against cited document"
+    },
+    {
+      "id": "moiron-m2-i",
+      "process": "inyeccion",
+      "manufacturer": "Moiron",
+      "model": "M2-I",
+      "scope": "specific_configuration",
+      "configuration": "M2-I — manufacturer microplast.com version, 1050×430×500 mm",
+      "machine_type": "compact_servo_injection",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-3F35D348641B",
+        "url": "https://www.microplast.com/products.html",
+        "title": "Moiron — M2-I and M2-II manufacturer product specifications",
+        "type": "manufacturer_product_page",
+        "scope_note": "M2-I and M2-II are separate models. Use each model block; shot mass is stated for ABS, not melt volume.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "d669c7ba4e0e633f146f3bcf5daaa7ca20459329cefe4b0651b2ebbe3a8b5709",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-3F35D348641B",
+          "url": "https://www.microplast.com/products.html",
+          "title": "Moiron — M2-I and M2-II manufacturer product specifications",
+          "type": "manufacturer_product_page",
+          "scope_note": "M2-I and M2-II are separate models. Use each model block; shot mass is stated for ABS, not melt volume.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "d669c7ba4e0e633f146f3bcf5daaa7ca20459329cefe4b0651b2ebbe3a8b5709",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "clamp_force_kN": {
+          "value": 147.09975,
+          "unit": "kN",
+          "note": "15 T de cierre, interpretadas como toneladas-fuerza métricas; 1 tf = 9.80665 kN. No son 15 kN.",
+          "note_en": "15 T clamp rating interpreted as metric tonne-force; 1 tf = 9.80665 kN, not 15 kN.",
+          "conditions": null,
+          "original_value": 15,
+          "original_unit": "T",
+          "conversion_factor": 9.80665,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_diameter_mm": {
+          "value": 20,
+          "unit": "mm",
+          "note": "Diámetro publicado en el bloque M2-I",
+          "note_en": "Diameter published in the M2-I block",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "shot_mass_ABS_g": {
+          "value": 20,
+          "unit": "g",
+          "note": "Referencia de masa ABS; no equivale a cm³ ni a capacidad de otros polímeros.",
+          "note_en": "ABS shot mass reference; not cm³ or capacity for other polymers.",
+          "conditions": {
+            "material": "ABS",
+            "scope": "Manufacturer ABS reference; melt density and test conditions not specified"
+          },
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_injection_pressure_bar": {
+          "value": 600,
+          "unit": "bar",
+          "note": "Presión de inyección 60 MPa; no presión media de cavidad.",
+          "note_en": "Injection pressure 60 MPa; not mean cavity pressure.",
+          "conditions": null,
+          "original_value": 60,
+          "original_unit": "MPa",
+          "conversion_factor": 10,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_injection_speed_mm_s": {
+          "value": 80,
+          "unit": "mm/s",
+          "note": "Velocidad lineal publicada; no convertir a caudal sin verificar configuración.",
+          "note_en": "Published linear speed; do not equate it to volume flow without configuration verification.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_max_width_mm": {
+          "value": 200,
+          "unit": "mm",
+          "note": "Primera dimensión del molde máximo 200×130 mm; verificar orientación.",
+          "note_en": "First dimension of 200×130 mm maximum mould; verify orientation.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_max_length_mm": {
+          "value": 130,
+          "unit": "mm",
+          "note": "Segunda dimensión; no es distancia entre columnas.",
+          "note_en": "Second dimension; not tie-bar clearance.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_min_thickness_mm": {
+          "value": 70,
+          "unit": "mm",
+          "note": "Espesor mínimo publicado",
+          "note_en": "Published minimum mould thickness",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_temperature_C": {
+          "value": 300,
+          "unit": "°C",
+          "note": "Calentamiento máximo; no recomendación de resina.",
+          "note_en": "Maximum heater setting; not a resin recommendation.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "connected_power_kW": {
+          "value": 2,
+          "unit": "kW",
+          "note": "Power nominal publicado; no consumo promedio medido.",
+          "note_en": "Published nominal power; not measured average consumption.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "heating_zone_count": {
+          "value": 4,
+          "unit": "—",
+          "note": "Tres zonas de cilindro y una de molde.",
+          "note_en": "Three barrel zones and one mould zone.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {
+        "screwD": "screw_diameter_mm"
+      },
+      "documented_materials": [],
+      "limitations": "Sin carrera máxima, volumen máximo, caudal volumétrico, rpm ni plastificación publicados en este bloque. La lista de materiales del bloque M2-II no se traslada a M2-I.",
+      "limitations_en": "No maximum screw stroke, shot volume, volume flow, rpm or plasticizing output in this block. Materials listed under M2-II are not inherited by M2-I.",
+      "undocumented_fields": [
+        "screw_max_stroke_mm",
+        "shot_volume_cm3",
+        "max_injection_flow_cm3_s",
+        "screw_speed_rpm",
+        "plasticizing_rate_PS_kg_h",
+        "tiebar_horizontal_mm",
+        "tiebar_vertical_mm",
+        "platen_width_mm",
+        "platen_height_mm"
+      ],
+      "commercial_identity": "moiron-m2-i",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "M2-I — versión microplast.com, Ø20 mm, cierre 15 tf, tamaño 1050×430×500 mm"
+    },
+    {
+      "id": "moiron-m2-ii",
+      "process": "inyeccion",
+      "manufacturer": "Moiron",
+      "model": "M2-II",
+      "scope": "specific_configuration",
+      "configuration": "M2-II — manufacturer microplast.com version, 1050×430×500 mm",
+      "machine_type": "compact_servo_injection",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-3F35D348641B",
+        "url": "https://www.microplast.com/products.html",
+        "title": "Moiron — M2-I and M2-II manufacturer product specifications",
+        "type": "manufacturer_product_page",
+        "scope_note": "M2-I and M2-II are separate models. Use each model block; shot mass is stated for ABS, not melt volume.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "d669c7ba4e0e633f146f3bcf5daaa7ca20459329cefe4b0651b2ebbe3a8b5709",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-3F35D348641B",
+          "url": "https://www.microplast.com/products.html",
+          "title": "Moiron — M2-I and M2-II manufacturer product specifications",
+          "type": "manufacturer_product_page",
+          "scope_note": "M2-I and M2-II are separate models. Use each model block; shot mass is stated for ABS, not melt volume.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "d669c7ba4e0e633f146f3bcf5daaa7ca20459329cefe4b0651b2ebbe3a8b5709",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "clamp_force_kN": {
+          "value": 147.09975,
+          "unit": "kN",
+          "note": "15 T de cierre, interpretadas como toneladas-fuerza métricas; 1 tf = 9.80665 kN. No son 15 kN.",
+          "note_en": "15 T clamp rating interpreted as metric tonne-force; 1 tf = 9.80665 kN, not 15 kN.",
+          "conditions": null,
+          "original_value": 15,
+          "original_unit": "T",
+          "conversion_factor": 9.80665,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_diameter_mm": {
+          "value": 20,
+          "unit": "mm",
+          "note": "Diámetro publicado en el bloque M2-II",
+          "note_en": "Diameter published in the M2-II block",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "shot_mass_ABS_g": {
+          "value": 15,
+          "unit": "g",
+          "note": "Referencia de masa ABS; no equivale a cm³ ni a capacidad de otros polímeros.",
+          "note_en": "ABS shot mass reference; not cm³ or capacity for other polymers.",
+          "conditions": {
+            "material": "ABS",
+            "scope": "Manufacturer ABS reference; melt density and test conditions not specified"
+          },
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_injection_pressure_bar": {
+          "value": 1000,
+          "unit": "bar",
+          "note": "Presión de inyección 100 MPa; no presión media de cavidad.",
+          "note_en": "Injection pressure 100 MPa; not mean cavity pressure.",
+          "conditions": null,
+          "original_value": 100,
+          "original_unit": "MPa",
+          "conversion_factor": 10,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_injection_speed_mm_s": {
+          "value": 200,
+          "unit": "mm/s",
+          "note": "Velocidad lineal publicada; no convertir a caudal sin verificar configuración.",
+          "note_en": "Published linear speed; do not equate it to volume flow without configuration verification.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_max_width_mm": {
+          "value": 200,
+          "unit": "mm",
+          "note": "Primera dimensión del molde máximo 200×130 mm; verificar orientación.",
+          "note_en": "First dimension of 200×130 mm maximum mould; verify orientation.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_max_length_mm": {
+          "value": 130,
+          "unit": "mm",
+          "note": "Segunda dimensión; no es distancia entre columnas.",
+          "note_en": "Second dimension; not tie-bar clearance.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_min_thickness_mm": {
+          "value": 70,
+          "unit": "mm",
+          "note": "Espesor mínimo publicado",
+          "note_en": "Published minimum mould thickness",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_temperature_C": {
+          "value": 300,
+          "unit": "°C",
+          "note": "Calentamiento máximo; no recomendación de resina.",
+          "note_en": "Maximum heater setting; not a resin recommendation.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "connected_power_kW": {
+          "value": 2,
+          "unit": "kW",
+          "note": "Power nominal publicado; no consumo promedio medido.",
+          "note_en": "Published nominal power; not measured average consumption.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        },
+        "heating_zone_count": {
+          "value": 4,
+          "unit": "—",
+          "note": "Tres zonas de cilindro y una de molde.",
+          "note_en": "Three barrel zones and one mould zone.",
+          "conditions": null,
+          "source_id": "EQ-3F35D348641B",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {
+        "screwD": "screw_diameter_mm"
+      },
+      "documented_materials": [
+        "PP",
+        "PE",
+        "HDPE",
+        "PS",
+        "ABS",
+        "PLA",
+        "PA",
+        "COC"
+      ],
+      "limitations": "Sin carrera máxima, volumen máximo, caudal volumétrico, rpm ni plastificación publicados en este bloque. La lista de materiales del bloque M2-II no se traslada a M2-I.",
+      "limitations_en": "No maximum screw stroke, shot volume, volume flow, rpm or plasticizing output in this block. Materials listed under M2-II are not inherited by M2-I.",
+      "undocumented_fields": [
+        "screw_max_stroke_mm",
+        "shot_volume_cm3",
+        "max_injection_flow_cm3_s",
+        "screw_speed_rpm",
+        "plasticizing_rate_PS_kg_h",
+        "tiebar_horizontal_mm",
+        "tiebar_vertical_mm",
+        "platen_width_mm",
+        "platen_height_mm"
+      ],
+      "commercial_identity": "moiron-m2-ii",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "M2-II — versión microplast.com, Ø20 mm, cierre 15 tf, tamaño 1050×430×500 mm"
+    },
+    {
+      "id": "xihua-xh436-25t",
+      "process": "inyeccion",
+      "manufacturer": "Xihua",
+      "model": "XH-436 — 25T",
+      "scope": "specific_configuration",
+      "configuration": "XH-436 — 25T",
+      "machine_type": "laboratory_hydraulic_injection",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-6FB0F00EDB01",
+        "url": "https://www.xihuamach.com/zsj/",
+        "title": "Xihua XH-436 — 20T / 25T technical table",
+        "type": "manufacturer_product_page",
+        "scope_note": "Selected 25T column. Paired mould thickness/opening values are ambiguous and remain unavailable; kg/cm² as printed is not silently treated as kgf/cm².",
+        "retrieved_on": "2026-10-17",
+        "sha256": "6a0987cb9a064bd570d4f40379835ec45a6572af44192d8051adbe0d057735a0",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-6FB0F00EDB01",
+          "url": "https://www.xihuamach.com/zsj/",
+          "title": "Xihua XH-436 — 20T / 25T technical table",
+          "type": "manufacturer_product_page",
+          "scope_note": "Selected 25T column. Paired mould thickness/opening values are ambiguous and remain unavailable; kg/cm² as printed is not silently treated as kgf/cm².",
+          "retrieved_on": "2026-10-17",
+          "sha256": "6a0987cb9a064bd570d4f40379835ec45a6572af44192d8051adbe0d057735a0",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "screw_diameter_mm": {
+          "value": 22,
+          "unit": "mm",
+          "note": "Columna 25T",
+          "note_en": "25T column",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_max_stroke_mm": {
+          "value": 110,
+          "unit": "mm",
+          "note": "Carrera del husillo, no carrera de boquilla de 150 mm.",
+          "note_en": "Screw stroke, not the 150 mm nozzle stroke.",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "injection_pressure_published": {
+          "value": 2170,
+          "unit": "kg/cm²",
+          "note": "Unidad original; falta confirmar kgf y condiciones antes de comparar con bar.",
+          "note_en": "Original unit; confirm kgf meaning and conditions before comparison with bar.",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "shot_mass_reference_g": {
+          "value": 40,
+          "unit": "g",
+          "note": "Polímero de referencia no especificado; no convertir a volumen.",
+          "note_en": "Reference polymer not specified; do not convert to volume.",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "clamp_force_published_tons": {
+          "value": 25,
+          "unit": "Tons",
+          "note": "Unidad original de cierre, sin reinterpretar ton corta/métrica.",
+          "note_en": "Original clamp unit; short versus metric ton not reinterpreted.",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "clamp_max_stroke_mm": {
+          "value": 215,
+          "unit": "mm",
+          "note": "Carrera de apertura publicada",
+          "note_en": "Published opening stroke",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "platen_width_mm": {
+          "value": 380,
+          "unit": "mm",
+          "note": "Dimensiones de plato 380×290 mm",
+          "note_en": "380×290 mm platen dimensions",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "platen_height_mm": {
+          "value": 290,
+          "unit": "mm",
+          "note": "Dimensiones de plato",
+          "note_en": "Platen dimensions",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "tiebar_horizontal_mm": {
+          "value": 250,
+          "unit": "mm",
+          "note": "Distancia entre columnas 250×200 mm",
+          "note_en": "250×200 mm tie-bar clearance",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "tiebar_vertical_mm": {
+          "value": 200,
+          "unit": "mm",
+          "note": "Distancia entre columnas",
+          "note_en": "Tie-bar clearance",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "motor_installed_kW": {
+          "value": 4,
+          "unit": "kW",
+          "note": "Potencia nominal de motor",
+          "note_en": "Nominal motor rating",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        },
+        "connected_power_kW": {
+          "value": 6,
+          "unit": "kW",
+          "note": "Total publicado en kW; no kWh ni consumo promedio.",
+          "note_en": "Published total in kW; not kWh or average consumption.",
+          "conditions": null,
+          "source_id": "EQ-6FB0F00EDB01",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {
+        "screwD": "screw_diameter_mm",
+        "screwMaxStroke": "screw_max_stroke_mm"
+      },
+      "undocumented_fields": [
+        "clamp_force_kN",
+        "shot_volume_cm3",
+        "max_injection_pressure_bar",
+        "max_injection_flow_cm3_s",
+        "screw_speed_rpm",
+        "plasticizing_rate_PS_kg_h",
+        "mold_max_width_mm",
+        "mold_max_length_mm",
+        "mold_min_thickness_mm",
+        "max_temperature_C"
+      ],
+      "commercial_identity": "xihua-xh436-25t",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "XH-436 — columna 25T; no combinar con valores de la columna 20T"
+    },
+    {
+      "id": "xihua-xh433-45",
+      "process": "extrusion",
+      "manufacturer": "Xihua",
+      "model": "XH-433-45",
+      "scope": "specific_configuration",
+      "configuration": "XH-433-45 — table Ø25 mm / L/D 33 / standard 4 kW",
+      "machine_type": "single_screw_laboratory_extruder",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-74CF22CA6B09",
+        "url": "https://www.xihuamach.com/jcj/191.html",
+        "title": "Xihua XH-433-45 — technical table",
+        "type": "manufacturer_product_page",
+        "scope_note": "Standard published table specifies Ø25 mm, L/D 33:1. Model suffix does not establish screw diameter. Custom options require a separate variant sheet.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "5351ce2122b55c54c5629f17d038974e10649db85dc5ac6f08564b6eae996519",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-74CF22CA6B09",
+          "url": "https://www.xihuamach.com/jcj/191.html",
+          "title": "Xihua XH-433-45 — technical table",
+          "type": "manufacturer_product_page",
+          "scope_note": "Standard published table specifies Ø25 mm, L/D 33:1. Model suffix does not establish screw diameter. Custom options require a separate variant sheet.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "5351ce2122b55c54c5629f17d038974e10649db85dc5ac6f08564b6eae996519",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "screw_diameter_mm": {
+          "value": 25,
+          "unit": "mm",
+          "note": "Ø25 mm según tabla, aunque el sufijo del modelo sea distinto.",
+          "note_en": "Ø25 mm per table even when model suffix differs.",
+          "conditions": null,
+          "source_id": "EQ-74CF22CA6B09",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_L_over_D": {
+          "value": 33,
+          "unit": "—",
+          "note": "Configuración estándar; personalizable",
+          "note_en": "Standard configuration; customizable",
+          "conditions": null,
+          "source_id": "EQ-74CF22CA6B09",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_speed_rpm": {
+          "range": [
+            0,
+            95
+          ],
+          "unit": "rpm",
+          "note": "Velocidad variable publicada",
+          "note_en": "Published variable screw speed",
+          "conditions": null,
+          "source_id": "EQ-74CF22CA6B09",
+          "retrieved_on": "2026-10-17"
+        },
+        "motor_installed_kW": {
+          "value": 4,
+          "unit": "kW",
+          "note": "Motor estándar; no consumo",
+          "note_en": "Standard motor rating; not consumption",
+          "conditions": null,
+          "source_id": "EQ-74CF22CA6B09",
+          "retrieved_on": "2026-10-17"
+        },
+        "connected_power_kW": {
+          "value": 12,
+          "unit": "kW",
+          "note": "Potencia total instalada publicada; no potencia específica medida.",
+          "note_en": "Published installed total; not measured specific power.",
+          "conditions": null,
+          "source_id": "EQ-74CF22CA6B09",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "undocumented_fields": [
+        "output_max_kg_h",
+        "line_speed_max_m_min"
+      ],
+      "commercial_identity": "xihua-xh433-45",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "XH-433-45 — tabla estándar: Ø25 mm, L/D 33 y motor 4 kW; opciones personalizadas por confirmar"
+    },
+    {
+      "id": "xihua-xh434-25",
+      "process": "extrusion",
+      "manufacturer": "Xihua",
+      "model": "XH-434-25",
+      "scope": "specific_configuration",
+      "configuration": "XH-434-25 — table Ø25 mm / L/D 33 / standard 4 kW",
+      "machine_type": "single_screw_laboratory_extruder",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-5064C2903DF8",
+        "url": "https://www.xihuamach.com/jcj/104.html",
+        "title": "Xihua XH-434-25 — technical table",
+        "type": "manufacturer_product_page",
+        "scope_note": "Standard published table specifies Ø25 mm, L/D 33:1. Model suffix does not establish screw diameter. Custom options require a separate variant sheet.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "336e6ace448d7909104514d9cbef9576021052a9517a62dc94fce37337b9a19a",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-5064C2903DF8",
+          "url": "https://www.xihuamach.com/jcj/104.html",
+          "title": "Xihua XH-434-25 — technical table",
+          "type": "manufacturer_product_page",
+          "scope_note": "Standard published table specifies Ø25 mm, L/D 33:1. Model suffix does not establish screw diameter. Custom options require a separate variant sheet.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "336e6ace448d7909104514d9cbef9576021052a9517a62dc94fce37337b9a19a",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "screw_diameter_mm": {
+          "value": 25,
+          "unit": "mm",
+          "note": "Ø25 mm según tabla, aunque el sufijo del modelo sea distinto.",
+          "note_en": "Ø25 mm per table even when model suffix differs.",
+          "conditions": null,
+          "source_id": "EQ-5064C2903DF8",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_L_over_D": {
+          "value": 33,
+          "unit": "—",
+          "note": "Configuración estándar; personalizable",
+          "note_en": "Standard configuration; customizable",
+          "conditions": null,
+          "source_id": "EQ-5064C2903DF8",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_speed_rpm": {
+          "range": [
+            0,
+            95
+          ],
+          "unit": "rpm",
+          "note": "Velocidad variable publicada",
+          "note_en": "Published variable screw speed",
+          "conditions": null,
+          "source_id": "EQ-5064C2903DF8",
+          "retrieved_on": "2026-10-17"
+        },
+        "motor_installed_kW": {
+          "value": 4,
+          "unit": "kW",
+          "note": "Motor estándar; no consumo",
+          "note_en": "Standard motor rating; not consumption",
+          "conditions": null,
+          "source_id": "EQ-5064C2903DF8",
+          "retrieved_on": "2026-10-17"
+        },
+        "connected_power_kW": {
+          "value": 12,
+          "unit": "kW",
+          "note": "Potencia total instalada publicada; no potencia específica medida.",
+          "note_en": "Published installed total; not measured specific power.",
+          "conditions": null,
+          "source_id": "EQ-5064C2903DF8",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "undocumented_fields": [
+        "output_max_kg_h",
+        "line_speed_max_m_min"
+      ],
+      "commercial_identity": "xihua-xh434-25",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "XH-434-25 — tabla estándar: Ø25 mm, L/D 33 y motor 4 kW; opciones personalizadas por confirmar"
+    },
+    {
+      "id": "collin-e20-e",
+      "process": "extrusion",
+      "manufacturer": "COLLIN Lab & Pilot Solutions",
+      "model": "E 20 E",
+      "scope": "specific_model",
+      "configuration": "E 20 E — E Entrance, laboratory model; 25D/30D cylinder-length variant not selected",
+      "machine_type": "single_screw_laboratory_extruder",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-7B9C05275B8D",
+        "url": "https://www.collin-solutions.com/en/product/extruders-e-2/",
+        "title": "COLLIN E Entrance extruders — E 20 E column",
+        "type": "manufacturer_product_page",
+        "scope_note": "Concrete E 20 E column. Nominal cylinder diameter is published; do not infer screw clearance. Cylinder lengths 25 D and 30 D are alternative configurations, not a selected L/D. No output or installed power assigned.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "0fa727961d18c1e8b0b4028f52f87045255e7ec9008b0bedfa811dea0699a352",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-7B9C05275B8D",
+          "url": "https://www.collin-solutions.com/en/product/extruders-e-2/",
+          "title": "COLLIN E Entrance extruders — E 20 E column",
+          "type": "manufacturer_product_page",
+          "scope_note": "Concrete E 20 E column. Nominal cylinder diameter is published; do not infer screw clearance. Cylinder lengths 25 D and 30 D are alternative configurations, not a selected L/D. No output or installed power assigned.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "0fa727961d18c1e8b0b4028f52f87045255e7ec9008b0bedfa811dea0699a352",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "cylinder_nominal_diameter_mm": {
+          "value": 20,
+          "unit": "mm",
+          "note": "Nominal diameter cylinder; no diámetro exterior medido del husillo.",
+          "note_en": "Nominal cylinder diameter; not measured screw outside diameter.",
+          "conditions": null,
+          "source_id": "EQ-7B9C05275B8D",
+          "retrieved_on": "2026-10-17"
+        },
+        "drive_torque_Nm": {
+          "value": 140,
+          "unit": "N·m",
+          "note": "Torque de la columna E20E; no potencia ni consumo.",
+          "note_en": "E20E column torque; not power or consumption.",
+          "conditions": null,
+          "source_id": "EQ-7B9C05275B8D",
+          "retrieved_on": "2026-10-17"
+        },
+        "machine_length_mm": {
+          "value": 1330,
+          "unit": "mm",
+          "note": "Dimensions L×B×H, E20E: 1330×680×1650 mm",
+          "note_en": "E20E L×B×H dimensions: 1330×680×1650 mm",
+          "conditions": null,
+          "source_id": "EQ-7B9C05275B8D",
+          "retrieved_on": "2026-10-17"
+        },
+        "machine_width_mm": {
+          "value": 680,
+          "unit": "mm",
+          "note": "Dimensión de la máquina, no ancho del producto",
+          "note_en": "Machine dimension, not product width",
+          "conditions": null,
+          "source_id": "EQ-7B9C05275B8D",
+          "retrieved_on": "2026-10-17"
+        },
+        "machine_height_mm": {
+          "value": 1650,
+          "unit": "mm",
+          "note": "Dimensión de la máquina",
+          "note_en": "Machine dimension",
+          "conditions": null,
+          "source_id": "EQ-7B9C05275B8D",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "collin-e20-e",
+      "cylinder_length_options_D": [
+        25,
+        30
+      ],
+      "undocumented_fields": [
+        "screw_diameter_mm",
+        "screw_L_over_D",
+        "screw_speed_rpm",
+        "output_max_kg_h",
+        "motor_installed_kW",
+        "connected_power_kW",
+        "line_speed_max_m_min"
+      ],
+      "limitations": "Longitud de cilindro disponible 25D o 30D; falta confirmar cuál está instalada. Uso descrito para poliolefinas y algunos polímeros técnicos sin cargas abrasivas/corrosivas. No se deduce producción, potencia ni geometría de la línea desde el diámetro o el par.",
+      "limitations_en": "Cylinder length available as 25D or 30D; installed option must be confirmed. Described for polyolefins and some engineering polymers without abrasive/corrosive fillers. Output, power and line geometry are not inferred from diameter or torque.",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "E 20 E — modelo de laboratorio; longitud del cilindro 25D o 30D por confirmar"
+    },
+    {
+      "id": "xihua-xh-430b-25",
+      "process": "pelicula",
+      "manufacturer": "Xihua",
+      "model": "XH-430B-25",
+      "scope": "specific_configuration",
+      "configuration": "XH-430B-25 — standard die Ø25 mm",
+      "machine_type": "laboratory_blown_film",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-BCA156075DC6",
+        "url": "https://www.xihuamach.com/cmjxl/6.html",
+        "title": "Xihua XH-430B-25 — Technical Parameters",
+        "type": "manufacturer_product_page",
+        "scope_note": "Standard model, not custom options. No documented output, die gap, thickness or haul-off speed. Monolayer maximum film diameter is a configuration range, not a specific limit.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "bbcfdd817e59ffa06d7558ea37287845109ee0539a8858c7c6c6787bfb255af4",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-BCA156075DC6",
+          "url": "https://www.xihuamach.com/cmjxl/6.html",
+          "title": "Xihua XH-430B-25 — Technical Parameters",
+          "type": "manufacturer_product_page",
+          "scope_note": "Standard model, not custom options. No documented output, die gap, thickness or haul-off speed. Monolayer maximum film diameter is a configuration range, not a specific limit.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "bbcfdd817e59ffa06d7558ea37287845109ee0539a8858c7c6c6787bfb255af4",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "layer_count": {
+          "value": 1,
+          "unit": "—",
+          "note": "Capas del modelo seleccionado",
+          "note_en": "Layers of selected model",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_count": {
+          "value": 1,
+          "unit": "—",
+          "note": "Una extrusora para monocapa; tres husillos Ø25 para tricapa.",
+          "note_en": "One screw for monolayer; three Ø25 screws for three-layer model.",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_diameter_mm": {
+          "value": 25,
+          "unit": "mm",
+          "note": "Estándar; no sumar diámetros de los tres husillos.",
+          "note_en": "Standard; do not sum the three screw diameters.",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_L_over_D": {
+          "value": 33,
+          "unit": "—",
+          "note": "Estándar o personalizable",
+          "note_en": "Standard or custom",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_speed_rpm": {
+          "range": [
+            0,
+            95
+          ],
+          "unit": "rpm",
+          "note": "Velocidad de husillo publicada; no define caudal.",
+          "note_en": "Published screw speed; does not determine output.",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "motor_installed_kW": {
+          "value": 4,
+          "unit": "kW",
+          "note": "Potencia estándar publicada; en tricapa la fuente no aclara si total o por husillo.",
+          "note_en": "Published standard motor rating; three-layer source does not clarify total versus per screw.",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "die_diameter_mm": {
+          "value": 25,
+          "unit": "mm",
+          "note": "Dado estándar; opciones de otro diámetro requieren confirmar configuración.",
+          "note_en": "Standard die; other diameters require configuration confirmation.",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "supply_voltage_V": {
+          "value": 380,
+          "unit": "V",
+          "note": "AC, trifásica; frecuencia no especificada",
+          "note_en": "AC, three-phase; frequency not specified",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        },
+        "bubble_max_diameter_range_mm": {
+          "range": [
+            150,
+            180
+          ],
+          "unit": "mm",
+          "note": "Rango publicado bajo diámetro máximo; NO límite individual de 180 mm.",
+          "note_en": "Published maximum-diameter range; NOT an individual 180 mm limit.",
+          "conditions": null,
+          "source_id": "EQ-BCA156075DC6",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {
+        "dieDiameter": "die_diameter_mm"
+      },
+      "undocumented_fields": [
+        "die_gap_mm",
+        "bubble_max_diameter_mm",
+        "film_max_layflat_mm",
+        "film_min_thickness_um",
+        "film_max_thickness_um",
+        "output_max_kg_h",
+        "hauloff_max_speed_m_min"
+      ],
+      "commercial_identity": "xihua-xh-430b-25",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "XH-430B-25 — configuración estándar, dado Ø25 mm; confirmar opciones personalizadas"
+    },
+    {
+      "id": "xihua-xh-430b-25-3",
+      "process": "pelicula",
+      "manufacturer": "Xihua",
+      "model": "XH-430B-25-3",
+      "scope": "specific_configuration",
+      "configuration": "XH-430B-25-3 — standard die Ø30 mm",
+      "machine_type": "laboratory_blown_film",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-5F2D550A911F",
+        "url": "https://www.xihuamach.com/cmjxl/4.html",
+        "title": "Xihua XH-430B-25-3 — Technical Parameters",
+        "type": "manufacturer_product_page",
+        "scope_note": "Standard model, not custom options. No documented output, die gap, thickness or haul-off speed. Monolayer maximum film diameter is a configuration range, not a specific limit.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "3269e528ef1b32dafdb09895b6e97b082ffce2fb073db9d8e055beaaf14278f5",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-5F2D550A911F",
+          "url": "https://www.xihuamach.com/cmjxl/4.html",
+          "title": "Xihua XH-430B-25-3 — Technical Parameters",
+          "type": "manufacturer_product_page",
+          "scope_note": "Standard model, not custom options. No documented output, die gap, thickness or haul-off speed. Monolayer maximum film diameter is a configuration range, not a specific limit.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "3269e528ef1b32dafdb09895b6e97b082ffce2fb073db9d8e055beaaf14278f5",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "layer_count": {
+          "value": 3,
+          "unit": "—",
+          "note": "Capas del modelo seleccionado",
+          "note_en": "Layers of selected model",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_count": {
+          "value": 3,
+          "unit": "—",
+          "note": "Una extrusora para monocapa; tres husillos Ø25 para tricapa.",
+          "note_en": "One screw for monolayer; three Ø25 screws for three-layer model.",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_diameter_mm": {
+          "value": 25,
+          "unit": "mm",
+          "note": "Estándar; no sumar diámetros de los tres husillos.",
+          "note_en": "Standard; do not sum the three screw diameters.",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_L_over_D": {
+          "value": 33,
+          "unit": "—",
+          "note": "Estándar o personalizable",
+          "note_en": "Standard or custom",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_speed_rpm": {
+          "range": [
+            0,
+            95
+          ],
+          "unit": "rpm",
+          "note": "Velocidad de husillo publicada; no define caudal.",
+          "note_en": "Published screw speed; does not determine output.",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "motor_installed_kW": {
+          "value": 4,
+          "unit": "kW",
+          "note": "Potencia estándar publicada; en tricapa la fuente no aclara si total o por husillo.",
+          "note_en": "Published standard motor rating; three-layer source does not clarify total versus per screw.",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "die_diameter_mm": {
+          "value": 30,
+          "unit": "mm",
+          "note": "Dado estándar; opciones de otro diámetro requieren confirmar configuración.",
+          "note_en": "Standard die; other diameters require configuration confirmation.",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "supply_voltage_V": {
+          "value": 380,
+          "unit": "V",
+          "note": "AC, trifásica; frecuencia no especificada",
+          "note_en": "AC, three-phase; frequency not specified",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        },
+        "bubble_max_diameter_mm": {
+          "value": 300,
+          "unit": "mm",
+          "note": "Diámetro máximo estándar de tricapa, no de monocapa.",
+          "note_en": "Standard three-layer maximum diameter, not monolayer.",
+          "conditions": null,
+          "source_id": "EQ-5F2D550A911F",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {
+        "dieDiameter": "die_diameter_mm"
+      },
+      "undocumented_fields": [
+        "die_gap_mm",
+        "film_max_layflat_mm",
+        "film_min_thickness_um",
+        "film_max_thickness_um",
+        "output_max_kg_h",
+        "hauloff_max_speed_m_min"
+      ],
+      "commercial_identity": "xihua-xh-430b-25-3",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "XH-430B-25-3 — configuración estándar, dado Ø30 mm; confirmar opciones personalizadas"
+    },
+    {
+      "id": "kautex-kbb60",
+      "process": "soplado",
+      "manufacturer": "Kautex",
+      "model": "KBB 60",
+      "scope": "specific_model",
+      "source": {
+        "url": "https://www.kautex-group.com/en/machine/kbb/",
+        "title": "Kautex KBB series — technical table with model-specific columns",
+        "type": "manufacturer_product_page",
+        "scope_note": "Values from KBB 60 column; mould geometry is not container geometry.",
+        "id": "EQ-041120FFA90B",
+        "retrieved_on": "2026-10-17",
+        "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+        "http_status": 200
+      },
+      "specifications": {
+        "clamp_force_kN": {
+          "value": 300,
+          "unit": "kN",
+          "note": "Columna KBB 60: clamp_force_kN",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 60 column: clamp_force_kN"
+        },
+        "clamp_max_stroke_mm": {
+          "value": 250,
+          "unit": "mm",
+          "note": "Columna KBB 60: clamp_max_stroke_mm",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 60 column: clamp_max_stroke_mm"
+        },
+        "mold_max_width_mm": {
+          "value": 760,
+          "unit": "mm",
+          "note": "Columna KBB 60: mold_max_width_mm",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 60 column: mold_max_width_mm"
+        },
+        "mold_max_length_mm": {
+          "value": 430,
+          "unit": "mm",
+          "note": "Columna KBB 60: mold_max_length_mm",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 60 column: mold_max_length_mm"
+        }
+      },
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "KBB 60 — standard column, continuous extrusion blow moulding",
+      "machine_type": "continuous_extrusion_blow_moulding",
+      "sources": [
+        {
+          "url": "https://www.kautex-group.com/en/machine/kbb/",
+          "title": "Kautex KBB series — technical table with model-specific columns",
+          "type": "manufacturer_product_page",
+          "scope_note": "Values from KBB 60 column; mould geometry is not container geometry.",
+          "id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "product_max_volume_L",
+        "output_max_kg_h",
+        "connected_power_kW"
+      ],
+      "commercial_identity": "kautex-kbb60",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "KBB 60 — columna del modelo; soplado por extrusión continua"
+    },
+    {
+      "id": "kautex-kbb80",
+      "process": "soplado",
+      "manufacturer": "Kautex",
+      "model": "KBB 80",
+      "scope": "specific_model",
+      "source": {
+        "url": "https://www.kautex-group.com/en/machine/kbb/",
+        "title": "Kautex KBB series — technical table with model-specific columns",
+        "type": "manufacturer_product_page",
+        "scope_note": "Values from KBB 80 column; mould geometry is not container geometry.",
+        "id": "EQ-041120FFA90B",
+        "retrieved_on": "2026-10-17",
+        "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+        "http_status": 200
+      },
+      "specifications": {
+        "clamp_force_kN": {
+          "value": 400,
+          "unit": "kN",
+          "note": "Columna KBB 80: clamp_force_kN",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 80 column: clamp_force_kN"
+        },
+        "clamp_max_stroke_mm": {
+          "value": 250,
+          "unit": "mm",
+          "note": "Columna KBB 80: clamp_max_stroke_mm",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 80 column: clamp_max_stroke_mm"
+        },
+        "mold_max_width_mm": {
+          "value": 960,
+          "unit": "mm",
+          "note": "Columna KBB 80: mold_max_width_mm",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 80 column: mold_max_width_mm"
+        },
+        "mold_max_length_mm": {
+          "value": 430,
+          "unit": "mm",
+          "note": "Columna KBB 80: mold_max_length_mm",
+          "scope": "published",
+          "source_id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "KBB 80 column: mold_max_length_mm"
+        }
+      },
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "KBB 80 — standard column, continuous extrusion blow moulding",
+      "machine_type": "continuous_extrusion_blow_moulding",
+      "sources": [
+        {
+          "url": "https://www.kautex-group.com/en/machine/kbb/",
+          "title": "Kautex KBB series — technical table with model-specific columns",
+          "type": "manufacturer_product_page",
+          "scope_note": "Values from KBB 80 column; mould geometry is not container geometry.",
+          "id": "EQ-041120FFA90B",
+          "retrieved_on": "2026-10-17",
+          "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "product_max_volume_L",
+        "output_max_kg_h",
+        "connected_power_kW"
+      ],
+      "commercial_identity": "kautex-kbb80",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "KBB 80 — columna del modelo; soplado por extrusión continua"
+    },
+    {
+      "id": "motan-luxor-hd-lhd60",
+      "process": "secado",
+      "manufacturer": "motan",
+      "model": "LUXOR HD — LHD 60",
+      "scope": "specific_model",
+      "source": {
+        "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+        "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
+        "type": "manufacturer_datasheet",
+        "scope_note": "LHD 60: hot-air surface moisture removal. Nominal hopper is not useful volume; no quantified dew point.",
+        "id": "EQ-76D9EC18E626",
+        "retrieved_on": "2026-10-17",
+        "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+        "http_status": 200
+      },
+      "specifications": {
+        "hopper_nominal_L": {
+          "value": 60,
+          "unit": "L",
+          "note": "Columna LHD 60: hopper_nominal_L; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 60 column: hopper_nominal_L; not average consumption or certified useful capacity."
+        },
+        "process_airflow_m3_h": {
+          "value": 50,
+          "unit": "m³/h",
+          "note": "Columna LHD 60: process_airflow_m3_h; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 60 column: process_airflow_m3_h; not average consumption or certified useful capacity."
+        },
+        "max_temperature_C": {
+          "value": 130,
+          "unit": "°C",
+          "note": "Columna LHD 60: max_temperature_C; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 60 column: max_temperature_C; not average consumption or certified useful capacity."
+        },
+        "heater_installed_kW": {
+          "value": 1.5,
+          "unit": "kW",
+          "note": "Columna LHD 60: heater_installed_kW; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 60 column: heater_installed_kW; not average consumption or certified useful capacity."
+        },
+        "connected_power_kW": {
+          "value": 2,
+          "unit": "kW",
+          "note": "Columna LHD 60: connected_power_kW; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 60 column: connected_power_kW; not average consumption or certified useful capacity."
+        },
+        "ABS_reference_output_kg_h": {
+          "value": 16,
+          "unit": "kg/h",
+          "note": "Columna LHD 60: ABS_reference_output_kg_h; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": {
+            "material": "ABS",
+            "temperature_C": 80,
+            "residence_h": [
+              2,
+              3
+            ],
+            "scope": "Surface moisture removal only; not deep drying of hygroscopic granules"
+          },
+          "note_en": "LHD 60 column: ABS_reference_output_kg_h; not average consumption or certified useful capacity."
+        }
+      },
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "LHD 60 hot-air dryer, standard technical table",
+      "machine_type": "hot_air_surface_dryer",
+      "sources": [
+        {
+          "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+          "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
+          "type": "manufacturer_datasheet",
+          "scope_note": "LHD 60: hot-air surface moisture removal. Nominal hopper is not useful volume; no quantified dew point.",
+          "id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "hopper_useful_L",
+        "dew_point_C",
+        "temperature_range_C",
+        "output_max_kg_h"
+      ],
+      "commercial_identity": "motan-luxor-hd-lhd60",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "LUXOR HD — LHD 60 — secador de aire caliente para humedad superficial"
+    },
+    {
+      "id": "motan-luxor-hd-lhd150",
+      "process": "secado",
+      "manufacturer": "motan",
+      "model": "LUXOR HD — LHD 150",
+      "scope": "specific_model",
+      "source": {
+        "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+        "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
+        "type": "manufacturer_datasheet",
+        "scope_note": "LHD 150: hot-air surface moisture removal. Nominal hopper is not useful volume; no quantified dew point.",
+        "id": "EQ-76D9EC18E626",
+        "retrieved_on": "2026-10-17",
+        "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+        "http_status": 200
+      },
+      "specifications": {
+        "hopper_nominal_L": {
+          "value": 150,
+          "unit": "L",
+          "note": "Columna LHD 150: hopper_nominal_L; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 150 column: hopper_nominal_L; not average consumption or certified useful capacity."
+        },
+        "process_airflow_m3_h": {
+          "value": 100,
+          "unit": "m³/h",
+          "note": "Columna LHD 150: process_airflow_m3_h; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 150 column: process_airflow_m3_h; not average consumption or certified useful capacity."
+        },
+        "max_temperature_C": {
+          "value": 130,
+          "unit": "°C",
+          "note": "Columna LHD 150: max_temperature_C; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 150 column: max_temperature_C; not average consumption or certified useful capacity."
+        },
+        "heater_installed_kW": {
+          "value": 4.5,
+          "unit": "kW",
+          "note": "Columna LHD 150: heater_installed_kW; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 150 column: heater_installed_kW; not average consumption or certified useful capacity."
+        },
+        "connected_power_kW": {
+          "value": 5,
+          "unit": "kW",
+          "note": "Columna LHD 150: connected_power_kW; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": null,
+          "note_en": "LHD 150 column: connected_power_kW; not average consumption or certified useful capacity."
+        },
+        "ABS_reference_output_kg_h": {
+          "value": 39,
+          "unit": "kg/h",
+          "note": "Columna LHD 150: ABS_reference_output_kg_h; no consumo promedio ni capacidad útil certificada.",
+          "scope": "published",
+          "source_id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "conditions": {
+            "material": "ABS",
+            "temperature_C": 80,
+            "residence_h": [
+              2,
+              3
+            ],
+            "scope": "Surface moisture removal only; not deep drying of hygroscopic granules"
+          },
+          "note_en": "LHD 150 column: ABS_reference_output_kg_h; not average consumption or certified useful capacity."
+        }
+      },
+      "autofill_fields": {},
+      "verification_status": "document_checked",
+      "configuration": "LHD 150 hot-air dryer, standard technical table",
+      "machine_type": "hot_air_surface_dryer",
+      "sources": [
+        {
+          "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+          "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
+          "type": "manufacturer_datasheet",
+          "scope_note": "LHD 150: hot-air surface moisture removal. Nominal hopper is not useful volume; no quantified dew point.",
+          "id": "EQ-76D9EC18E626",
+          "retrieved_on": "2026-10-17",
+          "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+          "http_status": 200
+        }
+      ],
+      "undocumented_fields": [
+        "hopper_useful_L",
+        "dew_point_C",
+        "temperature_range_C",
+        "output_max_kg_h"
+      ],
+      "commercial_identity": "motan-luxor-hd-lhd150",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "LUXOR HD — LHD 150 — secador de aire caliente para humedad superficial"
+    },
+    {
+      "id": "collin-bl-400-e",
+      "process": "pelicula",
+      "manufacturer": "COLLIN Lab & Pilot Solutions",
+      "model": "BL 400 E",
+      "scope": "specific_configuration",
+      "configuration": "BL 400 E — standard take-off, lay-flat and winding unit; extruder/die not specified",
+      "machine_type": "air_cooled_blown_film_takeoff_line",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-8C0BEED41103",
+        "url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+        "title": "COLLIN — Blown Film Lines E Entrance, BL 400 E / BL 600 E technical data",
+        "type": "manufacturer_product_page",
+        "scope_note": "Use each individual column. Roller width differs from maximum web width. Extruder, die, output and installed power are not specified for a complete configuration.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "7892e73f65bedc596a2da4de47fc19860b0d757ae5cfe0efb3f8b73dd6b9e4bf",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-8C0BEED41103",
+          "url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+          "title": "COLLIN — Blown Film Lines E Entrance, BL 400 E / BL 600 E technical data",
+          "type": "manufacturer_product_page",
+          "scope_note": "Use each individual column. Roller width differs from maximum web width. Extruder, die, output and installed power are not specified for a complete configuration.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "7892e73f65bedc596a2da4de47fc19860b0d757ae5cfe0efb3f8b73dd6b9e4bf",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "roll_width_mm": {
+          "value": 400,
+          "unit": "mm",
+          "note": "Ancho nominal del rodillo; no ancho útil máximo de película.",
+          "note_en": "Nominal roller width; not maximum useful web width.",
+          "conditions": null,
+          "source_id": "EQ-8C0BEED41103",
+          "retrieved_on": "2026-10-17"
+        },
+        "film_max_layflat_mm": {
+          "value": 350,
+          "unit": "mm",
+          "note": "Max. web width de la unidad de aplanado/arrastre; comprobar configuración de película sin corte.",
+          "note_en": "Maximum web width of lay-flat/take-off unit; verify unslit film configuration.",
+          "conditions": null,
+          "source_id": "EQ-8C0BEED41103",
+          "retrieved_on": "2026-10-17"
+        },
+        "hauloff_speed_m_min": {
+          "range": [
+            1,
+            30
+          ],
+          "unit": "m/min",
+          "note": "Web speed para el modelo de esta columna.",
+          "note_en": "Web speed for this specific model column.",
+          "conditions": null,
+          "source_id": "EQ-8C0BEED41103",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "collin-bl-400-e",
+      "undocumented_fields": [
+        "screw_diameter_mm",
+        "screw_L_over_D",
+        "die_diameter_mm",
+        "die_gap_mm",
+        "bubble_max_diameter_mm",
+        "film_min_thickness_um",
+        "film_max_thickness_um",
+        "output_max_kg_h",
+        "connected_power_kW"
+      ],
+      "catalog_revision": "1.1.0",
+      "configuration_es": "BL 400 E — unidad de arrastre, aplanado y bobinado; extrusor y dado sin especificar"
+    },
+    {
+      "id": "collin-bl-600-e",
+      "process": "pelicula",
+      "manufacturer": "COLLIN Lab & Pilot Solutions",
+      "model": "BL 600 E",
+      "scope": "specific_configuration",
+      "configuration": "BL 600 E — standard take-off, lay-flat and winding unit; extruder/die not specified",
+      "machine_type": "air_cooled_blown_film_takeoff_line",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-8C0BEED41103",
+        "url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+        "title": "COLLIN — Blown Film Lines E Entrance, BL 400 E / BL 600 E technical data",
+        "type": "manufacturer_product_page",
+        "scope_note": "Use each individual column. Roller width differs from maximum web width. Extruder, die, output and installed power are not specified for a complete configuration.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "7892e73f65bedc596a2da4de47fc19860b0d757ae5cfe0efb3f8b73dd6b9e4bf",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-8C0BEED41103",
+          "url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+          "title": "COLLIN — Blown Film Lines E Entrance, BL 400 E / BL 600 E technical data",
+          "type": "manufacturer_product_page",
+          "scope_note": "Use each individual column. Roller width differs from maximum web width. Extruder, die, output and installed power are not specified for a complete configuration.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "7892e73f65bedc596a2da4de47fc19860b0d757ae5cfe0efb3f8b73dd6b9e4bf",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "roll_width_mm": {
+          "value": 600,
+          "unit": "mm",
+          "note": "Ancho nominal del rodillo; no ancho útil máximo de película.",
+          "note_en": "Nominal roller width; not maximum useful web width.",
+          "conditions": null,
+          "source_id": "EQ-8C0BEED41103",
+          "retrieved_on": "2026-10-17"
+        },
+        "film_max_layflat_mm": {
+          "value": 550,
+          "unit": "mm",
+          "note": "Max. web width de la unidad de aplanado/arrastre; comprobar configuración de película sin corte.",
+          "note_en": "Maximum web width of lay-flat/take-off unit; verify unslit film configuration.",
+          "conditions": null,
+          "source_id": "EQ-8C0BEED41103",
+          "retrieved_on": "2026-10-17"
+        },
+        "hauloff_speed_m_min": {
+          "range": [
+            1,
+            30
+          ],
+          "unit": "m/min",
+          "note": "Web speed para el modelo de esta columna.",
+          "note_en": "Web speed for this specific model column.",
+          "conditions": null,
+          "source_id": "EQ-8C0BEED41103",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "collin-bl-600-e",
+      "undocumented_fields": [
+        "screw_diameter_mm",
+        "screw_L_over_D",
+        "die_diameter_mm",
+        "die_gap_mm",
+        "bubble_max_diameter_mm",
+        "film_min_thickness_um",
+        "film_max_thickness_um",
+        "output_max_kg_h",
+        "connected_power_kW"
+      ],
+      "catalog_revision": "1.1.0",
+      "configuration_es": "BL 600 E — unidad de arrastre, aplanado y bobinado; extrusor y dado sin especificar"
+    },
+    {
+      "id": "moiron-page104-16mm-100kn",
+      "process": "inyeccion",
+      "manufacturer": "Moiron",
+      "model": "M2 / imagen M2-I — Ø16 mm, 100 kN",
+      "scope": "specific_configuration",
+      "configuration": "moirons.com page 104 — Ø16 / 100 kN / 600×300×530 mm; exact model equivalence pending",
+      "machine_type": "compact_injection",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-6058AC41F571",
+        "url": "https://www.moirons.com/product/diyixilie/104.html",
+        "title": "Ningbo Moiron — Lab injection molding machine, page 104",
+        "type": "manufacturer_product_page",
+        "scope_note": "Top technical block: Ø16 mm, 100 kN. Body says Model Number M2 and gives generic, discrepant clamp ranges; photo supplied by user says M2-I. Equivalence with Ø20 mm M2-I is NOT established. Do not mix tables.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "aad2fd427b3ff192036d8e99e68a3745c505db45d575aa7bd5696895414d2e70",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-6058AC41F571",
+          "url": "https://www.moirons.com/product/diyixilie/104.html",
+          "title": "Ningbo Moiron — Lab injection molding machine, page 104",
+          "type": "manufacturer_product_page",
+          "scope_note": "Top technical block: Ø16 mm, 100 kN. Body says Model Number M2 and gives generic, discrepant clamp ranges; photo supplied by user says M2-I. Equivalence with Ø20 mm M2-I is NOT established. Do not mix tables.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "aad2fd427b3ff192036d8e99e68a3745c505db45d575aa7bd5696895414d2e70",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "screw_diameter_mm": {
+          "value": 16,
+          "unit": "mm",
+          "note": "Bloque superior de página 104",
+          "note_en": "Top technical block of page 104",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "clamp_force_kN": {
+          "value": 100,
+          "unit": "kN",
+          "note": "Maximum Clamping Force 100KN; no convertir desde 15 tf de otra variante.",
+          "note_en": "Maximum Clamping Force 100KN; do not substitute 15 tf from another variant.",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "shot_mass_reference_g": {
+          "value": 20,
+          "unit": "g",
+          "note": "Maximum shot Weight 20 grams; polímero de referencia no indicado. No volumen.",
+          "note_en": "Maximum shot weight 20 grams; reference polymer unspecified. Not volume.",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "temperature_range_C": {
+          "range": [
+            50,
+            350
+          ],
+          "unit": "°C",
+          "note": "Temperature Control Range, no temperatura recomendada del polímero.",
+          "note_en": "Temperature control range, not polymer processing recommendation.",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_opening_stroke_mm": {
+          "value": 135,
+          "unit": "mm",
+          "note": "Mold Opening Stroke (not included mold); NO carrera de inyección.",
+          "note_en": "Mould opening stroke (not including mould); NOT injection stroke.",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_max_width_mm": {
+          "value": 150,
+          "unit": "mm",
+          "note": "Maximum Mold Size 150×150 mm",
+          "note_en": "Maximum mould size 150×150 mm",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "mold_max_length_mm": {
+          "value": 150,
+          "unit": "mm",
+          "note": "Maximum Mold Size 150×150 mm",
+          "note_en": "Maximum mould size 150×150 mm",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "injection_time_PP_reference_s": {
+          "value": 12,
+          "unit": "s",
+          "note": "Texto Injection Speed: 12second (5grams PP material); es referencia temporal, no mm/s ni caudal.",
+          "note_en": "Text says Injection Speed: 12second (5grams PP material); time reference, not mm/s or volume flow.",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "connected_power_kW": {
+          "value": 1,
+          "unit": "kW",
+          "note": "Single Phase 220V/1kw; no consumo medio medido.",
+          "note_en": "Single-phase 220 V / 1 kW; not measured mean consumption.",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "supply_voltage_V": {
+          "value": 220,
+          "unit": "V",
+          "note": "Monofásica, bloque superior",
+          "note_en": "Single phase, top technical block",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        },
+        "machine_mass_kg": {
+          "value": 125,
+          "unit": "kg",
+          "note": "Machine Weight; no masa de shot",
+          "note_en": "Machine weight, not shot mass",
+          "conditions": null,
+          "source_id": "EQ-6058AC41F571",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {
+        "screwD": "screw_diameter_mm"
+      },
+      "manufacturer_legal_name": "Ningbo Moiron Machinery Co., Ltd.",
+      "commercial_identity": "moiron-m2-i",
+      "identity_status": "cross_source_model_equivalence_pending",
+      "undocumented_fields": [
+        "screw_max_stroke_mm",
+        "shot_volume_cm3",
+        "max_injection_pressure_bar",
+        "max_injection_speed_mm_s",
+        "max_injection_flow_cm3_s",
+        "plasticizing_rate_PS_kg_h",
+        "mold_min_thickness_mm",
+        "tiebar_horizontal_mm",
+        "tiebar_vertical_mm",
+        "platen_width_mm",
+        "platen_height_mm"
+      ],
+      "limitations": "No se fusiona con M2-I Ø20 mm/15 tf ni con M2-II. La apertura de molde no es carrera del husillo. Masa de shot sin polímero de referencia no permite evaluar otras resinas. Los párrafos comerciales genéricos no reemplazan el bloque técnico de esta variante.",
+      "limitations_en": "Not merged with Ø20 mm/15 tf M2-I or M2-II. Mould opening is not screw stroke. Shot mass with unspecified reference polymer cannot rate other resins. Generic marketing paragraphs do not replace this variant technical block.",
+      "catalog_revision": "1.1.0",
+      "model_en": "M2 / M2-I in image — Ø16 mm, 100 kN",
+      "configuration_es": "Página 104 de moirons.com — Ø16 mm, 100 kN, tamaño 600×300×530 mm; equivalencia de modelo pendiente",
+      "configuration_en": "M2 / M2-I in image — Ø16 mm, 100 kN — verify configuration against cited document"
+    },
+    {
+      "id": "dongguan-xihua-xh430b-2-2kw",
+      "process": "pelicula",
+      "manufacturer": "Dongguan Xihua Machinery Technology Co., Ltd.",
+      "model": "XH-430B — 2.2 kW listing",
+      "scope": "specific_configuration",
+      "configuration": "Supplier listing XH-430B — Ø25 / 33:1 / 2.2 kW; die and width interpretation pending",
+      "machine_type": "laboratory_blown_film",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-A06BD4016518",
+        "url": "https://dgxihua.en.made-in-china.com/product/jXsEJupbfyrF/China-PP-HDPE-LDPE-PLA-Lab-Blow-Film-Machine.html",
+        "title": "Dongguan Xihua supplier listing — XH-430B, 2.2 kW",
+        "type": "manufacturer_supplier_listing",
+        "scope_note": "Model XH-430B; 2.2 kW listing, not silently merged with Guangdong Xihua XH-430B-25 4 kW. Maximum Folding Width 300 mm conflicts with Max Film Width 180 mm; neither becomes a usable geometry limit.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "b442477007076a858cf08fb759866664c545b7bbb4acd0fce16aeb75efa13150",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-A06BD4016518",
+          "url": "https://dgxihua.en.made-in-china.com/product/jXsEJupbfyrF/China-PP-HDPE-LDPE-PLA-Lab-Blow-Film-Machine.html",
+          "title": "Dongguan Xihua supplier listing — XH-430B, 2.2 kW",
+          "type": "manufacturer_supplier_listing",
+          "scope_note": "Model XH-430B; 2.2 kW listing, not silently merged with Guangdong Xihua XH-430B-25 4 kW. Maximum Folding Width 300 mm conflicts with Max Film Width 180 mm; neither becomes a usable geometry limit.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "b442477007076a858cf08fb759866664c545b7bbb4acd0fce16aeb75efa13150",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "screw_diameter_mm": {
+          "value": 25,
+          "unit": "mm",
+          "note": "Tabla del anuncio del proveedor",
+          "note_en": "Supplier listing table",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_L_over_D": {
+          "value": 33,
+          "unit": "—",
+          "note": "Screw L/D 33:1",
+          "note_en": "Screw L/D 33:1",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "screw_speed_rpm": {
+          "range": [
+            0,
+            95
+          ],
+          "unit": "rpm",
+          "note": "Velocidad publicada",
+          "note_en": "Published screw speed",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "motor_installed_kW": {
+          "value": 2.2,
+          "unit": "kW",
+          "note": "Motor principal; no potencia total ni consumo promedio.",
+          "note_en": "Main motor, not total installed or mean consumed power.",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "film_min_thickness_um": {
+          "value": 20,
+          "unit": "µm",
+          "note": "0.02 mm × 1000 = 20 µm",
+          "note_en": "0.02 mm × 1000 = 20 µm",
+          "conditions": null,
+          "original_value": 0.02,
+          "original_unit": "mm",
+          "conversion_factor": 1000,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "film_max_thickness_um": {
+          "value": 200,
+          "unit": "µm",
+          "note": "0.2 mm × 1000 = 200 µm",
+          "note_en": "0.2 mm × 1000 = 200 µm",
+          "conditions": null,
+          "original_value": 0.2,
+          "original_unit": "mm",
+          "conversion_factor": 1000,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "width_300_as_published_mm": {
+          "value": 300,
+          "unit": "mm",
+          "note": "Maximum Folding Width of Film; contradice Max Film Width 180 mm. No aplicar límite.",
+          "note_en": "Maximum Folding Width of Film; conflicts with Max Film Width 180 mm. Not an applied limit.",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "width_180_as_published_mm": {
+          "value": 180,
+          "unit": "mm",
+          "note": "Max Film Width; significado no resuelto frente a folding width 300 mm. No asumir diámetro.",
+          "note_en": "Max Film Width; unresolved versus 300 mm folding width. Do not reinterpret as diameter.",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "supply_voltage_V": {
+          "value": 380,
+          "unit": "V",
+          "note": "50 Hz, trifásica; personalizable",
+          "note_en": "50 Hz, three phase; customizable",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        },
+        "supply_frequency_Hz": {
+          "value": 50,
+          "unit": "Hz",
+          "note": "Estándar del anuncio",
+          "note_en": "Listing standard",
+          "conditions": null,
+          "source_id": "EQ-A06BD4016518",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "xihua-xh-430b-25",
+      "identity_status": "cross_supplier_configuration_equivalence_pending",
+      "undocumented_fields": [
+        "die_diameter_mm",
+        "die_gap_mm",
+        "bubble_max_diameter_mm",
+        "film_max_layflat_mm",
+        "output_max_kg_h",
+        "hauloff_max_speed_m_min",
+        "heating_zone_count",
+        "max_temperature_C"
+      ],
+      "limitations": "Ancho de 300 mm y ancho de 180 mm se conservan como afirmaciones discrepantes, no como límites geométricos. No se cambia la potencia de 4 kW de otra ficha a 2.2 kW. No se contabiliza como una máquina adicional hasta aclarar identidad/configuración.",
+      "limitations_en": "300 mm and 180 mm widths remain discrepant source claims, not geometry limits. A separate 4 kW record is not overwritten by 2.2 kW. Not counted as another machine until identity/configuration is clarified.",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "Anuncio XH-430B de Dongguan Xihua — Ø25 mm, L/D 33, motor 2.2 kW; dado y significado de anchos pendientes"
+    },
+    {
+      "id": "kiefel-kmd642speed",
+      "process": "termoformado",
+      "manufacturer": "Kiefel",
+      "model": "SPEEDFORMER KMD 64.2 Speed",
+      "scope": "specific_configuration",
+      "configuration": "KMD 64.2 Speed — model-specific technical column; standard/BFS production-rate mode must be chosen",
+      "machine_type": "roll_fed_thermoformer",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-3C72F05225BE",
+        "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd642speed",
+        "title": "Kiefel SPEEDFORMER KMD 64.2 Speed — Technical details table",
+        "type": "manufacturer_product_page",
+        "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 64.2 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "e2d4d40170de39a766b59a61c202f11ba962449d0013b75c0e147c1a41a5cd5e",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-3C72F05225BE",
+          "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd642speed",
+          "title": "Kiefel SPEEDFORMER KMD 64.2 Speed — Technical details table",
+          "type": "manufacturer_product_page",
+          "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 64.2 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "e2d4d40170de39a766b59a61c202f11ba962449d0013b75c0e147c1a41a5cd5e",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "forming_max_width_mm": {
+          "value": 620,
+          "unit": "mm",
+          "note": "Primera dimensión de Max. forming surface, no ancho de lámina.",
+          "note_en": "First maximum forming-surface dimension, not sheet width.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "forming_max_length_mm": {
+          "value": 470,
+          "unit": "mm",
+          "note": "Segunda dimensión de superficie máxima de conformado.",
+          "note_en": "Second maximum forming-surface dimension.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "tool_max_width_mm": {
+          "value": 640,
+          "unit": "mm",
+          "note": "Primera dimensión de Max. tool dimensions.",
+          "note_en": "First maximum tool dimension.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "tool_max_length_mm": {
+          "value": 490,
+          "unit": "mm",
+          "note": "Segunda dimensión de Max. tool dimensions.",
+          "note_en": "Second maximum tool dimension.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "forming_max_height_mm": {
+          "value": 120,
+          "unit": "mm",
+          "note": "Max. formed part height, no carrera de cierre.",
+          "note_en": "Maximum formed part height, not clamping stroke.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "sheet_max_width_mm": {
+          "value": 670,
+          "unit": "mm",
+          "note": "Max. film width; comparar ancho de material alimentado, no largo de recorte ni ancho de herramienta.",
+          "note_en": "Maximum film width: compare fed material width, not blank length or tool width.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "sheet_thickness_mm": {
+          "range": [
+            0.2,
+            1.8
+          ],
+          "unit": "mm",
+          "note": "Film thickness de la columna seleccionada.",
+          "note_en": "Film thickness for the selected column.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_cycle_cpm": {
+          "value": 50,
+          "unit": "c/min",
+          "note": "Producción máxima publicada para modo estándar; no ciclo real de un producto.",
+          "note_en": "Published maximum production speed for standard mode, not actual product cycle.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "bfs_max_cycle_cpm": {
+          "value": 45,
+          "unit": "c/min",
+          "note": "Máximo para conformado/corte combinado BFS; elegir explícitamente el modo.",
+          "note_en": "Maximum for combined forming/punching BFS; explicitly select mode.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "punching_force_kN": {
+          "value": 500,
+          "unit": "kN",
+          "note": "Punching station punching force; no fuerza de cierre de inyección.",
+          "note_en": "Punching-station punching force, not injection clamping force.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        },
+        "bfs_punching_force_kN": {
+          "value": 500,
+          "unit": "kN",
+          "note": "BFS punching force; no sustituir por fuerza de estación separada.",
+          "note_en": "BFS punching force; do not replace with separate-station force.",
+          "conditions": null,
+          "source_id": "EQ-3C72F05225BE",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "kiefel-kmd642speed",
+      "undocumented_fields": [
+        "sheet_max_length_mm",
+        "forming_useful_area_mm2",
+        "clamping_margin_mm",
+        "connected_power_kW",
+        "measured_average_power_kW",
+        "actual_product_cycle_s"
+      ],
+      "documented_materials": [
+        "PET",
+        "PP",
+        "PLA",
+        "PS"
+      ],
+      "limitations": "No inferir ancho/largo consumido de lámina desde el área de conformado. No precargar ciclo mínimo desde velocidad máxima. El modo BFS debe seleccionarse explícitamente y la productividad real se valida con pieza, espesor, herramienta y línea.",
+      "limitations_en": "Do not infer consumed sheet dimensions from forming area. Do not prefill a minimum cycle from maximum speed. Explicitly choose BFS mode and validate actual productivity with part, thickness, tooling and line.",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "SPEEDFORMER KMD 64.2 Speed — columna técnica específica; elegir modo estándar o BFS para la referencia de ciclos"
+    },
+    {
+      "id": "kiefel-kmd782speed",
+      "process": "termoformado",
+      "manufacturer": "Kiefel",
+      "model": "SPEEDFORMER KMD 78.2 Speed",
+      "scope": "specific_configuration",
+      "configuration": "KMD 78.2 Speed — model-specific technical column; standard/BFS production-rate mode must be chosen",
+      "machine_type": "roll_fed_thermoformer",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-4D6B0FC6507C",
+        "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd782speed",
+        "title": "Kiefel SPEEDFORMER KMD 78.2 Speed — Technical details table",
+        "type": "manufacturer_product_page",
+        "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 78.2 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "5fd8fc634de7cb6aa49b73991729c20e4b001af6f8d6284b465564baaf7f9cdb",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-4D6B0FC6507C",
+          "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd782speed",
+          "title": "Kiefel SPEEDFORMER KMD 78.2 Speed — Technical details table",
+          "type": "manufacturer_product_page",
+          "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 78.2 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "5fd8fc634de7cb6aa49b73991729c20e4b001af6f8d6284b465564baaf7f9cdb",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "forming_max_width_mm": {
+          "value": 760,
+          "unit": "mm",
+          "note": "Primera dimensión de Max. forming surface, no ancho de lámina.",
+          "note_en": "First maximum forming-surface dimension, not sheet width.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "forming_max_length_mm": {
+          "value": 580,
+          "unit": "mm",
+          "note": "Segunda dimensión de superficie máxima de conformado.",
+          "note_en": "Second maximum forming-surface dimension.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "tool_max_width_mm": {
+          "value": 780,
+          "unit": "mm",
+          "note": "Primera dimensión de Max. tool dimensions.",
+          "note_en": "First maximum tool dimension.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "tool_max_length_mm": {
+          "value": 600,
+          "unit": "mm",
+          "note": "Segunda dimensión de Max. tool dimensions.",
+          "note_en": "Second maximum tool dimension.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "forming_max_height_mm": {
+          "value": 120,
+          "unit": "mm",
+          "note": "Max. formed part height, no carrera de cierre.",
+          "note_en": "Maximum formed part height, not clamping stroke.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "sheet_max_width_mm": {
+          "value": 810,
+          "unit": "mm",
+          "note": "Max. film width; comparar ancho de material alimentado, no largo de recorte ni ancho de herramienta.",
+          "note_en": "Maximum film width: compare fed material width, not blank length or tool width.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "sheet_thickness_mm": {
+          "range": [
+            0.2,
+            1.8
+          ],
+          "unit": "mm",
+          "note": "Film thickness de la columna seleccionada.",
+          "note_en": "Film thickness for the selected column.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_cycle_cpm": {
+          "value": 50,
+          "unit": "c/min",
+          "note": "Producción máxima publicada para modo estándar; no ciclo real de un producto.",
+          "note_en": "Published maximum production speed for standard mode, not actual product cycle.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "bfs_max_cycle_cpm": {
+          "value": 45,
+          "unit": "c/min",
+          "note": "Máximo para conformado/corte combinado BFS; elegir explícitamente el modo.",
+          "note_en": "Maximum for combined forming/punching BFS; explicitly select mode.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "punching_force_kN": {
+          "value": 600,
+          "unit": "kN",
+          "note": "Punching station punching force; no fuerza de cierre de inyección.",
+          "note_en": "Punching-station punching force, not injection clamping force.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        },
+        "bfs_punching_force_kN": {
+          "value": 650,
+          "unit": "kN",
+          "note": "BFS punching force; no sustituir por fuerza de estación separada.",
+          "note_en": "BFS punching force; do not replace with separate-station force.",
+          "conditions": null,
+          "source_id": "EQ-4D6B0FC6507C",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "kiefel-kmd782speed",
+      "undocumented_fields": [
+        "sheet_max_length_mm",
+        "forming_useful_area_mm2",
+        "clamping_margin_mm",
+        "connected_power_kW",
+        "measured_average_power_kW",
+        "actual_product_cycle_s"
+      ],
+      "documented_materials": [
+        "PET",
+        "PP",
+        "PLA",
+        "PS"
+      ],
+      "limitations": "No inferir ancho/largo consumido de lámina desde el área de conformado. No precargar ciclo mínimo desde velocidad máxima. El modo BFS debe seleccionarse explícitamente y la productividad real se valida con pieza, espesor, herramienta y línea.",
+      "limitations_en": "Do not infer consumed sheet dimensions from forming area. Do not prefill a minimum cycle from maximum speed. Explicitly choose BFS mode and validate actual productivity with part, thickness, tooling and line.",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "SPEEDFORMER KMD 78.2 Speed — columna técnica específica; elegir modo estándar o BFS para la referencia de ciclos"
+    },
+    {
+      "id": "kiefel-kmd85speed",
+      "process": "termoformado",
+      "manufacturer": "Kiefel",
+      "model": "SPEEDFORMER KMD 85 Speed",
+      "scope": "specific_configuration",
+      "configuration": "KMD 85 Speed — model-specific technical column; standard/BFS production-rate mode must be chosen",
+      "machine_type": "roll_fed_thermoformer",
+      "verification_status": "document_checked",
+      "source": {
+        "id": "EQ-1B0D93C5A665",
+        "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd85speed",
+        "title": "Kiefel SPEEDFORMER KMD 85 Speed — Technical details table",
+        "type": "manufacturer_product_page",
+        "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 85 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+        "retrieved_on": "2026-10-17",
+        "sha256": "faf64f0de64a4fb34a5fc6ac33585b4abbed38ea73301196dd6a465d11153eb9",
+        "http_status": 200
+      },
+      "sources": [
+        {
+          "id": "EQ-1B0D93C5A665",
+          "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd85speed",
+          "title": "Kiefel SPEEDFORMER KMD 85 Speed — Technical details table",
+          "type": "manufacturer_product_page",
+          "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 85 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+          "retrieved_on": "2026-10-17",
+          "sha256": "faf64f0de64a4fb34a5fc6ac33585b4abbed38ea73301196dd6a465d11153eb9",
+          "http_status": 200
+        }
+      ],
+      "specifications": {
+        "forming_max_width_mm": {
+          "value": 825,
+          "unit": "mm",
+          "note": "Primera dimensión de Max. forming surface, no ancho de lámina.",
+          "note_en": "First maximum forming-surface dimension, not sheet width.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "forming_max_length_mm": {
+          "value": 675,
+          "unit": "mm",
+          "note": "Segunda dimensión de superficie máxima de conformado.",
+          "note_en": "Second maximum forming-surface dimension.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "tool_max_width_mm": {
+          "value": 850,
+          "unit": "mm",
+          "note": "Primera dimensión de Max. tool dimensions.",
+          "note_en": "First maximum tool dimension.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "tool_max_length_mm": {
+          "value": 700,
+          "unit": "mm",
+          "note": "Segunda dimensión de Max. tool dimensions.",
+          "note_en": "Second maximum tool dimension.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "forming_max_height_mm": {
+          "value": 150,
+          "unit": "mm",
+          "note": "Max. formed part height, no carrera de cierre.",
+          "note_en": "Maximum formed part height, not clamping stroke.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "sheet_max_width_mm": {
+          "value": 900,
+          "unit": "mm",
+          "note": "Max. film width; comparar ancho de material alimentado, no largo de recorte ni ancho de herramienta.",
+          "note_en": "Maximum film width: compare fed material width, not blank length or tool width.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "sheet_thickness_mm": {
+          "range": [
+            0.2,
+            1.8
+          ],
+          "unit": "mm",
+          "note": "Film thickness de la columna seleccionada.",
+          "note_en": "Film thickness for the selected column.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "max_cycle_cpm": {
+          "value": 45,
+          "unit": "c/min",
+          "note": "Producción máxima publicada para modo estándar; no ciclo real de un producto.",
+          "note_en": "Published maximum production speed for standard mode, not actual product cycle.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "bfs_max_cycle_cpm": {
+          "value": 40,
+          "unit": "c/min",
+          "note": "Máximo para conformado/corte combinado BFS; elegir explícitamente el modo.",
+          "note_en": "Maximum for combined forming/punching BFS; explicitly select mode.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "punching_force_kN": {
+          "value": 800,
+          "unit": "kN",
+          "note": "Punching station punching force; no fuerza de cierre de inyección.",
+          "note_en": "Punching-station punching force, not injection clamping force.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        },
+        "bfs_punching_force_kN": {
+          "value": 800,
+          "unit": "kN",
+          "note": "BFS punching force; no sustituir por fuerza de estación separada.",
+          "note_en": "BFS punching force; do not replace with separate-station force.",
+          "conditions": null,
+          "source_id": "EQ-1B0D93C5A665",
+          "retrieved_on": "2026-10-17"
+        }
+      },
+      "autofill_fields": {},
+      "commercial_identity": "kiefel-kmd85speed",
+      "undocumented_fields": [
+        "sheet_max_length_mm",
+        "forming_useful_area_mm2",
+        "clamping_margin_mm",
+        "connected_power_kW",
+        "measured_average_power_kW",
+        "actual_product_cycle_s"
+      ],
+      "documented_materials": [
+        "PET",
+        "PP",
+        "PLA",
+        "PS"
+      ],
+      "limitations": "No inferir ancho/largo consumido de lámina desde el área de conformado. No precargar ciclo mínimo desde velocidad máxima. El modo BFS debe seleccionarse explícitamente y la productividad real se valida con pieza, espesor, herramienta y línea.",
+      "limitations_en": "Do not infer consumed sheet dimensions from forming area. Do not prefill a minimum cycle from maximum speed. Explicitly choose BFS mode and validate actual productivity with part, thickness, tooling and line.",
+      "catalog_revision": "1.1.0",
+      "configuration_es": "SPEEDFORMER KMD 85 Speed — columna técnica específica; elegir modo estándar o BFS para la referencia de ciclos"
     }
-  ]
+  ],
+  "catalog_revision": "1.1.0"
 }

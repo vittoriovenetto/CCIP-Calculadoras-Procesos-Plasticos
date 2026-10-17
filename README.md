@@ -1,8 +1,8 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
-## Etapa 6 — catálogo de maquinarias y validación de capacidad (PR de revisión)
+## Etapa 6 — maquinaria y comprobación documental de límites (PR de revisión)
 
-Se incorporan seis fichas técnicas de fabricante en los procesos de inyección, extrusión, película soplada, soplado de envases, termoformado y secado. La precarga de diámetro de husillo y carrera solo se activa cuando el usuario confirma la variante ARBURG documentada; los rangos de series no generan propiedades de una máquina configurada. La comparación con fuerza de cierre convierte tf a kN. El historial y los archivos Excel/PDF incluyen fuente y snapshot del equipo sin recalcular datos históricos. [Documentación, fuentes y límites](docs/etapa-6/README.md). Sin merge ni deploy.
+El catálogo reúne **20 equipos concretos documentados** (4/3/4/3/3/3 por proceso), incluidas Moiron M2-I y XH-430B-25, y **25 registros consultables** al conservar series y variantes discrepantes sin duplicar el conteo. Los parámetros compatibles se incorporan tras confirmar la variante y conservando valores manuales. Se distinguen masa/volumen, presiones, nominal/útil y potencia instalada/consumo. Costos puede reutilizar entradas trazables del historial; Excel/PDF/JSON conservan snapshots sin recalcular históricos. [Informe, matriz, fuentes y capturas](docs/etapa-6/auditoria-final.md). No es certificación industrial. Sin fusión de PR ni deploy.
 
 
 ## Etapa 5 — secado trazable (PR de revisión)

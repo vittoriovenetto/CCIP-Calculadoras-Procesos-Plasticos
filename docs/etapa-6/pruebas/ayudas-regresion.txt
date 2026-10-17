@@ -1,0 +1,11 @@
+test_G27_tooltips_mouse_keyboard_touch_and_layout (browser_smoke.BrowserSmoke.test_G27_tooltips_mouse_keyboard_touch_and_layout) ... ok
+test_G36_strict_pvc_pa6_and_physical_profile (browser_smoke.BrowserSmoke.test_G36_strict_pvc_pa6_and_physical_profile) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.843s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-browser-w8t1yakh

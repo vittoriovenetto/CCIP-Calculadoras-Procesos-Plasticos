@@ -95,11 +95,21 @@ try:
             page.locator('#field-throughput').fill('50');page.locator('#calculate').click()
             assert '200' in page.locator('#summary-metrics').inner_text()
             assert 'Cp puntual' in page.locator('#drying-calculation-status').inner_text()
+            if picker.is_visible():picker.select_option('inyeccion')
+            else:page.locator('[data-module="inyeccion"]').click()
+            page.locator('#reset').click();page.locator('#level').select_option('technical')
+            page.locator('#machine-select option[value="moiron-m2-i"]').wait_for(state='attached')
+            page.locator('#machine-select').select_option('moiron-m2-i');page.locator('#machine-confirm').check()
+            assert page.locator('#field-screwD').input_value()=='20'
+            page.locator('#machine-select').select_option('moiron-page104-16mm-100kn');page.locator('#machine-confirm').check()
+            assert page.locator('#field-screwD').input_value()=='16'
+            assert page.locator('#field-screwMaxStroke').input_value()==''
+            assert page.locator('#machine-select option[value="kiefel-kmd642speed"]').count()==0
             assert not stale_requests, stale_requests
             assert not errors, errors
             context.close()
         browser.close()
-    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia, secado con caudal manual/Cp pendiente y sin mezclar recursos antiguos.')
+    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia, secado con caudal manual/Cp pendiente, variantes Moiron Ø20/Ø16 separadas y sin mezclar recursos antiguos.')
 finally:
     server.shutdown()
     server.server_close()

@@ -1,0 +1,130 @@
+{
+  "stage5_verified_base": "9db34e2f9fd1b3cabea21acb2a9c708782b63ab7",
+  "files": [
+    {
+      "path": "src/engine.js",
+      "unchanged": true,
+      "sha256": "bba8e37b8dff3ca1a9c3bb7453f886cf07db0d573df5729e1da0086e0e050d8d"
+    },
+    {
+      "path": "src/math.js",
+      "unchanged": true,
+      "sha256": "7af7f60cc0ad350574368ce0f25e091e0ed7b066451af3c8d33c0fc98ba6ccd0"
+    },
+    {
+      "path": "src/schema.js",
+      "unchanged": true,
+      "sha256": "68b1b3be07a1869955f8a953e357b6c715cce3df19264f1c6e2ad7548a2aae5e"
+    },
+    {
+      "path": "src/injection-profile.js",
+      "unchanged": true,
+      "sha256": "5a24b2b26ca7085145370fc6ac1a851a196051ea4253042f6ce3b5c08d8e5796"
+    },
+    {
+      "path": "src/drying-assessment.js",
+      "unchanged": true,
+      "sha256": "9ec1d4fe50f4363777de8d698d0583b58510666cb0bdb393c4e2733915ecc3c6"
+    },
+    {
+      "path": "src/drying-evidence.js",
+      "unchanged": true,
+      "sha256": "2cf14860334435f8847f20efbca41deaccf54457877675087e473c29ef894ee3"
+    },
+    {
+      "path": "src/data/material-research.v1.json",
+      "unchanged": true,
+      "sha256": "7b9484f77738fc7908b58007014a2c982f0d3449ed0ec6deca31d57be042b692"
+    },
+    {
+      "path": "src/data/materials.v1.1.json",
+      "unchanged": true,
+      "sha256": "2e3ff988500c71f6cc07a90766bff32c579895acca542e096bfb59dda9ff45b3"
+    },
+    {
+      "path": "src/data/materials.v1.2.json",
+      "unchanged": true,
+      "sha256": "5a34bef1dcd5fee6bd7bf3efddf5cfcae1daa40c0ea01b25e9986ddd90c33028"
+    },
+    {
+      "path": "src/data/materials.v1.3.json",
+      "unchanged": true,
+      "sha256": "97643a7d06101fa217a719d435271b9a3a02b9fdc90d0c3f80c93c66190a4a0b"
+    },
+    {
+      "path": "src/data/materials.v1.json",
+      "unchanged": true,
+      "sha256": "da3df79ab06e8fffda98676a68362d2d044ece9c6c93921f7434d6bb104357a4"
+    },
+    {
+      "path": "src/data/melt-density-family.v1.js",
+      "unchanged": true,
+      "sha256": "77d5ee4c522772d61f91e28a17f7e7e368eb84d7e587634c7388022760b7af2c"
+    },
+    {
+      "path": "src/data/recycling.v1.json",
+      "unchanged": true,
+      "sha256": "cff36e5d2433c04c0204ecbb52c49a72cda79c3ee942a0cc61a95745ce4ee166"
+    },
+    {
+      "path": "src/data/rheology.v1.json",
+      "unchanged": true,
+      "sha256": "5a4ca6b6754e9e61012861dafc01e08f91c9db7682746375100d1ec94e20c64e"
+    },
+    {
+      "path": "src/data/standards.v1.json",
+      "unchanged": true,
+      "sha256": "277bc20f09febafc26a848cc659a2f535374f3a75de7e9b6987da7ba2a6683c6"
+    },
+    {
+      "path": "src/data/user-materials.v1.json",
+      "unchanged": true,
+      "sha256": "9c7434f25ad8a2b42a2be7151cda4248a5c770a32ea04973abaf04d0be654c8a"
+    },
+    {
+      "path": "src/models/costos.js",
+      "unchanged": true,
+      "sha256": "fba37254197827b22f232a503e675b20add700167a52ec15ef33fe3ed10b3986"
+    },
+    {
+      "path": "src/models/extrusion.js",
+      "unchanged": true,
+      "sha256": "6a090589ceb83659400094a781585a409953d9bb346dbe6f65679b31944486c3"
+    },
+    {
+      "path": "src/models/inyeccion.js",
+      "unchanged": true,
+      "sha256": "e88f302265f2b016d2b2819933cdb4cb9e2f7ec771fd043a2e4664d584120a43"
+    },
+    {
+      "path": "src/models/pelicula.js",
+      "unchanged": true,
+      "sha256": "437331ed094d6e022572b4af364d7f0d845e31b2d24cef815b6b7514e2ca202a"
+    },
+    {
+      "path": "src/models/secado.js",
+      "unchanged": true,
+      "sha256": "8d3e2b1663539711db27f8735deb2c4f936bd5d3f256c6953e0b4fdb263782ea"
+    },
+    {
+      "path": "src/models/soplado.js",
+      "unchanged": true,
+      "sha256": "f4528531a6d3d84184a3bf81d05d3574032233fce5c743c8d24d3661c4cb454c"
+    },
+    {
+      "path": "src/models/termoformado.js",
+      "unchanged": true,
+      "sha256": "f9180a4fa2746eb63b2c6811475b070b8345da2a6ae059a1102bc8ae1fc31b86"
+    }
+  ],
+  "archives": {
+    "versions": {
+      "unchanged": true,
+      "base_tree": "86826f39ab87e458df757c10a3720e02aae486fe"
+    },
+    "downloads": {
+      "unchanged": true,
+      "base_tree": "45a25b94ac15e6724b241a13ac4fba40b2daa12d"
+    }
+  }
+}

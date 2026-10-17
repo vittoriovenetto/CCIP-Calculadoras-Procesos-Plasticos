@@ -27,7 +27,7 @@ const errorText = error => tr(({corrupt:'El historial está dañado. No se modif
 const title = item => item.name || t(modules.find(m => m.id === item.module)?.name || item.module);
 const detail = item => [title(item),t(modules.find(m => m.id === item.module)?.name || item.module),item.material?.formulation?.name||item.material?.grade_snapshot?.grade,new Date(item.updated_at || item.date).toLocaleString(getLanguage() === 'en' ? 'en-US' : 'es-DO')].filter(Boolean).join(' · ');
 
-export function mountHistory({root,comparison,getSnapshot,onRestore}) {
+export function mountHistory({root,comparison,getSnapshot,onRestore,onChange=()=>{}}) {
  let recoveredId = null, count = 15, pending = null;
  const status = document.createElement('p');status.id='history-status';status.role='status';status.setAttribute('data-i18n-ignore','');root.before(status);
  const dialog = document.createElement('dialog');dialog.id='save-dialog';dialog.className='save-dialog';dialog.setAttribute('aria-labelledby','save-title');dialog.setAttribute('data-i18n-ignore','');document.body.append(dialog);
@@ -54,12 +54,12 @@ export function mountHistory({root,comparison,getSnapshot,onRestore}) {
    root.querySelectorAll('[data-history-rename]').forEach(button=>button.onclick=()=>{
      const item=items.find(x=>x.id===button.dataset.historyRename),name=prompt(t('Nombre del cálculo (máximo 120 caracteres):'),title(item));
      if(name===null)return;
-     try {renameHistoryItem(localStorage,item.id,name);render();report(tr('Nombre actualizado.'));}catch(error){failure(error);}
+     try {renameHistoryItem(localStorage,item.id,name);render();report(tr('Nombre actualizado.'));onChange();}catch(error){failure(error);}
    });
    root.querySelectorAll('[data-history-delete]').forEach(button=>button.onclick=()=>{
      const item=items.find(x=>x.id===button.dataset.historyDelete);
      if(!confirm(getLanguage()==='en'?`Delete “${title(item)}”? This cannot be undone.`:`¿Eliminar «${title(item)}»? Esta acción no se puede deshacer.`))return;
-     try {deleteHistoryItem(localStorage,item.id);if(recoveredId===item.id)recoveredId=null;render();report(tr('Cálculo eliminado.'));}catch(error){failure(error);}
+     try {deleteHistoryItem(localStorage,item.id);if(recoveredId===item.id)recoveredId=null;render();report(tr('Cálculo eliminado.'));onChange();}catch(error){failure(error);}
    });
    root.querySelectorAll('[data-history-export]').forEach(select=>select.onchange=async()=>{if(!select.value)return;const format=select.value;select.value='';await download(items.find(x=>x.id===select.dataset.historyExport),format,select);});
    renderComparison(comparison,items,modules);
@@ -74,7 +74,7 @@ export function mountHistory({root,comparison,getSnapshot,onRestore}) {
    mode.onchange=()=>{check.checked=false;update();};target.onchange=()=>{check.checked=false;update();};check.onchange=update;$('save-cancel').onclick=()=>dialog.close();
    $('save-form').onsubmit=event=>{
      event.preventDefault();if(mode.value==='overwrite'&&!check.checked)return;
-     try {const item=saveHistoryItem(localStorage,pending,{name:$('save-name').value,overwriteId:mode.value==='overwrite'?target.value:null});recoveredId=item.id;dialog.close();render();report(tr('Cálculo guardado.'));}catch(error){failure(error);}
+     try {const item=saveHistoryItem(localStorage,pending,{name:$('save-name').value,overwriteId:mode.value==='overwrite'?target.value:null});recoveredId=item.id;dialog.close();render();report(tr('Cálculo guardado.'));onChange();}catch(error){failure(error);}
    };
    update();dialog.showModal();$('save-name').focus();
  }

@@ -1,0 +1,326 @@
+{
+  "retrieved_on": "2026-10-17",
+  "sources": [
+    {
+      "url": "https://www.arburg.com/media/daten/publications/technical_data/hydraulic_machines/allrounder_s/ARBURG_ALLROUNDER_370S_multi-component_TD_528998_fr.pdf",
+      "title": "ARBURG ALLROUNDER 370 S multicomponente — datos técnicos",
+      "type": "manufacturer_datasheet",
+      "scope_note": "Configuración 370 S 700-290, husillo 30 mm; otras unidades/husillos tienen datos distintos; presión y caudal máximos pueden ser incompatibles simultáneamente.",
+      "id": "EQ-19A7656A04C4",
+      "retrieved_on": "2026-10-17",
+      "sha256": "bcf1422517751e9912b37f3ab4c80ef11dc658b71ee8dd5126ba0fca98c1aebb",
+      "http_status": 200,
+      "reviewed_excerpt": "Kiefel KMD table columns selected explicitly: 64.2 Speed / 78.2 Speed / 85 Speed. Forming surface 620×470 / 760×580 / 825×675 mm; film width 670/810/900 mm; height 120/120/150 mm; standard 50/50/45 c/min; BFS 45/45/40 c/min.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "arburg-allrounder-370s-700-290-s30"
+      ]
+    },
+    {
+      "url": "https://www.battenfeld-cincinnati.com/products/detail/uniex",
+      "title": "uniEX — ficha oficial de la serie",
+      "type": "manufacturer_product_page",
+      "scope_note": "Familia modular; el diámetro de husillo, la producción y el material cambian según la configuración. Los extremos de la serie no representan un único equipo.",
+      "id": "EQ-FB86A6BFAB95",
+      "retrieved_on": "2026-10-17",
+      "sha256": "64dd4faf1a1bb15cf6e1eebe1b6c7f218c19c9390287d1308fcea75e731314e6",
+      "http_status": 200,
+      "reviewed_excerpt": "Series only: diameters 35–90mm, L/D 30, outputs 10–800kg/h. Not used as individual model limits.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "battenfeld-cincinnati-uniex-series"
+      ]
+    },
+    {
+      "url": "https://reifenhauser.com/en/lines-components/extrusion-lines/blown-film-lines/evo-ffs",
+      "title": "EVO FFS — datos de la familia",
+      "type": "manufacturer_product_page",
+      "scope_note": "Rangos de distintas configuraciones, no una combinación garantizada para una sola línea.",
+      "id": "EQ-41756E78458D",
+      "retrieved_on": "2026-10-17",
+      "sha256": "785c8e3254319a9039f9df264244157ebbc18dfc5f130c8a7a5644ec6dafe84f",
+      "http_status": 200,
+      "reviewed_excerpt": "EVO FFS COMPACT overview: 3–5 layers; die diameters 160–200mm; extruder diameters 50–90mm. Configurable series, not a counted specific machine.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "reifenhauser-evo-ffs-series"
+      ]
+    },
+    {
+      "url": "https://www.kautex-group.com/en/machine/kbb/",
+      "title": "Kautex KBB series — technical table with model-specific columns",
+      "type": "manufacturer_product_page",
+      "scope_note": "Values from KBB 80 column; mould geometry is not container geometry.",
+      "id": "EQ-041120FFA90B",
+      "retrieved_on": "2026-10-17",
+      "sha256": "acde01842b47f0a3915eb29efbcc61cd3c4d8073e214d65048ea5a20716d81d7",
+      "http_status": 200,
+      "reviewed_excerpt": "KBB40/60/80 columns: clamp force 250/300/400kN; clamp stroke 250mm; maximum mould width 610/760/960mm; mould length 430mm.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "kautex-kbb40",
+        "kautex-kbb60",
+        "kautex-kbb80"
+      ]
+    },
+    {
+      "url": "https://www.geiss-ttt.com/en/products/thermoforming-systems/t11-thermoforming-machine/",
+      "title": "GEISS T11 — datos oficiales de configuración",
+      "type": "manufacturer_product_page",
+      "scope_note": "Máquina paramétrica; 1000 × 900 mm es la dimensión nominal mínima configurable, NO la máxima. Borde de sujeción 20 mm perimetral.",
+      "id": "EQ-DEBA9037BBD9",
+      "retrieved_on": "2026-10-17",
+      "sha256": "0413457f963b4669dcab6afb4038d4fe851963da124401a26ce83115bd9441ff",
+      "http_status": 200,
+      "reviewed_excerpt": "Minimum nominal dimensions 1000×900mm; nominal dimensions describe maximum sheet of an individually configured machine. Clamping rim 20mm all round; standard tool height 620mm, expandable.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "geiss-t11-series"
+      ]
+    },
+    {
+      "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+      "title": "motan LUXOR HD — LHD 30 / LHD 60 / LHD 150, V021 (2022-10)",
+      "type": "manufacturer_datasheet",
+      "scope_note": "LHD 150: hot-air surface moisture removal. Nominal hopper is not useful volume; no quantified dew point.",
+      "id": "EQ-76D9EC18E626",
+      "retrieved_on": "2026-10-17",
+      "sha256": "fb5eb1577440858433adff67961a258527fe098b7ca7cb705bbf2edd36d23fa9",
+      "http_status": 200,
+      "reviewed_excerpt": "LHD30/60/150: hopper 30/60/150L; air 25/50/100m³/h; maximum 130°C; heater 1.5/1.5/4.5kW; connected 2/2/5kW. ABS 8/16/39kg/h at 80°C, 2–3h for surface moisture removal.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "motan-luxor-hd-lhd30",
+        "motan-luxor-hd-lhd60",
+        "motan-luxor-hd-lhd150"
+      ]
+    },
+    {
+      "id": "EQ-3F35D348641B",
+      "url": "https://www.microplast.com/products.html",
+      "title": "Moiron — M2-I and M2-II manufacturer product specifications",
+      "type": "manufacturer_product_page",
+      "scope_note": "M2-I and M2-II are separate models. Use each model block; shot mass is stated for ABS, not melt volume.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "d669c7ba4e0e633f146f3bcf5daaa7ca20459329cefe4b0651b2ebbe3a8b5709",
+      "http_status": 200,
+      "reviewed_excerpt": "M2-I: Clamping force 15T; Screw diameter 20mm; Injection weight 20g(ABS); Injection pressure 60Mpa. M2-II: 15g(ABS), 100Mpa, 200mm/s.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "moiron-m2-i",
+        "moiron-m2-ii"
+      ]
+    },
+    {
+      "id": "EQ-6FB0F00EDB01",
+      "url": "https://www.xihuamach.com/zsj/",
+      "title": "Xihua XH-436 — 20T / 25T technical table",
+      "type": "manufacturer_product_page",
+      "scope_note": "Selected 25T column. Paired mould thickness/opening values are ambiguous and remain unavailable; kg/cm² as printed is not silently treated as kgf/cm².",
+      "retrieved_on": "2026-10-17",
+      "sha256": "6a0987cb9a064bd570d4f40379835ec45a6572af44192d8051adbe0d057735a0",
+      "http_status": 200,
+      "reviewed_excerpt": "20T / 25T columns: screw 22mm; screw stroke 110mm; nozzle stroke 150mm; shot mass 40g with unspecified polymer; pressure printed as kg/cm².",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "xihua-xh436-25t"
+      ]
+    },
+    {
+      "id": "EQ-74CF22CA6B09",
+      "url": "https://www.xihuamach.com/jcj/191.html",
+      "title": "Xihua XH-433-45 — technical table",
+      "type": "manufacturer_product_page",
+      "scope_note": "Standard published table specifies Ø25 mm, L/D 33:1. Model suffix does not establish screw diameter. Custom options require a separate variant sheet.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "5351ce2122b55c54c5629f17d038974e10649db85dc5ac6f08564b6eae996519",
+      "http_status": 200,
+      "reviewed_excerpt": "Model XH-433-45; table explicitly says screw diameter 25mm, L/D 33:1, 0-95rpm, motor 4kW, total power 12kW. Do not infer diameter 45mm from name.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "xihua-xh433-45"
+      ]
+    },
+    {
+      "id": "EQ-5064C2903DF8",
+      "url": "https://www.xihuamach.com/jcj/104.html",
+      "title": "Xihua XH-434-25 — technical table",
+      "type": "manufacturer_product_page",
+      "scope_note": "Standard published table specifies Ø25 mm, L/D 33:1. Model suffix does not establish screw diameter. Custom options require a separate variant sheet.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "336e6ace448d7909104514d9cbef9576021052a9517a62dc94fce37337b9a19a",
+      "http_status": 200,
+      "reviewed_excerpt": "XH-434-25; screw 25mm; L/D 33:1; screw 0-95rpm; motor 4kW; total installed power 12kW.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "xihua-xh434-25"
+      ]
+    },
+    {
+      "id": "EQ-7B9C05275B8D",
+      "url": "https://www.collin-solutions.com/en/product/extruders-e-2/",
+      "title": "COLLIN E Entrance extruders — E 20 E column",
+      "type": "manufacturer_product_page",
+      "scope_note": "Concrete E 20 E column. Nominal cylinder diameter is published; do not infer screw clearance. Cylinder lengths 25 D and 30 D are alternative configurations, not a selected L/D. No output or installed power assigned.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "0fa727961d18c1e8b0b4028f52f87045255e7ec9008b0bedfa811dea0699a352",
+      "http_status": 200,
+      "reviewed_excerpt": "E20E column: nominal cylinder diameter 20mm; dimensions 1330×680×1650mm; torque 140Nm. Cylinder lengths 25D or 30D are alternatives, not a selected geometry.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "collin-e20-e"
+      ]
+    },
+    {
+      "id": "EQ-BCA156075DC6",
+      "url": "https://www.xihuamach.com/cmjxl/6.html",
+      "title": "Xihua XH-430B-25 — Technical Parameters",
+      "type": "manufacturer_product_page",
+      "scope_note": "Standard model, not custom options. No documented output, die gap, thickness or haul-off speed. Monolayer maximum film diameter is a configuration range, not a specific limit.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "bbcfdd817e59ffa06d7558ea37287845109ee0539a8858c7c6c6787bfb255af4",
+      "http_status": 200,
+      "reviewed_excerpt": "XH-430B-25; Single layer blown film; screw 25mm; L/D 33:1; 0-95rpm; main motor 4kW; die 25mm; maximum-film-diameter field 150-180mm.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "xihua-xh-430b-25"
+      ]
+    },
+    {
+      "id": "EQ-5F2D550A911F",
+      "url": "https://www.xihuamach.com/cmjxl/4.html",
+      "title": "Xihua XH-430B-25-3 — Technical Parameters",
+      "type": "manufacturer_product_page",
+      "scope_note": "Standard model, not custom options. No documented output, die gap, thickness or haul-off speed. Monolayer maximum film diameter is a configuration range, not a specific limit.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "3269e528ef1b32dafdb09895b6e97b082ffce2fb073db9d8e055beaaf14278f5",
+      "http_status": 200,
+      "reviewed_excerpt": "XH-430B-25-3; three-layer; 25mm×3 screws; L/D 33:1; die 30mm; maximum film diameter 300mm.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "xihua-xh-430b-25-3"
+      ]
+    },
+    {
+      "id": "EQ-8C0BEED41103",
+      "url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+      "title": "COLLIN — Blown Film Lines E Entrance, BL 400 E / BL 600 E technical data",
+      "type": "manufacturer_product_page",
+      "scope_note": "Use each individual column. Roller width differs from maximum web width. Extruder, die, output and installed power are not specified for a complete configuration.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "7892e73f65bedc596a2da4de47fc19860b0d757ae5cfe0efb3f8b73dd6b9e4bf",
+      "http_status": 200,
+      "reviewed_excerpt": "BL 400 E / BL 600 E columns: roller width 400/600mm; maximum web width 350/550mm; web speed 1-30m/min.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "collin-bl-400-e",
+        "collin-bl-600-e"
+      ]
+    },
+    {
+      "id": "EQ-6058AC41F571",
+      "url": "https://www.moirons.com/product/diyixilie/104.html",
+      "title": "Ningbo Moiron — Lab injection molding machine, page 104",
+      "type": "manufacturer_product_page",
+      "scope_note": "Top technical block: Ø16 mm, 100 kN. Body says Model Number M2 and gives generic, discrepant clamp ranges; photo supplied by user says M2-I. Equivalence with Ø20 mm M2-I is NOT established. Do not mix tables.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "aad2fd427b3ff192036d8e99e68a3745c505db45d575aa7bd5696895414d2e70",
+      "http_status": 200,
+      "reviewed_excerpt": "Top block: Screw Diameter 16mm; Maximum shot Weight 20 grams; Maximum Clamping Force 100KN; Mold Opening Stroke 135mm (not included mold). Body: Model Number M2.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "moiron-page104-16mm-100kn"
+      ]
+    },
+    {
+      "id": "EQ-A06BD4016518",
+      "url": "https://dgxihua.en.made-in-china.com/product/jXsEJupbfyrF/China-PP-HDPE-LDPE-PLA-Lab-Blow-Film-Machine.html",
+      "title": "Dongguan Xihua supplier listing — XH-430B, 2.2 kW",
+      "type": "manufacturer_supplier_listing",
+      "scope_note": "Model XH-430B; 2.2 kW listing, not silently merged with Guangdong Xihua XH-430B-25 4 kW. Maximum Folding Width 300 mm conflicts with Max Film Width 180 mm; neither becomes a usable geometry limit.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "b442477007076a858cf08fb759866664c545b7bbb4acd0fce16aeb75efa13150",
+      "http_status": 200,
+      "reviewed_excerpt": "XH-430B; Ø25mm; L/D 33:1; 0-95rpm; main motor 2.2kW; thickness 0.02-0.2mm. Both Maximum Folding Width 300mm and Max Film Width 180mm appear.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "dongguan-xihua-xh430b-2-2kw"
+      ]
+    },
+    {
+      "id": "EQ-3C72F05225BE",
+      "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd642speed",
+      "title": "Kiefel SPEEDFORMER KMD 64.2 Speed — Technical details table",
+      "type": "manufacturer_product_page",
+      "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 64.2 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "e2d4d40170de39a766b59a61c202f11ba962449d0013b75c0e147c1a41a5cd5e",
+      "http_status": 200,
+      "reviewed_excerpt": "Kiefel KMD table columns selected explicitly: 64.2 Speed / 78.2 Speed / 85 Speed. Forming surface 620×470 / 760×580 / 825×675 mm; film width 670/810/900 mm; height 120/120/150 mm; standard 50/50/45 c/min; BFS 45/45/40 c/min.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "kiefel-kmd642speed"
+      ]
+    },
+    {
+      "id": "EQ-4D6B0FC6507C",
+      "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd782speed",
+      "title": "Kiefel SPEEDFORMER KMD 78.2 Speed — Technical details table",
+      "type": "manufacturer_product_page",
+      "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 78.2 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "5fd8fc634de7cb6aa49b73991729c20e4b001af6f8d6284b465564baaf7f9cdb",
+      "http_status": 200,
+      "reviewed_excerpt": "Kiefel KMD table columns selected explicitly: 64.2 Speed / 78.2 Speed / 85 Speed. Forming surface 620×470 / 760×580 / 825×675 mm; film width 670/810/900 mm; height 120/120/150 mm; standard 50/50/45 c/min; BFS 45/45/40 c/min.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "kiefel-kmd782speed"
+      ]
+    },
+    {
+      "id": "EQ-1B0D93C5A665",
+      "url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd85speed",
+      "title": "Kiefel SPEEDFORMER KMD 85 Speed — Technical details table",
+      "type": "manufacturer_product_page",
+      "scope_note": "Full table contains eight models. Values explicitly selected by column header KMD 85 Speed. Forming surface, tool size and film width are distinct. Production rate differs for BFS; neither is a guaranteed production cycle.",
+      "retrieved_on": "2026-10-17",
+      "sha256": "faf64f0de64a4fb34a5fc6ac33585b4abbed38ea73301196dd6a465d11153eb9",
+      "http_status": 200,
+      "reviewed_excerpt": "Kiefel KMD table columns selected explicitly: 64.2 Speed / 78.2 Speed / 85 Speed. Forming surface 620×470 / 760×580 / 825×675 mm; film width 670/810/900 mm; height 120/120/150 mm; standard 50/50/45 c/min; BFS 45/45/40 c/min.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [
+        "kiefel-kmd85speed"
+      ]
+    },
+    {
+      "url": "https://systemcreate-inc.co.jp/products/moiron_m2-i",
+      "final_url": "https://systemcreate-inc.co.jp/products/moiron_m2-i",
+      "sha256": "b06bcc915df7b389167119426f610ecf05168d2e0edce4508f93bc678bed516b",
+      "bytes": 111112,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_on": "2026-10-17",
+      "id": "EQ-JP-MOIRON",
+      "title": "Systemcreate — Moiron M2-I, authorized Japanese distributor",
+      "type": "authorized_distributor_page",
+      "scope_note": "Separate Japanese-distributor documentation; dimensions and stated shot unit differ. Not merged into the microplast.com or page-104 profiles.",
+      "reviewed_excerpt": "M2-I: 20cc under a maximum-shot-mass heading; 150KN(tf); screw 20mm; injection rate 5 cm³/s; 1230×530×535mm. Distinct documentation, not evidence of interchangeability.",
+      "review_status": "technical_content_reviewed_not_machine_certification",
+      "applies_to_records": [],
+      "http_status": 200
+    }
+  ],
+  "unsuccessful_sources": [
+    {
+      "url": "https://www.mycowry.com/plus/view.php?aid=14",
+      "status": 503,
+      "used_for_numeric_data": false,
+      "pending": "M2-1 / M2-I naming equivalence unconfirmed"
+    },
+    {
+      "url": "https://www.formech.com/",
+      "status": 403,
+      "used_for_numeric_data": false,
+      "pending": "Site rejects request; no Formech machine counted"
+    }
+  ]
+}
