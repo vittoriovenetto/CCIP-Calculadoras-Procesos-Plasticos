@@ -89,7 +89,7 @@ Total: **88 pruebas de navegador**, además de las 670 Node. Se comprueban 320/3
 
 Las pruebas nuevas comprueban conversiones 15 tf→147.09975 kN, 60 MPa→600 bar, 0.02 mm→20 µm y ciclos/h→c/min, además de rechazar masa→volumen sin densidad, unidades ambiguas y potencia instalada→consumo. Se distingue superar un máximo de caer bajo un mínimo. G36 falló en una repetición general por el cambio de ayuda fijada durante resize; se conservan la reproducción y la salida fallida junto a la ejecución corregida. No se desactivaron pruebas para conseguir resultados positivos; H01 ahora comprueba estados y cifras, y el selector del detalle técnico se identifica específicamente ante nuevos desplegables.
 
-Build local y caché se verifican después de guardar el código, sin ejecutar publicación. La prueba de caché comprueba también las variantes Moiron Ø20/Ø16 y que 135 mm no se precargue como carrera. Los resultados remotos vigentes se consultan en los Checks del PR #15; el fallo inicial no se considera prueba del head corregido.
+`npm run build:pages` y `python tests/browser_pages_cache.py` **aprobaron** sobre el código guardado en `42cf95b`, sin ejecutar publicación. El artefacto local conserva esa procedencia; los commits documentales posteriores no modifican el código probado. La prueba de caché comprueba también las variantes Moiron Ø20/Ø16 y que 135 mm no se precargue como carrera. Los resultados remotos vigentes se consultan en los Checks del PR #15; el fallo inicial no se considera prueba del head corregido.
 
 [Logs](pruebas/) · [Capturas](capturas/README.md) · [Integridad](integridad.json).
 
