@@ -93,7 +93,6 @@ jobs:
       pages: read
     env:
       GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CCIP_RELEASE_GO_FILE: ${{ runner.temp }}/ccip-stage7-release-go.json
     steps:
       - name: Check out the exact tested commit with full history
         uses: actions/checkout@v7.0.1
@@ -120,6 +119,8 @@ jobs:
       - name: Verify Pages, CI, archives, integrity and reproducibility; produce GO evidence
         run: node scripts/release-stage7-actions.mjs preflight
       - name: Publish using the guarded existing publisher, never force push
+        env:
+          CCIP_RELEASE_GO_FILE: ${{ runner.temp }}/ccip-stage7-release-go.json
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
