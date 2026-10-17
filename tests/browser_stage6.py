@@ -4,7 +4,7 @@ from browser_smoke import BrowserSmoke
 
 class Stage6(BrowserSmoke):
     def test_H01_variant_optin_and_units(self):
-        self.page.locator('#machine-select option').nth(1).wait_for()
+        self.page.locator('#machine-select option').nth(1).wait_for(state='attached')
         self.page.locator('#machine-select').select_option('arburg-allrounder-370s-700-290-s30')
         self.assertEqual(self.page.locator('#field-screwD').input_value(),'')
         self.page.locator('#machine-confirm').check()
@@ -23,7 +23,7 @@ class Stage6(BrowserSmoke):
         self.assertIn('Sin resultados',self.page.locator('#machine-assessment').inner_text())
     def test_H02_series_no_autofill_and_language(self):
         self.select_process('extrusion')
-        self.page.locator('#machine-select option').nth(1).wait_for()
+        self.page.locator('#machine-select option').nth(1).wait_for(state='attached')
         self.page.locator('#machine-select').select_option('battenfeld-cincinnati-uniex-series')
         self.assertEqual(self.page.locator('#machine-confirm').count(),0)
         self.assertIn('Rango de serie',self.page.locator('#machine-panel').inner_text())
@@ -33,7 +33,7 @@ class Stage6(BrowserSmoke):
         self.page.locator('#machine-select').select_option('motan-luxor-hd-lhd30')
         self.assertIn('Nominal hopper volume',self.page.locator('#machine-panel').inner_text())
     def test_H03_snapshot_saved_and_mobile(self):
-        self.page.locator('#machine-select option').nth(1).wait_for()
+        self.page.locator('#machine-select option').nth(1).wait_for(state='attached')
         self.page.locator('#machine-select').select_option('arburg-allrounder-370s-700-290-s30')
         self.page.locator('#machine-confirm').check()
         self.page.locator('#calculate').click()
