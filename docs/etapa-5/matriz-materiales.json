@@ -1,0 +1,2206 @@
+{
+  "reviewed_on": "2026-10-17",
+  "total": 73,
+  "selectable": 9,
+  "cp_mean_available": 0,
+  "original_data_unchanged": true,
+  "records": [
+    {
+      "id": "dow-dow-12450n",
+      "family": "HDPE",
+      "grade": "DOW 12450N",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-S01",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "dow-dowlex-2045g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-S02",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "dow-dow-ldpe-132g",
+      "family": "LDPE",
+      "grade": "DOW LDPE 132G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-S03",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "lyondellbasell-moplen-hp500n",
+      "family": "PP",
+      "grade": "Moplen HP500N",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-S04",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "indorama-ventures-polyclear-refresh-pet-1101",
+      "family": "PET",
+      "grade": "Polyclear Refresh PET 1101",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.9,
+        "unit": "kg/L",
+        "source_id": "S05",
+        "method": "Método interno M2E-72-015",
+        "condition": "80 pellets/g; 0.88 kg/L para 60 pellets/g",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "S05"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-S05",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "westlake-westlake-pvc-1195",
+      "family": "PVC",
+      "grade": "Westlake PVC 1195",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.53,
+        "unit": "kg/L",
+        "source_id": "S06",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "S06"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "ineos-styrolution-terluran-gp-22",
+      "family": "ABS",
+      "grade": "Terluran GP-22",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 80,
+        "unit": "°C",
+        "source_id": "S07",
+        "method": null,
+        "condition": null,
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "drying_time": {
+        "value": null,
+        "unit": "h",
+        "source_id": "S07",
+        "method": null,
+        "condition": null,
+        "range": [
+          2,
+          4
+        ],
+        "status": "manufacturer_recommendation",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "S07"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-S07",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "basf-ultramid-b3s-r03",
+      "family": "PA6",
+      "grade": "Ultramid B3S R03",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 80,
+        "unit": "°C",
+        "source_id": "S08",
+        "method": null,
+        "condition": "secador de aire seco",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "drying_time": {
+        "value": 4,
+        "unit": "h",
+        "source_id": "S08",
+        "method": null,
+        "condition": "según humedad inicial, punto de rocío y almacenamiento",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.7,
+        "unit": "kg/L",
+        "source_id": "S08",
+        "method": null,
+        "condition": null,
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Aproximada; pellets",
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "S08"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Drying time 3)",
+          "4",
+          "h",
+          "Drying time 3)",
+          "-",
+          "Drying"
+        ]
+      ],
+      "previous_documentary_source": "R-S08",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "covestro-makrolon-2405",
+      "family": "PC",
+      "grade": "Makrolon 2405",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 120,
+        "unit": "°C",
+        "source_id": "S09",
+        "method": null,
+        "condition": "secador de aire seco",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "drying_time": {
+        "value": null,
+        "unit": "h",
+        "source_id": "S09",
+        "method": null,
+        "condition": null,
+        "range": [
+          2,
+          3
+        ],
+        "status": "manufacturer_recommendation",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.66,
+        "unit": "kg/L",
+        "source_id": "S09",
+        "method": "ISO 60",
+        "condition": "pellets",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": null,
+        "verification_basis": "user_supplied_verified_library_v1.2"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "S09"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Bulk Density",
+          "660",
+          "kg/m³",
+          "Pellets",
+          "ISO 60",
+          "Other properties (23 °C)"
+        ],
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-S09",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "catalog-hdpe-dow-08262b",
+      "family": "HDPE",
+      "grade": "DOW 08262B",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT201",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-lp-8000",
+      "family": "HDPE",
+      "grade": "DOW HDPE LP 8000",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT202",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-ng6997",
+      "family": "HDPE",
+      "grade": "DOW HDPE NG6997",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT203",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-hdpe-dow-dmda-8007-nt-7",
+      "family": "HDPE",
+      "grade": "DOW DMDA-8007 NT 7",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT205",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-hdpe-dow-dgda-5004-nt-7",
+      "family": "HDPE",
+      "grade": "DOW DGDA-5004 NT 7",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT206",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-lp-8000-hd",
+      "family": "HDPE",
+      "grade": "DOW HDPE LP 8000 HD",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT207",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-hdpe-dow-hdpe-dgda-2484-nt",
+      "family": "HDPE",
+      "grade": "DOW HDPE DGDA-2484 NT",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT208",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-hdpe",
+      "family": "HDPE",
+      "grade": "HDPE — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045-01g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045.01G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT211",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2645g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2645G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT212",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045-11g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045.11G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT214",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2045",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2045",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT215",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2035",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2035",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT216",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2036-01g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2036.01G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT217",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-lldpe-dowlex-2047g",
+      "family": "LLDPE",
+      "grade": "DOWLEX 2047G",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT218",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-lldpe",
+      "family": "LLDPE",
+      "grade": "LLDPE — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-150e",
+      "family": "LDPE",
+      "grade": "DOW LDPE 150E",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT219",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-7010e",
+      "family": "LDPE",
+      "grade": "DOW LDPE 7010E",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT220",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-ldpe-dow-5004i",
+      "family": "LDPE",
+      "grade": "DOW 5004I",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT221",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-ldpe-dow-ldpe-219m",
+      "family": "LDPE",
+      "grade": "DOW LDPE 219M",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT222",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-ldpe",
+      "family": "LDPE",
+      "grade": "LDPE — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-hp501m",
+      "family": "PP",
+      "grade": "Moplen HP501M",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT228",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-hp400r",
+      "family": "PP",
+      "grade": "Moplen HP400R",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT229",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-hp548r",
+      "family": "PP",
+      "grade": "Moplen HP548R",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-hp648t",
+      "family": "PP",
+      "grade": "Moplen HP648T",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT231",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-rp348r",
+      "family": "PP",
+      "grade": "Moplen RP348R",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-rp248r",
+      "family": "PP",
+      "grade": "Moplen RP248R",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-rp398t",
+      "family": "PP",
+      "grade": "Moplen RP398T",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-rp348t-hp",
+      "family": "PP",
+      "grade": "Moplen RP348T HP",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pp-moplen-rp248u",
+      "family": "PP",
+      "grade": "Moplen RP248U",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-pp",
+      "family": "PP",
+      "grade": "PP — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pet-polyclear-preserve-pet-2201",
+      "family": "PET",
+      "grade": "Polyclear Preserve PET 2201",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.88,
+        "unit": "kg/L",
+        "source_id": "CAT238",
+        "method": "M2E-72-015",
+        "condition": "Granza, condiciones comerciales",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT238"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT238",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pet-polyclear-splash-pet-3301",
+      "family": "PET",
+      "grade": "Polyclear Splash PET 3301",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.9,
+        "unit": "kg/L",
+        "source_id": "CAT240",
+        "method": "M2E-72-015",
+        "condition": "Granza, condiciones comerciales",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT240"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": "R-CAT240",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-pet",
+      "family": "PET",
+      "grade": "PET — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2060",
+      "family": "PVC",
+      "grade": "Westlake PVC 2060",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.53,
+        "unit": "kg/L",
+        "source_id": "CAT246",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT246"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-1185",
+      "family": "PVC",
+      "grade": "Westlake PVC 1185",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.53,
+        "unit": "kg/L",
+        "source_id": "CAT247",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT247"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-5265",
+      "family": "PVC",
+      "grade": "Westlake PVC 5265",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.51,
+        "unit": "kg/L",
+        "source_id": "CAT248",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT248"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2070",
+      "family": "PVC",
+      "grade": "Westlake PVC 2070",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.53,
+        "unit": "kg/L",
+        "source_id": "CAT249",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT249"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-5305",
+      "family": "PVC",
+      "grade": "Westlake PVC 5305",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.52,
+        "unit": "kg/L",
+        "source_id": "CAT250",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT250"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2079",
+      "family": "PVC",
+      "grade": "Westlake PVC 2079",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.53,
+        "unit": "kg/L",
+        "source_id": "CAT251",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT251"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-2082",
+      "family": "PVC",
+      "grade": "Westlake PVC 2082",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.53,
+        "unit": "kg/L",
+        "source_id": "CAT252",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT252"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-1230p",
+      "family": "PVC",
+      "grade": "Westlake PVC 1230P",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.56,
+        "unit": "kg/L",
+        "source_id": "CAT253",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT253"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pvc-westlake-pvc-1230s",
+      "family": "PVC",
+      "grade": "Westlake PVC 1230S",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": {
+        "value": 0.56,
+        "unit": "kg/L",
+        "source_id": "CAT254",
+        "method": "Westlake; propiedad típica, método según ficha",
+        "condition": "Resina PVC en polvo, no compuesto ni pellet",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico del grado, no certificación del lote",
+        "verification_basis": "fabricante_fuente_directa_2026-10-15"
+      },
+      "specific_heat": null,
+      "source_ids": [
+        "CAT254"
+      ],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-pvc",
+      "family": "PVC",
+      "grade": "PVC — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-abs-terluran-gp-35",
+      "family": "ABS",
+      "grade": "Terluran GP-35",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 80,
+        "unit": "°C",
+        "source_id": "CAT255",
+        "method": null,
+        "condition": "aire seco / según ficha",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "drying_time": {
+        "value": null,
+        "unit": "h",
+        "source_id": "CAT255",
+        "method": null,
+        "condition": "aire seco / condiciones de fabricante",
+        "range": [
+          2,
+          4
+        ],
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "CAT255"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT255",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "catalog-abs-terluran-hi-10",
+      "family": "ABS",
+      "grade": "Terluran HI-10",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT256",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-abs-novodur-h605",
+      "family": "ABS",
+      "grade": "Novodur H605",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT259",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-abs-novodur-hh-106",
+      "family": "ABS",
+      "grade": "Novodur HH-106",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT260",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-abs-novodur-hh-112",
+      "family": "ABS",
+      "grade": "Novodur HH-112",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT261",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-abs-novodur-p2mc",
+      "family": "ABS",
+      "grade": "Novodur P2MC",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT262",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-abs-novodur-p2h-at",
+      "family": "ABS",
+      "grade": "Novodur P2H-AT",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Drying Temperature",
+          "80",
+          "°C",
+          "Drying Temperature",
+          "-",
+          "Processing"
+        ],
+        [
+          "Drying Time",
+          "2 - 4",
+          "h",
+          "Drying Time",
+          "-",
+          "Processing"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT263",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "generic-abs",
+      "family": "ABS",
+      "grade": "ABS — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pa6-ultramid-b3k",
+      "family": "PA6",
+      "grade": "Ultramid B3K",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 80,
+        "unit": "°C",
+        "source_id": "CAT264",
+        "method": null,
+        "condition": "aire seco / según ficha",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "drying_time": {
+        "value": 4,
+        "unit": "h",
+        "source_id": "CAT264",
+        "method": null,
+        "condition": "aire seco / condiciones de fabricante",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "CAT264"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Drying time 3)",
+          "4",
+          "h",
+          "Drying time 3)",
+          "-",
+          "Drying"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT264",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "generic-pa6",
+      "family": "PA6",
+      "grade": "PA6 — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pc-makrolon-2407",
+      "family": "PC",
+      "grade": "Makrolon 2407",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 120,
+        "unit": "°C",
+        "source_id": "CAT273",
+        "method": null,
+        "condition": "aire seco / según ficha",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "drying_time": {
+        "value": null,
+        "unit": "h",
+        "source_id": "CAT273",
+        "method": null,
+        "condition": "aire seco / condiciones de fabricante",
+        "range": [
+          2,
+          3
+        ],
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "CAT273"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT273",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "catalog-pc-makrolon-2805",
+      "family": "PC",
+      "grade": "Makrolon 2805",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 120,
+        "unit": "°C",
+        "source_id": "CAT274",
+        "method": null,
+        "condition": "aire seco / según ficha",
+        "range": null,
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "drying_time": {
+        "value": null,
+        "unit": "h",
+        "source_id": "CAT274",
+        "method": null,
+        "condition": "aire seco / condiciones de fabricante",
+        "range": [
+          2,
+          3
+        ],
+        "status": "manufacturer_recommendation",
+        "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
+        "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "CAT274"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Bulk Density",
+          "660",
+          "g/cm³",
+          "Pellets",
+          "ISO 60",
+          "Other properties (23 °C)"
+        ],
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT274",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "catalog-pc-makrolon-2807",
+      "family": "PC",
+      "grade": "Makrolon 2807",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT275",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pc-makrolon-2856",
+      "family": "PC",
+      "grade": "Makrolon 2856",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 120,
+        "unit": "°C",
+        "source_id": "CAT276",
+        "method": "Secador aire seco",
+        "condition": "Recomendación grado",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico de fabricante; NO certificado de lote"
+      },
+      "drying_time": {
+        "value": 4,
+        "unit": "h",
+        "source_id": "CAT276",
+        "method": "Secador aire seco",
+        "condition": "Recomendación grado",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico de fabricante; NO certificado de lote"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "CAT276"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Bulk Density",
+          "660",
+          "g/cm³",
+          "Pellets",
+          "ISO 60",
+          "Other properties (23 °C)"
+        ],
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "4",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT276",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "catalog-pc-makrolon-2858",
+      "family": "PC",
+      "grade": "Makrolon 2858",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pc-makrolon-3105",
+      "family": "PC",
+      "grade": "Makrolon 3105",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Bulk Density",
+          "660",
+          "g/cm³",
+          "Pellets",
+          "ISO 60",
+          "Other properties (23 °C)"
+        ],
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT278",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pc-makrolon-3106",
+      "family": "PC",
+      "grade": "Makrolon 3106",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Bulk Density",
+          "660",
+          "g/cm³",
+          "Pellets",
+          "ISO 60",
+          "Other properties (23 °C)"
+        ],
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT279",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pc-makrolon-3107",
+      "family": "PC",
+      "grade": "Makrolon 3107",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT280",
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    },
+    {
+      "id": "catalog-pc-makrolon-3108",
+      "family": "PC",
+      "grade": "Makrolon 3108",
+      "selectable_drying": true,
+      "drying_temperature": {
+        "value": 120,
+        "unit": "°C",
+        "source_id": "CAT281",
+        "method": "Covestro recommended drying conditions",
+        "condition": "Secador de aire seco",
+        "range": null,
+        "status": "manufacturer_typical",
+        "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+        "verification_basis": "Covestro official product page 2026-10-15"
+      },
+      "drying_time": {
+        "value": null,
+        "unit": "h",
+        "source_id": "CAT281",
+        "method": "Covestro recommended drying conditions",
+        "condition": "Secador de aire seco",
+        "range": [
+          2,
+          3
+        ],
+        "status": "manufacturer_typical",
+        "note": "Valor típico exacto Covestro Makrolon 3108, no certificado de lote.",
+        "verification_basis": "Covestro official product page 2026-10-15"
+      },
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [
+        "CAT281"
+      ],
+      "previous_documentary_rows": [
+        [
+          "Dry Air Drying Temperature",
+          "120",
+          "°C",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ],
+        [
+          "Dry Air Drying Time",
+          "2 - 3",
+          "h",
+          "",
+          "",
+          "Recommended processing and drying conditions"
+        ]
+      ],
+      "previous_documentary_source": "R-CAT281",
+      "notes": "Recomendación de grado; requiere compatibilidad de secador/estado inicial. No garantiza humedad ni capacidad de máquina."
+    },
+    {
+      "id": "generic-pc",
+      "family": "PC",
+      "grade": "PC — Genérico (grado desconocido)",
+      "selectable_drying": false,
+      "drying_temperature": null,
+      "drying_time": null,
+      "initial_temperature": {
+        "value": 25,
+        "unit": "°C",
+        "classification": "operating_assumption",
+        "source": "src/schema.js; editable UI default, not a material property"
+      },
+      "bulk_density": null,
+      "specific_heat": null,
+      "source_ids": [],
+      "previous_documentary_rows": [],
+      "previous_documentary_source": null,
+      "notes": "Sin guía operacional seleccionable; ficha previa o evidencia adicional no se convierte automáticamente en instrucciones de secado."
+    }
+  ]
+}

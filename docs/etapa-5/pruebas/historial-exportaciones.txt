@@ -1,0 +1,15 @@
+test_S01_new_overwrite_restore_cancel_delete_ids (__main__.Stage2.test_S01_new_overwrite_restore_cancel_delete_ids) ... ok
+test_S02_legacy_migration_corruption_and_storage_failures (__main__.Stage2.test_S02_legacy_migration_corruption_and_storage_failures) ... ok
+test_S03_active_and_saved_real_exports_all_processes_languages (__main__.Stage2.test_S03_active_and_saved_real_exports_all_processes_languages) ... ok
+test_S04_snapshot_precision_injection_text_and_long_unicode_report (__main__.Stage2.test_S04_snapshot_precision_injection_text_and_long_unicode_report) ... ok
+test_S05_responsive_dialog_history_and_export_failures (__main__.Stage2.test_S05_responsive_dialog_history_and_export_failures) ... ok
+test_S06_family_density_sources_profile_and_history_limit (__main__.Stage2.test_S06_family_density_sources_profile_and_history_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 25.374s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-e5-final-exports

@@ -40,6 +40,8 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     [record.material?.formulation?tr('Grado virgen de referencia','Virgin reference grade'):tr('Grado comercial', 'Commercial grade'), grade?.grade || unavailable], [tr('Validación técnica', 'Technical validation'), validation]
   ];
   const origins = {
+    operating_assumption:tr('Supuesto operativo editable; no dato de fabricante','Editable operating assumption; not manufacturer data'),
+    manufacturer_range_upper:tr('Extremo superior del rango de ficha; residencia nominal editable','Upper datasheet bound; editable nominal residence'),
     family_reference: tr('Referencia de familia — estimación', 'Family reference — estimate'),
     user_override: tr('Anulación manual; no es dato certificado del fabricante', 'Manual override; not a certified manufacturer value'),
     manual: tr('Entrada manual', 'Manual input'), user_entered: tr('Dato de usuario no verificado', 'Unverified user data'),
@@ -70,7 +72,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     ...(Array.isArray(record.notes) ? record.notes : []).map(x => [tr('Limitación / modelo', 'Limitation / model'), label(x)]),
     ...flattenEvidence({ applied_properties: record.material?.used_fields, field_states: record.material?.field_states,
       formulation:record.material?.formulation, formulation_input:record.material?.formulation_input, formulation_assessment:record.formulation_assessment, research_snapshot:record.material?.research_snapshot,
-      process_conditions: record.material?.context, density_assessment: record.density_assessment,
+      process_conditions: record.material?.context, density_assessment: record.density_assessment, drying_assessment:record.drying_assessment, calculation_inputs:record.module==='secado'?record.calculation_inputs:null,
       input_issues: record.input_issues, calculation_metadata: record.calculation_metadata,
       profile_settings: record.injection_profile_settings, profile_note: record.injection_profile?.note,
       profile_assessment: record.injection_profile ? {valid:record.injection_profile.valid,error:record.injection_profile.error,approximate:record.injection_profile.approximate,basis:record.injection_profile.basis,thermal_correction_applied:record.injection_profile.thermal_correction_applied,absolute_machine_positions:record.injection_profile.absolute_machine_positions}:null,
@@ -81,6 +83,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     material_references: record.material?.references_snapshot?.sources,
     pvt_reference: record.material?.references_snapshot?.pvt_sources?.[grade?.pvt?.source_ref],
     formulation_sources:record.material?.formulation?.density_result, research_sources:record.material?.research_snapshot?.source, flow_sources:record.material?.research_snapshot?.flow_sources,
+    drying_sources:record.drying_assessment?{bulk_density:record.drying_assessment.bulk_details?.source,specific_heat:record.drying_assessment.cp_details?.source}:null,
     density_source: record.density_assessment?.source });
   if (!sources.length) sources.push([tr('Fuentes', 'Sources'), tr('Sin fuente documental registrada; revisar datos manuales', 'No documented source recorded; review manual inputs')]);
   const profile = Array.isArray(record.injection_profile?.stages) ? record.injection_profile.stages.map(s =>

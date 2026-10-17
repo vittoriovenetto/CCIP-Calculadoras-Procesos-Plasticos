@@ -1,0 +1,3 @@
+D01 Cp puntual aceptado: true
+D03 selección manual borrada: true
+D02 texto de Cp puntual aceptado: true
