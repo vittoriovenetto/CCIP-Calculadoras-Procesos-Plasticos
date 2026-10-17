@@ -1,0 +1,15 @@
+{
+  "observed_on": "2026-10-17",
+  "github_api": {
+    "url": "https://api.github.com/repos/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pulls/15",
+    "result": "Forbidden; CONNECT tunnel 403"
+  },
+  "pages": {
+    "url": "https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/deployment.json",
+    "result": "Tunnel connection failed: 403 Forbidden"
+  },
+  "git_read": "success",
+  "configuration_draft": "saved; requires_publish; runtime not established",
+  "credentials_printed": false,
+  "bypass_attempted": false
+}

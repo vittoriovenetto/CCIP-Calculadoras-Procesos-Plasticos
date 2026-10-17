@@ -1,0 +1,685 @@
+[
+  {
+    "name": "inyeccion-masa",
+    "process": "inyeccion",
+    "inputs": {
+      "method": "mass",
+      "cavities": 4,
+      "meltDensity": 0.8,
+      "shotMargin": 8.0,
+      "screwD": 20.0,
+      "screwMaxStroke": 250.0,
+      "targetCushion": 4,
+      "projectedArea": 32,
+      "cavityPressure": 40,
+      "clampFactor": 1.15,
+      "injectionFlow": 8,
+      "plasticizingRate": 5,
+      "partMass": 12.5,
+      "runnerMass": 6.0
+    },
+    "expected": [
+      {
+        "label": "Masa total sin reserva",
+        "value": 56.0,
+        "unit": "g",
+        "derivation": "n·mₚ+mᵣ, o (n·Vₚ+Vᵣ)ρₘ"
+      },
+      {
+        "label": "Shot calculado (masa)",
+        "value": 60.48,
+        "unit": "g",
+        "derivation": "m₀(1+a/100)"
+      },
+      {
+        "label": "Shot calculado (volumen)",
+        "value": 75.6,
+        "unit": "cm³",
+        "derivation": "mₛ/ρₘ"
+      },
+      {
+        "label": "Capacidad volumétrica teórica del husillo",
+        "value": 78.53981633974483,
+        "unit": "cm³",
+        "derivation": "πD²sₘₐₓ/(4·1000)"
+      },
+      {
+        "label": "Utilización volumétrica teórica",
+        "value": 96.2569095819783,
+        "unit": "%",
+        "derivation": "100Vₛ/Vₘₐₓ"
+      },
+      {
+        "label": "Carrera calculada del husillo",
+        "value": 240.64227395494575,
+        "unit": "mm",
+        "derivation": "1000Vₛ/(πD²/4)"
+      },
+      {
+        "label": "Recorrido remanente al dosificar al máximo",
+        "value": 9.357726045054253,
+        "unit": "mm",
+        "derivation": "sₘₐₓ−s"
+      },
+      {
+        "label": "Fuerza de cierre teórica",
+        "value": 13.052367526117482,
+        "unit": "tf",
+        "derivation": "32 cm²·40 MPa·100 N/(9806.65 N/tf)"
+      },
+      {
+        "label": "Fuerza de cierre con factor",
+        "value": 15.010222655035104,
+        "unit": "tf",
+        "derivation": "F·1.15"
+      },
+      {
+        "label": "Tiempo de llenado ideal",
+        "value": 9.45,
+        "unit": "s",
+        "derivation": "Vₛ/(8 cm³/s)"
+      },
+      {
+        "label": "Tiempo de plastificación estimado",
+        "value": 43.5456,
+        "unit": "s",
+        "derivation": "mₛ·3600/(5·1000)"
+      }
+    ]
+  },
+  {
+    "name": "inyeccion-volumen",
+    "process": "inyeccion",
+    "inputs": {
+      "method": "volume",
+      "cavities": 2,
+      "meltDensity": 0.75,
+      "shotMargin": 10.0,
+      "screwD": 16.0,
+      "screwMaxStroke": 200.0,
+      "targetCushion": 4,
+      "projectedArea": 32,
+      "cavityPressure": 40,
+      "clampFactor": 1.15,
+      "injectionFlow": 8,
+      "plasticizingRate": 5,
+      "partVolume": 15.0,
+      "runnerVolume": 2.0
+    },
+    "expected": [
+      {
+        "label": "Masa total sin reserva",
+        "value": 24.0,
+        "unit": "g",
+        "derivation": "n·mₚ+mᵣ, o (n·Vₚ+Vᵣ)ρₘ"
+      },
+      {
+        "label": "Shot calculado (masa)",
+        "value": 26.4,
+        "unit": "g",
+        "derivation": "m₀(1+a/100)"
+      },
+      {
+        "label": "Shot calculado (volumen)",
+        "value": 35.2,
+        "unit": "cm³",
+        "derivation": "mₛ/ρₘ"
+      },
+      {
+        "label": "Capacidad volumétrica teórica del husillo",
+        "value": 40.21238596594935,
+        "unit": "cm³",
+        "derivation": "πD²sₘₐₓ/(4·1000)"
+      },
+      {
+        "label": "Utilización volumétrica teórica",
+        "value": 87.53521870054243,
+        "unit": "%",
+        "derivation": "100Vₛ/Vₘₐₓ"
+      },
+      {
+        "label": "Carrera calculada del husillo",
+        "value": 175.07043740108486,
+        "unit": "mm",
+        "derivation": "1000Vₛ/(πD²/4)"
+      },
+      {
+        "label": "Recorrido remanente al dosificar al máximo",
+        "value": 24.92956259891513,
+        "unit": "mm",
+        "derivation": "sₘₐₓ−s"
+      },
+      {
+        "label": "Fuerza de cierre teórica",
+        "value": 13.052367526117482,
+        "unit": "tf",
+        "derivation": "32 cm²·40 MPa·100 N/(9806.65 N/tf)"
+      },
+      {
+        "label": "Fuerza de cierre con factor",
+        "value": 15.010222655035104,
+        "unit": "tf",
+        "derivation": "F·1.15"
+      },
+      {
+        "label": "Tiempo de llenado ideal",
+        "value": 4.4,
+        "unit": "s",
+        "derivation": "Vₛ/(8 cm³/s)"
+      },
+      {
+        "label": "Tiempo de plastificación estimado",
+        "value": 19.008,
+        "unit": "s",
+        "derivation": "mₛ·3600/(5·1000)"
+      }
+    ]
+  },
+  {
+    "name": "extrusion-lamina",
+    "process": "extrusion",
+    "inputs": {
+      "shape": "sheet",
+      "width": 400,
+      "thickness": 0.75,
+      "density": 0.92,
+      "lineSpeed": 12,
+      "lossPct": 8,
+      "secEnergy": 0.3,
+      "holdUpKg": 5
+    },
+    "expected": [
+      {
+        "label": "Área transversal",
+        "value": 300.0,
+        "unit": "mm²",
+        "derivation": "w·e, o π(Dₒ²−Dᵢ²)/4"
+      },
+      {
+        "label": "Masa por metro de producto",
+        "value": 276.0,
+        "unit": "g/m",
+        "derivation": "A mm²·1000 mm/(1000 mm³/cm³)·ρ"
+      },
+      {
+        "label": "Producción neta ideal",
+        "value": 198.72,
+        "unit": "kg/h",
+        "derivation": "m′·v·60/1000"
+      },
+      {
+        "label": "Alimentación con pérdida indicada",
+        "value": 216.0,
+        "unit": "kg/h",
+        "derivation": "Qₙ/(1−r/100)"
+      },
+      {
+        "label": "Potencia específica estimada",
+        "value": 64.8,
+        "unit": "kW",
+        "derivation": "Qᶠ·E"
+      },
+      {
+        "label": "Tiempo de residencia nominal",
+        "value": 1.3888888888888888,
+        "unit": "min",
+        "derivation": "60M/Qᶠ; pendiente si Qᶠ=0"
+      }
+    ]
+  },
+  {
+    "name": "extrusion-tubo",
+    "process": "extrusion",
+    "inputs": {
+      "shape": "tube",
+      "outerD": 25,
+      "innerD": 20,
+      "density": 1.4,
+      "lineSpeed": 8,
+      "lossPct": 0,
+      "secEnergy": 0.45,
+      "holdUpKg": 3
+    },
+    "expected": [
+      {
+        "label": "Área transversal",
+        "value": 176.71458676442586,
+        "unit": "mm²",
+        "derivation": "w·e, o π(Dₒ²−Dᵢ²)/4"
+      },
+      {
+        "label": "Masa por metro de producto",
+        "value": 247.40042147019622,
+        "unit": "g/m",
+        "derivation": "A mm²·1000 mm/(1000 mm³/cm³)·ρ"
+      },
+      {
+        "label": "Producción neta ideal",
+        "value": 118.75220230569418,
+        "unit": "kg/h",
+        "derivation": "m′·v·60/1000"
+      },
+      {
+        "label": "Alimentación con pérdida indicada",
+        "value": 118.75220230569418,
+        "unit": "kg/h",
+        "derivation": "Qₙ/(1−r/100)"
+      },
+      {
+        "label": "Potencia específica estimada",
+        "value": 53.438491037562386,
+        "unit": "kW",
+        "derivation": "Qᶠ·E"
+      },
+      {
+        "label": "Tiempo de residencia nominal",
+        "value": 1.5157613627799555,
+        "unit": "min",
+        "derivation": "60M/Qᶠ; pendiente si Qᶠ=0"
+      }
+    ]
+  },
+  {
+    "name": "extrusion-parada",
+    "process": "extrusion",
+    "inputs": {
+      "shape": "sheet",
+      "width": 400,
+      "thickness": 0.75,
+      "density": 0.92,
+      "lineSpeed": 0,
+      "lossPct": 0,
+      "secEnergy": 0.3,
+      "holdUpKg": 5
+    },
+    "expected": [
+      {
+        "label": "Área transversal",
+        "value": 300.0,
+        "unit": "mm²",
+        "derivation": "w·e, o π(Dₒ²−Dᵢ²)/4"
+      },
+      {
+        "label": "Masa por metro de producto",
+        "value": 276.0,
+        "unit": "g/m",
+        "derivation": "A mm²·1000 mm/(1000 mm³/cm³)·ρ"
+      },
+      {
+        "label": "Producción neta ideal",
+        "value": 0.0,
+        "unit": "kg/h",
+        "derivation": "m′·v·60/1000"
+      },
+      {
+        "label": "Alimentación con pérdida indicada",
+        "value": 0.0,
+        "unit": "kg/h",
+        "derivation": "Qₙ/(1−r/100)"
+      },
+      {
+        "label": "Potencia específica estimada",
+        "value": 0.0,
+        "unit": "kW",
+        "derivation": "Qᶠ·E"
+      },
+      {
+        "label": "Tiempo de residencia nominal",
+        "value": null,
+        "unit": "min",
+        "derivation": "60M/Qᶠ; pendiente si Qᶠ=0"
+      }
+    ]
+  },
+  {
+    "name": "pelicula-normal",
+    "process": "pelicula",
+    "inputs": {
+      "layflat": 314.1592653589793,
+      "filmGauge": 50,
+      "lineSpeed": 8,
+      "density": 0.92,
+      "dieDiameter": 100,
+      "dieGap": 0.8
+    },
+    "expected": [
+      {
+        "label": "Diámetro ideal de burbuja",
+        "value": 199.99999999999997,
+        "unit": "mm",
+        "derivation": "Dᵦ=2w/π"
+      },
+      {
+        "label": "Área transversal total de la película",
+        "value": 31.41592653589793,
+        "unit": "mm²",
+        "derivation": "2w·e/1000"
+      },
+      {
+        "label": "Producción ideal",
+        "value": 13.873273158252525,
+        "unit": "kg/h",
+        "derivation": "2w·e·v·ρ con conversión SI"
+      },
+      {
+        "label": "Relación de soplado (BUR)",
+        "value": 1.9999999999999998,
+        "unit": "—",
+        "derivation": "Dᵦ/Dᵈ"
+      },
+      {
+        "label": "Relación ideal de estiramiento (DDR)",
+        "value": 8.0,
+        "unit": "—",
+        "derivation": "g/(e·BUR), g y e en mm"
+      }
+    ]
+  },
+  {
+    "name": "pelicula-parada",
+    "process": "pelicula",
+    "inputs": {
+      "layflat": 314.1592653589793,
+      "filmGauge": 50,
+      "lineSpeed": 0,
+      "density": 0.92,
+      "dieDiameter": 100,
+      "dieGap": 0.8
+    },
+    "expected": [
+      {
+        "label": "Diámetro ideal de burbuja",
+        "value": 199.99999999999997,
+        "unit": "mm",
+        "derivation": "Dᵦ=2w/π"
+      },
+      {
+        "label": "Área transversal total de la película",
+        "value": 31.41592653589793,
+        "unit": "mm²",
+        "derivation": "2w·e/1000"
+      },
+      {
+        "label": "Producción ideal",
+        "value": 0.0,
+        "unit": "kg/h",
+        "derivation": "2w·e·v·ρ con conversión SI"
+      },
+      {
+        "label": "Relación de soplado (BUR)",
+        "value": 1.9999999999999998,
+        "unit": "—",
+        "derivation": "Dᵦ/Dᵈ"
+      },
+      {
+        "label": "Relación ideal de estiramiento (DDR)",
+        "value": 8.0,
+        "unit": "—",
+        "derivation": "g/(e·BUR), g y e en mm"
+      }
+    ]
+  },
+  {
+    "name": "soplado-cilindro",
+    "process": "soplado",
+    "inputs": {
+      "bodyD": 60,
+      "bodyH": 180,
+      "wall": 0.6,
+      "density": 0.95,
+      "parisonD": 25,
+      "unitsHour": 1200
+    },
+    "expected": [
+      {
+        "label": "Volumen geométrico cilíndrico",
+        "value": 508.9380098815465,
+        "unit": "mL",
+        "derivation": "πD²H/4000 (volumen exterior)"
+      },
+      {
+        "label": "Superficie de cilindro cerrado",
+        "value": 39584.067435231394,
+        "unit": "mm²",
+        "derivation": "πDH+πD²/2"
+      },
+      {
+        "label": "Masa de pared ideal",
+        "value": 22.562918438081894,
+        "unit": "g",
+        "derivation": "S·e·ρ/1000 (aproximación de pared delgada)"
+      },
+      {
+        "label": "Expansión diametral",
+        "value": 2.4,
+        "unit": "—",
+        "derivation": "D/Dₚ"
+      },
+      {
+        "label": "Material para producción nominal",
+        "value": 27.075502125698275,
+        "unit": "kg/h",
+        "derivation": "m·N/1000"
+      }
+    ]
+  },
+  {
+    "name": "termoformado-lamina",
+    "process": "termoformado",
+    "inputs": {
+      "blankW": 300,
+      "blankL": 250,
+      "initialT": 1.2,
+      "density": 1.05,
+      "drawAreaRatio": 2.4,
+      "cycleSec": 15,
+      "cavities": 4
+    },
+    "expected": [
+      {
+        "label": "Superficie de lámina consumida",
+        "value": 75000.0,
+        "unit": "mm²",
+        "derivation": "w·l"
+      },
+      {
+        "label": "Masa de lámina por ciclo",
+        "value": 94.5,
+        "unit": "g",
+        "derivation": "A·e·ρ/1000"
+      },
+      {
+        "label": "Espesor medio geométrico ideal",
+        "value": 0.5,
+        "unit": "mm",
+        "derivation": "e₀/Rₐ"
+      },
+      {
+        "label": "Ciclos teóricos por hora",
+        "value": 240.0,
+        "unit": "ciclos/h",
+        "derivation": "3600/t"
+      },
+      {
+        "label": "Piezas teóricas por hora",
+        "value": 960.0,
+        "unit": "pzas/h",
+        "derivation": "3600n/t"
+      },
+      {
+        "label": "Consumo de lámina",
+        "value": 22.68,
+        "unit": "kg/h",
+        "derivation": "m·3600/t/1000"
+      }
+    ]
+  },
+  {
+    "name": "secado-nominal",
+    "process": "secado",
+    "inputs": {
+      "throughput": 18,
+      "residence": 3.5,
+      "bulkDensity": 0.62,
+      "specificHeat": 1.75,
+      "startT": 25,
+      "targetT": 85
+    },
+    "expected": [
+      {
+        "label": "Masa mínima de material en tolva",
+        "value": 63.0,
+        "unit": "kg",
+        "derivation": "Q·t"
+      },
+      {
+        "label": "Volumen útil mínimo de tolva",
+        "value": 101.61290322580645,
+        "unit": "L",
+        "derivation": "M/ρbulk"
+      },
+      {
+        "label": "Potencia térmica sensible mínima",
+        "value": 0.525,
+        "unit": "kW",
+        "derivation": "Q·Cp·(Tf−Ti)/3600; evidencia térmica sintética"
+      }
+    ]
+  },
+  {
+    "name": "secado-parada",
+    "process": "secado",
+    "inputs": {
+      "throughput": 0,
+      "residence": 3.5,
+      "bulkDensity": 0.62,
+      "specificHeat": 1.75,
+      "startT": 25,
+      "targetT": 85
+    },
+    "expected": [
+      {
+        "label": "Masa mínima de material en tolva",
+        "value": 0.0,
+        "unit": "kg",
+        "derivation": "Q·t"
+      },
+      {
+        "label": "Volumen útil mínimo de tolva",
+        "value": 0.0,
+        "unit": "L",
+        "derivation": "M/ρbulk"
+      },
+      {
+        "label": "Potencia térmica sensible mínima",
+        "value": 0.0,
+        "unit": "kW",
+        "derivation": "Q·Cp·(Tf−Ti)/3600; evidencia térmica sintética"
+      }
+    ]
+  },
+  {
+    "name": "costos-normal",
+    "process": "costos",
+    "inputs": {
+      "cycleSec": 24,
+      "cavities": 4,
+      "partMass": 15,
+      "scrapPct": 7.5,
+      "resinCost": 1.8,
+      "powerKw": 4,
+      "energyCost": 0.16,
+      "laborHour": 12
+    },
+    "expected": [
+      {
+        "label": "Piezas buenas teóricas",
+        "value": 555.0,
+        "unit": "pzas/h",
+        "derivation": "3600n/t·(1−rechazo/100)"
+      },
+      {
+        "label": "Consumo de material",
+        "value": 9.0,
+        "unit": "kg/h",
+        "derivation": "3600n·m/t/1000"
+      },
+      {
+        "label": "Costo de material",
+        "value": 16.2,
+        "unit": "moneda/h",
+        "derivation": "Q·precio"
+      },
+      {
+        "label": "Costo energético",
+        "value": 0.64,
+        "unit": "moneda/h",
+        "derivation": "Pmedia·tarifa"
+      },
+      {
+        "label": "Costo horario directo parcial",
+        "value": 28.84,
+        "unit": "moneda/h",
+        "derivation": "Cm+Ce+mano de obra"
+      },
+      {
+        "label": "Costo directo parcial por pieza buena",
+        "value": 0.051963963963963966,
+        "unit": "moneda/pza",
+        "derivation": "Ch/Ng; pendiente si Ng=0"
+      }
+    ]
+  },
+  {
+    "name": "costos-rechazo-total",
+    "process": "costos",
+    "inputs": {
+      "cycleSec": 24,
+      "cavities": 4,
+      "partMass": 15,
+      "scrapPct": 100.0,
+      "resinCost": 1.8,
+      "powerKw": 4,
+      "energyCost": 0.16,
+      "laborHour": 12
+    },
+    "expected": [
+      {
+        "label": "Piezas buenas teóricas",
+        "value": 0.0,
+        "unit": "pzas/h",
+        "derivation": "3600n/t·(1−rechazo/100)"
+      },
+      {
+        "label": "Consumo de material",
+        "value": 9.0,
+        "unit": "kg/h",
+        "derivation": "3600n·m/t/1000"
+      },
+      {
+        "label": "Costo de material",
+        "value": 16.2,
+        "unit": "moneda/h",
+        "derivation": "Q·precio"
+      },
+      {
+        "label": "Costo energético",
+        "value": 0.64,
+        "unit": "moneda/h",
+        "derivation": "Pmedia·tarifa"
+      },
+      {
+        "label": "Costo horario directo parcial",
+        "value": 28.84,
+        "unit": "moneda/h",
+        "derivation": "Cm+Ce+mano de obra"
+      },
+      {
+        "label": "Costo directo parcial por pieza buena",
+        "value": null,
+        "unit": "moneda/pza",
+        "derivation": "Ch/Ng; pendiente si Ng=0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "schema": "ccip-stage7-audit/1",
+  "base_commit": "f6ae02f13af82f0582988c45095063c53cae6c2a",
+  "protected_files": 145,
+  "materials": {
+    "original": 73,
+    "commercial": 64,
+    "generic": 9,
+    "new_numeric_evidence": 47,
+    "commercial_without_new_numeric_evidence": [
+      "westlake-westlake-pvc-1195",
+      "catalog-pp-moplen-hp548r",
+      "catalog-pp-moplen-rp348r",
+      "catalog-pp-moplen-rp248r",
+      "catalog-pp-moplen-rp398t",
+      "catalog-pp-moplen-rp348t-hp",
+      "catalog-pp-moplen-rp248u",
+      "catalog-pvc-westlake-pvc-2060",
+      "catalog-pvc-westlake-pvc-1185",
+      "catalog-pvc-westlake-pvc-5265",
+      "catalog-pvc-westlake-pvc-2070",
+      "catalog-pvc-westlake-pvc-5305",
+      "catalog-pvc-westlake-pvc-2079",
+      "catalog-pvc-westlake-pvc-2082",
+      "catalog-pvc-westlake-pvc-1230p",
+      "catalog-pvc-westlake-pvc-1230s",
+      "catalog-pc-makrolon-2858"
+    ],
+    "fully_scientifically_verified": false,
+    "drying_guidelines": [
+      "ineos-styrolution-terluran-gp-22",
+      "basf-ultramid-b3s-r03",
+      "covestro-makrolon-2405",
+      "catalog-abs-terluran-gp-35",
+      "catalog-pa6-ultramid-b3k",
+      "catalog-pc-makrolon-2407",
+      "catalog-pc-makrolon-2805",
+      "catalog-pc-makrolon-2856",
+      "catalog-pc-makrolon-3108"
+    ]
+  },
+  "experimental_formulations": 15,
+  "machines": {
+    "records": 25,
+    "minimum": {
+      "inyeccion": 4,
+      "extrusion": 3,
+      "pelicula": 4,
+      "soplado": 3,
+      "termoformado": 3,
+      "secado": 3
+    },
+    "counts": {
+      "inyeccion": 4,
+      "extrusion": 3,
+      "pelicula": 4,
+      "soplado": 3,
+      "termoformado": 3,
+      "secado": 3
+    },
+    "qualified_count": 20,
+    "excluded": [
+      "battenfeld-cincinnati-uniex-series",
+      "reifenhauser-evo-ffs-series",
+      "geiss-t11-series",
+      "moiron-page104-16mm-100kn",
+      "dongguan-xihua-xh430b-2-2kw"
+    ],
+    "priorities_present": true,
+    "complete": true,
+    "industrial_approval": false
+  },
+  "prior_published_archive": {
+    "files": 90,
+    "gh_pages_commit": "3f4a4f5893fa96864292edf5d69f2412525908ad",
+    "source_commit": "83359612fa7ca5b862ea25f01fabdacbb03c3ef7"
+  },
+  "failures": []
+}

@@ -108,6 +108,22 @@ try:
             assert not stale_requests, stale_requests
             assert not errors, errors
             context.close()
+        # An already cached OLD HTML document must still resolve its old tree.
+        # New HTML with a stale unversioned JS cache (above) is a different case.
+        archive=ROOT/'versions/antes-etapa-7-2026-10-17'
+        if archive.exists():
+            context=browser.new_context(viewport={'width':390,'height':1000})
+            page=context.new_page();errors=[];asset_requests=[]
+            page.on('pageerror',lambda e:errors.append(str(e)))
+            page.on('request',lambda r:asset_requests.append(r.url) if '/assets/' in r.url else None)
+            page.route(f'http://127.0.0.1:{server.server_port}/dist/',lambda r:r.fulfill(path=str(archive/'index.html')))
+            page.goto(f'http://127.0.0.1:{server.server_port}/dist/',wait_until='networkidle')
+            page.locator('#material-family:not([disabled])').wait_for();page.locator('#material-family').select_option('HDPE')
+            assert page.locator('#field-meltDensity').input_value()=='0.73'
+            page.locator('#calculate').click();assert page.locator('#summary-metrics').inner_text().strip()
+            assert asset_requests and all('/assets/83359612fa7ca5b862ea25f01fabdacbb03c3ef7/' in u for u in asset_requests)
+            assert not errors,errors
+            context.close()
         browser.close()
     print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia, secado con caudal manual/Cp pendiente, variantes Moiron Ø20/Ø16 separadas y sin mezclar recursos antiguos.')
 finally:
