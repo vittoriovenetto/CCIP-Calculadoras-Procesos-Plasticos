@@ -25,22 +25,25 @@ import { renderInjectionProfile } from "./injection-profile-view.js";
 import { renderManualData } from "./materials-audit-view.js";
 import { materialCatalogFor, hasDryingGuideline, enableLeanMaterial } from "./lean-materials.js";
 import { prepareDryingCase } from "./drying-assessment.js";
+import {validateMachineCatalog,newMachineState,selectMachine,setMachineConfirmed,machineSnapshot,restoreMachine,assessMachine,reuseCalculation} from "./machines.js";
+import {renderMachinePanel,renderMachineAssessment} from "./machines-view.js";
 import { displayMetrics, inputIssues } from "./results-view.js";
 import { mountGuide } from "./formulas-index.js";
 const freshMaterial = () => enableLeanMaterial(createMaterialState());
 
 const $ = id => document.getElementById(id);
-const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), filters: { family: "", manufacturer: "" } };
+const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), machine: newMachineState(), filters: { family: "", manufacturer: "" } };
 state.profile = defaultInjectionProfile();
 const sessions = new Map();
 let sharedCatalog=emptySharedCatalog(), sharedAvailable=false, explorer;
-let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
+let library = null, catalogBase = null, machineCatalog = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
 const initialValues = () => Object.fromEntries(mod().fields.map(f => [f.key, f.default ?? ""]));
 let historyView;
 const renderHistory = () => historyView?.render();
+const savedHistory = () => {try{return readHistory(localStorage);}catch{return [];}};
 const initialOrigins = () => Object.fromEntries(mod().fields.filter(f => f.default !== undefined && f.default !== "").map(f => [f.key, state.id==="secado" && f.key==="startT" ? "operating_assumption" : "default_example"]));
 
 function invalidate() {
@@ -49,6 +52,8 @@ function invalidate() {
   $("usage").innerHTML = "";if($("drying-calculation-status"))$("drying-calculation-status").replaceChildren();
   $("metrics").innerHTML = "<p class='muted'>Introduce los parámetros y pulsa Calcular. Los resultados sin datos válidos quedan pendientes.</p>";
   $("messages").innerHTML = "";
+  state.machine.assessment=null;
+  renderMachineAssessment($("machine-assessment"),null);
   drawProfile(null);
   for(const error of document.querySelectorAll('.field-error')) error.replaceChildren();
   for(const input of document.querySelectorAll('[data-field]')) input.removeAttribute('aria-invalid');
@@ -56,13 +61,14 @@ function invalidate() {
 
 function selectProcess(id) {
   if (!modules.some(m => m.id === id)) return;
-  sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, filters: state.filters });
+  sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, machine: state.machine, filters: state.filters });
   const selectedGrade = state.material.grade_snapshot?.id;
   state.id = id;
   const session = sessions.get(state.id);
   state.values = session?.values || initialValues();
   state.origins = session?.origins || initialOrigins();
   state.material = session?.material || freshMaterial();
+  state.machine = session?.machine || newMachineState();
   state.filters = session?.filters || { family: "", manufacturer: "" };
   if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
   closeLearning();draw();
@@ -84,6 +90,7 @@ function draw() {
   applyMaterial(state.material, mod(), state.values, state.level);
   drawFields();
   drawMaterials();
+  drawMachines();
   if (!$("custom-material-editor").children.length) drawCustomEditor();
   invalidate();
   renderHistory();
@@ -168,6 +175,15 @@ function drawMaterials() {
     const compact=document.querySelector('.material-compact');if(compact)compact.textContent=(getLanguage()==='en'?'Virgin component reference: ':'Componente virgen de referencia: ')+(state.material.grade_snapshot?.grade||'');
     const summary=$("material-details")?.querySelector('summary');if(summary)summary.textContent=getLanguage()==='en'?'Virgin component datasheet — does not apply to the blend':'Ficha del componente virgen — no se aplica a la mezcla';
   }
+}
+function drawMachines(assessment=state.machine.assessment||null) {
+  renderMachinePanel($("machine-panel"),{catalog:machineCatalog,process:state.id,selection:state.machine,assessment,history:state.id==='costos'?savedHistory():[],
+    onSelect:id=>{selectMachine(state.machine,machineCatalog,id,state.id,state.values,state.origins);drawFields();drawMachines();invalidate();},
+    onManufacturer:value=>{selectMachine(state.machine,machineCatalog,'',state.id,state.values,state.origins);state.machine.manufacturer=value;drawFields();drawMachines();invalidate();},
+    onOperation:(key,value)=>{state.machine.operation[key]=value;invalidate();},
+    onReuse:record=>{const trace=reuseCalculation(record,state.values,state.origins,state.machine.reused_from);state.machine=restoreMachine(record.machine);state.machine.reused_from=trace;drawFields();drawMachines();invalidate();},
+    onConfirm:value=>{setMachineConfirmed(state.machine,value,state.values,state.origins);drawFields();drawMachines();invalidate();}
+  });
 }
 function drawProfile(result) {
   renderInjectionProfile($("injection-profile"), {
@@ -257,7 +273,7 @@ function drawFields() {
     const attrs = `id="field-${f.key}" data-field="${f.key}" aria-describedby="hint-${f.key} error-${f.key}"`;
     const control = f.type === "select" ? `<select ${attrs}>${options}</select>` :
       `<input ${attrs} inputmode="decimal" type="number" step="${f.integer ? "1" : "any"}" min="${f.min}" ${f.max == null ? "" : `max="${f.max}"`} value="${safe(state.values[f.key])}" placeholder="Sin dato"/>`;
-    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):state.id==='secado'&&f.key==='startT'&&state.origins.startT==='operating_assumption'?'25 °C · supuesto operativo editable; no dato de fabricante':""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
+    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.origins[f.key]==='machine_catalog'?safe(t('Especificación del equipo confirmada')+' · '+state.machine.profile?.model):state.origins[f.key]==='saved_calculation'?safe(t('Entrada reutilizada de un cálculo identificado')):state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):state.id==='secado'&&f.key==='startT'&&state.origins.startT==='operating_assumption'?'25 °C · supuesto operativo editable; no dato de fabricante':""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
   };
   $("fields").innerHTML = fieldGroups(state.id, activeFields(mod(), state.values, state.level)).map(group => `<fieldset class="parameter-group"><legend>${safe(group.label)}</legend><div class="fields">${group.fields.map(renderField).join("")}</div></fieldset>`).join("");
   document.querySelectorAll("[data-field]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => {
@@ -320,6 +336,10 @@ function compute() {
     drawFields();
   }
   a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
+  a.machine_assessment = assessMachine(state.machine,state.id,a,inputs,{materialFamily:activeFormulation(state.material)?'unverified_formulation':state.material.grade_snapshot?.family});
+  state.machine.assessment=a.machine_assessment;
+  if(a.machine_assessment?.checks.some(check=>['above_published_limit','below_published_limit'].includes(check.status)))a.warnings.push("Máquina: el caso queda fuera de un límite publicado; verifica la configuración real.");
+  renderMachineAssessment($("machine-assessment"),a.machine_assessment);
   const injectionProfile = state.id === 'inyeccion' ? calculateInjectionProfile(a.calculation_inputs || inputs, state.level, state.profile, a.density_assessment) : null;
   if(injectionProfile&&a.formulation_assessment?.approximate){injectionProfile.estimate_basis='mixture_model';injectionProfile.note=injectionProfile.note?.replaceAll('densidad de familia','densidad de formulación').replaceAll('referencia de familia','modelo de formulación');}
   const issues=inputIssues(state.id,inputs,state.level,a);
@@ -330,7 +350,7 @@ function compute() {
     const status=dryingStatus;
     status.innerHTML=(drying.assessment.pending.length?'<h3>Resultados de secado pendientes</h3>'+drying.assessment.pending.map(p=>`<p>${safe(p.message)}</p>`).join(''):'<p>Resultados nominales del polímero; no certifican capacidad ni potencia de una máquina.</p>')+drying.warnings.filter(w=>w.startsWith('Cp constante:')).map(w=>`<p>${safe(w)}</p>`).join('');
   }else dryingStatus.replaceChildren();
-  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins},...(state.id==='secado'?{retained_inputs:{...state.values}}:{})},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
+  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins},...(state.id==='secado'||state.machine.id||state.machine.reused_from?{retained_inputs:{...state.values}}:{})},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, machine:machineSnapshot(state.machine,inputs,state.origins), material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => visible.find(m => m.label === label)).filter(Boolean);
@@ -354,28 +374,29 @@ function compute() {
 function restoreHistoryItem(item) {
     state.id = item.module;
     state.level = item.level;
-    state.values = { ...initialValues(), ...(state.id==='secado'?Object.fromEntries(mod().fields.filter(f=>['string','number'].includes(typeof item.calculation_metadata?.retained_inputs?.[f.key])).map(f=>[f.key,item.calculation_metadata.retained_inputs[f.key]])):{}), ...item.inputs };
+    state.values = { ...initialValues(), ...Object.fromEntries(mod().fields.filter(f=>['string','number'].includes(typeof item.calculation_metadata?.retained_inputs?.[f.key])).map(f=>[f.key,item.calculation_metadata.retained_inputs[f.key]])), ...item.inputs };
     state.origins = {...item.calculation_metadata?.input_origins};
     state.material = restoreMaterial(item.material);
+    state.machine = restoreMachine(item.machine);
     if (state.id === 'inyeccion') state.profile = restoreInjectionProfile(item.injection_profile_settings);
     state.filters = { family: state.material.grade_snapshot?.family || "", manufacturer: state.material.grade_snapshot?.manufacturer || "" };
     nav();
     $("level").value = state.level;
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
-    drawFields();drawMaterials();drawProfile(null);renderHistory();compute();
+    drawFields();drawMaterials();drawMachines();drawProfile(null);renderHistory();compute();
 }
 
 $("calculate").addEventListener("click", compute);
-$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.filters = { family: "", manufacturer: "" }; draw(); });
+$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.machine = newMachineState(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw(); });
-historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:compute,onRestore:restoreHistoryItem});
+historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:compute,onRestore:restoreHistoryItem,onChange:()=>{if(state.id==='costos')drawMachines();}});
 state.origins = initialOrigins();
 state.values = initialValues();
 draw();
 initI18n();
 explorer=createExplorer($("materials-view"),{
- getShared:()=>sharedCatalog,getSharedAvailable:()=>sharedAvailable,getCatalog:()=>catalogBase,getFormulations:()=>[state.material.formulation,...[...sessions.values()].map(s=>s.material.formulation),...readHistory().map(x=>x.material?.formulation)].filter(Boolean),
+ getShared:()=>sharedCatalog,getSharedAvailable:()=>sharedAvailable,getCatalog:()=>catalogBase,getFormulations:()=>[state.material.formulation,...[...sessions.values()].map(s=>s.material.formulation),...savedHistory().map(x=>x.material?.formulation)].filter(Boolean),
  onRoute:key=>showMaterials(key),onBack:()=>closeLearning(),editor:$("custom-material-editor"),
  onNew:()=>{$("custom-panel").open=true;$("custom-form").elements.grade.focus();},
  onUse:entry=>{refreshPersonalCatalog();selectMaterial(library,state.material,state.values,entry.id);state.filters={family:entry.family,manufacturer:entry.manufacturer};closeLearning();draw();},
@@ -385,9 +406,16 @@ explorer=createExplorer($("materials-view"),{
  },
  onCopy:entry=>{const copy=structuredClone(entry.material);copy.id=makeCustomMaterial({family:copy.family,grade:copy.grade}).id;copy.grade+=' (copia local)';delete copy.shared_metadata;delete copy.shared_revision;persistUserMaterials([...listUserMaterials(),copy]);refreshPersonalCatalog();drawCustomEditor();showMaterials(copy.id);}
 });
-document.addEventListener('ccip-language-change',()=>{drawFields();drawMaterials();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
+document.addEventListener('ccip-language-change',()=>{drawFields();drawMaterials();drawMachines();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
 routeView();
 
+
+// Un catálogo de equipos incompleto o inaccesible no impide entradas manuales.
+fetch(new URL('./data/machines.v1.json',import.meta.url))
+  .then(r=>{if(!r.ok)throw Error('Catálogo de equipos HTTP '+r.status);return r.json();})
+  .then(info=>{machineCatalog=validateMachineCatalog(info);})
+  .catch(()=>{machineCatalog=null;})
+  .finally(()=>drawMachines());
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
 fetch(new URL("./data/materials.v1.3.json", import.meta.url))

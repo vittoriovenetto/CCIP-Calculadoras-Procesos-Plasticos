@@ -60,6 +60,9 @@ export function bindParameterHelp(root) {
     if (e.pointerType === 'touch') return;
     if (tip?.contains(e.target)) return cancel();
     const next = e.target.closest('[data-help]');
+    // Una ayuda fijada por clic no cambia al pasar sobre otro «?» durante
+    // un reflujo/resize. El siguiente clic o foco explícito sí puede cambiarla.
+    if (pinned && next !== button) return;
     if (next) show(next);
   });
   root.addEventListener('pointerout', e => {

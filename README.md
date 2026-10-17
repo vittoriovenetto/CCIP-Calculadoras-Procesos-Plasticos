@@ -1,5 +1,10 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Etapa 6 — maquinaria y comprobación documental de límites (PR de revisión)
+
+El catálogo reúne **20 equipos concretos documentados** (4/3/4/3/3/3 por proceso), incluidas Moiron M2-I y XH-430B-25, y **25 registros consultables** al conservar series y variantes discrepantes sin duplicar el conteo. Los parámetros compatibles se incorporan tras confirmar la variante y conservando valores manuales. Se distinguen masa/volumen, presiones, nominal/útil y potencia instalada/consumo. Costos puede reutilizar entradas trazables del historial; Excel/PDF/JSON conservan snapshots sin recalcular históricos. [Informe, matriz, fuentes y capturas](docs/etapa-6/auditoria-final.md). No es certificación industrial. Sin fusión de PR ni deploy.
+
+
 ## Etapa 5 — secado trazable (PR de revisión)
 
 Se conserva la selección de nueve grados documentados; caudal inicialmente vacío y editable, temperatura de entrada de 25 °C como supuesto editable, y límite superior del rango de tiempo como propuesta nominal trazable. La potencia sensible requiere Cp sólido documentado y un intervalo térmico compatible; no predice potencia eléctrica total, humedad final ni dimensionamiento definitivo. Véase [especificación y pruebas](docs/etapa-5-secado.md) y [auditoría técnica del PR #14](docs/etapa-5/auditoria-final.md). El Cp puntual no habilita potencia; las declaraciones de intervalo y la densidad aparente requieren evidencia y aplicabilidad explícitas. Sin merge ni deploy.

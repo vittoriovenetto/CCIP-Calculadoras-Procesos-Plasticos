@@ -435,6 +435,10 @@ class BrowserSmoke(unittest.TestCase):
             self.assert_layout()
             if width == 1440:
                 self.page.screenshot(path=str(ARTIFACTS / 'ayuda-parametro.png'))
+                other=self.page.evaluate('''()=>{const tip=document.querySelector('#hint-partMass').getBoundingClientRect();return [...document.querySelectorAll('[data-help]')].find(el=>{const r=el.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2;return el.dataset.help!=='partMass'&&r.width&&y>0&&y<innerHeight&&!(x>=tip.left&&x<=tip.right&&y>=tip.top&&y<=tip.bottom);})?.dataset.help}''')
+                self.assertIsNotNone(other)
+                self.page.locator(f'[data-help="{other}"]').hover();self.assertTrue(self.page.locator('#hint-partMass').is_visible())
+                self.page.locator(f'[data-help="{other}"]').click();self.assertTrue(self.page.locator('#hint-partMass').is_hidden());self.assertTrue(self.page.locator('#hint-'+other).is_visible())
             self.page.keyboard.press('Escape')
         # Un toque abre y otro cierra, sin hover disponible.
         context = self.browser.new_context(is_mobile=True, has_touch=True, viewport={'width':390,'height':844})
@@ -858,7 +862,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.locator('#density-help > details > summary').click()
         for width in [320,390,768,1440]:
             self.page.set_viewport_size({'width':width,'height':900})
-            self.page.wait_for_function("(()=>{const r=document.querySelector('#hint-meltDensity').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight})()")
+            self.page.wait_for_function("(()=>{const tip=document.querySelector('#hint-meltDensity'),r=tip.getBoundingClientRect();return !tip.hidden&&r.width>0&&r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight})()")
         self.page.locator('#density-policy').select_option('verified_only')
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'')
         self.page.locator('[data-field="meltDensity"]').fill('0.8');self.help('meltDensity')
