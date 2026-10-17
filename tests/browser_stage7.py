@@ -16,6 +16,7 @@ class Stage7(Stage6):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        if os.environ.get('CCIP_STAGE7_DIST')=='1':cls.url+='dist/'
         if os.environ.get('CCIP_STAGE7_URL'):cls.url=os.environ['CCIP_STAGE7_URL']
 
     def test_J01_seven_processes_three_levels_eight_widths_two_languages(self):
@@ -116,6 +117,26 @@ class Stage7(Stage6):
         self.page.go_back();self.assertEqual(self.page.locator('#level').input_value(),'technical')
         self.page.go_forward();self.assertEqual(self.page.locator('#level').input_value(),'advanced')
         self.page.reload();self.assertEqual(self.page.locator('#process-select').input_value(),'extrusion');self.assertEqual(self.page.locator('#level').input_value(),'advanced')
+
+    def test_J08_restore_and_active_export_show_original_snapshot_until_explicit_calculate(self):
+        old={'id':'stage7-historical-fixture','name':'Original historic result','module':'inyeccion','level':'basic','date':'2025-02-01T01:02:03Z','inputs':{'method':'mass','partMass':'1','cavities':'1'},'metrics':[{'label':'Shot calculado (masa)','value':987.654321,'unit':'g','formula':'Recorded old model','precision':6}],'warnings':['Historical fixture, do not recalculate'],'notes':[]}
+        self.page.evaluate('(x)=>localStorage.setItem("ccip-calculators-web-v1",JSON.stringify([x]))',old);self.page.reload()
+        self.page.locator('[data-history]').click();self.open_results()
+        self.assertIn('987.654321',self.page.locator('#metrics').inner_text());self.assertNotIn('2026',self.page.locator('#result-date').inner_text())
+        stored=self.stored()[0];self.page.locator('#language').select_option('en')
+        self.assertIn('987.654321',self.page.locator('#metrics').inner_text())
+        path=self.download('json');exported=json.loads(path.read_text());exported.pop('export_metadata')
+        self.assertEqual(exported,stored);self.assertEqual(self.stored()[0],stored)
+        self.page.locator('#calculate').click();self.assertNotIn('987.654321',self.page.locator('#metrics').inner_text())
+        self.assertEqual(self.stored()[0],stored)
+
+    def test_J09_editing_restored_profile_invalidates_readonly_export_without_mutating_history(self):
+        self.fill_case('inyeccion',VARIANTS[0][1]);self.save_case('Profile edit after restore');stored=self.stored()[0]
+        self.page.locator('[data-history]').click();self.page.locator('#profile-details > summary').click()
+        self.page.locator('#profile-fraction-0').fill('25');self.page.locator('#profile-fraction-1').fill('55')
+        path=self.download('json');exported=json.loads(path.read_text())
+        self.assertEqual(exported['injection_profile_settings']['fractions'],[25,55,20]);self.assertTrue(exported['injection_profile_settings']['enabled'])
+        self.assertEqual(self.stored()[0],stored)
 
 if __name__=='__main__':
     names=[n for n in unittest.defaultTestLoader.getTestCaseNames(Stage7) if n.startswith('test_J')]

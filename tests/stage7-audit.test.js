@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,mkdtempSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {calculate} from '../src/engine.js';
 import {modules} from '../src/schema.js';
 import {calculateInjectionProfile} from '../src/injection-profile.js';
@@ -10,8 +11,9 @@ import {prepareDryingCase} from '../src/drying-assessment.js';
 import {createMaterialState} from '../src/materials.js';
 import {loadHistoryState,storageKey} from '../src/history.js';
 import {persistUserMaterials,USER_KEY} from '../src/custom-materials.js';
+import {snapshotPresentation} from '../src/snapshot-view.js';
 import {versionPagesAssets,preserveArchivedAssets} from '../scripts/version-pages-assets.mjs';
-import {verifyArtifact,preservePublishedArchives,validateReleaseGate,repository} from '../scripts/pages-integrity.mjs';
+import {verifyArtifact,preservePublishedArchives,validateReleaseGate,repository,readGitBlob} from '../scripts/pages-integrity.mjs';
 const fixtures=JSON.parse(readFileSync(new URL('./fixtures-stage7-numerics.json',import.meta.url)));
 for(const c of fixtures)test('Etapa 7 referencia Decimal independiente: '+c.name,()=>{
  const result=calculate(c.process,c.inputs,'advanced');assert.equal(result.metrics.length,c.expected.length);
@@ -94,4 +96,23 @@ test('Etapa 7 puerta de publicación exige evidencia completa del commit exacto'
  for(const key of keys)assert.throws(()=>validateReleaseGate({...gate,requirements:{...gate.requirements,[key]:false}},source,tree,previous),/NO-GO/);
  assert.throws(()=>validateReleaseGate(gate,previous,tree,previous),/NO-GO/);
  assert.throws(()=>validateReleaseGate({...gate,ci:{...gate.ci,conclusion:'failure'}},source,tree,previous),/NO-GO/);
+});
+test('Etapa 7 inspección de ZIP publicado admite blobs de más de 1 MiB',()=>{
+ const dir=mkdtempSync(join(tmpdir(),'ccip-large-git-blob-'));
+ try{
+  const git=args=>execFileSync('git',args,{cwd:dir,stdio:'ignore'});
+  git(['init']);const bytes=Buffer.alloc(2*1024*1024,65);writeFileSync(join(dir,'archive.zip'),bytes);git(['add','archive.zip']);
+  git(['-c','user.name=CCIP Test','-c','user.email=ccip-test@example.invalid','commit','-m','Synthetic binary fixture']);
+  assert.deepEqual(readGitBlob(dir,'HEAD','archive.zip'),bytes);
+ }finally{rmSync(dir,{recursive:true,force:true});}
+});
+test('Etapa 7 presentación histórica conserva números sin recalcular ni modificar el original',()=>{
+ const record={metrics:[{label:'Historical',value:987.654321,unit:'g',precision:6}],warnings:['old warning'],injection_profile:{valid:true,stages:[30,50,20].map((fraction,i)=>({fraction,label:'untrusted '+i,volume_cm3:i}))}};
+ const before=structuredClone(record),view=snapshotPresentation(record);
+ assert.equal(view.metrics[0].value,987.654321);assert.deepEqual(view.injection_profile.stages.map(s=>s.label),['L1','L2','L3']);assert.deepEqual(record,before);
+});
+test('Etapa 7 presentación rechaza perfil manipulado y tolera estructura histórica dañada',()=>{
+ const record={metrics:[null,{value:'<img>',precision:999}],warnings:{unexpected:true},input_issues:[null],drying_assessment:{pending:{}},machine_assessment:{checks:[null,{actual:'bad'}],pending:{},notes:{}},injection_profile:{valid:true,stages:[{fraction:'0; color:red'}]}};
+ const before=structuredClone(record),view=snapshotPresentation(record);
+ assert.equal(view.metrics[0].value,null);assert.equal(view.metrics[0].precision,2);assert.deepEqual(view.input_issues,[]);assert.equal(view.injection_profile,null);assert.deepEqual(view.machine_assessment.checks,[]);assert.deepEqual(record,before);
 });

@@ -1,4 +1,5 @@
 import {cpSignature} from './drying-evidence.js';
+import {snapshotPresentation} from './snapshot-view.js';
 import {readHistory} from './history.js';
 import {createExplorer} from './material-explorer-view.js';
 import {mergeSharedAndLocal,emptySharedCatalog,validateSharedCatalog} from './shared-materials.js';
@@ -47,6 +48,7 @@ const savedHistory = () => {try{return readHistory(localStorage);}catch{return [
 const initialOrigins = () => Object.fromEntries(mod().fields.filter(f => f.default !== undefined && f.default !== "").map(f => [f.key, state.id==="secado" && f.key==="startT" ? "operating_assumption" : "default_example"]));
 
 function invalidate() {
+  state.currentSnapshot=null;
   $("result-date").textContent = "Pendientes";
   $("summary-metrics").innerHTML = '<p class="muted">Los resultados aparecerán aquí al calcular.</p>';
   $("usage").innerHTML = "";if($("drying-calculation-status"))$("drying-calculation-status").replaceChildren();
@@ -202,9 +204,10 @@ function drawMachines(assessment=state.machine.assessment||null) {
   });
 }
 function drawProfile(result) {
+  let rendered=JSON.stringify(state.profile);
   renderInjectionProfile($("injection-profile"), {
     moduleId: state.id, level: state.level, settings: state.profile, result,
-    onSettings: settings => { state.profile = settings; }
+    onSettings: settings => {const next=JSON.stringify(settings);if(next!==rendered)state.currentSnapshot=null;rendered=next;state.profile = settings;}
   });
 }
 function drawDensity() {
@@ -360,13 +363,25 @@ function compute() {
   if(injectionProfile&&a.formulation_assessment?.approximate){injectionProfile.estimate_basis='mixture_model';injectionProfile.note=injectionProfile.note?.replaceAll('densidad de familia','densidad de formulación').replaceAll('referencia de familia','modelo de formulación');}
   const issues=inputIssues(state.id,inputs,state.level,a);
   for(const issue of issues)if(!a.warnings.includes(issue.message))a.warnings.push(issue.message);
-  const visible=displayMetrics(a);
+  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins},...(state.id==='secado'||state.machine.id||state.machine.reused_from?{retained_inputs:{...state.values}}:{})},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, machine:machineSnapshot(state.machine,inputs,state.origins), material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
+  state.currentSnapshot=structuredClone(item);
+  renderCalculation(item);
+  return item;
+}
+
+function renderCalculation(item) {
+  item=snapshotPresentation(item);
+  const visible=displayMetrics(item);
+  const issues=item.input_issues;
+  const injectionProfile=item.injection_profile||null;
+  const drying={assessment:item.drying_assessment||{pending:[]},warnings:item.warnings||[]};
+  state.machine.assessment=item.machine_assessment||null;
+  renderMachineAssessment($("machine-assessment"),state.machine.assessment);
   const dryingStatus=$('drying-calculation-status');dryingStatus.hidden=state.id!=='secado';
   if(state.id==='secado'){
     const status=dryingStatus;
     status.innerHTML=(drying.assessment.pending.length?'<h3>Resultados de secado pendientes</h3>'+drying.assessment.pending.map(p=>`<p>${safe(p.message)}</p>`).join(''):'<p>Resultados nominales del polímero; no certifican capacidad ni potencia de una máquina.</p>')+drying.warnings.filter(w=>w.startsWith('Cp constante:')).map(w=>`<p>${safe(w)}</p>`).join('');
   }else dryingStatus.replaceChildren();
-  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins},...(state.id==='secado'||state.machine.id||state.machine.reused_from?{retained_inputs:{...state.values}}:{})},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, machine:machineSnapshot(state.machine,inputs,state.origins), material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => visible.find(m => m.label === label)).filter(Boolean);
@@ -384,7 +399,6 @@ function compute() {
   }
   $("messages").innerHTML=issues.filter(x=>!x.field).map(x=>`<p class="warning">${safe(x.message)}</p>`).join('');
   drawProfile(injectionProfile);
-  return item;
 }
 
 function restoreHistoryItem(item) {
@@ -400,14 +414,14 @@ function restoreHistoryItem(item) {
     $("level").value = state.level;
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
-    drawFields();drawMaterials();drawMachines();drawProfile(null);renderHistory();compute();
+    drawFields();drawMaterials();drawMachines();renderHistory();state.currentSnapshot=structuredClone(item);renderCalculation(item);
     history.replaceState({ccipView:'calculator'},'',activeCalculatorUrl());
 }
 
 $("calculate").addEventListener("click", compute);
 $("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.machine = newMachineState(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw();history.pushState({ccipView:'calculator'},'',activeCalculatorUrl()); });
-historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:compute,onRestore:restoreHistoryItem,onChange:()=>{if(state.id==='costos')drawMachines();}});
+historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:()=>state.currentSnapshot?structuredClone(state.currentSnapshot):compute(),onRestore:restoreHistoryItem,onChange:()=>{if(state.id==='costos')drawMachines();}});
 state.origins = initialOrigins();
 state.values = initialValues();
 draw();

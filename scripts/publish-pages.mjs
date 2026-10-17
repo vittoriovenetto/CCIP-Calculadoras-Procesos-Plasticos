@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import {createHash} from 'node:crypto';
-import {verifyArtifact,preservePublishedArchives,validateReleaseGate} from './pages-integrity.mjs';
+import {verifyArtifact,preservePublishedArchives,validateReleaseGate,readGitBlob} from './pages-integrity.mjs';
 const root = dirname(dirname(fileURLToPath(import.meta.url))), site = join(root, 'dist');
 const metadata = JSON.parse(readFileSync(join(site, 'deployment.json'), 'utf8'));
 const git = (args, options = {}) => execFileSync('git', args, { cwd: root, encoding: 'utf8', ...options }).trim();
@@ -30,7 +30,7 @@ try {
     if(parent!==expected)throw Error('gh-pages cambió durante la preparación.');
     const historical={};
     for(const path of git(['ls-tree','-r','--name-only',parent,'--','versions/','downloads/','assets/']).split('\n').filter(Boolean)){
-      historical[path]=createHash('sha256').update(execFileSync('git',['show',parent+':'+path],{cwd:root})).digest('hex');
+      historical[path]=createHash('sha256').update(readGitBlob(root,parent,path)).digest('hex');
     }
     preservePublishedArchives(historical,artifact.files);
     parents.push('-p',parent);

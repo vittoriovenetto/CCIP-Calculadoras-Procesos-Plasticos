@@ -4,8 +4,9 @@ import {existsSync,mkdirSync,writeFileSync,readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {readGitBlob} from './pages-integrity.mjs';
 const root=dirname(dirname(fileURLToPath(import.meta.url)));
-const git=(args,encoding='utf8')=>execFileSync('git',args,{cwd:root,encoding});
+const git=(args,encoding='utf8')=>execFileSync('git',args,{cwd:root,encoding,maxBuffer:128*1024*1024});
 const ref=process.argv[2],name=process.argv[3];
 if(!ref||!/^antes-etapa-7-\d{4}-\d{2}-\d{2}$/.test(name||''))throw Error('Usage: node scripts/archive-pages.mjs REF antes-etapa-7-YYYY-MM-DD');
 const sha=git(['rev-parse','--verify',ref+'^{commit}']).trim();
@@ -16,7 +17,7 @@ const files=git(['ls-tree','-r','--name-only',sha]).trim().split('\n').filter(p=
 if(!files.includes('index.html')||!files.includes('deployment.json')||!files.some(p=>p.startsWith('src/')))throw Error('Incomplete Pages artifact.');
 const hashes={};
 for(const path of files){
- const bytes=git(['show',sha+':'+path],null),target=join(base,path);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,bytes);
+ const bytes=readGitBlob(root,sha,path),target=join(base,path);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,bytes);
  hashes[path]=createHash('sha256').update(bytes).digest('hex');
 }
 mkdirSync(dirname(zip),{recursive:true});

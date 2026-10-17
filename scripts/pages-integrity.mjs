@@ -1,8 +1,10 @@
 import {readFileSync,readdirSync,lstatSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join,relative} from 'node:path';
+import {execFileSync} from 'node:child_process';
 export const repository='vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos';
 export const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
+export const readGitBlob=(cwd,ref,path)=>execFileSync('git',['show',ref+':'+path],{cwd,maxBuffer:128*1024*1024});
 export function artifactFiles(root){
  const files={};
  function walk(dir){for(const name of readdirSync(dir).sort()){
