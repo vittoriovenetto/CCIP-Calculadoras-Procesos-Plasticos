@@ -1,5 +1,10 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Etapa 6 — catálogo de maquinarias y validación de capacidad (PR de revisión)
+
+Se incorporan seis fichas técnicas de fabricante en los procesos de inyección, extrusión, película soplada, soplado de envases, termoformado y secado. La precarga de diámetro de husillo y carrera solo se activa cuando el usuario confirma la variante ARBURG documentada; los rangos de series no generan propiedades de una máquina configurada. La comparación con fuerza de cierre convierte tf a kN. El historial y los archivos Excel/PDF incluyen fuente y snapshot del equipo sin recalcular datos históricos. [Documentación, fuentes y límites](docs/etapa-6/README.md). Sin merge ni deploy.
+
+
 ## Etapa 5 — secado trazable (PR de revisión)
 
 Se conserva la selección de nueve grados documentados; caudal inicialmente vacío y editable, temperatura de entrada de 25 °C como supuesto editable, y límite superior del rango de tiempo como propuesta nominal trazable. La potencia sensible requiere Cp sólido documentado y un intervalo térmico compatible; no predice potencia eléctrica total, humedad final ni dimensionamiento definitivo. Véase [especificación y pruebas](docs/etapa-5-secado.md). Sin merge ni deploy.
