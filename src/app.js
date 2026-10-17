@@ -285,7 +285,13 @@ function fieldHelp(f) {
   if(state.id==='secado'&&f.key==='specificHeat')return renderManualData(state.material,'secado','advanced');
   if(state.id==='secado'&&f.key==='residence') {
     const p=state.material.grade_snapshot?.properties.drying_time;
-    return `<p>El tiempo de ficha es una guía de residencia nominal, no garantiza humedad final; comprueba secador, humedad inicial y punto de rocío.</p>${p?.range?`<p>Rango: ${safe(p.range[0])}–${safe(p.range[1])} h. Inicialmente se propone el límite superior ${safe(p.range[1])} h (editable), no un promedio ni un dato medido.</p>`:''}`;
+    const note = getLanguage()==='en'
+      ? 'The datasheet time is a nominal residence guideline, not a guarantee of final moisture; verify dryer, initial moisture and dew point.'
+      : 'El tiempo de ficha es una guía de residencia nominal, no garantiza humedad final; comprueba secador, humedad inicial y punto de rocío.';
+    const rangeNote = p?.range ? (getLanguage()==='en'
+      ? `<p>Range: ${safe(p.range[0])}–${safe(p.range[1])} h. The upper bound ${safe(p.range[1])} h is proposed initially (editable), not a mean or a measured drying time.</p>`
+      : `<p>Rango: ${safe(p.range[0])}–${safe(p.range[1])} h. Inicialmente se propone el límite superior ${safe(p.range[1])} h (editable), no un promedio ni un dato medido.</p>`) : '';
+    return `<p>${note}</p>${rangeNote}`;
   }
   if(state.id==='secado'&&f.key==='bulkDensity')return `<label for="material-physicalForm">Presentación real del material</label><select id="material-physicalForm" data-material-context="physicalForm"><option value="">Sin confirmar</option>${['pellets','powder'].map(x=>`<option ${state.material.context.physicalForm===x?'selected':''}>${x}</option>`).join('')}</select><label><input id="material-bulkCompatible" data-material-context="bulkCompatible" type="checkbox" ${state.material.context.bulkCompatible?'checked':''}>Confirmo método y condiciones de densidad aparente, incluida presentación/tamaño del material.</label>`;
   return '';

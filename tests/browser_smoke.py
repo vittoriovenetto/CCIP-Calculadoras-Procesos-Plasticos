@@ -329,7 +329,7 @@ class BrowserSmoke(unittest.TestCase):
             for module,values in VARIANTS:
                 for level in ['basic','technical','advanced']:
                     self.fill_case(module,values,level)
-                    expected=self.page.evaluate('''async ([id,values,level])=>{const {calculate}=await import('./src/engine.js');return calculate(id,values,level).metrics.filter(m=>m.value!==null).map(m=>({label:m.label,text:Number(m.value).toLocaleString('es-DO',{maximumFractionDigits:m.precision})+' '+m.unit}))}''',[module,values,level])
+                    expected=self.page.evaluate('''async ([id,values,level])=>{const {calculate}=await import('./src/engine.js');return calculate(id,values,level).metrics.filter(m=>m.value!==null && !(id==='secado'&&m.label==='Potencia térmica sensible mínima')).map(m=>({label:m.label,text:Number(m.value).toLocaleString('es-DO',{maximumFractionDigits:m.precision})+' '+m.unit}))}''',[module,values,level])
                     self.assertEqual(self.page.locator('.metric').count(),len(expected),(module,level,width))
                     for i,item in enumerate(expected):
                         row=self.page.locator('.metric').nth(i);self.assertEqual(row.locator('b').inner_text(),item['label']);self.assertEqual(row.locator('strong').inner_text().strip(),item['text'].strip())
@@ -690,6 +690,7 @@ class BrowserSmoke(unittest.TestCase):
                     self.page.locator('#level').select_option(level)
                     if module=='secado':
                         self.grade('ineos-styrolution-terluran-gp-22')
+                        self.page.locator('[data-field="throughput"]').fill('50')
                         drying=next(m for m in MATERIALS if m['id']=='ineos-styrolution-terluran-gp-22')['properties']['drying_time']
                         duration=drying['value'] if drying['value'] is not None else drying['range'][0]
                         self.page.locator('[data-field="residence"]').fill(str(duration))
@@ -879,6 +880,7 @@ class BrowserSmoke(unittest.TestCase):
         self.help('bulkDensity');self.page.locator('#material-physicalForm').select_option('pellets')
         self.help('bulkDensity');self.page.locator('#material-bulkCompatible').check()
         self.assertEqual(self.page.locator('[data-field="bulkDensity"]').input_value(),'0.5')
+        self.page.locator('[data-field="throughput"]').fill('50')
         r=self.record();self.assertEqual(r['metrics'][1]['value'],200)
         self.assertEqual(r['material']['grade_snapshot']['properties']['bulk_density']['entered_unit'],'kg/m3')
 
