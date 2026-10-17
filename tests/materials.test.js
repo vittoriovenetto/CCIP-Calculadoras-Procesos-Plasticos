@@ -68,7 +68,7 @@ test('PA6: confirma secador/formulación; precarga 0.7 kg/L, 4 h, 80 °C y no cp
   state.context.bulkCompatible = true; state.context.physicalForm = 'pellets'; state.context.dryingCompatible = true;
   applyMaterial(state, module('secado'), values, 'advanced');
   assert.deepEqual([values.bulkDensity, values.residence, values.targetT, values.specificHeat], [0.7, 4, 80, '']);
-  const output = calculate('secado', values);
+  const output = calculate('secado', {...values, throughput: 50});
   assert.equal(output.metrics[0].value, 200);
   assert.ok(Math.abs(output.metrics[1].value - 200 / 0.7) < 1e-10);
 });

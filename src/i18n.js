@@ -4,6 +4,8 @@ import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
 export const translations = {
+"Caudal REAL de alimentación de la línea. Introducir o medir; nunca se infiere del grado ni se precarga.":"Actual production-line feed rate. Enter or measure it; never infer it from the resin grade or prefill it.",
+"Temperatura real de entrada de la granza. 25 °C es solo un supuesto inicial editable, no una propiedad del fabricante.":"Actual pellet inlet temperature. 25 °C is only an editable starting assumption, not a manufacturer property.",
 "Referencia de GitHub no válida para este repositorio.":"Invalid GitHub reference for this repository.",
 "Propuesta de material no válida.":"Invalid material proposal.",
 "Propuesta demasiado grande.":"Proposal is too large.",
