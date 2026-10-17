@@ -59,7 +59,7 @@ function invalidate() {
   for(const input of document.querySelectorAll('[data-field]')) input.removeAttribute('aria-invalid');
 }
 
-function selectProcess(id) {
+function selectProcess(id, push=true) {
   if (!modules.some(m => m.id === id)) return;
   sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, machine: state.machine, filters: state.filters });
   const selectedGrade = state.material.grade_snapshot?.id;
@@ -71,7 +71,8 @@ function selectProcess(id) {
   state.machine = session?.machine || newMachineState();
   state.filters = session?.filters || { family: "", manufacturer: "" };
   if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
-  closeLearning();draw();
+  closeLearning(false);draw();
+  if(push)history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
 }
 
 function nav() {
@@ -101,11 +102,14 @@ const learningLink = label => `<a class="result-learning" href="${safe(guideHref
 const calculatorUrl = new URL(location.href);
 for(const key of ['view','process','level','material'])calculatorUrl.searchParams.delete(key);
 calculatorUrl.hash='';
+function activeCalculatorUrl(){
+  const url=new URL(calculatorUrl);url.searchParams.set('process',state.id);url.searchParams.set('level',state.level);return url;
+}
 function closeLearning(push=true) {
   if($("learning-view").hidden && $("materials-view").hidden)return;
   explorer?.returnEditor();$("materials-view").hidden=true;$("materials-page").removeAttribute("aria-current");$("calculator-page").setAttribute("aria-current","page");
   $("learning-view").hidden=true;$("calculator-view").hidden=false;$("learn-page").removeAttribute("aria-current");
-  if(push)history.pushState({ccipView:'calculator'},'',calculatorUrl);
+  if(push)history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
   $("module-title").setAttribute('tabindex','-1');$("module-title").focus({preventScroll:true});
 }
 function showLearning(href,push=true) {
@@ -131,7 +135,19 @@ function showMaterials(key='',push=true){
 }
 $("calculator-page").addEventListener("click",e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();closeLearning();});
 $("materials-page").addEventListener('click',e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();showMaterials();});
-function routeView(){const url=new URL(location.href),view=url.searchParams.get('view');if(view==='learning')showLearning(url,false);else if(view==='materials')showMaterials(url.searchParams.get('material')||'',false);else closeLearning(false);}
+function routeView(){
+  const url=new URL(location.href),view=url.searchParams.get('view');
+  if(view==='learning')showLearning(url,false);
+  else if(view==='materials')showMaterials(url.searchParams.get('material')||'',false);
+  else {
+    const process=url.searchParams.get('process'),level=url.searchParams.get('level');
+    const changedLevel=['basic','technical','advanced'].includes(level)&&state.level!==level;
+    if(changedLevel)state.level=level;
+    if(modules.some(m=>m.id===process)&&process!==state.id)selectProcess(process,false);
+    else if(changedLevel)draw();
+    closeLearning(false);
+  }
+}
 addEventListener('popstate',routeView);
 
 
@@ -385,11 +401,12 @@ function restoreHistoryItem(item) {
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
     drawFields();drawMaterials();drawMachines();drawProfile(null);renderHistory();compute();
+    history.replaceState({ccipView:'calculator'},'',activeCalculatorUrl());
 }
 
 $("calculate").addEventListener("click", compute);
 $("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.machine = newMachineState(); state.filters = { family: "", manufacturer: "" }; draw(); });
-$("level").addEventListener("change", e => { state.level = e.target.value; draw(); });
+$("level").addEventListener("change", e => { state.level = e.target.value; draw();history.pushState({ccipView:'calculator'},'',activeCalculatorUrl()); });
 historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:compute,onRestore:restoreHistoryItem,onChange:()=>{if(state.id==='costos')drawMachines();}});
 state.origins = initialOrigins();
 state.values = initialValues();

@@ -4,6 +4,10 @@ import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
 export const translations = {
+"Los materiales guardados contienen datos no compatibles o dañados. No se sobrescriben; conserva una copia del almacenamiento antes de recuperarlos.":"Stored materials contain incompatible or damaged data. They are not overwritten; keep a copy of the storage before recovery.",
+"Biblioteca compartida no disponible":"Shared library unavailable",
+"Temperatura inicial: 25 °C es un supuesto operativo editable, no una propiedad medida del grado.":"Initial temperature: 25 °C is an editable operating assumption, not a measured grade property.",
+"Tiempo de residencia: valor nominal propuesto en el extremo superior del rango de ficha; confirmar con humedad inicial, secador y punto de rocío.":"Residence time: nominal value proposed at the upper datasheet range bound; confirm initial moisture, dryer and dew point.",
 "Máquina: el caso queda fuera de un límite publicado; verifica la configuración real.":"Machine: the case falls outside a published limit; verify the actual configuration.",
 "Especificación del equipo confirmada":"Confirmed machine specification",
 "Entrada reutilizada de un cálculo identificado":"Input reused from an identified calculation",

@@ -133,7 +133,17 @@ export function listUserMaterials() {
 }
 export function persistUserMaterials(records) {
   const clean = unique(records);
-  try { localStorage.setItem(USER_KEY,JSON.stringify(clean)); } catch { fail('No se pudieron guardar los materiales en este navegador.'); }
+  let previous;
+  try { previous=localStorage.getItem(USER_KEY); } catch { fail('No se pudieron guardar los materiales en este navegador.'); }
+  // A filtered read must never silently replace damaged or newer storage.
+  if(previous!==null){
+    try { if(previous.length>2_000_000)throw Error();unique(JSON.parse(previous)); }
+    catch { fail('Los materiales guardados contienen datos no compatibles o dañados. No se sobrescriben; conserva una copia del almacenamiento antes de recuperarlos.'); }
+  }
+  try {
+    if(localStorage.getItem(USER_KEY)!==previous)throw Error();
+    localStorage.setItem(USER_KEY,JSON.stringify(clean));
+  } catch { fail('No se pudieron guardar los materiales en este navegador.'); }
   return clean;
 }
 export const exportUserMaterials = (records = listUserMaterials()) => JSON.stringify({schema_version:'ccip-custom-materials/1',materials:unique(records)},null,2);

@@ -1,9 +1,9 @@
 name: Validate CCIP web
 on:
   push:
-    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "feature/buscador-comparador-catalogo", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache", "feature/historial-nombres-comparacion-limpiar", "feature/etapa-1-identidad-aprendizaje", "feature/etapa-2-historial-exportaciones", "feature/etapa-3-materiales-fluidez-reciclados", "feature/etapa-4-explorador-aportes", "feature/etapa-5-secado-acondicionamiento", "feature/etapa-6-catalogo-maquinarias"]
+    branches: ["feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "feature/buscador-comparador-catalogo", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache", "feature/historial-nombres-comparacion-limpiar", "feature/etapa-1-identidad-aprendizaje", "feature/etapa-2-historial-exportaciones", "feature/etapa-3-materiales-fluidez-reciclados", "feature/etapa-4-explorador-aportes", "feature/etapa-5-secado-acondicionamiento", "feature/etapa-6-catalogo-maquinarias", "feature/etapa-7-auditoria-publicacion"]
   pull_request:
-    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache", "feature/historial-nombres-comparacion-limpiar", "feature/etapa-1-identidad-aprendizaje", "feature/etapa-2-historial-exportaciones", "feature/etapa-3-materiales-fluidez-reciclados", "feature/etapa-4-explorador-aportes", "feature/etapa-5-secado-acondicionamiento"]
+    branches: ["feature/web-v1-modular", "feature/catalogo-90-i18n-formulas", "fix/ocultar-propiedades-no-documentadas", "audit/materiales-minimo-3-propiedades", "feature/ux-lean-materiales-v1.5", "feature/auditoria-lean-10-capturas", "fix/selector-materiales-cache", "feature/historial-nombres-comparacion-limpiar", "feature/etapa-1-identidad-aprendizaje", "feature/etapa-2-historial-exportaciones", "feature/etapa-3-materiales-fluidez-reciclados", "feature/etapa-4-explorador-aportes", "feature/etapa-5-secado-acondicionamiento", "feature/etapa-6-catalogo-maquinarias"]
 permissions:
   contents: read
 jobs:
@@ -30,6 +30,11 @@ jobs:
         run: |
           python -m pip install -r tests/requirements.txt
           python -m playwright install --with-deps chromium
+      - name: Independent numerical and inventory audit
+        run: |
+          python scripts/validate-numerics-stage7.py
+          node scripts/audit-machine-catalog.mjs --require-complete
+          node scripts/audit-stage7.mjs
       - name: Browser smoke test
         env:
           CCIP_TEST_ARTIFACTS: test-artifacts
@@ -57,6 +62,10 @@ jobs:
         env:
           CCIP_TEST_ARTIFACTS: test-artifacts/etapa-5
         run: python tests/browser_stage5.py
+      - name: Stage 7 responsive, independent references and security regression
+        env:
+          CCIP_TEST_ARTIFACTS: test-artifacts/etapa-7
+        run: python tests/browser_stage7.py
       - name: Check built Pages assets against stale browser cache
         run: |
           npm run build:pages
