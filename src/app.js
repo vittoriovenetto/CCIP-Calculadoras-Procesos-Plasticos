@@ -386,7 +386,7 @@ explorer=createExplorer($("materials-view"),{
  },
  onCopy:entry=>{const copy=structuredClone(entry.material);copy.id=makeCustomMaterial({family:copy.family,grade:copy.grade}).id;copy.grade+=' (copia local)';delete copy.shared_metadata;delete copy.shared_revision;persistUserMaterials([...listUserMaterials(),copy]);refreshPersonalCatalog();drawCustomEditor();showMaterials(copy.id);}
 });
-document.addEventListener('ccip-language-change',()=>{drawMaterials();drawMachines();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
+document.addEventListener('ccip-language-change',()=>{drawFields();drawMaterials();drawMachines();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
 routeView();
 
 

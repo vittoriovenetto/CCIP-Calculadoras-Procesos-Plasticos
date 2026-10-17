@@ -4,6 +4,7 @@ import { extraTranslations } from "./i18n-extended.js";
 // Browser-only ES/EN localization. Display-layer translations never change
 // property keys, units, stored material data or mathematical calculations.
 export const translations = {
+"Calor específico medio: para calcular potencia sensible, documenta Cp de fase sólida, intervalo que incluya ambas temperaturas y fuente/método. El valor sin evidencia se conserva en la entrada, pero NO participa en el cálculo.":"Mean specific heat: to calculate sensible heating power, provide solid-phase Cp, a temperature interval covering both temperatures, and its source/method. The unsupported input is retained but does NOT enter the calculation.",
 "Caudal REAL de alimentación de la línea. Introducir o medir; nunca se infiere del grado ni se precarga.":"Actual production-line feed rate. Enter or measure it; never infer it from the resin grade or prefill it.",
 "Temperatura real de entrada de la granza. 25 °C es solo un supuesto inicial editable, no una propiedad del fabricante.":"Actual pellet inlet temperature. 25 °C is only an editable starting assumption, not a manufacturer property.",
 "Referencia de GitHub no válida para este repositorio.":"Invalid GitHub reference for this repository.",
