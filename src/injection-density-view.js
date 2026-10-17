@@ -1,3 +1,4 @@
+import {activeFormulation} from './recycled.js';
 import { familyReference } from './injection-density.js';
 import { safe } from './materials-view.js';
 import { safeSourceUrl } from './materials.js';
@@ -7,7 +8,7 @@ import { t } from './i18n.js';
 export function renderInjectionDensity(root,{state,onChange,onUseReference}) {
   if (!root) return;
   const open=root.querySelector('details')?.open||false;
-  const ref=familyReference(state.grade_snapshot?.family,state.context),strict=state.context.meltDensityPolicy==='verified_only';
+  const ref=(activeFormulation(state)||['recycled','blend'].includes(state.grade_snapshot?.user_details?.material_kind))?null:familyReference(state.grade_snapshot?.family,state.context),strict=state.context.meltDensityPolicy==='verified_only';
   const control=(key,label,type='text')=>`<label for="material-${key}">${safe(t(label))}<input id="material-${key}" data-density-context="${key}" type="${type}" ${type==='number'?'step="any"':''} value="${safe(state.context[key])}"></label>`;
   root.innerHTML=`<p>${safe(t('Las referencias de familia son estimaciones; no son propiedades certificadas del grado ni datos pVT. No se usa densidad sólida ni factor de caliente.'))}</p>
     ${ref?`<p><b>${safe(ref.family)}: ${safe(ref.value)} ${safe(ref.unit)}</b><br><span data-i18n-ignore>${safe(ref.source.publisher)} · ${safe(ref.source.title)}</span><br>${safe(t(ref.source.locator||''))} · ${safeSourceUrl(ref.source.url)?`<a href="${safe(ref.source.url)}" target="_blank" rel="noopener">${safe(t('Ver fuente'))}</a>`:''}<br>${safe(t(ref.conditions.applicability))}</p>`:''}

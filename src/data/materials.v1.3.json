@@ -10,40 +10,45 @@
       "grade": "DOW 12450N (HDPE)",
       "url": "https://www.dow.com/en-us/pdp.dow-12450n-high-density-polyethylene-resin.47054z.html",
       "description": "Página del fabricante; propiedades típicas",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S02": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045G (LLDPE)",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2045g-polyethylene-resin.7650z.html",
       "description": "Página del fabricante; propiedades típicas",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S03": {
       "manufacturer": "Dow",
       "grade": "DOW LDPE 132G",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-132g-low-density-polyethylene-resin.110928z.html",
       "description": "Página del fabricante; propiedades típicas",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S04": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP500N (PP)",
       "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP500N/e8c2d3bb-d271-459f-a439-629a5d85a7da",
       "description": "Ficha técnica PP; valores típicos; 2026",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S05": {
       "manufacturer": "Indorama Ventures",
       "grade": "Polyclear Refresh PET 1101",
       "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Refresh-PET-1101-Rev-16.pdf",
       "description": "Ficha técnica, revisión 16 de marzo de 2017; comprobar vigencia",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S06": {
       "manufacturer": "Westlake",
@@ -56,26 +61,29 @@
     "S07": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Terluran GP-22 (ABS)",
-      "url": "https://www.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_TERLURAN-GP-22_SKU300600120827.html",
       "description": "Página técnica ISO; datos típicos no coloreados",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S08": {
       "manufacturer": "BASF",
       "grade": "Ultramid B3S R03 (PA6)",
       "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd64903145168/en/ULTRAMID%253Csup%253E%25C2%25AE%253Csup%253E_B3S_R03",
       "description": "Ficha de proceso, 02/2026, método ISO",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "S09": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2405 (PC)",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2405_000000000000945088",
       "description": "Ficha web: densidad, secado, procesamiento y MVR",
-      "verification_status": "not_reconfirmed_network_blocked",
-      "verification_basis": "user_supplied_verified_library_v1.2"
+      "verification_status": "content_reviewed_exact_grade",
+      "verification_basis": "user_supplied_verified_library_v1.2",
+      "last_content_review": "2026-10-16"
     },
     "CAT-GENERIC": {
       "manufacturer": "Unknown / No definido",
@@ -88,140 +96,160 @@
       "grade": "DOW 08262B",
       "url": "https://www.dow.com/en-us/pdp.dow-08262b-high-density-polyethylene-resin.82162z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT202": {
       "manufacturer": "Dow",
       "grade": "DOW HDPE LP 8000",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-high-density-polyethylene-resin.359059z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT203": {
       "manufacturer": "Dow",
       "grade": "DOW HDPE NG6997",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-ng6997-high-density-polyethylene-resin.119863z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT205": {
       "manufacturer": "Dow",
       "grade": "DOW DMDA-8007 NT 7",
       "url": "https://www.dow.com/en-us/pdp.dow-dmda-8007-nt-7-high-density-polyethylene-resin.92941z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT206": {
       "manufacturer": "Dow",
       "grade": "DOW DGDA-5004 NT 7",
       "url": "https://www.dow.com/en-us/pdp.dow-dgda-5004-nt-7-high-density-polyethylene-resin.92904z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT207": {
       "manufacturer": "Dow",
       "grade": "DOW HDPE LP 8000 HD",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-hd-high-density-polyethylene-resin.458736z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT208": {
       "manufacturer": "Dow",
       "grade": "DOW HDPE DGDA-2484 NT",
       "url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2484-nt-high-density-polyethylene-resin.65261z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT211": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045.01G",
       "url": "https://www.dow.com/en-us/pdp.dowlex-204501g-polyethylene-resin.72471z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT212": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2645G",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT214": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045.11G",
       "url": "https://www.dow.com/en-us/pdp.dowlex-204511g-polyethylene-resin.7651z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT215": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2045",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2045-polyethylene-resin.24764z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT216": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2035",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2035-polyethylene-resin.24762z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT217": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2036.01G",
       "url": "https://www.dow.com/en-us/pdp.dowlex-203601g-polyethylene-resin.386630z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT218": {
       "manufacturer": "Dow",
       "grade": "DOWLEX 2047G",
       "url": "https://www.dow.com/en-us/pdp.dowlex-2047g-polyethylene-resin.10239z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT219": {
       "manufacturer": "Dow",
       "grade": "DOW LDPE 150E",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-150e-low-density-polyethylene-resin.19527z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT220": {
       "manufacturer": "Dow",
       "grade": "DOW LDPE 7010E",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-7010e-low-density-polyethylene-resin.206483z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT221": {
       "manufacturer": "Dow",
       "grade": "DOW 5004I",
       "url": "https://www.dow.com/en-us/pdp.dow-5004i-low-density-polyethylene-resin.20679z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT222": {
       "manufacturer": "Dow",
       "grade": "DOW LDPE 219M",
       "url": "https://www.dow.com/en-us/pdp.dow-ldpe-219m-low-density-polyethylene-resin.80207z.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT228": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP501M",
       "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP501M/1f2b1127-1a74-4107-870e-7d04f3132220",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT229": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP400R",
       "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP400R/b8c2b2d7-cbc5-46e4-8506-8031418ef728",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT230": {
       "manufacturer": "LyondellBasell",
@@ -233,9 +261,10 @@
     "CAT231": {
       "manufacturer": "LyondellBasell",
       "grade": "Moplen HP648T",
-      "url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
+      "url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP648T/5feb890b-a3a7-48df-a187-25d2dc1d7b80",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT232": {
       "manufacturer": "LyondellBasell",
@@ -277,14 +306,16 @@
       "grade": "Polyclear Preserve PET 2201",
       "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Preserve-PET-2201-Rev-13.pdf",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT240": {
       "manufacturer": "Indorama Ventures",
       "grade": "Polyclear Splash PET 3301",
       "url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear%20%C2%AE%20Splash%20PET%203301%20Rev%2015.pdf",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT246": {
       "manufacturer": "Westlake",
@@ -352,93 +383,112 @@
     "CAT255": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Terluran GP-35",
-      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_EMEA",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16",
+      "region": "EMEA",
+      "variant": null,
+      "sample_state": "uncolored_products",
+      "variant_scope": "Typical values for uncolored products; TDS does not assign the measurements to an individual NR/BK10009/color or batch suffix.",
+      "revision_original": "08/01/2022",
+      "documentary_review": "gp35-regional-review.json"
     },
     "CAT256": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Terluran HI-10",
       "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-HI-10_SKU300600120831.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT259": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur H605",
-      "url": "https://www.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-H605_SKU302200150405.html",
+      "url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-H605_SKU302200150405.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT260": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur HH-106",
       "url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-HH-106_SKU302200150417.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT261": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur HH-112",
       "url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_Novodur-HH-112_SKU302200150418.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT262": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur P2MC",
-      "url": "https://www.ineos-styrolution.com/Product/Novodur_Novodur-P2MC_SKU302100140449.html",
+      "url": "https://eshop.ineos-styrolution.com/Product/Novodur_Novodur-P2MC_SKU302100140449.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT263": {
       "manufacturer": "INEOS Styrolution",
       "grade": "Novodur P2H-AT",
       "url": "https://eshop.ineos-styrolution.com/Product/Novodur_NOVODUR-P2H-AT_SKU302100140442.html",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT264": {
       "manufacturer": "BASF",
       "grade": "Ultramid B3K",
       "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd659928f6ca1/en/ULTRAMID%25C2%25AE_B3K",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT273": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2407",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2407_000000000086286874",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT274": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2805",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2805_000000000057534382",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT276": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2856",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2856_000000000057534439",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT278": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 3105",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560",
       "description": "Referencia propuesta; verificar nombre exacto y ficha vigente antes de usar propiedades.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT275": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 2807",
-      "url": "https://solutions.covestro.com/-/media/covestro/solution-center/products/datasheets/imported/makrolon/makrolon-2807_zf_56978007-00009619-18637275.pdf",
+      "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2807_000000000086287188",
       "description": "Datos de grado exacto identificados en documentación oficial Covestro.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT277": {
       "manufacturer": "Covestro",
@@ -452,21 +502,48 @@
       "grade": "Makrolon 3106",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3106_000000000056628987",
       "description": "Datos de grado exacto identificados en documentación oficial Covestro.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT280": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 3107",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3107_000000000057534595",
       "description": "Datos de grado exacto identificados en documentación oficial Covestro.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
     },
     "CAT281": {
       "manufacturer": "Covestro",
       "grade": "Makrolon 3108",
       "url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3108_000000000000006499",
       "description": "Datos de grado exacto identificados en documentación oficial Covestro.",
-      "verification_status": "not_reconfirmed_network_blocked"
+      "verification_status": "content_reviewed_exact_grade",
+      "last_content_review": "2026-10-16"
+    },
+    "R-CAT255-ASTM-AMERICAS": {
+      "source_id": "R-CAT255-ASTM-AMERICAS",
+      "manufacturer": "INEOS Styrolution",
+      "grade": "Terluran GP-35",
+      "document_name": "Terluran GP-35 — Technical Data Sheet ASTM (America)",
+      "url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html?SKU=300600120829&SelectedRegion=Region_America",
+      "pdf_url": "https://eshop.ineos-styrolution.com/INTERSHOP/web/WFS/Styrolution-Portal-Site/en_US/-/USD/ViewPDF-Print.pdf?SKU=300600120829&RenderPageType=ProductDetail",
+      "pdf_context_required": true,
+      "document_type": "manufacturer_technical_data_sheet_and_regional_table",
+      "sku": "300600120829",
+      "region": "Americas",
+      "variant": null,
+      "sample_state": "uncolored_products",
+      "variant_scope": "Typical values for uncolored products; TDS does not assign the measurements to an individual NR/BK10009/color or batch suffix.",
+      "revision_original": "08/01/2022",
+      "publication_date": null,
+      "revision_date_interpretation": "Original date preserved; day/month convention not stated in the document.",
+      "consulted_on": "2026-10-16",
+      "sha256": "a939799fb4d1bbc5041f94d613327f6aab2a783a01217893d5435921e48ebd6e",
+      "verification_status": "content_reviewed_exact_grade",
+      "scope": "Regional typical data for the same public GP-35 SKU; not evidence of identical formulation, colored variant, production site or batch between regions.",
+      "regional_page_sha256": "810a1f373edaa77b830c3187a4bc823400f00d9da977b649b74354d50bfc48d3",
+      "sha256_scope": "PDF returned after selecting the recorded regional product context"
     }
   },
   "materials": [
@@ -566,7 +643,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-12450n-high-density-polyethylene-resin.47054z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "dow-dow-12450n"
     },
     {
       "id": "dow-dowlex-2045g",
@@ -647,7 +725,8 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "S02"
-      }
+      },
+      "research_ref": "dow-dowlex-2045g"
     },
     {
       "id": "dow-dow-ldpe-132g",
@@ -731,7 +810,8 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "S03"
-      }
+      },
+      "research_ref": "dow-dow-ldpe-132g"
     },
     {
       "id": "lyondellbasell-moplen-hp500n",
@@ -839,7 +919,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP500N/e8c2d3bb-d271-459f-a439-629a5d85a7da",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "lyondellbasell-moplen-hp500n"
     },
     {
       "id": "indorama-ventures-polyclear-refresh-pet-1101",
@@ -947,7 +1028,8 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "S05"
-      }
+      },
+      "research_ref": "indorama-ventures-polyclear-refresh-pet-1101"
     },
     {
       "id": "westlake-westlake-pvc-1195",
@@ -1058,7 +1140,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/sites/default/files/1195_1.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "westlake-westlake-pvc-1195"
     },
     {
       "id": "ineos-styrolution-terluran-gp-22",
@@ -1165,7 +1248,8 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "S07"
-      }
+      },
+      "research_ref": "ineos-styrolution-terluran-gp-22"
     },
     {
       "id": "basf-ultramid-b3s-r03",
@@ -1292,7 +1376,8 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "S08"
-      }
+      },
+      "research_ref": "basf-ultramid-b3s-r03"
     },
     {
       "id": "covestro-makrolon-2405",
@@ -1437,7 +1522,8 @@
         "checked_on": "2026-10-14",
         "reason": "network_tunnel_403",
         "source_id": "S09"
-      }
+      },
+      "research_ref": "covestro-makrolon-2405"
     },
     {
       "id": "catalog-hdpe-dow-08262b",
@@ -1526,7 +1612,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-08262b-high-density-polyethylene-resin.82162z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-08262b"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-lp-8000",
@@ -1615,7 +1702,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-high-density-polyethylene-resin.359059z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-hdpe-lp-8000"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-ng6997",
@@ -1704,7 +1792,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-ng6997-high-density-polyethylene-resin.119863z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-hdpe-ng6997"
     },
     {
       "id": "catalog-hdpe-dow-dmda-8007-nt-7",
@@ -1794,7 +1883,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-dmda-8007-nt-7-high-density-polyethylene-resin.92941z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-dmda-8007-nt-7"
     },
     {
       "id": "catalog-hdpe-dow-dgda-5004-nt-7",
@@ -1914,7 +2004,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-dgda-5004-nt-7-high-density-polyethylene-resin.92904z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-dgda-5004-nt-7"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-lp-8000-hd",
@@ -2003,7 +2094,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-lp-8000-hd-high-density-polyethylene-resin.458736z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-hdpe-lp-8000-hd"
     },
     {
       "id": "catalog-hdpe-dow-hdpe-dgda-2484-nt",
@@ -2092,7 +2184,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-hdpe-dgda-2484-nt-high-density-polyethylene-resin.65261z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-hdpe-dow-hdpe-dgda-2484-nt"
     },
     {
       "id": "generic-hdpe",
@@ -2135,7 +2228,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-hdpe"
     },
     {
       "id": "catalog-lldpe-dowlex-2045-01g",
@@ -2234,7 +2328,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-204501g-polyethylene-resin.72471z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2045-01g"
     },
     {
       "id": "catalog-lldpe-dowlex-2645g",
@@ -2343,7 +2438,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-2645g-polyethylene-resin.104295z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2645g"
     },
     {
       "id": "catalog-lldpe-dowlex-2045-11g",
@@ -2442,7 +2538,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-204511g-polyethylene-resin.7651z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2045-11g"
     },
     {
       "id": "catalog-lldpe-dowlex-2045",
@@ -2542,7 +2639,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-2045-polyethylene-resin.24764z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2045"
     },
     {
       "id": "catalog-lldpe-dowlex-2035",
@@ -2643,7 +2741,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-2035-polyethylene-resin.24762z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2035"
     },
     {
       "id": "catalog-lldpe-dowlex-2036-01g",
@@ -2742,7 +2841,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-203601g-polyethylene-resin.386630z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2036-01g"
     },
     {
       "id": "catalog-lldpe-dowlex-2047g",
@@ -2841,7 +2941,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dowlex-2047g-polyethylene-resin.10239z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-lldpe-dowlex-2047g"
     },
     {
       "id": "generic-lldpe",
@@ -2884,7 +2985,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-lldpe"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-150e",
@@ -2973,7 +3075,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-150e-low-density-polyethylene-resin.19527z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-ldpe-dow-ldpe-150e"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-7010e",
@@ -3072,7 +3175,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-7010e-low-density-polyethylene-resin.206483z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-ldpe-dow-ldpe-7010e"
     },
     {
       "id": "catalog-ldpe-dow-5004i",
@@ -3171,7 +3275,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-5004i-low-density-polyethylene-resin.20679z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-ldpe-dow-5004i"
     },
     {
       "id": "catalog-ldpe-dow-ldpe-219m",
@@ -3261,7 +3366,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.dow.com/en-us/pdp.dow-ldpe-219m-low-density-polyethylene-resin.80207z.html",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-ldpe-dow-ldpe-219m"
     },
     {
       "id": "generic-ldpe",
@@ -3304,7 +3410,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-ldpe"
     },
     {
       "id": "catalog-pp-moplen-hp501m",
@@ -3409,7 +3516,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP501M/1f2b1127-1a74-4107-870e-7d04f3132220"
-      }
+      },
+      "research_ref": "catalog-pp-moplen-hp501m"
     },
     {
       "id": "catalog-pp-moplen-hp400r",
@@ -3514,7 +3622,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/en/polymers/p/Moplen-HP400R/b8c2b2d7-cbc5-46e4-8506-8031418ef728"
-      }
+      },
+      "research_ref": "catalog-pp-moplen-hp400r"
     },
     {
       "id": "catalog-pp-moplen-hp548r",
@@ -3622,7 +3731,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-hp548r"
     },
     {
       "id": "catalog-pp-moplen-hp648t",
@@ -3730,7 +3840,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-hp648t"
     },
     {
       "id": "catalog-pp-moplen-rp348r",
@@ -3838,7 +3949,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-rp348r"
     },
     {
       "id": "catalog-pp-moplen-rp248r",
@@ -3946,7 +4058,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-rp248r"
     },
     {
       "id": "catalog-pp-moplen-rp398t",
@@ -4054,7 +4167,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-rp398t"
     },
     {
       "id": "catalog-pp-moplen-rp348t-hp",
@@ -4162,7 +4276,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-rp348t-hp"
     },
     {
       "id": "catalog-pp-moplen-rp248u",
@@ -4270,7 +4385,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.lyondellbasell.com/49f80e/globalassets/documents/polymers-technical-literature/product-selection-guide-pp-consumer-injection-molding.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pp-moplen-rp248u"
     },
     {
       "id": "generic-pp",
@@ -4313,7 +4429,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-pp"
     },
     {
       "id": "catalog-pet-polyclear-preserve-pet-2201",
@@ -4422,7 +4539,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear-%C2%AE-Preserve-PET-2201-Rev-13.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pet-polyclear-preserve-pet-2201"
     },
     {
       "id": "catalog-pet-polyclear-splash-pet-3301",
@@ -4521,7 +4639,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.indoramaventures.com/storage/downloads/product/pet/bottle-sheet/Polyclear%20%C2%AE%20Splash%20PET%203301%20Rev%2015.pdf",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pet-polyclear-splash-pet-3301"
     },
     {
       "id": "generic-pet",
@@ -4573,7 +4692,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-pet"
     },
     {
       "id": "catalog-pvc-westlake-pvc-2060",
@@ -4664,7 +4784,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-2060"
     },
     {
       "id": "catalog-pvc-westlake-pvc-1185",
@@ -4755,7 +4876,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-1185"
     },
     {
       "id": "catalog-pvc-westlake-pvc-5265",
@@ -4846,7 +4968,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-5265"
     },
     {
       "id": "catalog-pvc-westlake-pvc-2070",
@@ -4937,7 +5060,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-2070"
     },
     {
       "id": "catalog-pvc-westlake-pvc-5305",
@@ -5028,7 +5152,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-5305"
     },
     {
       "id": "catalog-pvc-westlake-pvc-2079",
@@ -5119,7 +5244,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-2079"
     },
     {
       "id": "catalog-pvc-westlake-pvc-2082",
@@ -5210,7 +5336,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-2082"
     },
     {
       "id": "catalog-pvc-westlake-pvc-1230p",
@@ -5301,7 +5428,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-1230p"
     },
     {
       "id": "catalog-pvc-westlake-pvc-1230s",
@@ -5392,7 +5520,8 @@
         "review_date": "2026-10-15",
         "source_url": "https://www.westlake.com/pvc-technical-data",
         "property_conditions_present": true
-      }
+      },
+      "research_ref": "catalog-pvc-westlake-pvc-1230s"
     },
     {
       "id": "generic-pvc",
@@ -5436,7 +5565,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-pvc"
     },
     {
       "id": "catalog-abs-terluran-gp-35",
@@ -5492,24 +5622,30 @@
         "mfr": {
           "value": 3.1,
           "unit": "g/10min",
-          "source_id": "CAT255",
+          "source_id": "R-CAT255-ASTM-AMERICAS",
           "method": "ASTM D1238",
           "condition": "200 °C / 5 kg",
           "range": null,
           "status": "manufacturer_typical",
           "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
-          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "region": "Americas",
+          "variant": null,
+          "sample_state": "uncolored_products"
         },
         "mvr": {
           "value": 11,
           "unit": "cm3/10min",
-          "source_id": "CAT255",
+          "source_id": "R-CAT255-ASTM-AMERICAS",
           "method": "ASTM D1238",
           "condition": "230 °C / 3.8 kg",
           "range": null,
           "status": "manufacturer_typical",
           "note": "Valores típicos/recomendados; condiciones de fabricante, no certificados de lote",
-          "verification_basis": "fabricante_ficha_revisada_2026_10_15"
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "region": "Americas",
+          "variant": null,
+          "sample_state": "uncolored_products"
         },
         "intrinsic_viscosity": null,
         "melt_temperature_recommended": null,
@@ -5549,14 +5685,34 @@
           "method": "ASTM D1238",
           "condition": "220 °C / 10 kg",
           "status": "manufacturer_typical",
-          "source_id": "CAT255"
+          "source_id": "R-CAT255-ASTM-AMERICAS",
+          "region": "Americas",
+          "variant": null,
+          "sample_state": "uncolored_products",
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "note": "MFR 34 publicado en ASTM/Américas. Se conserva por separado del MVR 34 ISO/EMEA; no es una conversión ni un error universal."
+        },
+        {
+          "key": "mvr_secondary",
+          "value": 34,
+          "unit": "cm3/10min",
+          "method": "ISO 1133",
+          "condition": "220 °C / 10 kg",
+          "status": "manufacturer_typical",
+          "source_id": "CAT255",
+          "verification_basis": "official_regional_table_and_pdf_content_reviewed_2026-10-16",
+          "note": "MVR 34 publicado en ISO/EMEA. Registro independiente del MFR 34 ASTM/Américas; sufijo de variante/lote no especificado por la tabla.",
+          "region": "EMEA",
+          "variant": null,
+          "sample_state": "uncolored_products"
         }
       ],
       "data_review": {
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-GP-35_SKU300600120829.html"
-      }
+      },
+      "research_ref": "catalog-abs-terluran-gp-35"
     },
     {
       "id": "catalog-abs-terluran-hi-10",
@@ -5662,7 +5818,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://eshop.ineos-styrolution.com/Product/Terluran_Terluran-HI-10_SKU300600120831.html"
-      }
+      },
+      "research_ref": "catalog-abs-terluran-hi-10"
     },
     {
       "id": "catalog-abs-novodur-h605",
@@ -5770,7 +5927,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://www.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-H605_SKU302200150405.html"
-      }
+      },
+      "research_ref": "catalog-abs-novodur-h605"
     },
     {
       "id": "catalog-abs-novodur-hh-106",
@@ -5858,7 +6016,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_NOVODUR-HH-106_SKU302200150417.html"
-      }
+      },
+      "research_ref": "catalog-abs-novodur-hh-106"
     },
     {
       "id": "catalog-abs-novodur-hh-112",
@@ -5946,7 +6105,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur-High-Heat_Novodur-HH-112_SKU302200150418.html"
-      }
+      },
+      "research_ref": "catalog-abs-novodur-hh-112"
     },
     {
       "id": "catalog-abs-novodur-p2mc",
@@ -6054,7 +6214,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://www.ineos-styrolution.com/Product/Novodur_Novodur-P2MC_SKU302100140449.html"
-      }
+      },
+      "research_ref": "catalog-abs-novodur-p2mc"
     },
     {
       "id": "catalog-abs-novodur-p2h-at",
@@ -6162,7 +6323,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://eshop.ineos-styrolution.com/Product/Novodur_NOVODUR-P2H-AT_SKU302100140442.html"
-      }
+      },
+      "research_ref": "catalog-abs-novodur-p2h-at"
     },
     {
       "id": "generic-abs",
@@ -6205,7 +6367,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-abs"
     },
     {
       "id": "catalog-pa6-ultramid-b3k",
@@ -6328,7 +6491,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://download.basf.com/p1/8a8081c57fd4b609017fd659928f6ca1/en/ULTRAMID%25C2%25AE_B3K"
-      }
+      },
+      "research_ref": "catalog-pa6-ultramid-b3k"
     },
     {
       "id": "generic-pa6",
@@ -6371,7 +6535,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-pa6"
     },
     {
       "id": "catalog-pc-makrolon-2407",
@@ -6481,7 +6646,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2407_000000000086286874"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-2407"
     },
     {
       "id": "catalog-pc-makrolon-2805",
@@ -6591,7 +6757,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2805_000000000057534382"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-2805"
     },
     {
       "id": "catalog-pc-makrolon-2807",
@@ -6692,7 +6859,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/products/datasheets/imported/makrolon/makrolon-2807_zf_56978007-00009619-18637275.pdf"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-2807"
     },
     {
       "id": "catalog-pc-makrolon-2856",
@@ -6796,7 +6964,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-2856_000000000057534439"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-2856"
     },
     {
       "id": "catalog-pc-makrolon-2858",
@@ -6887,7 +7056,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/-/media/covestro/solution-center/brands/downloads/imported/1556888808.pdf?hash=6C670B9A7B2F77CD2BF485F9C9DD2988&rev=3230968946"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-2858"
     },
     {
       "id": "catalog-pc-makrolon-3105",
@@ -6973,7 +7143,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3105_000000000057534560"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-3105"
     },
     {
       "id": "catalog-pc-makrolon-3106",
@@ -7062,7 +7233,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3106_000000000056628987"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-3106"
     },
     {
       "id": "catalog-pc-makrolon-3107",
@@ -7163,7 +7335,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3107_000000000057534595"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-3107"
     },
     {
       "id": "catalog-pc-makrolon-3108",
@@ -7309,7 +7482,8 @@
         "status": "manufacturer_datasheet_reviewed",
         "review_date": "2026-10-15",
         "source_url": "https://solutions.covestro.com/en/products/makrolon/makrolon-3108_000000000000006499"
-      }
+      },
+      "research_ref": "catalog-pc-makrolon-3108"
     },
     {
       "id": "generic-pc",
@@ -7370,7 +7544,8 @@
         "graphical_data": "Sin pVT para familia genérica.",
         "T_range_C": null,
         "P_range_MPa": null
-      }
+      },
+      "research_ref": "generic-pc"
     }
   ],
   "data_contract": {
@@ -7524,7 +7699,7 @@
       ]
     }
   },
-  "catalog_revision": "1.4.0",
+  "catalog_revision": "1.5.1",
   "official_source_audit": {
     "checked_on": "2026-10-14",
     "commercial_profiles": 90,
@@ -7549,5 +7724,10 @@
     "rule": "≥3 numeric fields, ≥2 technical groups, ≥1 density/flow/mechanical/drying, official manufacturer URL",
     "report_path": "docs/auditoria-estricta-materiales-v1.4.json",
     "caution": "Ranges are not single values; solid/bulk/melt densities distinct; manual generic have no assumed properties. Catalog-only records must never inherit grade-specific pvT or historical Cp reference metadata from their template. Per-record drying status is inferred only from record-specific published drying parameters."
+  },
+  "research_extension": {
+    "schema": "ccip-material-research/1",
+    "file": "material-research.v1.json",
+    "revision": "1.0.1"
   }
 }

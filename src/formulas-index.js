@@ -30,7 +30,6 @@ function renderIndex() {
   }
 }
 function renderLessons() {
-  document.getElementById('formula-nav').innerHTML = modules.map(m=>`<a data-guide-process="${m.id}" href="#guide-${m.id}">${safe(t(m.name))}</a>`).join('');
   document.getElementById('formula-lessons').innerHTML = modules.map(module=>{
     const inputs = examples.find(([id])=>id===module.id)[1], model = calculate(module.id,inputs,'advanced');
     const cards = model.metrics.map(metric=>lessonFor(module.id,metric.label)).filter(Boolean).map(lesson=>{
@@ -79,7 +78,6 @@ function applyFilters() {
       alternative.hidden = !matchesLevel('technical');
       for (const result of alternative.querySelectorAll('[data-alternate-level]')) result.hidden = !matchesLevel(result.dataset.alternateLevel);
     }
-    document.querySelector(`[data-guide-process="${module.id}"]`).hidden = topic.hidden;
     const index = document.querySelector(`[data-index-process="${module.id}"]`);
     index.hidden = topic.hidden;
     for (const row of index.querySelectorAll('[data-index-level]')) row.hidden = !matchesLevel(row.dataset.indexLevel);
@@ -110,7 +108,7 @@ export function openGuideTarget(id=location.hash.slice(1)) {
   focus?.focus({preventScroll:true});target.scrollIntoView({block:'start'});
 }
 export function mountGuide(root,options={}) {
-  if(root)root.innerHTML=`<div class="panel formula-controls"><button id="learning-back" type="button">${copy('Volver a calculadora','Back to calculator')}</button><h1>${copy('Aprendizaje','Learning')}</h1><p>${copy('Ejemplos sintéticos de enseñanza; no son datos de un material ni una máquina real.','Synthetic teaching examples; not data for a real material or machine.')}</p><div class="formula-filters"><label>${copy('Proceso','Process')}<select id="formula-process"></select></label><label>${copy('Nivel de aprendizaje','Learning level')}<select id="formula-level"><option value="all">${copy('Todos los niveles','All levels')}</option>${Object.entries(levelNames).map(([key,label])=>`<option value="${key}">${safe(t(label))}</option>`).join('')}</select></label></div><p id="formula-count" role="status"></p></div><nav id="formula-nav" class="formula-nav"></nav><details id="formula-index-details"><summary>${copy('Índice completo de resultados y fórmulas','Complete output and formula index')}</summary><div id="formulas-exact-index"></div></details><div id="formula-lessons"></div>`;
+  if(root)root.innerHTML=`<div class="panel formula-controls"><button id="learning-back" type="button">${copy('Volver a calculadora','Back to calculator')}</button><h1>${copy('Aprendizaje','Learning')}</h1><p>${copy('Ejemplos sintéticos de enseñanza; no son datos de un material ni una máquina real.','Synthetic teaching examples; not data for a real material or machine.')}</p><div class="formula-filters"><label>${copy('Proceso','Process')}<select id="formula-process"></select></label><label>${copy('Nivel de aprendizaje','Learning level')}<select id="formula-level"><option value="all">${copy('Todos los niveles','All levels')}</option>${Object.entries(levelNames).map(([key,label])=>`<option value="${key}">${safe(t(label))}</option>`).join('')}</select></label></div><p id="formula-count" role="status"></p></div><details id="formula-index-details"><summary>${copy('Índice completo de resultados y fórmulas','Complete output and formula index')}</summary><div id="formulas-exact-index"></div></details><div id="formula-lessons"></div>`;
   filters.process=modules.some(m=>m.id===options.process)?options.process:(root?'all':filters.process);
   filters.level=Object.hasOwn(levels,options.level)?options.level:(root?'all':filters.level);
   renderGuide();bindAccordions();

@@ -49,7 +49,8 @@ export function applyFamilyMeltDensity(state, module, values, level, catalog = f
   if (module.id !== 'inyeccion') return null;
   const previous = state.provenance.meltDensity;
   const family = state.grade_snapshot?.family;
-  const reference = familyReference(family, state.context, catalog);
+  const customNonvirgin=state.grade_snapshot?.record_status==='user_entered_unverified'&&['recycled','blend'].includes(state.grade_snapshot?.user_details?.material_kind);
+  const reference = customNonvirgin?null:familyReference(family, state.context, catalog);
   const allowed = state.context.meltDensityPolicy === 'reference_allowed' && (state.context.familyMeltReferenceMode === "automatic" || state.context.familyMeltReferenceAccepted === true);
   if (familyOrigin(previous) && (!allowed || !reference || previous.family !== family || previous.reference?.variant !== reference.variant)) {
     values.meltDensity = '';delete state.provenance.meltDensity;

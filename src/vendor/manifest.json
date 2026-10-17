@@ -1,0 +1,67 @@
+[
+  {
+    "package": "exceljs",
+    "version": "4.4.0",
+    "license": "MIT",
+    "registry": "https://registry.npmjs.org/exceljs/4.4.0",
+    "tarball": "https://registry.npmjs.org/exceljs/-/exceljs-4.4.0.tgz",
+    "integrity": "sha512-XctvKaEMaj1Ii9oDOqbW/6e1gXknSY4g/aLCDicOXqBE4M0nRWkUu0PTp++UPNzoFY12BNHMfs/VadKIS6llvg==",
+    "files": [
+      {
+        "file": "exceljs-4.4.0.min.js",
+        "sha256": "7e49da68588e250dbb8bba190d2caa8ab3787cc0284bda1d8b2f805c4df742c9",
+        "bytes": 947702
+      },
+      {
+        "file": "exceljs-4.4.0.LICENSE",
+        "sha256": "2ed526b7e7c7681dc2347995b5036ddf73dc27d0539cdea59b6d4a72b63a57a0",
+        "bytes": 1084
+      }
+    ]
+  },
+  {
+    "package": "pdfmake",
+    "version": "0.3.11",
+    "license": "MIT",
+    "registry": "https://registry.npmjs.org/pdfmake/0.3.11",
+    "tarball": "https://registry.npmjs.org/pdfmake/-/pdfmake-0.3.11.tgz",
+    "integrity": "sha512-Uc49J9hUMyuqJk+U+PxlpBpPr96A4HOOfesGx609EPr2ue82+5/Smq/KTAkEqh0/jUGSi1fumvqZ5yAWijJTJg==",
+    "files": [
+      {
+        "file": "pdfmake-0.3.11.min.js",
+        "sha256": "faaee53f8dcf48b0934553665809d8180e20e435b654f633df2f18f9dbdeaa88",
+        "bytes": 1053972
+      },
+      {
+        "file": "pdfmake-0.3.11.LICENSE",
+        "sha256": "ab919430421c2e244dbb8694d70916eae16235b75c0ea07e9a6c67cd4265c954",
+        "bytes": 1113
+      },
+      {
+        "file": "pdfmake-bundled.LICENSE",
+        "sha256": "97a9a454169e8bb54afa875ba1741ac77f2a3b8cfac57e06c7e54f4467776ed8",
+        "bytes": 1093
+      }
+    ]
+  },
+  {
+    "package": "DejaVu Sans",
+    "version": "2.37",
+    "source": "Debian fonts-dejavu-core, /usr/share/fonts/truetype/dejavu; https://dejavu-fonts.github.io/",
+    "license": "Bitstream Vera license; see DejaVu.LICENSE",
+    "files": [
+      {
+        "file": "DejaVuSans.ttf",
+        "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e"
+      },
+      {
+        "file": "DejaVuSans-Bold.ttf",
+        "sha256": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890"
+      },
+      {
+        "file": "DejaVu.LICENSE",
+        "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+      }
+    ]
+  }
+]

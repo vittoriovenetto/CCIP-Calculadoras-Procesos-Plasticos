@@ -4,31 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c8102e">
-  <title>CCIP | Calculadoras de procesos plásticos</title>
-  <link rel="icon" href="./assets/83359612fa7ca5b862ea25f01fabdacbb03c3ef7/src/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/83359612fa7ca5b862ea25f01fabdacbb03c3ef7/src/styles.css?v=20261015-inyeccion-perfil">
+  <title>CCIP | Calculadora de procesos de transformación termoplásticos</title>
+  <link rel="icon" href="./assets/8f37b9be820fe1612a44127c1bef2f4b10e23ad9/src/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/8f37b9be820fe1612a44127c1bef2f4b10e23ad9/src/styles.css?v=20261015-inyeccion-perfil">
 </head>
 <body>
   <header><div class="shell top">
-    <a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./assets/83359612fa7ca5b862ea25f01fabdacbb03c3ef7/src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a>
+    <div class="institutional-identity" aria-label="Identidad institucional CCIP e INTEC"><a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./assets/8f37b9be820fe1612a44127c1bef2f4b10e23ad9/src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a><span class="institutional-divider" aria-hidden="true"></span><div class="intec-brand"><img class="intec-logo" src="./assets/8f37b9be820fe1612a44127c1bef2f4b10e23ad9/src/assets/logo-intec-comercial.png" width="801" height="900" alt="Logo comercial del Instituto Tecnológico de Santo Domingo (INTEC)"><span class="institution-name" data-i18n-ignore>Instituto Tecnológico de Santo Domingo (INTEC)</span></div></div>
     <div class="version-links"><label for="language">🌐 Idioma <select id="language" aria-label="Idioma"><option value="es">Español</option><option value="en">English</option></select></label><span class="version">WEB · EXPERIMENTAL</span></div>
   </div></header>
   <main class="shell">
-    <section class="hero"><p class="kicker">CCIP · INTEC · TRANSFORMACIÓN DE POLÍMEROS</p><h1>Calculadoras de procesos plásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></section>
+    <section class="hero"><div class="hero-copy"><p class="kicker">CCIP · INTEC · Procesos 1: inyección</p><h1>Calculadora de procesos de transformación termoplásticos</h1><p>Selecciona el proceso y el nivel. Calcula con datos de tu caso y consulta las ayudas «?» y las fuentes cuando las necesites.</p></div><button id="manual-open" type="button" aria-haspopup="dialog" aria-controls="user-manual">Manual de uso</button></section>
     <div class="layout">
-      <aside><h2>Procesos</h2><nav id="modules" aria-label="Módulos de cálculo"></nav><nav class="learning-nav" aria-label="Aprendizaje"><a id="learn-page" href="./?view=learning"><b>Aprendizaje</b><span>Fórmulas y ejemplos</span></a></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
+      <aside><h2>Procesos</h2><div class="mobile-process-picker"><label for="process-select">Seleccionar proceso</label><select id="process-select"></select></div><nav id="modules" aria-label="Módulos de cálculo"></nav><nav class="learning-nav" aria-label="Aprendizaje"><a id="calculator-page" href="./" aria-current="page"><b>Calculadora</b></a><a id="materials-page" href="./?view=materials"><b>Materiales</b><span>Biblioteca y comparación</span></a><a id="learn-page" href="./?view=learning"><b>Aprendizaje</b><span>Fórmulas y ejemplos</span></a></nav><p class="muted">Estimaciones académicas. Contrasta los resultados con fichas, mediciones y límites del equipo.</p></aside>
       <section class="work"><div id="calculator-view">
         <div class="bar"><div><p class="kicker">MÓDULO ACTIVO</p><h2 id="module-title"></h2><p id="module-desc" class="muted"></p></div><label class="level" for="level">Nivel de cálculo<select id="level"><option value="basic">Básico</option><option value="technical" selected>Técnico</option><option value="advanced">Avanzado</option></select></label></div>
-        <section id="materials" class="panel material-panel" aria-labelledby="materials-title"></section><section id="custom-material-editor" class="panel" aria-label="Agregar material / Add custom material"></section>
+        <section id="materials" class="panel material-panel" aria-labelledby="materials-title"></section><section id="custom-material-editor" class="panel" aria-label="Agregar material / Add custom material"></section><section id="machine-panel" class="panel" aria-label="Maquinaria / Machinery"></section>
         <div id="calculation-grid" class="calculation-grid">
-          <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><button id="export">Exportar JSON</button></div></section>
-          <section class="panel results-panel"><div class="results-heading"><h2>Resultados principales</h2><small id="result-date" class="muted">Pendientes</small></div><div id="calculation-output" aria-live="polite" aria-atomic="true"><div id="summary-metrics"></div><div id="usage"></div><details id="results-details"><summary>Todos los resultados y ecuaciones</summary><div id="metrics"></div></details><div id="messages" class="result-alerts" role="status"></div></div><div id="injection-profile" hidden></div></section>
+          <section class="panel inputs-panel"><h2>Parámetros del caso</h2><p class="muted compact-note">Los valores precargados son ejemplos editables. Las propiedades sin fuente quedan pendientes. Consulta «?» con cursor, teclado o toque.</p><div id="fields" class="field-groups"></div><div class="actions"><button class="primary" id="calculate">Calcular</button><button id="reset">Limpiar</button><button id="save">Guardar cálculo</button><label class="export-picker"><span id="export-format-label">Formato de exportación</span><select id="export-format" aria-label="Formato de exportación"><option value="json">JSON</option><option value="xlsx">Excel (.xlsx)</option><option value="pdf">PDF</option></select></label><button id="export">Exportar estado activo</button></div></section>
+          <section class="panel results-panel"><div class="results-heading"><h2>Resultados principales</h2><small id="result-date" class="muted">Pendientes</small></div><div id="calculation-output" aria-live="polite" aria-atomic="true"><section id="drying-calculation-status" role="status"></section><div id="summary-metrics"></div><div id="usage"></div><details id="results-details"><summary>Todos los resultados y ecuaciones</summary><div id="metrics"></div></details><div id="messages" class="result-alerts" role="status"></div></div><div id="injection-profile" hidden></div></section>
         </div>
         <section class="panel"><h2>Historial local</h2><div id="history"></div></section><section id="comparison" class="panel" aria-label="Comparar resultados guardados"></section>
-      </div><section id="learning-view" hidden aria-label="Aprendizaje"></section></section>
+      </div><section id="materials-view" hidden aria-label="Materiales"></section><section id="learning-view" hidden aria-label="Aprendizaje"></section></section>
     </div>
-    <footer>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</footer>
+    <footer><p>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</p><hr class="credits-divider"><ul class="academic-credits" aria-label="Créditos académicos"><li data-i18n-ignore>Danaee María López Ortiz</li><li data-i18n-ignore>Omar Antonio Valenzuela Ventura</li><li data-i18n-ignore>Reymildo Jiménez Acosta</li><li data-i18n-ignore>Montserrat Benavides Hernández</li><li data-i18n-ignore>Euris Andrés Guerrero Pen</li><li data-i18n-ignore>Emil Rdriguez Tejada</li></ul></footer>
   </main>
-  <script type="module" src="./assets/83359612fa7ca5b862ea25f01fabdacbb03c3ef7/src/app.js?v=20261015-inyeccion-perfil"></script>
+  <dialog id="user-manual" aria-labelledby="manual-title" aria-describedby="manual-message"><h2 id="manual-title">Manual de uso</h2><p id="manual-message">Manual de uso en preparación</p><form method="dialog"><button autofocus type="submit">Cerrar</button></form></dialog>
+  <script type="module" src="./assets/8f37b9be820fe1612a44127c1bef2f4b10e23ad9/src/app.js?v=20261015-inyeccion-perfil"></script>
+  <script type="module" src="./assets/8f37b9be820fe1612a44127c1bef2f4b10e23ad9/src/manual-dialog.js"></script>
 </body>
 </html>
