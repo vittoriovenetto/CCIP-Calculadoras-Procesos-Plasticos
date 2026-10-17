@@ -1,5 +1,6 @@
 """Etapa 5 technical audit: real UI, strict evidence, numeric results and files."""
 import json
+import os
 import unittest
 from browser_stage2 import Stage2, ARTIFACTS
 from browser_smoke import MATERIALS
@@ -101,4 +102,9 @@ class Stage5(Stage2):
 if __name__=='__main__':
     suite=unittest.TestSuite(Stage5(name) for name in unittest.defaultTestLoader.getTestCaseNames(Stage5) if name.startswith('test_H'))
     result=unittest.TextTestRunner(verbosity=2).run(suite)
+    # Keep failures visible through the Checks API when external log storage is unavailable.
+    if os.environ.get('GITHUB_ACTIONS')=='true':
+        for case,trace in result.failures+result.errors:
+            message=trace[-12000:].replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+            print(f'::error file=tests/browser_stage5.py,title={case.id()}::{message}',flush=True)
     raise SystemExit(not result.wasSuccessful())
