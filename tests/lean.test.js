@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {modules} from '../src/schema.js';
 import {calculate} from '../src/engine.js';
-import {createMaterialState,selectMaterial,applyMaterial,markManual,materialSnapshot,restoreMaterial} from '../src/materials.js';
+import {createMaterialState,selectMaterial,applyMaterial,clearAutomatic,markManual,materialSnapshot,restoreMaterial} from '../src/materials.js';
 import {enableLeanMaterial,materialCatalogFor,hasDryingGuideline} from '../src/lean-materials.js';
 import {calculateWithMeltDensity} from '../src/injection-density.js';
 import {displayMetrics,inputIssues} from '../src/results-view.js';
@@ -46,9 +46,11 @@ test('Secado: tiempo fijo y temperatura se precargan como recomendaciones, sin C
  const {state,values}=chosen('basf-ultramid-b3s-r03');applyMaterial(state,module('secado'),values,'advanced');assert.equal(values.residence,4);assert.equal(values.targetT,80);assert.ok(!values.specificHeat);assert.ok(!values.bulkDensity);
  assert.equal(state.provenance.residence.property_key,'drying_time');assert.equal(state.context.dryingCompatible,false);
 });
-test('Secado: un rango permanece sin elegir; elección explícita conserva rango y origen',()=>{
- const {state,values}=chosen('covestro-makrolon-2405');applyMaterial(state,module('secado'),values,'advanced');assert.ok(!values.residence);assert.equal(values.targetT,120);
- state.context.dryingTime=2.5;applyMaterial(state,module('secado'),values,'advanced');assert.equal(values.residence,2.5);assert.equal(state.provenance.residence.origin,'range_selection');assert.deepEqual(state.provenance.residence.reference.range,[2,3]);
+test('Secado Lean: se propone extremo superior de rango, y la elección explícita conserva evidencia',()=>{
+ const {state,values}=chosen('covestro-makrolon-2405');applyMaterial(state,module('secado'),values,'advanced');assert.equal(values.residence,3);assert.equal(values.targetT,120);
+ assert.equal(state.provenance.residence.origin,'manufacturer_range_upper');
+ state.context.dryingTime=2.5;clearAutomatic(state,values);applyMaterial(state,module('secado'),values,'advanced');assert.equal(values.residence,2.5);
+ assert.equal(state.provenance.residence.origin,'range_selection');assert.deepEqual(state.provenance.residence.reference.range,[2,3]);
 });
 test('Secado: material propio completo con fuente sí; incompleto, sin fuente o unidad incompatible no',()=>{
  const own=makeCustomMaterial({family:'PA6',grade:'Caso sintético',drying_time:3,drying_temperature:80,source:'Protocolo sintético para pruebas'});

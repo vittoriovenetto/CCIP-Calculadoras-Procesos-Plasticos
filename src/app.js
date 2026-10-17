@@ -23,6 +23,7 @@ import { defaultInjectionProfile, restoreInjectionProfile, calculateInjectionPro
 import { renderInjectionProfile } from "./injection-profile-view.js";
 import { renderManualData } from "./materials-audit-view.js";
 import { materialCatalogFor, hasDryingGuideline, enableLeanMaterial } from "./lean-materials.js";
+import { prepareDryingCase } from "./drying-assessment.js";
 import { displayMetrics, inputIssues } from "./results-view.js";
 import { mountGuide } from "./formulas-index.js";
 const freshMaterial = () => enableLeanMaterial(createMaterialState());
@@ -39,7 +40,7 @@ const mod = () => modules.find(m => m.id === state.id);
 const initialValues = () => Object.fromEntries(mod().fields.map(f => [f.key, f.default ?? ""]));
 let historyView;
 const renderHistory = () => historyView?.render();
-const initialOrigins = () => Object.fromEntries(mod().fields.filter(f => f.default !== undefined && f.default !== "").map(f => [f.key,"default_example"]));
+const initialOrigins = () => Object.fromEntries(mod().fields.filter(f => f.default !== undefined && f.default !== "").map(f => [f.key, state.id==="secado" && f.key==="startT" ? "operating_assumption" : "default_example"]));
 
 function invalidate() {
   $("result-date").textContent = "Pendientes";
@@ -284,7 +285,13 @@ function fieldHelp(f) {
   if(state.id==='secado'&&f.key==='specificHeat')return renderManualData(state.material,'secado','advanced');
   if(state.id==='secado'&&f.key==='residence') {
     const p=state.material.grade_snapshot?.properties.drying_time;
-    return `<p>La recomendación de secado es una guía; usarla como residencia nominal exige comprobar humedad inicial, secador y punto de rocío. No garantiza humedad final.</p>${p?.range?`<p>Elige explícitamente un tiempo entre ${safe(p.range[0])} y ${safe(p.range[1])} h; no se usa un promedio.</p>`:''}`;
+    const note = getLanguage()==='en'
+      ? 'The datasheet time is a nominal residence guideline, not a guarantee of final moisture; verify dryer, initial moisture and dew point.'
+      : 'El tiempo de ficha es una guía de residencia nominal, no garantiza humedad final; comprueba secador, humedad inicial y punto de rocío.';
+    const rangeNote = p?.range ? (getLanguage()==='en'
+      ? `<p>Range: ${safe(p.range[0])}–${safe(p.range[1])} h. The upper bound ${safe(p.range[1])} h is proposed initially (editable), not a mean or a measured drying time.</p>`
+      : `<p>Rango: ${safe(p.range[0])}–${safe(p.range[1])} h. Inicialmente se propone el límite superior ${safe(p.range[1])} h (editable), no un promedio ni un dato medido.</p>`) : '';
+    return `<p>${note}</p>${rangeNote}`;
   }
   if(state.id==='secado'&&f.key==='bulkDensity')return `<label for="material-physicalForm">Presentación real del material</label><select id="material-physicalForm" data-material-context="physicalForm"><option value="">Sin confirmar</option>${['pellets','powder'].map(x=>`<option ${state.material.context.physicalForm===x?'selected':''}>${x}</option>`).join('')}</select><label><input id="material-bulkCompatible" data-material-context="bulkCompatible" type="checkbox" ${state.material.context.bulkCompatible?'checked':''}>Confirmo método y condiciones de densidad aparente, incluida presentación/tamaño del material.</label>`;
   return '';
@@ -293,7 +300,12 @@ function fieldHelp(f) {
 function compute() {
   if (state.id === 'inyeccion' && $("profile-details")) state.profile.enabled = $("profile-details").open;
   const inputs = Object.fromEntries(activeFields(mod(), state.values, state.level).map(f => [f.key, state.values[f.key]]));
-  const a = calculateFormulationCase(state.id, inputs, state.level, state.material);
+  const drying = state.id === "secado" ? prepareDryingCase(inputs,state.material,state.level,state.origins) : null;
+  const a = calculateFormulationCase(state.id, drying ? drying.effective : inputs, state.level, state.material);
+  if (drying) {
+    a.warnings.push(...drying.warnings);
+    a.drying_assessment = drying.assessment;
+  }
   if (a.density_provenance?.origin === 'library') {
     state.values.meltDensity = inputs.meltDensity = a.calculation_inputs.meltDensity;
     state.material.provenance.meltDensity = a.density_provenance;
@@ -360,7 +372,7 @@ explorer=createExplorer($("materials-view"),{
  },
  onCopy:entry=>{const copy=structuredClone(entry.material);copy.id=makeCustomMaterial({family:copy.family,grade:copy.grade}).id;copy.grade+=' (copia local)';delete copy.shared_metadata;delete copy.shared_revision;persistUserMaterials([...listUserMaterials(),copy]);refreshPersonalCatalog();drawCustomEditor();showMaterials(copy.id);}
 });
-document.addEventListener('ccip-language-change',()=>{drawMaterials();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
+document.addEventListener('ccip-language-change',()=>{drawFields();drawMaterials();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
 routeView();
 
 
