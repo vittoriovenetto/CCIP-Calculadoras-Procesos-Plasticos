@@ -29,6 +29,7 @@ físicos/de integración a pesar de ese resultado.
 | Rangos temporales/temperatura — D09, media | Elección temporal no numérica podía disparar extremo superior automático. | Solo ausencia de elección propone el extremo superior; rango de temperatura requiere elección. Fuente y rango permanecen. | Node manual range, pruebas de materiales/Lean; H01. | Corregido. |
 | Persistencia entre niveles e historial — D10, alta, detectado al comprobar recuperación | Guardar en básico perdía entradas/evidencias avanzadas no activas. | Estado retenido separado de cálculo activo; preservación de procedencia y recuperación de esos campos. | H07: avanzado→básico→guardar→recuperar→avanzado, resultados y registro original inmutable. | Corregido. |
 | Restauración entre procesos — D11, media | El nuevo estado pendiente de secado podía seguir visible al recuperar otro módulo desde historial. | Vaciar/ocultar exclusivamente ese estado al calcular otro proceso. | H08: recuperar inyección después de secado pendiente. | Corregido. |
+| Ayuda Cp en móvil — D12, media, detectado en CI | El formulario largo podía tapar su propio botón «?», interceptando hover/clic. | Si no cabe a los lados, limitar la altura al espacio superior/inferior disponible, con scroll interno estable y botón accesible. | Reproducción local del timeout; H05 exige hover→clic, ausencia de superposición, límites del viewport y acceso a la última confirmación; regresión G27. | Corregido, con prueba reforzada; el scroll no reinicia su posición. |
 | Inventario M=Q·t y volumen V=M/ρ | Ecuaciones correctas; faltaba exigir aplicabilidad de densidad manual. | Ecuaciones intactas; verificación dimensional y gate de datos. | Node arithmetic/inputs + H03. | Verificado. |
 | Potencia P=Q·Cp·ΔT/3600 | Ecuación correcta, contrato de Cp insuficiente. | Ecuación intacta, evidencia corregida y tratamiento de faltantes. | Node 50×2×55/3600=55/36 kW; H03/H06. | Verificado como estimación sensible del polímero. |
 | Caudal vacío / Ti=25 °C | Comportamiento inicial correcto. | Mantener y explicitar/exportar origen; no atribuir Ti al fabricante. | Pruebas de esquema, H01, exportaciones. | Verificado. |
@@ -102,8 +103,16 @@ más 4 de la ayuda Cp en 320/1440 px. El build local pasó; la prueba de caché 
 
 [Logs de pruebas](pruebas/) · [Capturas](capturas/README.md) · [Integridad byte a byte](integridad.json).
 Los logs y capturas están en `pruebas/` y `capturas/`. El build genera un artefacto local; no publica.
-La CI inicial del PR (head 8146528) pasó antes de la auditoría. La nueva CI debe evaluarse sobre
-el head corregido; no se toma el resultado inicial como prueba de la corrección.
+La CI inicial del PR (head 8146528) pasó antes de la auditoría. Las ejecuciones
+[39052298353](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/39052298353)
+y [39053021229](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/39053021229)
+detectaron D12 en H05, pese a los resultados locales previos. Se reprodujo el timeout de
+intercepción y se corrigió la geometría del popup; no se forzaron clics ni se desactivaron aserciones.
+La red del entorno bloquea el servidor externo de logs de Actions; se obtuvo el traceback mediante
+anotaciones de Checks, conservando el fallo y su código de salida. El diagnóstico queda en
+`pruebas/diagnostico-ci.txt`. El resultado remoto del head vigente se consulta en los Checks
+del PR #14; no se toma el resultado inicial como prueba de la corrección. Tras corregir D12 se
+repitieron localmente las ocho pruebas H01–H08 y G27 (ratón/teclado/táctil/zoom), todas correctas.
 
 ## Límites y pendientes
 

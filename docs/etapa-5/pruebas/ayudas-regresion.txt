@@ -1,0 +1,10 @@
+test_G27_tooltips_mouse_keyboard_touch_and_layout (browser_smoke.BrowserSmoke.test_G27_tooltips_mouse_keyboard_touch_and_layout) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 12.930s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-browser-vkxv7zex

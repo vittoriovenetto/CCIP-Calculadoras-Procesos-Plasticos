@@ -67,10 +67,19 @@ class Stage5(Stage2):
             for width in [320,360,390,768,1024,1440]:
                 self.page.set_viewport_size({'width':width,'height':950});self.page.locator('#calculate').click();self.open_results();self.assert_layout()
                 self.page.screenshot(path=str(ARTIFACTS/f'secado-{lang}-{width}.png'),full_page=True)
+                # Hover must leave the same trigger available to pin by click.
+                trigger=self.page.locator('[data-help="specificHeat"]');trigger.hover()
                 self.help('specificHeat');self.page.locator('#manual-thermodynamic').evaluate('(el)=>el.open=true')
                 popup=self.page.locator('#hint-specificHeat').bounding_box();self.assertGreaterEqual(popup['x'],-1);self.assertLessEqual(popup['x']+popup['width'],width+1)
+                anchor=trigger.bounding_box()
+                overlap=max(anchor['x'],popup['x'])<min(anchor['x']+anchor['width'],popup['x']+popup['width']) and max(anchor['y'],popup['y'])<min(anchor['y']+anchor['height'],popup['y']+popup['height'])
+                self.assertFalse(overlap,'El popup no debe cubrir el botón de ayuda')
+                self.assertGreaterEqual(popup['y'],-1);self.assertLessEqual(popup['y']+popup['height'],951)
                 self.assertIn('Definition of documented Cp' if lang=='en' else 'Definición del Cp documentado',self.page.locator('#hint-specificHeat').inner_text())
                 if width in [320,1440]:self.page.screenshot(path=str(ARTIFACTS/f'cp-evidencia-{lang}-{width}.png'))
+                confirmation=self.page.locator('#material-cpEvidenceConfirmed');confirmation.scroll_into_view_if_needed()
+                control=confirmation.bounding_box();popup=self.page.locator('#hint-specificHeat').bounding_box()
+                self.assertGreaterEqual(control['y'],popup['y']);self.assertLessEqual(control['y']+control['height'],popup['y']+popup['height'])
                 self.page.keyboard.press('Escape')
     def test_H06_invalid_temperatures_and_equal_temperatures(self):
         self.valid_case()
