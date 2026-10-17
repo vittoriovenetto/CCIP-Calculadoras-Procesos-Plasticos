@@ -1,0 +1,9 @@
+{
+  "test": "Publisher rejects missing GO evidence before temporary commit/push",
+  "approved": true,
+  "exit_code": 1,
+  "source_commit": "057ab4ab921a173cb3f95de5bb626771222b4062",
+  "artifact_tree_sha256": "d23bc4137b5f6ceeebff317a6a9e0bfb53b13129b82a46f250a911e9b17c6506",
+  "publication_attempted": false,
+  "reproducible_identical_builds": true
+}

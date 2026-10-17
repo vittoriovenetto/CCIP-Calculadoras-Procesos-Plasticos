@@ -1,0 +1,24 @@
+test_H01_variant_optin_and_units (__main__.Stage6.test_H01_variant_optin_and_units) ... ok
+test_H02_series_no_autofill_and_language (__main__.Stage6.test_H02_series_no_autofill_and_language) ... ok
+test_H03_snapshot_saved_and_mobile (__main__.Stage6.test_H03_snapshot_saved_and_mobile) ... ok
+test_H04_real_saved_exports_freeze_machine_variant_sources_and_results (__main__.Stage6.test_H04_real_saved_exports_freeze_machine_variant_sources_and_results) ... ok
+test_H05_manufacturer_manual_override_deselect_and_process_session (__main__.Stage6.test_H05_manufacturer_manual_override_deselect_and_process_session) ... ok
+test_H06_priorities_density_independence_and_film_geometry (__main__.Stage6.test_H06_priorities_density_independence_and_film_geometry) ... ok
+test_H07_responsive_bilingual_all_machine_details_and_levels (__main__.Stage6.test_H07_responsive_bilingual_all_machine_details_and_levels) ... ok
+test_H08_mould_limits_do_not_use_bottle_dimensions (__main__.Stage6.test_H08_mould_limits_do_not_use_bottle_dimensions) ... ok
+test_H09_cost_reuse_preserves_manual_input_and_never_uses_installed_power (__main__.Stage6.test_H09_cost_reuse_preserves_manual_input_and_never_uses_installed_power) ... ok
+test_H10_user_supplied_sources_remain_distinct_and_do_not_create_fake_limits (__main__.Stage6.test_H10_user_supplied_sources_remain_distinct_and_do_not_create_fake_limits) ... ok
+test_H11_drying_nominal_hopper_and_installed_power_remain_separate (__main__.Stage6.test_H11_drying_nominal_hopper_and_installed_power_remain_separate) ... ok
+test_H12_thermoforming_keeps_forming_tool_sheet_and_bfs_limits_distinct (__main__.Stage6.test_H12_thermoforming_keeps_forming_tool_sheet_and_bfs_limits_distinct) ... ok
+test_H13_every_catalog_record_is_selectable_and_can_be_cleared (__main__.Stage6.test_H13_every_catalog_record_is_selectable_and_can_be_cleared) ... ok
+test_H14_language_preserves_current_machine_comparison_without_recalculation (__main__.Stage6.test_H14_language_preserves_current_machine_comparison_without_recalculation) ... ok
+test_H15_save_basic_restores_hidden_machine_inputs_and_manual_origin (__main__.Stage6.test_H15_save_basic_restores_hidden_machine_inputs_and_manual_origin) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 20.448s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-e7-final-stage6

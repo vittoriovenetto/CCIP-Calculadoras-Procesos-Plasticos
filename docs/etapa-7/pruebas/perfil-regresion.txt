@@ -1,0 +1,10 @@
+test_G36_strict_pvc_pa6_and_physical_profile (browser_smoke.BrowserSmoke.test_G36_strict_pvc_pa6_and_physical_profile) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.634s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-e7-profile-regression

@@ -1,5 +1,10 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
+## Etapa 7 — auditoría y publicación condicionada
+
+Rama `feature/etapa-7-auditoria-publicacion`, basada en Etapa 6. **700 pruebas Node y 97 de navegador aprobadas localmente**, más validación independiente Decimal y artefacto/caché. Publicación **NO-GO** mientras no se comprueben la CI del commit final y Pages: el entorno rechaza sus consultas con 403. `main` y la web publicada permanecen intactos. [Auditoría, evidencia y limitaciones](docs/etapa-7/README.md).
+
+
 ## Etapa 6 — maquinaria y comprobación documental de límites (PR de revisión)
 
 El catálogo reúne **20 equipos concretos documentados** (4/3/4/3/3/3 por proceso), incluidas Moiron M2-I y XH-430B-25, y **25 registros consultables** al conservar series y variantes discrepantes sin duplicar el conteo. Los parámetros compatibles se incorporan tras confirmar la variante y conservando valores manuales. Se distinguen masa/volumen, presiones, nominal/útil y potencia instalada/consumo. Costos puede reutilizar entradas trazables del historial; Excel/PDF/JSON conservan snapshots sin recalcular históricos. [Informe, matriz, fuentes y capturas](docs/etapa-6/auditoria-final.md). No es certificación industrial. Sin fusión de PR ni deploy.
@@ -47,7 +52,7 @@ Consulta [fórmulas, fuentes, límites y pruebas](docs/inyeccion-densidad-perfil
 - [Informe técnico con nombres y justificación de los 31 excluidos](docs/INFORME_AUDITORIA_MATERIALES_V1_4.md).
 - [Matriz JSON de trazabilidad por los 99 registros evaluados](docs/auditoria-estricta-materiales-v1.4.json).
 - **Aclaración:** el archivo `docs/cobertura-99-materiales-y-fuentes.md` es la fotografía histórica anterior a esta auditoría y no refleja el catálogo vigente.
-- Se mantienen entradas «GENÉRICO» sin propiedades propias de ficha para HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6 y PC. En esta rama se ofrece una referencia fundida **separada**, solo con aceptación explícita y fuera del modo «solo datos verificados». No se infiere una propiedad del grado.
+- Se mantienen entradas «GENÉRICO» sin propiedades propias de ficha para HDPE, LLDPE, LDPE, PP, PET, PVC, ABS, PA6 y PC. En esta rama se ofrece una referencia fundida **separada**, precargada como estimación editable según la regla Lean aceptada, y desactivable mediante «solo datos verificados». No se infiere una propiedad del grado.
 - Los valores son típicos de ficha y solo se comparan bajo métodos, carga, temperatura, presentación y condiciones equivalentes. No son certificados de lote ni validación industrial.
 - El filtrado no elimina el historial local de cálculos ni materiales propios ya guardados.
 - Antes de publicar, comprobar los trabajos unitarios y de Playwright y revisar las fuentes exactas con el CCIP.
@@ -70,12 +75,12 @@ Proyecto académico independiente para **Procesos de Transformación I (CCIP / I
 - Las propiedades y los parámetros de máquina sin fuente permanecen vacíos; los datos de catálogo se aplican solo a campos compatibles y tras confirmar condiciones; las dimensiones y cantidades precargadas son ejemplos editables.
 - Ayudas «?» al pasar el cursor, enfocar o tocar; fórmulas completas en resultados desplegables.
 - Logo CCIP y ficha de materiales compacta. V1 conservada como web y ZIP mediante URL directa; sin enlaces históricos en la interfaz actual.
-- Catálogo V1.3 con 90 identidades comerciales propuestas y 9 genéricos (99 perfiles), selección familia → fabricante → grado, fuentes y condiciones locales. **La confirmación oficial de las 90 identidades sigue pendiente por bloqueo de red**; nueve perfiles conservan la documentación aportada en V1.2.
+- Catálogo auditado con **64 grados comerciales y 9 genéricos (73 identidades)**, selección familia → fabricante → grado, fuentes y condiciones. **47 grados recibieron evidencia numérica adicional y 17 comerciales no recibieron enriquecimiento adicional**; investigar 73 identidades no equivale a certificar toda la biblioteca.
 - Autocompletado condicionado de propiedades compatibles, rangos elegidos explícitamente y overrides manuales trazables.
 - Historial/JSON conserva identidad del grado, fuente, auditoría, referencias pVT y snapshot de propiedades utilizadas.
 - Gráfica pVT orientativa de ABS, fuentes de PC y referencia B3S para PA6: densidad automática deshabilitada.
 - Modo avanzado para registrar T/P y fuente de densidad manual, o fase/intervalo/fuente de Cp.
-- Resultados pendientes si faltan datos: **no se inventan propiedades**. Densidad fundida y calor específico siguen pendientes en los 90 perfiles comerciales; los datos propios requieren declaración de fase, fuente y condiciones.
+- Resultados pendientes si faltan datos: **no se inventan propiedades**. Densidad fundida y Cp sin evidencia compatible quedan pendientes; las referencias fundidas por familia están separadas del grado, marcadas como estimaciones y son desactivables. Los datos propios requieren fase, fuente y condiciones.
 - Advertencias y limitaciones del modelo.
 - Historial de hasta 60 resultados en el navegador (localStorage).
 - Exportación JSON con entradas, resultados, fórmulas y fecha; útil para futura app Flutter.
@@ -86,9 +91,9 @@ Usa un servidor estático, por ejemplo `python -m http.server 8000`, y abre `htt
 
 Para ejecutar las pruebas del motor, niveles, entradas e historial: `npm test` (requiere Node.js 18 o superior; no requiere instalar paquetes).
 
-Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install -r tests/requirements.txt`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cinco tamaños, más nueve perfiles documentados × tres procesos × tres niveles × escritorio/móvil; los 99 perfiles, cambios de idioma y materiales propios también se comprueban; también edición, fuentes, rangos, overrides, historial, JSON y cálculo offline tras cargar recursos.
+Integración de interfaz opcional: `python3 tests/browser_smoke.py`, con Python, Playwright y Chromium disponibles. En una máquina nueva instala Playwright (`python3 -m pip install -r tests/requirements.txt`) y su navegador (`python3 -m playwright install chromium`); si Chromium ya está instalado, se reutiliza. `CCIP_CHROMIUM` permite indicar su ejecutable y `CCIP_TEST_ARTIFACTS` un directorio de capturas. La prueba inicia su propio servidor local y no publica nada. Comprueba nueve variantes × tres niveles × cinco tamaños, más nueve perfiles documentados × tres procesos × tres niveles × escritorio/móvil; los 73 perfiles, cambios de idioma y materiales propios también se comprueban; también edición, fuentes, rangos, overrides, historial, JSON y cálculo offline tras cargar recursos.
 
-La V1.3 se desarrolla en `feature/catalogo-90-i18n-formulas`, [PR #2](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pull/2) hacia `feature/web-v1-modular`. El usuario autorizó su publicación experimental en GitHub Pages el 2026-10-14, manteniendo el PR abierto y `main` sin fusionar. Véase el [registro de despliegue](docs/despliegue.md). La primera visita empieza en español; después se conserva el idioma elegido cuando el navegador permite almacenamiento.
+La versión histórica V1.3 se desarrolló en `feature/catalogo-90-i18n-formulas`, [PR #2](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/pull/2) hacia `feature/web-v1-modular`. El usuario autorizó su publicación experimental en GitHub Pages el 2026-10-14, manteniendo el PR abierto y `main` sin fusionar. Véase el [registro de despliegue](docs/despliegue.md). La primera visita empieza en español; después se conserva el idioma elegido cuando el navegador permite almacenamiento.
 
 [Aplicación actual](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/) · [Abrir V1 conservada](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/versions/v1/) · [Descargar archivos V1](https://vittoriovenetto.github.io/CCIP-Calculadoras-Procesos-Plasticos/downloads/CCIP-Web-V1.zip)
 
@@ -101,7 +106,7 @@ La [documentación del rediseño y conservación](docs/rediseno-y-versiones.md) 
 - `src/engine.js`: registro de modelos y validación de entradas.
 - `src/models/`: motor independiente de cada proceso y notas técnicas.
 - `src/math.js`: conversiones numéricas y división segura.
-- `src/data/materials.v1.3.json`: catálogo activo con 99 perfiles y estado documental explícito. V1.0/V1.1/V1.2 permanecen conservadas.
+- `src/data/materials.v1.3.json`: catálogo activo con 73 perfiles y estado documental explícito. V1.0/V1.1/V1.2 permanecen conservadas.
 - `src/custom-materials.js`: propiedades personales, conversiones, importación/exportación y almacenamiento validado.
 - `src/i18n*.js`: presentación ES/EN, separada de entradas y cálculo.
 - `src/formulas-data.js`, `src/formulas-index.js`, `src/formula-learning.js` y `formulas.html`: 42 salidas explicadas, área auxiliar y ejemplos sintéticos de las nueve variantes.
@@ -128,18 +133,18 @@ La película supone dos paredes uniformes sin pérdidas. El DDR geométrico no c
 1. Revisar las hipótesis de cada ecuación con bibliografía y manuales del CCIP.
 2. Comprobar casos de prueba con equipos y grados reales.
 3. Ampliar la biblioteca documentada y completar pVT/densidad fundida, cp(T) y secado faltante, con fichas vigentes y condiciones de ensayo.
-4. Incorporar perfiles de máquina, reportes PDF/Excel, simulaciones y herramientas inversas.
+4. Validar en casos reales los perfiles de maquinaria y los reportes PDF/Excel ya implementados; simulaciones y herramientas inversas quedan fuera del alcance actual.
 5. Obtener conformidad para identidad gráfica institucional definitiva.
 
 **Importante:** la app Flutter será otro proyecto; ambos pueden compartir especificaciones matemáticas y pruebas, no el mismo código JavaScript.
 
 Consulta [modelos y validación técnica](docs/modelos.md), [arquitectura modular](docs/arquitectura.md) y [auditoría y pruebas](docs/auditoria.md) antes de utilizar resultados fuera de un ejercicio académico.
 
-Consulta [biblioteca de materiales y reglas de aplicación](docs/materiales.md) para conocer los nueve grados, condiciones, niveles y propiedades pendientes.
+Consulta [biblioteca de materiales y reglas de aplicación](docs/materiales.md) para conocer el origen de los nueve grados iniciales, condiciones y reglas; el inventario actual de 73 identidades se describe en las Etapas 3–7.
 
 La [auditoría V1.1 / referencias pVT V1.2](docs/auditoria-materiales-v1.2.md) detalla datos incorporados, controles de calidad, pruebas y validaciones pendientes.
 
-## V1.3 — finalización y revisión
+## Registro histórico: V1.3 — finalización y revisión
 
 - 10 referencias comerciales propuestas por familia HDPE, LDPE, LLDPE, PP, PET, PVC, ABS, PA6 y PC, más 9 genéricos sin propiedades supuestas. Las 90 identidades no se presentan como fichas verificadas.
 - Crear, editar, eliminar, seleccionar, exportar e importar materiales propios. Cada propiedad mantiene unidad introducida y canónica, fase, fuente, método y condiciones. Para densidad aparente propia también se declara pellets/polvo: no se deduce de la familia PVC. Datos no verificados por CCIP, guardados solo localmente.

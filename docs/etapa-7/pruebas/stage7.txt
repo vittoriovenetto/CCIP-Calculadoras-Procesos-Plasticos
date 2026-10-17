@@ -1,0 +1,19 @@
+test_J01_seven_processes_three_levels_eight_widths_two_languages (__main__.Stage7.test_J01_seven_processes_three_levels_eight_widths_two_languages) ... Etapa 7 estados adicionales módulo/nivel/idioma/ancho: 336
+ok
+test_J02_invalid_optional_catalogs_leave_manual_calculation_available (__main__.Stage7.test_J02_invalid_optional_catalogs_leave_manual_calculation_available) ... ok
+test_J03_independent_values_visible_and_saved_for_all_seven_processes (__main__.Stage7.test_J03_independent_values_visible_and_saved_for_all_seven_processes) ... ok
+test_J04_real_english_exports_keep_snapshot_and_pdf_lines_do_not_overlap (__main__.Stage7.test_J04_real_english_exports_keep_snapshot_and_pdf_lines_do_not_overlap) ... ok
+test_J05_optional_pages_keyboard_and_mobile_layout (__main__.Stage7.test_J05_optional_pages_keyboard_and_mobile_layout) ... ok
+test_J06_historical_web_files_and_zips_remain_byte_exact (__main__.Stage7.test_J06_historical_web_files_and_zips_remain_byte_exact) ... ok
+test_J07_process_level_url_back_forward_and_deep_link (__main__.Stage7.test_J07_process_level_url_back_forward_and_deep_link) ... ok
+test_J08_restore_and_active_export_show_original_snapshot_until_explicit_calculate (__main__.Stage7.test_J08_restore_and_active_export_show_original_snapshot_until_explicit_calculate) ... ok
+test_J09_editing_restored_profile_invalidates_readonly_export_without_mutating_history (__main__.Stage7.test_J09_editing_restored_profile_invalidates_readonly_export_without_mutating_history) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 27.299s
+
+OK
+Estados módulo/variante × nivel × pantalla comprobados: 0
+Perfiles iniciales comprobados en navegador: 0
+Casos con cambio de idioma ES/EN/ES: 0
+Capturas: /tmp/ccip-e7-final-stage7
