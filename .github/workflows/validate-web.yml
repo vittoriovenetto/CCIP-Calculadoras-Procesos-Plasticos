@@ -90,7 +90,7 @@ jobs:
     permissions:
       contents: write
       actions: read
-      pages: read
+      pages: write
     env:
       GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -125,6 +125,8 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           npm run deploy:pages
+      - name: Explicitly request a Pages build (Actions GITHUB_TOKEN pushes do not trigger it)
+        run: node scripts/release-stage7-actions.mjs trigger-pages
       - name: Check deployed public HTTPS files and preserved version
         run: node scripts/release-stage7-actions.mjs verify-public
       - name: Verify the seven processes, histories, files and languages on public Pages

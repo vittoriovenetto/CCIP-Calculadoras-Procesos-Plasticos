@@ -115,6 +115,31 @@ async function preflight(){
   pages_source:page.source,artifacts:Object.keys(second.files).length,archives:historical,go_file_written:true});
  console.log('GO: exact SHA CI passed; public previous deployment, Pages settings, historical assets and reproducible artifact verified.');
 }
+async function triggerPages(){
+ const sha=current();
+ need(sha===process.env.GITHUB_SHA,'Page build was requested from an unapproved commit.');
+ const published=git('ls-remote','origin','refs/heads/gh-pages').split(/\s+/)[0];
+ need(shaPattern.test(published),'Cannot verify the deployed branch before requesting the Pages build.');
+ const manifest=JSON.parse(gitBytes(published,'deployment.json').toString('utf8'));
+ need(manifest.source_commit===sha,'New gh-pages commit does not match the tested source commit.');
+ const page=await github('/pages');
+ need(page.build_type!=='workflow'&&page.source?.branch==='gh-pages'&&page.source?.path==='/',
+   'Branch-based Pages publication configuration changed during deployment.');
+ const response=await fetch('https://api.github.com/repos/'+repo+'/pages/builds',{
+   method:'POST',
+   headers:{
+    'Authorization':'Bearer '+process.env.GITHUB_API_TOKEN,
+    'Accept':'application/vnd.github+json',
+    'X-GitHub-Api-Version':'2022-11-28',
+    'User-Agent':'ccip-stage7-release-gate'
+   },
+   signal:AbortSignal.timeout(30000)
+ });
+ need(response.status===201,'Explicit Pages build request rejected: HTTP '+response.status);
+ const result=await response.json();
+ save({phase:'build_requested',source_commit:sha,gh_pages_commit:published,request_status:result.status});
+ console.log('Official GitHub Pages build queued for published branch commit '+published);
+}
 function pathUrl(path){
  return noSecretsUrl(path.split('/').map(encodeURIComponent).join('/'));
 }
@@ -164,5 +189,6 @@ const phase=process.argv[2];
 try{
  if(phase==='preflight')await preflight();
  else if(phase==='verify-public')await verifyPublic();
- else throw Error('Usage: node scripts/release-stage7-actions.mjs preflight|verify-public');
+ else if(phase==='trigger-pages')await triggerPages();
+ else throw Error('Usage: node scripts/release-stage7-actions.mjs preflight|trigger-pages|verify-public');
 }catch(e){save({phase,decision:'NO-GO',error:String(e),commit:current()});console.error('RELEASE BLOCKED:',e.message);process.exitCode=1;}
