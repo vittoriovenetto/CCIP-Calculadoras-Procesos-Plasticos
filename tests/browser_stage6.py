@@ -42,7 +42,19 @@ class Stage6(BrowserSmoke):
         self.assertTrue(info)
         for width in [360,390,768,1440]:
             self.page.set_viewport_size({'width':width,'height':850})
-            self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),width)
+            overflow=self.page.evaluate("""()=>({
+              viewport:innerWidth, scroll:document.documentElement.scrollWidth,
+              offenders:[...document.querySelectorAll('body *')].filter(el=>{
+                if(!el.getClientRects().length)return false;
+                const r=el.getBoundingClientRect();
+                return r.right>innerWidth+1 && r.width>0;
+              }).slice(0,20).map(el=>{const r=el.getBoundingClientRect();return {
+                tag:el.tagName,id:el.id,cl:typeof el.className==='string'?el.className:'',
+                width:Math.round(r.width),right:Math.round(r.right),scrollWidth:el.scrollWidth,
+                text:(el.textContent||'').trim().slice(0,95)
+              }})
+            })""")
+            self.assertLessEqual(overflow['scroll'],width+1,(width,overflow))
         self.select_process('extrusion')
         self.select_process('inyeccion')
         self.assertTrue(self.page.locator('#machine-confirm').is_checked())
