@@ -24,16 +24,18 @@ import { renderInjectionProfile } from "./injection-profile-view.js";
 import { renderManualData } from "./materials-audit-view.js";
 import { materialCatalogFor, hasDryingGuideline, enableLeanMaterial } from "./lean-materials.js";
 import { prepareDryingCase } from "./drying-assessment.js";
+import {validateMachineCatalog,newMachineState,selectMachine,setMachineConfirmed,machineSnapshot,restoreMachine,assessMachine} from "./machines.js";
+import {renderMachinePanel,renderMachineAssessment} from "./machines-view.js";
 import { displayMetrics, inputIssues } from "./results-view.js";
 import { mountGuide } from "./formulas-index.js";
 const freshMaterial = () => enableLeanMaterial(createMaterialState());
 
 const $ = id => document.getElementById(id);
-const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), filters: { family: "", manufacturer: "" } };
+const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), machine: newMachineState(), filters: { family: "", manufacturer: "" } };
 state.profile = defaultInjectionProfile();
 const sessions = new Map();
 let sharedCatalog=emptySharedCatalog(), sharedAvailable=false, explorer;
-let library = null, catalogBase = null, loadStatus = "Cargando catálogo local…";
+let library = null, catalogBase = null, machineCatalog = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
 const mod = () => modules.find(m => m.id === state.id);
@@ -55,13 +57,14 @@ function invalidate() {
 
 function selectProcess(id) {
   if (!modules.some(m => m.id === id)) return;
-  sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, filters: state.filters });
+  sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, machine: state.machine, filters: state.filters });
   const selectedGrade = state.material.grade_snapshot?.id;
   state.id = id;
   const session = sessions.get(state.id);
   state.values = session?.values || initialValues();
   state.origins = session?.origins || initialOrigins();
   state.material = session?.material || freshMaterial();
+  state.machine = session?.machine || newMachineState();
   state.filters = session?.filters || { family: "", manufacturer: "" };
   if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
   closeLearning();draw();
@@ -83,6 +86,7 @@ function draw() {
   applyMaterial(state.material, mod(), state.values, state.level);
   drawFields();
   drawMaterials();
+  drawMachines();
   if (!$("custom-material-editor").children.length) drawCustomEditor();
   invalidate();
   renderHistory();
@@ -167,6 +171,12 @@ function drawMaterials() {
     const compact=document.querySelector('.material-compact');if(compact)compact.textContent=(getLanguage()==='en'?'Virgin component reference: ':'Componente virgen de referencia: ')+(state.material.grade_snapshot?.grade||'');
     const summary=$("material-details")?.querySelector('summary');if(summary)summary.textContent=getLanguage()==='en'?'Virgin component datasheet — does not apply to the blend':'Ficha del componente virgen — no se aplica a la mezcla';
   }
+}
+function drawMachines(assessment=null) {
+  renderMachinePanel($("machine-panel"),{catalog:machineCatalog,process:state.id,selection:state.machine,assessment,
+    onSelect:id=>{selectMachine(state.machine,machineCatalog,id,state.id,state.values,state.origins);drawFields();drawMachines();invalidate();},
+    onConfirm:value=>{setMachineConfirmed(state.machine,value,state.values,state.origins);drawFields();drawMachines();invalidate();}
+  });
 }
 function drawProfile(result) {
   renderInjectionProfile($("injection-profile"), {
@@ -312,12 +322,15 @@ function compute() {
     drawFields();
   }
   a.warnings.push(...materialWarnings(state.material, state.id, inputs, state.level));
+  a.machine_assessment = assessMachine(state.machine,state.id,a,inputs);
+  for(const check of a.machine_assessment?.checks||[])if(check.status==="above_published_limit")a.warnings.push("Máquina: el caso supera un límite publicado; verifica la configuración real.");
+  renderMachineAssessment($("machine-assessment"),a.machine_assessment);
   const injectionProfile = state.id === 'inyeccion' ? calculateInjectionProfile(a.calculation_inputs || inputs, state.level, state.profile, a.density_assessment) : null;
   if(injectionProfile&&a.formulation_assessment?.approximate){injectionProfile.estimate_basis='mixture_model';injectionProfile.note=injectionProfile.note?.replaceAll('densidad de familia','densidad de formulación').replaceAll('referencia de familia','modelo de formulación');}
   const issues=inputIssues(state.id,inputs,state.level,a);
   for(const issue of issues)if(!a.warnings.includes(issue.message))a.warnings.push(issue.message);
   const visible=displayMetrics(a);
-  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins}},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
+  const item = {calculation_metadata:{schema_version:"ccip-calculation/2",input_origins:{...state.origins}},input_issues:issues, ...(state.id === 'inyeccion' ? {injection_profile_settings:state.profile,injection_profile:injectionProfile} : {}), module: state.id, date: new Date().toISOString(), level: state.level, inputs, machine:machineSnapshot(state.machine), material: materialSnapshot(state.material, mod(), a.calculation_inputs || inputs, state.level), ...a };
   $("result-date").textContent = new Date(item.date).toLocaleString("es-DO");
   const format = m => m.value === null ? "Pendiente" : Number(m.value).toLocaleString("es-DO", { maximumFractionDigits: m.precision }) + " " + m.unit;
   const primary = (primaryLabels[state.id] || []).map(label => visible.find(m => m.label === label)).filter(Boolean);
@@ -344,17 +357,18 @@ function restoreHistoryItem(item) {
     state.values = { ...initialValues(), ...item.inputs };
     state.origins = {...item.calculation_metadata?.input_origins};
     state.material = restoreMaterial(item.material);
+    state.machine = restoreMachine(item.machine);
     if (state.id === 'inyeccion') state.profile = restoreInjectionProfile(item.injection_profile_settings);
     state.filters = { family: state.material.grade_snapshot?.family || "", manufacturer: state.material.grade_snapshot?.manufacturer || "" };
     nav();
     $("level").value = state.level;
     $("module-title").textContent = mod().name;
     $("module-desc").textContent = mod().description;
-    drawFields();drawMaterials();drawProfile(null);renderHistory();compute();
+    drawFields();drawMaterials();drawMachines();drawProfile(null);renderHistory();compute();
 }
 
 $("calculate").addEventListener("click", compute);
-$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.filters = { family: "", manufacturer: "" }; draw(); });
+$("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.machine = newMachineState(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw(); });
 historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:compute,onRestore:restoreHistoryItem});
 state.origins = initialOrigins();
@@ -372,9 +386,16 @@ explorer=createExplorer($("materials-view"),{
  },
  onCopy:entry=>{const copy=structuredClone(entry.material);copy.id=makeCustomMaterial({family:copy.family,grade:copy.grade}).id;copy.grade+=' (copia local)';delete copy.shared_metadata;delete copy.shared_revision;persistUserMaterials([...listUserMaterials(),copy]);refreshPersonalCatalog();drawCustomEditor();showMaterials(copy.id);}
 });
-document.addEventListener('ccip-language-change',()=>{drawMaterials();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
+document.addEventListener('ccip-language-change',()=>{drawMaterials();drawMachines();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
 routeView();
 
+
+// Un catálogo de equipos incompleto o inaccesible no impide entradas manuales.
+fetch(new URL('./data/machines.v1.json',import.meta.url))
+  .then(r=>{if(!r.ok)throw Error('Catálogo de equipos HTTP '+r.status);return r.json();})
+  .then(info=>{machineCatalog=validateMachineCatalog(info);})
+  .catch(()=>{machineCatalog=null;})
+  .finally(()=>drawMachines());
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
 fetch(new URL("./data/materials.v1.3.json", import.meta.url))
