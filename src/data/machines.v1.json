@@ -1,0 +1,283 @@
+{
+  "schema_version": "ccip-machines/1",
+  "retrieved_on": "2026-10-16",
+  "purpose": "Perfiles documentales; no certifican capacidad real ni compatibilidad industrial",
+  "machines": [
+    {
+      "id": "arburg-allrounder-370s-700-290-s30",
+      "process": "inyeccion",
+      "manufacturer": "ARBURG",
+      "model": "ALLROUNDER 370 S 700-290 / husillo 30 mm",
+      "scope": "specific_configuration",
+      "source": {
+        "url": "https://www.arburg.com/media/daten/publications/technical_data/hydraulic_machines/allrounder_s/ARBURG_ALLROUNDER_370S_multi-component_TD_528998_fr.pdf",
+        "title": "ARBURG ALLROUNDER 370 S multicomponente — datos técnicos",
+        "type": "manufacturer_datasheet",
+        "scope_note": "Configuración 370 S 700-290, husillo 30 mm; otras unidades/husillos tienen datos distintos; presión y caudal máximos pueden ser incompatibles simultáneamente."
+      },
+      "specifications": {
+        "clamp_force_kN": {
+          "value": 700,
+          "unit": "kN",
+          "note": "Fuerza de cierre nominal máxima publicada para 370 S 700",
+          "scope": "published"
+        },
+        "screw_diameter_mm": {
+          "value": 30,
+          "unit": "mm",
+          "note": "Variante específica de husillo 30 mm / unidad 290",
+          "scope": "published"
+        },
+        "screw_max_stroke_mm": {
+          "value": 150,
+          "unit": "mm",
+          "note": "Carrera máxima publicada de la unidad 290",
+          "scope": "published"
+        },
+        "shot_volume_cm3": {
+          "value": 106,
+          "unit": "cm³",
+          "note": "Volumen máximo de inyección para husillo de 30 mm; valor geométrico publicado",
+          "scope": "published"
+        },
+        "max_injection_pressure_bar": {
+          "value": 2500,
+          "unit": "bar",
+          "note": "Presión máxima de inyección, no es presión media en la cavidad",
+          "scope": "published"
+        },
+        "max_injection_flow_cm3_s": {
+          "value": 316,
+          "unit": "cm³/s",
+          "note": "Depende de la variante de accionamiento; no utilizar como caudal garantizado",
+          "scope": "published"
+        },
+        "plasticizing_rate_PS_kg_h": {
+          "value": 17,
+          "unit": "kg/h",
+          "note": "Rendimiento máximo para PS específicamente; no transferir a otros polímeros",
+          "scope": "published"
+        }
+      },
+      "autofill_fields": {
+        "screwD": "screw_diameter_mm",
+        "screwMaxStroke": "screw_max_stroke_mm"
+      }
+    },
+    {
+      "id": "battenfeld-cincinnati-uniex-series",
+      "process": "extrusion",
+      "manufacturer": "battenfeld-cincinnati",
+      "model": "uniEX — serie de extrusoras monohusillo",
+      "scope": "series_range",
+      "source": {
+        "url": "https://www.battenfeld-cincinnati.com/products/detail/uniex",
+        "title": "uniEX — ficha oficial de la serie",
+        "type": "manufacturer_product_page",
+        "scope_note": "Familia modular; el diámetro de husillo, la producción y el material cambian según la configuración. Los extremos de la serie no representan un único equipo."
+      },
+      "specifications": {
+        "screw_diameter_range_mm": {
+          "range": [
+            35,
+            90
+          ],
+          "unit": "mm",
+          "note": "Rango de diámetro en la serie",
+          "scope": "published"
+        },
+        "screw_L_over_D": {
+          "value": 30,
+          "unit": "—",
+          "note": "Relación L/D de la unidad de proceso declarada para la serie",
+          "scope": "published"
+        },
+        "output_series_range_kg_h": {
+          "range": [
+            10,
+            800
+          ],
+          "unit": "kg/h",
+          "note": "Intervalo de capacidades de toda la serie, no de una configuración específica",
+          "scope": "published"
+        }
+      },
+      "autofill_fields": {}
+    },
+    {
+      "id": "reifenhauser-evo-ffs-series",
+      "process": "pelicula",
+      "manufacturer": "Reifenhäuser",
+      "model": "EVO FFS — línea de película soplada",
+      "scope": "series_range",
+      "source": {
+        "url": "https://reifenhauser.com/en/lines-components/extrusion-lines/blown-film-lines/evo-ffs",
+        "title": "EVO FFS — datos de la familia",
+        "type": "manufacturer_product_page",
+        "scope_note": "Rangos de distintas configuraciones, no una combinación garantizada para una sola línea."
+      },
+      "specifications": {
+        "die_diameter_range_mm": {
+          "range": [
+            160,
+            200
+          ],
+          "unit": "mm",
+          "note": "Rango de diámetro de dado para las configuraciones de la serie",
+          "scope": "published"
+        },
+        "extruder_diameter_range_mm": {
+          "range": [
+            50,
+            90
+          ],
+          "unit": "mm",
+          "note": "Rango de diámetro de extrusora en la serie",
+          "scope": "published"
+        },
+        "layer_count_range": {
+          "range": [
+            3,
+            5
+          ],
+          "unit": "capas",
+          "note": "Gama declarada de número de capas",
+          "scope": "published"
+        }
+      },
+      "autofill_fields": {}
+    },
+    {
+      "id": "kautex-kbb40",
+      "process": "soplado",
+      "manufacturer": "Kautex",
+      "model": "KBB 40 — soplado de envases",
+      "scope": "specific_model",
+      "source": {
+        "url": "https://www.kautex-group.com/en/machine/kbb/",
+        "title": "KBB series — tabla oficial KBB 40",
+        "type": "manufacturer_product_page",
+        "scope_note": "Valores tomados de la columna KBB 40. El área máxima de molde no equivale automáticamente a dimensiones máximas del envase."
+      },
+      "specifications": {
+        "clamp_force_kN": {
+          "value": 250,
+          "unit": "kN",
+          "note": "Fuerza de cierre publicada KBB 40",
+          "scope": "published"
+        },
+        "clamp_max_stroke_mm": {
+          "value": 250,
+          "unit": "mm",
+          "note": "Carrera máxima de cierre publicada",
+          "scope": "published"
+        },
+        "mold_max_width_mm": {
+          "value": 610,
+          "unit": "mm",
+          "note": "Ancho máximo de molde; no ancho de botella",
+          "scope": "published"
+        },
+        "mold_max_length_mm": {
+          "value": 430,
+          "unit": "mm",
+          "note": "Longitud máxima de molde; no altura útil de botella",
+          "scope": "published"
+        }
+      },
+      "autofill_fields": {}
+    },
+    {
+      "id": "geiss-t11-series",
+      "process": "termoformado",
+      "manufacturer": "GEISS",
+      "model": "T11 — termoformadora configurable",
+      "scope": "configurable_series",
+      "source": {
+        "url": "https://www.geiss-ttt.com/en/products/thermoforming-systems/t11-thermoforming-machine/",
+        "title": "GEISS T11 — datos oficiales de configuración",
+        "type": "manufacturer_product_page",
+        "scope_note": "Máquina paramétrica; 1000 × 900 mm es la dimensión nominal mínima configurable, NO la máxima. Borde de sujeción 20 mm perimetral."
+      },
+      "specifications": {
+        "min_nominal_sheet_width_mm": {
+          "value": 1000,
+          "unit": "mm",
+          "note": "Dimensión nominal mínima de la variante configurable, no máxima",
+          "scope": "published"
+        },
+        "min_nominal_sheet_length_mm": {
+          "value": 900,
+          "unit": "mm",
+          "note": "Dimensión nominal mínima de la variante configurable, no máxima",
+          "scope": "published"
+        },
+        "clamping_rim_mm": {
+          "value": 20,
+          "unit": "mm",
+          "note": "Borde de sujeción a cada lado",
+          "scope": "published"
+        },
+        "standard_tool_height_mm": {
+          "value": 620,
+          "unit": "mm",
+          "note": "Altura estándar de herramienta, ampliable según pedido",
+          "scope": "published"
+        }
+      },
+      "autofill_fields": {}
+    },
+    {
+      "id": "motan-luxor-hd-lhd30",
+      "process": "secado",
+      "manufacturer": "motan",
+      "model": "LUXOR HD — LHD 30 (tolva de aire caliente)",
+      "scope": "specific_model",
+      "source": {
+        "url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+        "title": "motan — LUXOR HD (tabla técnica LHD 30)",
+        "type": "manufacturer_datasheet",
+        "scope_note": "Secador de aire caliente LHD 30; caudales publicados de aplicaciones tienen condiciones específicas. Volumen nominal de tolva no es volumen útil certificado."
+      },
+      "specifications": {
+        "hopper_nominal_L": {
+          "value": 30,
+          "unit": "L",
+          "note": "Capacidad nominal de tolva, no volumen útil verificado",
+          "scope": "published"
+        },
+        "process_airflow_m3_h": {
+          "value": 25,
+          "unit": "m³/h",
+          "note": "Caudal nominal de aire de proceso",
+          "scope": "published"
+        },
+        "max_temperature_C": {
+          "value": 130,
+          "unit": "°C",
+          "note": "Temperatura máxima declarada del equipo",
+          "scope": "published"
+        },
+        "heater_installed_kW": {
+          "value": 1.5,
+          "unit": "kW",
+          "note": "Potencia instalada del calentador, no consumo real ni potencia térmica neta del granulado",
+          "scope": "published"
+        },
+        "connected_power_kW": {
+          "value": 2,
+          "unit": "kW",
+          "note": "Potencia eléctrica conectada publicada, no consumo medio",
+          "scope": "published"
+        },
+        "ABS_reference_output_kg_h": {
+          "value": 8,
+          "unit": "kg/h",
+          "note": "Referencia de rendimiento de la tabla para ABS bajo sus hipótesis; no rendimiento general de la máquina",
+          "scope": "published"
+        }
+      },
+      "autofill_fields": {}
+    }
+  ]
+}
