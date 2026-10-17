@@ -31,6 +31,7 @@ class Stage6(BrowserSmoke):
         self.assertIn('Series/model range',self.page.locator('#machine-panel').inner_text())
         self.select_process('secado')
         self.page.locator('#machine-select').select_option('motan-luxor-hd-lhd30')
+        self.page.locator('#machine-panel details').evaluate('(el)=>el.open=true')
         self.assertIn('Nominal hopper volume',self.page.locator('#machine-panel').inner_text())
     def test_H03_snapshot_saved_and_mobile(self):
         self.page.locator('#machine-select option').nth(1).wait_for(state='attached')

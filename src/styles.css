@@ -197,3 +197,9 @@ aside .learning-nav{display:block;overflow:visible;margin-top:16px;padding-top:1
 .machine-check{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem;border-top:1px solid var(--border,#cbd5e1);padding:.5rem 0}
 .machine-check small{flex-basis:100%}
 #machine-panel a{overflow-wrap:anywhere}
+
+/* Impedir que la opción larga de un select imponga ancho min-content al grid. */
+#machine-panel{min-width:0;max-width:100%;grid-template-columns:minmax(0,1fr)}
+#machine-panel > *,#machine-panel details,#machine-panel .machine-spec-grid,#machine-panel .machine-confirm,#machine-panel .machine-check{min-width:0;max-width:100%;overflow-wrap:anywhere}
+#machine-panel select{min-width:0;max-width:100%;width:100%;box-sizing:border-box}
+#machine-panel .machine-check > *{min-width:0;overflow-wrap:anywhere}
