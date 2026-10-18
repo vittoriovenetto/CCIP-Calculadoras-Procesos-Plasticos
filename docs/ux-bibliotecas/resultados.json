@@ -1,0 +1,320 @@
+{
+  "schema": "ccip-ux-validation/1",
+  "date_utc": "2026-10-18",
+  "base_commit": "289ebb020dbd6cfdc1f8cf7da4e712a5148560ec",
+  "validated_source_tree": "80cb6ee6348a7931a0f949c9b0245c4d6ecf1e48",
+  "validation_mode": "Full local suites plus targeted Chromium/Firefox reruns after final manufacturer-filter synchronization; CI checks the final PR commit.",
+  "environment": {
+    "node": "24.19.0",
+    "python": "3.12.14",
+    "chromium": "154.0.8037.57",
+    "firefox": "153.0",
+    "firefox_container_test_launcher": true
+  },
+  "unit": {
+    "passed": 719,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser_suites": [
+    {
+      "test": "browser_smoke.py",
+      "browser": "chromium",
+      "passed": 42,
+      "duration_seconds": 615.249,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_stage2.py",
+      "browser": "chromium",
+      "passed": 6,
+      "duration_seconds": 193.542,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_stage3.py",
+      "browser": "chromium",
+      "passed": 10,
+      "duration_seconds": 185.275,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_stage4.py",
+      "browser": "chromium",
+      "passed": 7,
+      "duration_seconds": 162.569,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_stage5.py",
+      "browser": "chromium",
+      "passed": 8,
+      "duration_seconds": 38.413,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_stage6.py",
+      "browser": "chromium",
+      "passed": 15,
+      "duration_seconds": 68.64,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_stage7.py",
+      "browser": "chromium",
+      "passed": 9,
+      "duration_seconds": 270.917,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_machine_explorer.py",
+      "browser": "chromium",
+      "passed": 25,
+      "duration_seconds": 283.895,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "browser_machine_explorer.py",
+      "browser": "firefox",
+      "passed": 25,
+      "duration_seconds": 343.853,
+      "status": "passed",
+      "focused_rerun": false
+    },
+    {
+      "test": "UX18 focused",
+      "browser": "chromium",
+      "passed": 1,
+      "duration_seconds": 16.033,
+      "status": "passed",
+      "focused_rerun": true
+    },
+    {
+      "test": "UX18 focused",
+      "browser": "firefox",
+      "passed": 1,
+      "duration_seconds": 24.11,
+      "status": "passed",
+      "focused_rerun": true
+    }
+  ],
+  "chromium_unique_cases": 122,
+  "widths": [
+    320,
+    360,
+    390,
+    540,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "languages": [
+    "es",
+    "en"
+  ],
+  "numerics": {
+    "cases": 13,
+    "outputs": 79,
+    "passed": 79,
+    "failed": 0
+  },
+  "machine_audit": {
+    "minimum": {
+      "inyeccion": 4,
+      "extrusion": 3,
+      "pelicula": 4,
+      "soplado": 3,
+      "termoformado": 3,
+      "secado": 3
+    },
+    "counts": {
+      "inyeccion": 4,
+      "extrusion": 3,
+      "pelicula": 4,
+      "soplado": 3,
+      "termoformado": 3,
+      "secado": 3
+    },
+    "qualified_count": 20,
+    "excluded": [
+      "battenfeld-cincinnati-uniex-series",
+      "reifenhauser-evo-ffs-series",
+      "geiss-t11-series",
+      "moiron-page104-16mm-100kn",
+      "dongguan-xihua-xh430b-2-2kw"
+    ],
+    "priorities_present": true,
+    "complete": true,
+    "industrial_approval": false
+  },
+  "protected_inventory": {
+    "files": 145,
+    "materials": 73,
+    "failures": []
+  },
+  "build_pages": "passed_local_only",
+  "old_cache_browser": "passed_390_768_1440_and_historical_html",
+  "webkit": {
+    "status": "unavailable",
+    "missing_libraries": [
+      "libgtk-4.so.1",
+      "libgraphene-1.0.so.0",
+      "libharfbuzz-icu.so.0",
+      "libmanette-0.2.so.0",
+      "libhyphen.so.0",
+      "libGLESv2.so.2"
+    ]
+  },
+  "photographs": {
+    "catalog_records_checked": 25,
+    "source_and_legal_pages_checked": 22,
+    "approved_images_included": 0,
+    "fallback": true
+  },
+  "protected_refs": {
+    "main": "423c04b1710f8f009c811c893873184d363f1b66",
+    "gh-pages": "3d15ad024ff414548884f73f5a1388158fc2dd4c",
+    "feature/etapa-7-auditoria-publicacion": "289ebb020dbd6cfdc1f8cf7da4e712a5148560ec"
+  },
+  "screenshots": [
+    {
+      "file": "capturas/ux-automatic-machine-es-1440.png",
+      "sha256": "5f79ae4fb89a8e40e054e1b20840eb0d8868e3ef082a7aa53c6701c572ea16db",
+      "bytes": 144900
+    },
+    {
+      "file": "capturas/ux-automatic-machine-es-390.png",
+      "sha256": "d558c50952f9ddb2c98620cae001fee7e58bca5aa0cae1c29a1ce50a272f5188",
+      "bytes": 66176
+    },
+    {
+      "file": "capturas/ux-calculator-compact-en-1440.png",
+      "sha256": "4a78779b30a318910010a9c6ebad62f11b23e850282583f2049ccf24ccd74baf",
+      "bytes": 132823
+    },
+    {
+      "file": "capturas/ux-calculator-compact-en-390.png",
+      "sha256": "ccaca09c19d7a8c40f7926d2f68c177f73ce427ac41d44e72ce9491b26ba723c",
+      "bytes": 58498
+    },
+    {
+      "file": "capturas/ux-calculator-compact-es-1440.png",
+      "sha256": "9586bd21af028d109be041ba1094dba77bd8d810bce61fa7561863aa3e46941f",
+      "bytes": 142421
+    },
+    {
+      "file": "capturas/ux-calculator-compact-es-390.png",
+      "sha256": "581330765c6dc463d1e1b0509fca9ea8932a7478746f3e9ffdbff084c0027bf7",
+      "bytes": 61889
+    },
+    {
+      "file": "capturas/ux-machine-comparison-en-1440.png",
+      "sha256": "30b914df32085ec5cc07a912d4cc8195884910d6a9e28f3df6b0fa11e0ad04f2",
+      "bytes": 167538
+    },
+    {
+      "file": "capturas/ux-machine-comparison-en-390.png",
+      "sha256": "ef01345fc663a3e5dcc42d82ecc27aa1e006ce62c00597e2540ea8bbfc138486",
+      "bytes": 63433
+    },
+    {
+      "file": "capturas/ux-machine-comparison-es-1440.png",
+      "sha256": "2a6b699ccc25c02c28836ccea67bd166239e20841168aaddf47a898be437bd39",
+      "bytes": 173272
+    },
+    {
+      "file": "capturas/ux-machine-comparison-es-390.png",
+      "sha256": "e086b2f10ff19542022931dbdba92c5d3584daf86a995f67d98bff2decb7acce",
+      "bytes": 66649
+    },
+    {
+      "file": "capturas/ux-machinery-library-en-1440.png",
+      "sha256": "e5a2aadaf897c72997be025b9b43a5c8c24d1c655c5b34efb4b8fc7fb27fdc42",
+      "bytes": 134242
+    },
+    {
+      "file": "capturas/ux-machinery-library-en-390.png",
+      "sha256": "22020bc8b1ce7ac350f3f5a28d7bb0417329f1f76bdc23939e39feaf11360ba6",
+      "bytes": 46977
+    },
+    {
+      "file": "capturas/ux-machinery-library-es-1440.png",
+      "sha256": "763604bfa7d02f4ae1440e0ac30e6c3463257c666639e1b997418f6b840e288b",
+      "bytes": 135162
+    },
+    {
+      "file": "capturas/ux-machinery-library-es-390.png",
+      "sha256": "deec02c97a8fd7ee416726a15db6727b17de1aaa652bbda48fcc51a942d587ce",
+      "bytes": 48112
+    },
+    {
+      "file": "capturas/ux-material-editor-en-1440.png",
+      "sha256": "2ad5ebc348c86d72bc622175d14daafe00efbb0664b99db5e409a3b340511e0f",
+      "bytes": 119938
+    },
+    {
+      "file": "capturas/ux-material-editor-en-390.png",
+      "sha256": "392e37e56a0042b2103a5f73888733e98419d988b7219a14e1a342ed410f21b3",
+      "bytes": 30880
+    },
+    {
+      "file": "capturas/ux-material-editor-es-1440.png",
+      "sha256": "df3adac8b224c1ef216c97bb464efb0fea9449f7e47ea03a6f1d1e5627aa696d",
+      "bytes": 125526
+    },
+    {
+      "file": "capturas/ux-material-editor-es-390.png",
+      "sha256": "c2396223a024cb6dbd08fe467707aa269883f3e38750638e89ff59a84c53627a",
+      "bytes": 32657
+    },
+    {
+      "file": "capturas/ux-moiron-ficha-en-1440.png",
+      "sha256": "ab445b53a3884386692d032f8c8b4d549617b33853e994e926e769879e3f8fed",
+      "bytes": 132721
+    },
+    {
+      "file": "capturas/ux-moiron-ficha-en-390.png",
+      "sha256": "a955d829b774ac5978e3f1d32c4e105dc883e86ec71c83aa7e1f4600a36a9e4e",
+      "bytes": 55938
+    },
+    {
+      "file": "capturas/ux-moiron-ficha-es-1440.png",
+      "sha256": "c669fb7514b178ffc471925214262e404ea63946058444895f6b258eb3b54d24",
+      "bytes": 137614
+    },
+    {
+      "file": "capturas/ux-moiron-ficha-es-390.png",
+      "sha256": "edf71e405ff312bb3ded6da5571541313d4c639e53ebfc5344930f9b73595610",
+      "bytes": 55756
+    },
+    {
+      "file": "capturas/ux-xh-ficha-en-1440.png",
+      "sha256": "850bc52d5ade3a2cb6bb95f73b267ead38dd524cd633720b5b0ba54b9018d431",
+      "bytes": 127658
+    },
+    {
+      "file": "capturas/ux-xh-ficha-en-390.png",
+      "sha256": "01db790a8948d2406aa31f0363501ab0e138c552a0ed22cc0476bc1802826a84",
+      "bytes": 52914
+    },
+    {
+      "file": "capturas/ux-xh-ficha-es-1440.png",
+      "sha256": "e17a82c09b0be2882b0faf9f545055e468acfe3635a6ea4b2a3e3892d9588a57",
+      "bytes": 132444
+    },
+    {
+      "file": "capturas/ux-xh-ficha-es-390.png",
+      "sha256": "c8476b82739de29ebe6197fd977b3241fd67bc958ef9f7e0636c6926422a4bf9",
+      "bytes": 53120
+    }
+  ]
+}

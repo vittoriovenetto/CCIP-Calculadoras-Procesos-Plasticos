@@ -22,7 +22,7 @@ test('Materiales originales, catálogo de máquinas, motores, V1 e históricos c
 test('Biblioteca comparte los 25 registros y conserva veinte identidades documentadas, Moiron y película XH',()=>{
  assert.equal(catalog.machines.length,25);assert.equal(catalogReadiness(catalog).qualified_count,20);
  assert.equal(moiron.process,'inyeccion');assert.equal(xh.process,'pelicula');assert.equal(filterMachines(catalog)[0],catalog.machines[0]);
- const selected=newMachineState();selected.manufacturer='Arburg';selectMachine(selected,catalog,moiron.id,'inyeccion',{},{});assert.equal(selected.manufacturer,'Moiron');
+ const selected=newMachineState();selected.manufacturer='ARBURG';selectMachine(selected,catalog,moiron.id,'inyeccion',{},{});assert.equal(selected.manufacturer,'Moiron');
 });
 test('Buscador admite fabricante/modelo, ID, proceso, tipo, mayúsculas y signos sin cambiar identidades',()=>{
  for(const query of ['MOIRON M2-I','moiron-m2-i','M2I'])assert.ok(filterMachines(catalog,{query}).includes(moiron),query);
