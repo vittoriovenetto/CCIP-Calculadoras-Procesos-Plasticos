@@ -1,3 +1,5 @@
+import {readCaseDraft,writeCaseDraft} from './case-draft.js';
+import {createMachineExplorer} from './machine-explorer-view.js';
 import {cpSignature} from './drying-evidence.js';
 import {snapshotPresentation} from './snapshot-view.js';
 import {readHistory} from './history.js';
@@ -26,7 +28,7 @@ import { renderInjectionProfile } from "./injection-profile-view.js";
 import { renderManualData } from "./materials-audit-view.js";
 import { materialCatalogFor, hasDryingGuideline, enableLeanMaterial } from "./lean-materials.js";
 import { prepareDryingCase } from "./drying-assessment.js";
-import {validateMachineCatalog,newMachineState,selectMachine,setMachineConfirmed,machineSnapshot,restoreMachine,assessMachine,reuseCalculation} from "./machines.js";
+import {validateMachineCatalog,newMachineState,selectMachine,machineSnapshot,restoreMachine,assessMachine,reuseCalculation} from "./machines.js";
 import {renderMachinePanel,renderMachineAssessment} from "./machines-view.js";
 import { displayMetrics, inputIssues } from "./results-view.js";
 import { mountGuide } from "./formulas-index.js";
@@ -36,7 +38,7 @@ const $ = id => document.getElementById(id);
 const state = { id: "inyeccion", level: "technical", values: {}, material: freshMaterial(), machine: newMachineState(), filters: { family: "", manufacturer: "" } };
 state.profile = defaultInjectionProfile();
 const sessions = new Map();
-let sharedCatalog=emptySharedCatalog(), sharedAvailable=false, explorer;
+let sharedCatalog=emptySharedCatalog(), sharedAvailable=false, explorer, machineExplorer;
 let library = null, catalogBase = null, machineCatalog = null, loadStatus = "Cargando catálogo local…";
 let materialDetailsOpen = false;
 const parameterHelp = bindParameterHelp($("fields"));
@@ -63,6 +65,7 @@ function invalidate() {
 
 function selectProcess(id, push=true) {
   if (!modules.some(m => m.id === id)) return;
+  const returning=$("calculator-view").hidden;
   sessions.set(state.id, { values: state.values, origins: state.origins, material: state.material, machine: state.machine, filters: state.filters });
   const selectedGrade = state.material.grade_snapshot?.id;
   state.id = id;
@@ -75,6 +78,7 @@ function selectProcess(id, push=true) {
   if (!session && selectedGrade) selectMaterial(library, state.material, state.values, selectedGrade);
   closeLearning(false);draw();
   if(push)history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
+  if(push&&returning)$("module-title").scrollIntoView({block:'start'});
 }
 
 function nav() {
@@ -102,26 +106,34 @@ function draw() {
 const learningLink = label => `<a class="result-learning" href="${safe(guideHref(state.id, state.level, label))}">Ver fórmula y ejemplo</a>`;
 
 const calculatorUrl = new URL(location.href);
-for(const key of ['view','process','level','material'])calculatorUrl.searchParams.delete(key);
+for(const key of ['view','process','level','material','machine'])calculatorUrl.searchParams.delete(key);
 calculatorUrl.hash='';
 function activeCalculatorUrl(){
-  const url=new URL(calculatorUrl);url.searchParams.set('process',state.id);url.searchParams.set('level',state.level);return url;
+  const url=new URL(calculatorUrl);url.searchParams.set('process',state.id);url.searchParams.set('level',state.level);if(state.machine.id)url.searchParams.set('machine',state.machine.id);return url;
+
+}
+function setView(view){
+  explorer?.returnEditor();
+  for(const name of ['calculator','materials','machines','learning'])$(name+'-view').hidden=name!==view;
+  for(const [name,id] of [['materials','materials-page'],['machines','machines-page'],['learning','learn-page']]){
+    if(name===view)$(id).setAttribute('aria-current','page');else $(id).removeAttribute('aria-current');
+  }
 }
 function closeLearning(push=true) {
-  if($("learning-view").hidden && $("materials-view").hidden)return;
-  explorer?.returnEditor();$("materials-view").hidden=true;$("materials-page").removeAttribute("aria-current");$("calculator-page").setAttribute("aria-current","page");
-  $("learning-view").hidden=true;$("calculator-view").hidden=false;$("learn-page").removeAttribute("aria-current");
-  if(push)history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
-  $("module-title").setAttribute('tabindex','-1');$("module-title").focus({preventScroll:true});
+  const wasHidden=$("calculator-view").hidden;
+  setView('calculator');
+  if(wasHidden)drawMaterials();
+  if(push&&wasHidden)history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
+  if(wasHidden){$("module-title").setAttribute('tabindex','-1');$("module-title").focus({preventScroll:true});if(push)$("module-title").scrollIntoView({block:'start'});}
 }
 function showLearning(href,push=true) {
-  parameterHelp.close();$("calculator-page").removeAttribute("aria-current");explorer?.returnEditor();$("materials-view").hidden=true;$("materials-page").removeAttribute("aria-current");
+  parameterHelp.close();
   const requested=new URL(href,location.href),url=new URL(calculatorUrl);
   url.searchParams.set('view','learning');
   for(const key of ['process','level'])if(requested.searchParams.has(key))url.searchParams.set(key,requested.searchParams.get(key));
   url.hash=requested.hash;
   if(push)history.pushState({ccipView:'learning'},'',url);
-  $("calculator-view").hidden=true;$("learning-view").hidden=false;$("learn-page").setAttribute("aria-current","page");
+  setView('learning');
   mountGuide($("learning-view"),{process:url.searchParams.get('process'),level:url.searchParams.get('level'),lesson:url.hash.slice(1),onBack:()=>closeLearning()});
   if(!url.hash)$("learning-back").focus({preventScroll:true});
 }
@@ -131,16 +143,37 @@ document.addEventListener('click',event=>{
   event.preventDefault();showLearning(link.href);
 });
 function showMaterials(key='',push=true){
-  parameterHelp.close();$("calculator-page").removeAttribute('aria-current');const url=new URL(calculatorUrl);url.searchParams.set('view','materials');if(key)url.searchParams.set('material',key);
+  parameterHelp.close();const url=activeCalculatorUrl();url.searchParams.delete('machine');url.searchParams.set('view','materials');if(key)url.searchParams.set('material',key);
   if(push)history.pushState({ccipView:'materials'},'',url);
-  $("calculator-view").hidden=true;$("learning-view").hidden=true;$("materials-view").hidden=false;$("learn-page").removeAttribute('aria-current');$("materials-page").setAttribute('aria-current','page');explorer.render(key);
+  setView('materials');explorer.render(key);
 }
-$("calculator-page").addEventListener("click",e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();closeLearning();});
+function showMachines(id='',push=true){
+  parameterHelp.close();const url=activeCalculatorUrl();url.searchParams.delete('machine');url.searchParams.set('view','machines');if(id)url.searchParams.set('machine',id);
+  if(push)history.pushState({ccipView:'machines'},'',url);
+  setView('machines');machineExplorer?.render(id,{focus:push});
+}
+function changeMachine(id,push=true){
+  selectMachine(state.machine,machineCatalog,id,state.id,state.values,state.origins);
+  drawFields();drawMachines();invalidate();
+  if(push)history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
+}
+function useMachine(id){
+  const machine=machineCatalog?.machines.find(x=>x.id===id);if(!machine)return;
+  if(state.id!==machine.process)selectProcess(machine.process,false);
+  else closeLearning(false);
+  changeMachine(id,false);
+  history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());
+  $("module-title").focus({preventScroll:true});
+  $("module-title").scrollIntoView({block:'start'});
+}
 $("materials-page").addEventListener('click',e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();showMaterials();});
+$("machines-page").addEventListener('click',e=>{if(e.ctrlKey||e.metaKey)return;e.preventDefault();showMachines();});
+document.querySelector('.brand').addEventListener('click',e=>{if(e.ctrlKey||e.metaKey||e.shiftKey)return;e.preventDefault();closeLearning();});
 function routeView(){
   const url=new URL(location.href),view=url.searchParams.get('view');
   if(view==='learning')showLearning(url,false);
   else if(view==='materials')showMaterials(url.searchParams.get('material')||'',false);
+  else if(view==='machines')showMachines(url.searchParams.get('machine')||'',false);
   else {
     const process=url.searchParams.get('process'),level=url.searchParams.get('level');
     const changedLevel=['basic','technical','advanced'].includes(level)&&state.level!==level;
@@ -148,6 +181,10 @@ function routeView(){
     if(modules.some(m=>m.id===process)&&process!==state.id)selectProcess(process,false);
     else if(changedLevel)draw();
     closeLearning(false);
+    if(machineCatalog){
+      const id=url.searchParams.get('machine')||'';
+      if(id!==state.machine.id)changeMachine(id,false);
+    }
   }
 }
 addEventListener('popstate',routeView);
@@ -178,11 +215,17 @@ function drawCustomEditor() {
     },
     onImport: () => {refreshPersonalCatalog();drawCustomEditor();if(!$("materials-view").hidden){explorer.render();}else draw();$("custom-panel").open=true;}
   });
+  const syncToggle=()=>{
+    $("custom-material-toggle")?.setAttribute('aria-expanded',String($("custom-panel").open));
+    const count=$("custom-material-count");if(count)count.textContent=`(${listUserMaterials().length})`;
+  };
+  $("custom-panel").addEventListener('toggle',syncToggle);syncToggle();
 }
 
 function drawMaterials() {
   renderMaterials($("materials"), { library: materialCatalogFor(library,state.id), loadStatus, materialState: state.material, filters: state.filters,
-    module: mod(), values: state.values, level: state.level, onChange: materialChanged, detailsOpen: materialDetailsOpen, onDetailsToggle: open => { materialDetailsOpen = open; } });
+    module: mod(), values: state.values, level: state.level, onChange: materialChanged, detailsOpen: materialDetailsOpen, onDetailsToggle: open => { materialDetailsOpen = open; },
+    customEditor:$("custom-material-editor"),customMaterialCount:listUserMaterials().length });
   renderRecycled($("materials"),{state:state.material,moduleId:state.id,onVirgin:()=>{leaveFormulation(state.material,state.values);draw();},onChange:(input,redraw)=>{
     applyFormulationInput(state.material,state.values,input,state.id);drawFields();invalidate();
     if(redraw){drawMaterials();const details=$("blend-density-details");if(details)details.open=input.density_strategy!=='none';}
@@ -196,11 +239,10 @@ function drawMaterials() {
 }
 function drawMachines(assessment=state.machine.assessment||null) {
   renderMachinePanel($("machine-panel"),{catalog:machineCatalog,process:state.id,selection:state.machine,assessment,history:state.id==='costos'?savedHistory():[],
-    onSelect:id=>{selectMachine(state.machine,machineCatalog,id,state.id,state.values,state.origins);drawFields();drawMachines();invalidate();},
-    onManufacturer:value=>{selectMachine(state.machine,machineCatalog,'',state.id,state.values,state.origins);state.machine.manufacturer=value;drawFields();drawMachines();invalidate();},
+    onSelect:id=>changeMachine(id),onView:id=>showMachines(id),
+    onManufacturer:value=>{selectMachine(state.machine,machineCatalog,'',state.id,state.values,state.origins);state.machine.manufacturer=value;drawFields();drawMachines();invalidate();history.pushState({ccipView:'calculator'},'',activeCalculatorUrl());},
     onOperation:(key,value)=>{state.machine.operation[key]=value;invalidate();},
-    onReuse:record=>{const trace=reuseCalculation(record,state.values,state.origins,state.machine.reused_from);state.machine=restoreMachine(record.machine);state.machine.reused_from=trace;drawFields();drawMachines();invalidate();},
-    onConfirm:value=>{setMachineConfirmed(state.machine,value,state.values,state.origins);drawFields();drawMachines();invalidate();}
+    onReuse:record=>{const trace=reuseCalculation(record,state.values,state.origins,state.machine.reused_from);state.machine=restoreMachine(record.machine);state.machine.reused_from=trace;drawFields();drawMachines();invalidate();}
   });
 }
 function drawProfile(result) {
@@ -292,7 +334,7 @@ function drawFields() {
     const attrs = `id="field-${f.key}" data-field="${f.key}" aria-describedby="hint-${f.key} error-${f.key}"`;
     const control = f.type === "select" ? `<select ${attrs}>${options}</select>` :
       `<input ${attrs} inputmode="decimal" type="number" step="${f.integer ? "1" : "any"}" min="${f.min}" ${f.max == null ? "" : `max="${f.max}"`} value="${safe(state.values[f.key])}" placeholder="Sin dato"/>`;
-    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.origins[f.key]==='machine_catalog'?safe(t('Especificación del equipo confirmada')+' · '+state.machine.profile?.model):state.origins[f.key]==='saved_calculation'?safe(t('Entrada reutilizada de un cálculo identificado')):state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):state.id==='secado'&&f.key==='startT'&&state.origins.startT==='operating_assumption'?'25 °C · supuesto operativo editable; no dato de fabricante':""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
+    return `<div class="field"><div class="field-heading"><label for="field-${f.key}">${safe(f.label)}</label><button type="button" class="help" data-help="${f.key}" aria-controls="hint-${f.key}" aria-expanded="false" aria-label="Explicar ${safe(f.label)}">?</button></div><div class="inputWrap">${control}${f.unit ? `<span class="unit">${safe(f.unit)}</span>` : ""}</div><div id="hint-${f.key}" class="parameter-tooltip" role="tooltip" hidden><b>${safe(f.label)}${f.unit ? ` (${safe(f.unit)})` : ""}</b><p>${safe(f.description)}</p>${fieldHelp(f)}</div><small id="provenance-${f.key}" class="field-provenance">${state.origins[f.key]==='machine_catalog'?safe(t('Especificación del equipo seleccionado')+' · '+state.machine.profile?.model):state.origins[f.key]==='saved_calculation'?safe(t('Entrada reutilizada de un cálculo identificado')):state.material.provenance[f.key]?safe(provenanceText(state.material.provenance[f.key])):state.id==='secado'&&f.key==='startT'&&state.origins.startT==='operating_assumption'?'25 °C · supuesto operativo editable; no dato de fabricante':""}</small><div class="field-error" id="error-${f.key}" role="status"></div></div>`;
   };
   $("fields").innerHTML = fieldGroups(state.id, activeFields(mod(), state.values, state.level)).map(group => `<fieldset class="parameter-group"><legend>${safe(group.label)}</legend><div class="fields">${group.fields.map(renderField).join("")}</div></fieldset>`).join("");
   document.querySelectorAll("[data-field]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", () => {
@@ -421,10 +463,35 @@ function restoreHistoryItem(item) {
 $("calculate").addEventListener("click", compute);
 $("reset").addEventListener("click", () => { if (state.id === "inyeccion") state.profile = defaultInjectionProfile(); state.values = initialValues(); state.origins = initialOrigins(); state.material = freshMaterial(); state.machine = newMachineState(); state.filters = { family: "", manufacturer: "" }; draw(); });
 $("level").addEventListener("change", e => { state.level = e.target.value; draw();history.pushState({ccipView:'calculator'},'',activeCalculatorUrl()); });
-historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:()=>state.currentSnapshot?structuredClone(state.currentSnapshot):compute(),onRestore:restoreHistoryItem,onChange:()=>{if(state.id==='costos')drawMachines();}});
+historyView = mountHistory({root:$("history"),comparison:$("comparison"),getSnapshot:()=>state.currentSnapshot?structuredClone(state.currentSnapshot):compute(),onRestore:restoreHistoryItem,onMachine:id=>showMachines(id),onChange:()=>{if(state.id==='costos')drawMachines();}});
 state.origins = initialOrigins();
 state.values = initialValues();
+let tabDraft=null;try{tabDraft=readCaseDraft(sessionStorage);}catch{}
+if(tabDraft){
+  for(const [id,entry] of Object.entries(tabDraft.entries))sessions.set(id,entry);
+  state.id=tabDraft.active;state.level=tabDraft.level;state.profile=tabDraft.profile;
+  Object.assign(state,tabDraft.entries[tabDraft.active]);
+}
 draw();
+if(tabDraft?.editor){
+  const saved=tabDraft.editor,form=$("custom-form");
+  if(Array.isArray(saved.fields))for(const item of saved.fields.slice(0,600)){
+    if(typeof item.name!=='string'||!['string','boolean'].includes(typeof item.value)||String(item.value).length>5000)continue;
+    for(const control of [...form.elements].filter(el=>el.name===item.name&&el.type!=='file')){
+      if(control.type==='checkbox'){if(control.value===item.value)control.checked=item.checked===true;}else control.value=item.value;
+    }
+  }
+  if(typeof saved.editing==='string'&&listUserMaterials().some(m=>m.id===saved.editing))form.dataset.editing=saved.editing;
+  $("custom-panel").open=saved.open===true;
+  for(const id of Array.isArray(saved.openDetails)?saved.openDetails:[]){const el=typeof id==='string'?document.getElementById(id):null;if(el&&$("custom-material-editor").contains(el)&&el.tagName==='DETAILS')el.open=true;}
+}
+addEventListener('pagehide',()=>{
+  try{
+    const entries=Object.fromEntries(sessions);entries[state.id]={values:state.values,origins:state.origins,material:state.material,machine:state.machine,filters:state.filters};
+    const form=$("custom-form"),editor={open:$("custom-panel").open,inLibrary:$("materials-view").contains($("custom-material-editor")),editing:form.dataset.editing||null,fields:[...form.elements].filter(el=>el.name&&el.type!=='file').map(el=>({name:el.name,value:el.value,checked:el.type==='checkbox'&&el.checked})),openDetails:[...$("custom-material-editor").querySelectorAll('details[open][id]')].map(el=>el.id)};
+    writeCaseDraft(sessionStorage,{active:state.id,level:state.level,entries,profile:state.profile,editor});
+  }catch{}
+});
 initI18n();
 explorer=createExplorer($("materials-view"),{
  getShared:()=>sharedCatalog,getSharedAvailable:()=>sharedAvailable,getCatalog:()=>catalogBase,getFormulations:()=>[state.material.formulation,...[...sessions.values()].map(s=>s.material.formulation),...savedHistory().map(x=>x.material?.formulation)].filter(Boolean),
@@ -437,8 +504,10 @@ explorer=createExplorer($("materials-view"),{
  },
  onCopy:entry=>{const copy=structuredClone(entry.material);copy.id=makeCustomMaterial({family:copy.family,grade:copy.grade}).id;copy.grade+=' (copia local)';delete copy.shared_metadata;delete copy.shared_revision;persistUserMaterials([...listUserMaterials(),copy]);refreshPersonalCatalog();drawCustomEditor();showMaterials(copy.id);}
 });
-document.addEventListener('ccip-language-change',()=>{drawFields();drawMaterials();drawMachines();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');});
+machineExplorer=createMachineExplorer($("machines-view"),{getCatalog:()=>machineCatalog,getSelection:()=>state.machine,onRoute:id=>showMachines(id),onBack:()=>closeLearning(),onUse:useMachine});
+document.addEventListener('ccip-language-change',()=>{drawFields();drawMaterials();drawMachines();if(!$("materials-view").hidden)explorer.render(new URL(location.href).searchParams.get('material')||'');if(!$("machines-view").hidden)machineExplorer.render(new URL(location.href).searchParams.get('machine')||'');});
 routeView();
+if(tabDraft?.editor?.inLibrary&&!$("materials-view").hidden)explorer.editHost();
 
 
 // Un catálogo de equipos incompleto o inaccesible no impide entradas manuales.
@@ -446,7 +515,7 @@ fetch(new URL('./data/machines.v1.json',import.meta.url))
   .then(r=>{if(!r.ok)throw Error('Catálogo de equipos HTTP '+r.status);return r.json();})
   .then(info=>{machineCatalog=validateMachineCatalog(info);})
   .catch(()=>{machineCatalog=null;})
-  .finally(()=>drawMachines());
+  .finally(()=>{drawMachines();if(!$("machines-view").hidden)machineExplorer.render(new URL(location.href).searchParams.get('machine')||'');else if(!new URL(location.href).searchParams.get('view'))routeView();});
 
 // La carga del catálogo no impide calcular con entradas manuales si falla.
 fetch(new URL("./data/materials.v1.3.json", import.meta.url))
