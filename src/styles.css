@@ -17,6 +17,13 @@ header{background:#fff;border-bottom:4px solid var(--red)}
 .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start}
 aside,.panel,.work>.bar{background:#fff;border:1px solid var(--border);border-radius:12px}
 aside{padding:16px;position:sticky;top:12px;min-width:0}aside h2{font-size:13px;text-transform:uppercase;margin:0 0 12px}
+@media(min-width:801px){
+ aside{max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable;scrollbar-color:#63758b #edf1f5}
+ aside::-webkit-scrollbar{width:12px}
+ aside::-webkit-scrollbar-track{background:#edf1f5;border-radius:8px}
+ aside::-webkit-scrollbar-thumb{background:#63758b;border:3px solid #edf1f5;border-radius:8px}
+ aside::-webkit-scrollbar-thumb:hover{background:#243f63}
+}
 aside nav{display:grid;gap:6px}nav button{text-align:left;font-size:13px;min-height:44px}
 button,select,input,textarea{font:inherit}
 button{border:1px solid #cbd0d8;border-radius:8px;background:#fff;cursor:pointer;padding:10px 12px;color:#27313e;min-height:44px}
