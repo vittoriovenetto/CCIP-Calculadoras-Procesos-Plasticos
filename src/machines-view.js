@@ -1,6 +1,6 @@
 // DOM-only equipment view: never interpret maker/model text as markup.
-import {machinesFor,catalogReadiness} from './machines.js';
-const labels={
+import {machinesFor} from './machines.js';
+export const machineSpecLabels={
 cylinder_nominal_diameter_mm:['Diámetro nominal del cilindro','Nominal cylinder diameter'],drive_torque_Nm:['Par de accionamiento','Drive torque'],machine_length_mm:['Longitud de la máquina','Machine length'],machine_width_mm:['Ancho de la máquina','Machine width'],machine_height_mm:['Altura de la máquina','Machine height'],
 forming_max_width_mm:['Ancho máximo de conformado','Maximum forming width'],forming_max_length_mm:['Largo máximo de conformado','Maximum forming length'],tool_max_width_mm:['Ancho máximo de herramienta','Maximum tool width'],tool_max_length_mm:['Largo máximo de herramienta','Maximum tool length'],sheet_thickness_mm:['Intervalo de espesor de lámina','Sheet thickness range'],max_cycle_cpm:['Velocidad máxima de ciclos (estándar)','Maximum cycle rate (standard)'],bfs_max_cycle_cpm:['Velocidad máxima de ciclos (BFS)','Maximum cycle rate (BFS)'],punching_force_kN:['Fuerza de troquelado en estación','Punching-station force'],bfs_punching_force_kN:['Fuerza de troquelado BFS','BFS punching force'],
 max_injection_speed_mm_s:['Velocidad máxima de inyección','Maximum injection speed'],roll_width_mm:['Ancho del rodillo','Roller width'],hauloff_speed_m_min:['Intervalo de velocidad de arrastre','Take-off speed range'],motor_installed_kW:['Potencia nominal del motor','Installed motor rating'],screw_count:['Número de husillos','Number of screws'],layer_count:['Número de capas','Number of layers'],supply_voltage_V:['Tensión de alimentación','Supply voltage'],supply_frequency_Hz:['Frecuencia de alimentación','Supply frequency'],bubble_max_diameter_range_mm:['Diámetro máximo: rango publicado sin variante individual','Maximum diameter: published range without individual variant'],heating_zone_count:['Zonas de calentamiento','Heating zones'],shot_mass_reference_g:['Masa de disparo: polímero de referencia no especificado','Shot mass: reference polymer unspecified'],mold_opening_stroke_mm:['Apertura del molde (no carrera de inyección)','Mould opening (not injection stroke)'],injection_time_PP_reference_s:['Referencia temporal: 5 g de PP','Time reference: 5 g PP'],machine_mass_kg:['Masa de la máquina','Machine mass'],width_300_as_published_mm:['Ancho plegado declarado: discrepancia pendiente','Stated folding width: discrepancy pending'],width_180_as_published_mm:['Ancho de película declarado: discrepancia pendiente','Stated film width: discrepancy pending'],injection_pressure_published:['Presión de inyección en unidad original','Injection pressure in original unit'],clamp_force_published_tons:['Cierre en unidad original no normalizada','Clamp force in unnormalized original unit'],platen_width_mm:['Ancho de plato','Platen width'],platen_height_mm:['Alto de plato','Platen height'],tiebar_horizontal_mm:['Distancia horizontal entre columnas','Horizontal tie-bar clearance'],tiebar_vertical_mm:['Distancia vertical entre columnas','Vertical tie-bar clearance'],line_speed_max_m_min:['Velocidad máxima de línea','Maximum line speed'],product_max_volume_L:['Capacidad máxima del envase','Maximum container capacity'],hopper_useful_L:['Volumen útil de tolva','Useful hopper volume'],dew_point_C:['Punto de rocío','Dew point'],forming_useful_area_mm2:['Área útil de conformado','Useful forming area'],minimum_cycle_s:['Tiempo mínimo de ciclo','Minimum cycle time'],
@@ -28,6 +28,7 @@ process_airflow_m3_h:['Caudal de aire','Airflow'],max_temperature_C:['Temperatur
 heater_installed_kW:['Potencia del calentador instalado','Installed heater power'],connected_power_kW:['Potencia eléctrica conectada (no consumo)','Connected power (not consumption)'],
 ABS_reference_output_kg_h:['Rendimiento referencial ABS','ABS reference output']
 };
+const labels=machineSpecLabels;
 const node=(parent,tag,content,cls)=>{
  const n=document.createElement(tag);if(content!==null&&content!==undefined)n.textContent=String(content);
  if(cls)n.className=cls;parent.append(n);return n;
@@ -35,7 +36,7 @@ const node=(parent,tag,content,cls)=>{
 const messages={
  cycle_reference_not_production:['Velocidad máxima de ciclos: referencia del modo elegido, no productividad garantizada para pieza, material o herramienta. No se precarga como tiempo de ciclo.','Maximum cycle rate is a reference for the selected mode, not guaranteed productivity for a part, material or tool. It is not prefilled as cycle time.'],
  series_not_individual:['Serie configurable: sus extremos no definen una máquina concreta.','Configurable series: its endpoints do not define an individual machine.'],
- confirm_variant:['Confirma la variante real antes de comparar límites.','Confirm the actual variant before comparing limits.'],
+ confirm_variant:['Vuelve a seleccionar una variante concreta para comparar límites.','Select a specific variant again to compare limits.'],
  screw_configuration_mismatch:['Husillo/carrera no coinciden con esta variante; comparaciones suspendidas.','Screw/stroke do not match this configuration; comparisons suspended.'],
  pressure_roles_separate:['Presión de inyección de máquina ≠ presión hidráulica, de boquilla o media de cavidad.','Machine injection pressure ≠ hydraulic, nozzle or mean cavity pressure.'],
  no_output_from_rpm:['Las rpm y el diámetro del husillo no determinan por sí solos el caudal másico.','Screw rpm and diameter alone do not determine mass output.'],
@@ -77,36 +78,45 @@ function picker(root,id,label,options,current,onChange) {
  for(const [value,label] of options){const item=node(select,'option',label);item.value=value;item.selected=value===current;}
  select.addEventListener('change',e=>onChange(e.target.value));return select;
 }
-export function renderMachinePanel(root,{catalog,process,selection,onSelect,onConfirm,onManufacturer,onOperation,assessment=null,history=[],onReuse}) {
+export function renderMachinePanel(root,{catalog,process,selection,onSelect,onManufacturer,onOperation,onView,assessment=null,history=[],onReuse}) {
  const opened=root.dataset.machineId===selection.id?new Set([...root.querySelectorAll('details[open][id]')].map(d=>d.id)):new Set();
  root.dataset.machineId=selection.id;
  root.replaceChildren();root.setAttribute('data-i18n-ignore','');
  const en=document.documentElement.lang==='en',tr=(es,enText)=>en?enText:es;
- node(root,'h2',tr('Maquinaria y equipo de proceso','Processing machinery and equipment'));
- node(root,'p',tr('Selecciona fabricante y modelo. Comprueba variante y condiciones; una serie no define una máquina concreta.','Select maker and model. Check variant and conditions; a series does not define one machine.'),'muted');
+ node(root,'h2',tr('Maquinaria de referencia (opcional)','Reference machinery (optional)'));
  if(!catalog)node(root,'p',tr('Catálogo de maquinaria no disponible; puedes continuar con entradas manuales.','Machinery catalog unavailable; manual inputs remain available.'),'muted');
- else {const audit=catalogReadiness(catalog);node(root,'p',audit.qualified_count+' '+tr('fichas concretas con documentación revisada; ','specific records with reviewed documentation; ')+(audit.complete?tr('mínimos por proceso cubiertos. No es validación industrial.','per-process minimums covered. Not industrial validation.'):tr('catálogo todavía incompleto.','catalog still incomplete.')),'muted');}
  const candidates=process==='costos'?(catalog?.machines||[]):machinesFor(catalog,process);
  const makers=[...new Set(candidates.map(m=>m.manufacturer))].sort();
  const chosen=selection.manufacturer||'';
- picker(root,'machine-manufacturer',tr('Fabricante de maquinaria','Machine manufacturer'),[['',tr('Todos los fabricantes','All manufacturers')],...makers.map(x=>[x,x])],chosen,value=>onManufacturer?.(value));
- picker(root,'machine-select',tr('Seleccionar maquinaria real','Select real-world equipment'),[['',tr('Sin selección — entradas manuales','No selection — manual inputs')],...candidates.filter(m=>!chosen||m.manufacturer===chosen).map(m=>[m.id,m.manufacturer+' · '+(en?m.model_en||m.model:m.model)])],selection.id,onSelect);
+ const selectors=node(root,'div',null,'machine-selectors fields');
+ picker(node(selectors,'div'),'machine-manufacturer',tr('Fabricante de maquinaria','Machine manufacturer'),[['',tr('Todos los fabricantes','All manufacturers')],...makers.map(x=>[x,x])],chosen,value=>onManufacturer?.(value));
+ picker(node(selectors,'div'),'machine-select',tr('Seleccionar maquinaria real','Select real-world equipment'),[['',tr('Sin selección — entradas manuales','No selection — manual inputs')],...candidates.filter(m=>!chosen||m.manufacturer===chosen).map(m=>[m.id,m.manufacturer+' · '+(en?m.model_en||m.model:m.model)])],selection.id,onSelect);
  if(process==='costos'){
-  node(root,'p',tr('La ficha aporta identidad y límites, nunca consumo medio. Puedes reutilizar entradas de un cálculo guardado mediante una acción explícita; se conservan tus entradas manuales.','The datasheet provides identity and limits, never average consumption. Explicitly reuse saved-case inputs while preserving your manual entries.'),'muted');
-  const source=picker(root,'machine-cost-source',tr('Cálculo de origen','Source calculation'),[['',tr('Seleccionar cálculo guardado','Choose saved calculation')],...history.map(r=>[r.id,r.name||r.module])],'',()=>{});
-  const reuse=node(root,'button',tr('Reutilizar entradas compatibles','Reuse compatible inputs'));reuse.id='machine-reuse';reuse.type='button';reuse.onclick=()=>{const record=history.find(x=>x.id===source.value);if(record)onReuse?.(record);};
+  const reuseDetails=node(root,'details');reuseDetails.id='machine-reuse-details';reuseDetails.open=opened.has(reuseDetails.id);node(reuseDetails,'summary',tr('Reutilizar un cálculo guardado','Reuse a saved calculation'));
+  node(reuseDetails,'p',tr('La ficha aporta identidad y límites, nunca consumo medio. Puedes reutilizar entradas de un cálculo guardado mediante una acción explícita; se conservan tus entradas manuales.','The datasheet provides identity and limits, never average consumption. Explicitly reuse saved-case inputs while preserving your manual entries.'),'muted');
+  const source=picker(reuseDetails,'machine-cost-source',tr('Cálculo de origen','Source calculation'),[['',tr('Seleccionar cálculo guardado','Choose saved calculation')],...history.map(r=>[r.id,r.name||r.module])],'',()=>{});
+  const reuse=node(reuseDetails,'button',tr('Reutilizar entradas compatibles','Reuse compatible inputs'));reuse.id='machine-reuse';reuse.type='button';reuse.onclick=()=>{const record=history.find(x=>x.id===source.value);if(record)onReuse?.(record);};
   reuse.disabled=true;source.addEventListener('change',()=>{reuse.disabled=!source.value;});
-  if(selection.reused_from)node(root,'p',tr('Origen reutilizado: ','Reused source: ')+(selection.reused_from.name||selection.reused_from.id)+' · '+Object.keys(selection.reused_from.applied).join(', '),'muted');
+  if(selection.reused_from)node(reuseDetails,'p',tr('Origen reutilizado: ','Reused source: ')+(selection.reused_from.name||selection.reused_from.id)+' · '+Object.keys(selection.reused_from.applied).join(', '),'muted');
  }
  const profile=selection.profile;if(!profile)return;
  node(root,'h3',profile.manufacturer+' · '+(en?profile.model_en||profile.model:profile.model));
- node(root,'p',(en?profile.configuration_en||profile.configuration:profile.configuration_es||profile.configuration)||profile.model,'muted');
  const specific=['specific_configuration','specific_model'].includes(profile.scope);
- node(root,'p',specific?tr('Ficha de configuración concreta; verificar físicamente la variante','Specific configuration datasheet; verify actual variant'):tr('Rango de serie/modelo — NO capacidad de una unidad particular','Series/model range — NOT the capacity of one unit'),'muted');
- node(root,'p',tr('Estado de evidencia: ','Evidence status: ')+(profile.verification_status==='document_checked'?tr('Documento revisado; no es certificación del equipo','Document reviewed; not equipment certification'):tr('Documentación previa; pendiente de reconsulta','Prior documentation; recheck pending')),'muted');
- if(profile.identity_status)node(root,'p',tr('Equivalencia entre variantes/fuentes pendiente; no se contabiliza como otro equipo ni se mezclan especificaciones.','Cross-source variant equivalence pending; not counted as another machine and specifications are not merged.'),'muted');
- node(root,'p',Object.keys(profile.autofill_fields||{}).length?tr('Precarga compatible, tras confirmar variante: ','Compatible prefill after confirming variant: ')+Object.values(profile.autofill_fields).map(k=>(labels[k]||[k,k])[en?1:0]).join(', '):tr('Sin precarga operativa: los límites de ficha no son condiciones de operación.','No operating prefill: datasheet limits are not operating conditions.'),'muted');
+ if(!specific)node(root,'p',tr('Rango de serie/modelo — NO capacidad de una unidad particular','Series/model range — NOT the capacity of one unit'),'muted');
+ if(selection.confirmed&&specific&&process!=='costos'){
+  const applied=Object.keys(selection.applied||{}).length;
+  const status=node(root,'p',applied?tr('Parámetros compatibles aplicados automáticamente; entradas manuales conservadas.','Compatible parameters applied automatically; manual inputs preserved.'):tr('Variante seleccionada; entradas manuales conservadas.','Variant selected; manual inputs preserved.'),'muted machine-application-status');status.role='status';
+ }
+ const actions=node(root,'div',null,'machine-reference-actions');
+ const link=node(actions,'a',tr('Ver ficha técnica','View datasheet'));link.href='?view=machines&machine='+encodeURIComponent(profile.id);link.addEventListener('click',event=>{if(onView&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&event.button===0){event.preventDefault();onView(profile.id);}});
+ const change=node(actions,'button',tr('Cambiar máquina','Change machine'));change.type='button';change.onclick=()=>root.querySelector('#machine-select').focus();
+ const clear=node(actions,'button',tr('Quitar selección','Remove selection'));clear.type='button';clear.onclick=()=>onSelect('');
  const details=node(root,'details');details.id='machine-datasheet';details.open=opened.has(details.id);node(details,'summary',tr('Datos técnicos y fuente','Technical data and source'));
+ node(details,'p',(en?profile.configuration_en||profile.configuration:profile.configuration_es||profile.configuration)||profile.model,'muted');
+ node(details,'p',specific?tr('Ficha de configuración concreta; verificar físicamente la variante','Specific configuration datasheet; verify actual variant'):tr('Rango de serie/modelo — NO capacidad de una unidad particular','Series/model range — NOT the capacity of one unit'),'muted');
+ node(details,'p',tr('Estado de evidencia: ','Evidence status: ')+(profile.verification_status==='document_checked'?tr('Documento revisado; no es certificación del equipo','Document reviewed; not equipment certification'):tr('Documentación previa; pendiente de reconsulta','Prior documentation; recheck pending')),'muted');
+ if(profile.identity_status)node(details,'p',tr('Equivalencia entre variantes/fuentes pendiente; no se contabiliza como otro equipo ni se mezclan especificaciones.','Cross-source variant equivalence pending; not counted as another machine and specifications are not merged.'),'muted');
+ node(details,'p',Object.keys(profile.autofill_fields||{}).length?tr('Parámetros documentados compatibles: ','Compatible documented parameters: ')+Object.values(profile.autofill_fields).map(k=>(labels[k]||[k,k])[en?1:0]).join(', '):tr('Sin precarga operativa: los límites de ficha no son condiciones de operación.','No operating prefill: datasheet limits are not operating conditions.'),'muted');
  const grid=node(details,'div',null,'machine-spec-grid');
  for(const [key,s] of Object.entries(profile.specifications)){
   const row=node(grid,'div',null,'machine-spec');node(row,'span',(labels[key]||[key,key])[en?1:0]);node(row,'strong',(s.range?s.range.join('–'):s.value)+' '+s.unit);
@@ -123,11 +133,6 @@ export function renderMachinePanel(root,{catalog,process,selection,onSelect,onCo
  else node(details,'p',tr('Lista específica de materiales admisibles pendiente: confirmar con el fabricante. Una referencia de rendimiento no certifica compatibilidad.','Specific approved-material list pending: confirm with the manufacturer. An output reference does not certify compatibility.'),'muted');
  if(profile.undocumented_fields?.length)node(details,'p',tr('Sin documentar: ','Undocumented: ')+profile.undocumented_fields.map(k=>(labels[k]||[k,k])[en?1:0]).join(', '),'muted');
  if(profile.limitations)node(details,'p',en?profile.limitations_en||profile.limitations:profile.limitations,'muted');
- if(specific&&process!=='costos'){
-  const container=node(root,'label',null,'machine-confirm');const input=node(container,'input');input.type='checkbox';input.id='machine-confirm';input.checked=selection.confirmed===true;
-  node(container,'span',tr('Confirmo que mi máquina corresponde a esta variante. Incorporar solo parámetros publicados compatibles, conservando mis entradas manuales.','I confirm my machine matches this variant. Apply only compatible published parameters while preserving manual inputs.'));
-  input.addEventListener('change',e=>onConfirm(e.target.checked));
- }
  const operation=profile.process===process?[
   ['injectionPressureBar','max_injection_pressure_bar','Presión de inyección de máquina','Machine injection pressure','bar'],
   ['injectionSpeed','max_injection_speed_mm_s','Velocidad de inyección','Injection speed','mm/s'],
@@ -147,6 +152,6 @@ export function renderMachinePanel(root,{catalog,process,selection,onSelect,onCo
   picker(box,'machine-capacity-material',tr('Material de la referencia','Reference material'),[['',tr('Sin confirmar','Not confirmed')],[capacity.conditions.material,capacity.conditions.material]],selection.operation?.capacityMaterial||'',v=>onOperation?.('capacityMaterial',v));
   const label=node(box,'label',null,'machine-confirm');const input=node(label,'input');input.type='checkbox';input.id='machine-capacity-confirm';input.checked=selection.operation?.capacityConditionsConfirmed===true;input.onchange=()=>onOperation?.('capacityConditionsConfirmed',input.checked);node(label,'span',tr('Confirmo que coinciden material y todas las condiciones de la ficha; esto no garantiza rendimiento real.','I confirm the material and all datasheet conditions match; this does not guarantee actual output.'));
  }
- node(root,'p',tr('La ficha, variante, condiciones y fuentes se conservarán en el cálculo guardado.','Specifications, variant, conditions and sources are preserved in saved calculations.'),'muted');
+ node(details,'p',tr('La ficha, variante, condiciones y fuentes se conservarán en el cálculo guardado.','Specifications, variant, conditions and sources are preserved in saved calculations.'),'muted');
  const status=node(root,'div');status.id='machine-assessment';status.role='status';renderMachineAssessment(status,assessment);
 }

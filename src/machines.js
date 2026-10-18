@@ -8,6 +8,8 @@ const specific = p => ['specific_configuration','specific_model'].includes(p?.sc
 const clone = x => x == null ? x : JSON.parse(JSON.stringify(x));
 const finite = x => typeof x === 'number' && Number.isFinite(x);
 export const newMachineState = () => ({id:'',confirmed:false,applied:{},profile:null,manufacturer:'',operation:{},reused_from:null});
+// `confirmed` is retained for snapshot compatibility; new selections activate
+// specific variants automatically. It does not certify a physical machine.
 export function validateMachineCatalog(data) {
   if(data?.schema_version!=='ccip-machines/1' || !Array.isArray(data.machines)) throw Error('Versión del catálogo de máquinas inválida.');
   const ids=new Set();
@@ -71,7 +73,9 @@ export function selectMachine(selection,catalog,id,process,values,origins) {
   selection.id=(machine?.process===process || process==='costos'&&!!machine)?machine.id:'';
   selection.profile=(machine?.process===process || process==='costos'&&!!machine)?clone(machine):null;
   selection.confirmed=false;selection.operation={};if(process!=='costos')selection.reused_from=null;
-  return selection;
+  // A concrete selection activates only the existing, documented prefill rules.
+  // Costs keep their explicit saved-calculation reuse flow and never prefill ratings.
+  return setMachineConfirmed(selection,process!=='costos',values,origins);
 }
 export function setMachineConfirmed(selection,confirmed,values,origins) {
   relinquish(selection,values,origins);
@@ -88,7 +92,7 @@ export function setMachineConfirmed(selection,confirmed,values,origins) {
 export function machineSnapshot(selection,inputs={},origins={}) {
   if(!selection?.profile)return selection?.reused_from?clone({id:'',profile:null,reused_from:selection.reused_from}):null;
   const used_fields=Object.fromEntries(Object.entries(selection.applied||{}).filter(([k,v])=>origins[k]==='machine_catalog'&&inputs[k]!==''&&inputs[k]!=null&&Number(inputs[k])===v));
-  return clone({id:selection.id,confirmed:selection.confirmed,profile:selection.profile,applied:selection.applied,used_fields,operation:selection.operation,reused_from:selection.reused_from});
+  return clone({id:selection.id,confirmed:selection.confirmed,selection_kind:'documentary_reference',physical_configuration_verified:false,profile:selection.profile,applied:selection.applied,used_fields,operation:selection.operation,reused_from:selection.reused_from});
 }
 export function restoreMachine(snapshot) {
   const s=newMachineState();
@@ -103,7 +107,9 @@ export function restoreMachine(snapshot) {
   return s;
 }
 export function assessMachine(selection,process,result,values={},context={}) {
-  return compareMachine(selection?.profile,selection?.confirmed,process,result,values,{...selection?.operation,...context});
+  const report=compareMachine(selection?.profile,selection?.confirmed,process,result,values,{...selection?.operation,...context});
+  if(report){report.reference_selected=selection?.confirmed===true;report.configuration_confirmed=false;report.physical_configuration_verified=false;}
+  return report;
 }
 export function reuseCalculation(record,values,origins,previous) {
   for(const [key,value] of Object.entries(previous?.applied||{}))if(origins[key]==='saved_calculation'&&values[key]===value){values[key]='';delete origins[key];}

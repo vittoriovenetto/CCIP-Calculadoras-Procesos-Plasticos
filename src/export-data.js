@@ -36,7 +36,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     [tr('Exportación', 'Exported'), record.export_metadata.exported_at],
     [tr('Estado del cálculo', 'Calculation state'), status === 'saved' ? tr('Snapshot guardado; sin recalcular', 'Saved snapshot; not recalculated') : tr('Estado activo; exportar no guarda cambios', 'Active state; exporting does not save changes')],
     [tr('Material', 'Material'), record.material?.formulation?.name || grade?.grade || tr('Personalizado / sin ficha', 'Custom / no datasheet')],
-    [tr('Familia', 'Family'), grade?.family || unavailable], [tr('Maquinaria seleccionada','Selected equipment'), record.machine?.profile?.model || unavailable], [tr('Configuración confirmada','Configuration confirmed'), record.machine?.confirmed===true?tr('Sí','Yes'):tr('No / no aplicable','No / not applicable')], [record.material?.formulation?tr('Fabricante del componente virgen','Virgin component manufacturer'):tr('Fabricante', 'Manufacturer'), grade?.manufacturer || unavailable],
+    [tr('Familia', 'Family'), grade?.family || unavailable], [tr('Maquinaria seleccionada','Selected equipment'), record.machine?.profile?.model || unavailable], [tr('Configuración activa','Active configuration'), record.machine?.confirmed===true?tr('Sí','Yes'):tr('No / no aplicable','No / not applicable')], [record.material?.formulation?tr('Fabricante del componente virgen','Virgin component manufacturer'):tr('Fabricante', 'Manufacturer'), grade?.manufacturer || unavailable],
     [record.material?.formulation?tr('Grado virgen de referencia','Virgin reference grade'):tr('Grado comercial', 'Commercial grade'), grade?.grade || unavailable], [tr('Validación técnica', 'Technical validation'), validation]
   ];
   const origins = {
@@ -48,7 +48,7 @@ export function prepareExport(snapshot, { language = 'es', status = 'saved', nam
     manufacturer_typical: tr('Valor típico de ficha; no certificado de lote', 'Typical datasheet value; not batch certified'),
     manufacturer_recommendation: tr('Recomendación de ficha', 'Datasheet recommendation'),
     range_selection: tr('Elección explícita en rango de ficha', 'Explicit choice in datasheet range'),
-    machine_catalog: tr('Especificación del equipo confirmada', 'Confirmed machine specification'),
+    machine_catalog: tr('Especificación del equipo seleccionado', 'Selected machine specification'),
     saved_calculation: tr('Entrada reutilizada de un cálculo identificado', 'Input reused from an identified calculation'),
     default_example: tr('Ejemplo precargado editable', 'Editable preloaded example'),
     library: tr('Ficha documental; ver condiciones y estado en fuentes', 'Documented datasheet; see conditions and status in sources'),
