@@ -1,13 +1,19 @@
 # CCIP — Calculadoras de Procesos Plásticos
 
-## Etapa 7 — auditoría y publicación condicionada
+## Rediseño UX — bibliotecas de materiales y maquinaria (para revisión)
 
-Rama `feature/etapa-7-auditoria-publicacion`, basada en Etapa 6. **700 pruebas Node y 97 de navegador aprobadas localmente**, más validación independiente Decimal y artefacto/caché. Publicación **NO-GO** mientras no se comprueben la CI del commit final y Pages: el entorno rechaza sus consultas con 403. `main` y la web publicada permanecen intactos. [Auditoría, evidencia y limitaciones](docs/etapa-7/README.md).
+Rama independiente `feature/ux-bibliotecas-materiales-maquinaria`, basada en la Etapa 7 validada (`289ebb0`). El menú contiene **Materiales, Maquinaria y Aprendizaje**; la calculadora es la vista principal, con retorno por el logo o acciones contextuales. Añade una biblioteca de 25 registros de maquinaria con filtros, fichas, comparación y PDF/JSON/Excel. El selector del caso es compacto y aplica automáticamente solo las precargas documentadas compatibles, conservando valores manuales. El editor de material propio abre a todo el ancho desde el control bajo «Grado comercial».
+
+**Sin merge ni publicación.** CI de revisión con permisos de lectura y sin job de despliegue. Los modelos matemáticos, 73 materiales, 20 identidades válidas de maquinaria, V1 e históricos conservan su integridad. [Arquitectura, rutas y validación](docs/ux-bibliotecas/README.md) · [Fotografías y permisos](docs/ux-bibliotecas/fotografias.md) · [Capturas reales](docs/ux-bibliotecas/capturas/README.md).
+
+## Base de Etapa 7
+
+Se conserva el commit `289ebb020dbd6cfdc1f8cf7da4e712a5148560ec`, aprobado por la [ejecución 39071350036](https://github.com/vittoriovenetto/CCIP-Calculadoras-Procesos-Plasticos/actions/runs/39071350036), que integra las etapas 5 y 6. Los informes de la [auditoría original](docs/etapa-7/README.md) documentan el estado previo a resolver su bloqueo de red y se mantienen como evidencia histórica. Este rediseño se entrega únicamente para revisión y no actualiza la web publicada.
 
 
 ## Etapa 6 — maquinaria y comprobación documental de límites (PR de revisión)
 
-El catálogo reúne **20 equipos concretos documentados** (4/3/4/3/3/3 por proceso), incluidas Moiron M2-I y XH-430B-25, y **25 registros consultables** al conservar series y variantes discrepantes sin duplicar el conteo. Los parámetros compatibles se incorporan tras confirmar la variante y conservando valores manuales. Se distinguen masa/volumen, presiones, nominal/útil y potencia instalada/consumo. Costos puede reutilizar entradas trazables del historial; Excel/PDF/JSON conservan snapshots sin recalcular históricos. [Informe, matriz, fuentes y capturas](docs/etapa-6/auditoria-final.md). No es certificación industrial. Sin fusión de PR ni deploy.
+El catálogo reúne **20 equipos concretos documentados** (4/3/4/3/3/3 por proceso), incluidas Moiron M2-I y XH-430B-25, y **25 registros consultables** al conservar series y variantes discrepantes sin duplicar el conteo. Los parámetros compatibles se incorporan automáticamente al seleccionar una configuración concreta, conservando los valores manuales. Se distinguen masa/volumen, presiones, nominal/útil y potencia instalada/consumo. Costos puede reutilizar entradas trazables del historial; Excel/PDF/JSON conservan snapshots sin recalcular históricos. [Informe, matriz, fuentes y capturas](docs/etapa-6/auditoria-final.md). No es certificación industrial. Sin fusión de PR ni deploy.
 
 
 ## Etapa 5 — secado trazable (PR de revisión)

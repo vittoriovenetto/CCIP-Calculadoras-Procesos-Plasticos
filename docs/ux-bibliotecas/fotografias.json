@@ -1,0 +1,534 @@
+{
+  "approved_for_inclusion": 0,
+  "catalog_records_reviewed": 25,
+  "source_pages_reviewed": 22,
+  "reviewed_at": "2026-10-18T03:29:35.178621+00:00",
+  "records": {
+    "arburg-allrounder-370s-700-290-s30": {
+      "machine_id": "arburg-allrounder-370s-700-290-s30",
+      "manufacturer": "ARBURG",
+      "source_url": "https://www.arburg.com/media/daten/publications/technical_data/hydraulic_machines/allrounder_s/ARBURG_ALLROUNDER_370S_multi-component_TD_528998_fr.pdf",
+      "source_type": "manufacturer_datasheet",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "ARBURG ALLROUNDER 370 S 700-290 / husillo 30 mm",
+      "alt_en": "ARBURG ALLROUNDER 370 S 700-290/290 (Ø30 mm)",
+      "fallback": "image_unavailable"
+    },
+    "battenfeld-cincinnati-uniex-series": {
+      "machine_id": "battenfeld-cincinnati-uniex-series",
+      "manufacturer": "battenfeld-cincinnati",
+      "source_url": "https://www.battenfeld-cincinnati.com/products/detail/uniex",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "battenfeld-cincinnati uniEX — serie de extrusoras monohusillo",
+      "alt_en": "battenfeld-cincinnati uniEX — single-screw extruder series",
+      "fallback": "image_unavailable"
+    },
+    "reifenhauser-evo-ffs-series": {
+      "machine_id": "reifenhauser-evo-ffs-series",
+      "manufacturer": "Reifenhäuser",
+      "source_url": "https://reifenhauser.com/en/lines-components/extrusion-lines/blown-film-lines/evo-ffs",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Reifenhäuser EVO FFS — línea de película soplada",
+      "alt_en": "Reifenhäuser EVO FFS — configurable blown-film line series",
+      "fallback": "image_unavailable"
+    },
+    "kautex-kbb40": {
+      "machine_id": "kautex-kbb40",
+      "manufacturer": "Kautex",
+      "source_url": "https://www.kautex-group.com/en/machine/kbb/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Kautex KBB 40 — soplado de envases",
+      "alt_en": "Kautex KBB 40",
+      "fallback": "image_unavailable"
+    },
+    "geiss-t11-series": {
+      "machine_id": "geiss-t11-series",
+      "manufacturer": "GEISS",
+      "source_url": "https://www.geiss-ttt.com/en/products/thermoforming-systems/t11-thermoforming-machine/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "GEISS T11 — termoformadora configurable",
+      "alt_en": "GEISS T11 — configurable thermoformer",
+      "fallback": "image_unavailable"
+    },
+    "motan-luxor-hd-lhd30": {
+      "machine_id": "motan-luxor-hd-lhd30",
+      "manufacturer": "motan",
+      "source_url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+      "source_type": "manufacturer_datasheet",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "motan LUXOR HD — LHD 30 (tolva de aire caliente)",
+      "alt_en": "motan LUXOR HD — LHD 30",
+      "fallback": "image_unavailable"
+    },
+    "moiron-m2-i": {
+      "machine_id": "moiron-m2-i",
+      "manufacturer": "Moiron",
+      "source_url": "https://www.microplast.com/products.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": "https://d24naddg1rhy2p.cloudfront.net/246320/41/0/m2-i.jpg",
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "Model M2-I and Moiron visible. Photographic origin not established; possible studio rendering. No explicit reuse licence found.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Moiron M2-I",
+      "alt_en": "Moiron M2-I",
+      "fallback": "image_unavailable"
+    },
+    "moiron-m2-ii": {
+      "machine_id": "moiron-m2-ii",
+      "manufacturer": "Moiron",
+      "source_url": "https://www.microplast.com/products.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Moiron M2-II",
+      "alt_en": "Moiron M2-II",
+      "fallback": "image_unavailable"
+    },
+    "xihua-xh436-25t": {
+      "machine_id": "xihua-xh436-25t",
+      "manufacturer": "Xihua",
+      "source_url": "https://www.xihuamach.com/zsj/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": "Guangdong Xihua Machinery Co., Ltd. (copyright notice on official website)",
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Xihua XH-436 — 25T",
+      "alt_en": "Xihua XH-436 — 25T",
+      "fallback": "image_unavailable"
+    },
+    "xihua-xh433-45": {
+      "machine_id": "xihua-xh433-45",
+      "manufacturer": "Xihua",
+      "source_url": "https://www.xihuamach.com/jcj/191.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": "Guangdong Xihua Machinery Co., Ltd. (copyright notice on official website)",
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Xihua XH-433-45",
+      "alt_en": "Xihua XH-433-45",
+      "fallback": "image_unavailable"
+    },
+    "xihua-xh434-25": {
+      "machine_id": "xihua-xh434-25",
+      "manufacturer": "Xihua",
+      "source_url": "https://www.xihuamach.com/jcj/104.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": "Guangdong Xihua Machinery Co., Ltd. (copyright notice on official website)",
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Xihua XH-434-25",
+      "alt_en": "Xihua XH-434-25",
+      "fallback": "image_unavailable"
+    },
+    "collin-e20-e": {
+      "machine_id": "collin-e20-e",
+      "manufacturer": "COLLIN Lab & Pilot Solutions",
+      "source_url": "https://www.collin-solutions.com/en/product/extruders-e-2/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "COLLIN Lab & Pilot Solutions E 20 E",
+      "alt_en": "COLLIN Lab & Pilot Solutions E 20 E",
+      "fallback": "image_unavailable"
+    },
+    "xihua-xh-430b-25": {
+      "machine_id": "xihua-xh-430b-25",
+      "manufacturer": "Xihua",
+      "source_url": "https://www.xihuamach.com/cmjxl/6.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": "https://www.xihuamach.com/site/site03762/upfile/202410/2024100761776657.jpg",
+      "holder": "Guangdong Xihua Machinery Co., Ltd. (copyright notice on official website)",
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "Product-page title identifies XH-430B-25. Source product photograph located; copyright notice does not grant redistribution permission.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Xihua XH-430B-25",
+      "alt_en": "Xihua XH-430B-25",
+      "fallback": "image_unavailable"
+    },
+    "xihua-xh-430b-25-3": {
+      "machine_id": "xihua-xh-430b-25-3",
+      "manufacturer": "Xihua",
+      "source_url": "https://www.xihuamach.com/cmjxl/4.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": "Guangdong Xihua Machinery Co., Ltd. (copyright notice on official website)",
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Xihua XH-430B-25-3",
+      "alt_en": "Xihua XH-430B-25-3",
+      "fallback": "image_unavailable"
+    },
+    "kautex-kbb60": {
+      "machine_id": "kautex-kbb60",
+      "manufacturer": "Kautex",
+      "source_url": "https://www.kautex-group.com/en/machine/kbb/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Kautex KBB 60",
+      "alt_en": "Kautex KBB 60",
+      "fallback": "image_unavailable"
+    },
+    "kautex-kbb80": {
+      "machine_id": "kautex-kbb80",
+      "manufacturer": "Kautex",
+      "source_url": "https://www.kautex-group.com/en/machine/kbb/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Kautex KBB 80",
+      "alt_en": "Kautex KBB 80",
+      "fallback": "image_unavailable"
+    },
+    "motan-luxor-hd-lhd60": {
+      "machine_id": "motan-luxor-hd-lhd60",
+      "manufacturer": "motan",
+      "source_url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+      "source_type": "manufacturer_datasheet",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "motan LUXOR HD — LHD 60",
+      "alt_en": "motan LUXOR HD — LHD 60",
+      "fallback": "image_unavailable"
+    },
+    "motan-luxor-hd-lhd150": {
+      "machine_id": "motan-luxor-hd-lhd150",
+      "manufacturer": "motan",
+      "source_url": "https://www.motan.com/fileadmin/data/products/pdf/drying/luxor-s/es_LUXOR-S.pdf",
+      "source_type": "manufacturer_datasheet",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "motan LUXOR HD — LHD 150",
+      "alt_en": "motan LUXOR HD — LHD 150",
+      "fallback": "image_unavailable"
+    },
+    "collin-bl-400-e": {
+      "machine_id": "collin-bl-400-e",
+      "manufacturer": "COLLIN Lab & Pilot Solutions",
+      "source_url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "COLLIN Lab & Pilot Solutions BL 400 E",
+      "alt_en": "COLLIN Lab & Pilot Solutions BL 400 E",
+      "fallback": "image_unavailable"
+    },
+    "collin-bl-600-e": {
+      "machine_id": "collin-bl-600-e",
+      "manufacturer": "COLLIN Lab & Pilot Solutions",
+      "source_url": "https://www.collin-solutions.com/en/product/blown-film-lines-e-air-cooled/",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "COLLIN Lab & Pilot Solutions BL 600 E",
+      "alt_en": "COLLIN Lab & Pilot Solutions BL 600 E",
+      "fallback": "image_unavailable"
+    },
+    "moiron-page104-16mm-100kn": {
+      "machine_id": "moiron-page104-16mm-100kn",
+      "manufacturer": "Moiron",
+      "source_url": "https://www.moirons.com/product/diyixilie/104.html",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Moiron M2 / imagen M2-I — Ø16 mm, 100 kN",
+      "alt_en": "Moiron M2 / M2-I in image — Ø16 mm, 100 kN",
+      "fallback": "image_unavailable"
+    },
+    "dongguan-xihua-xh430b-2-2kw": {
+      "machine_id": "dongguan-xihua-xh430b-2-2kw",
+      "manufacturer": "Dongguan Xihua Machinery Technology Co., Ltd.",
+      "source_url": "https://dgxihua.en.made-in-china.com/product/jXsEJupbfyrF/China-PP-HDPE-LDPE-PLA-Lab-Blow-Film-Machine.html",
+      "source_type": "manufacturer_supplier_listing",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "No explicit licence for public redistribution established from the reviewed product page and applicable notices."
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Dongguan Xihua Machinery Technology Co., Ltd. XH-430B — 2.2 kW listing",
+      "alt_en": "Dongguan Xihua Machinery Technology Co., Ltd. XH-430B — 2.2 kW listing",
+      "fallback": "image_unavailable"
+    },
+    "kiefel-kmd642speed": {
+      "machine_id": "kiefel-kmd642speed",
+      "manufacturer": "Kiefel",
+      "source_url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd642speed",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "Kiefel imprint requires written consent for distribution; downloads/copies are allowed only for private non-commercial use.",
+        "notice_url": "https://www.kiefel.com/en/imprint"
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Kiefel SPEEDFORMER KMD 64.2 Speed",
+      "alt_en": "Kiefel SPEEDFORMER KMD 64.2 Speed",
+      "fallback": "image_unavailable"
+    },
+    "kiefel-kmd782speed": {
+      "machine_id": "kiefel-kmd782speed",
+      "manufacturer": "Kiefel",
+      "source_url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd782speed",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "Kiefel imprint requires written consent for distribution; downloads/copies are allowed only for private non-commercial use.",
+        "notice_url": "https://www.kiefel.com/en/imprint"
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Kiefel SPEEDFORMER KMD 78.2 Speed",
+      "alt_en": "Kiefel SPEEDFORMER KMD 78.2 Speed",
+      "fallback": "image_unavailable"
+    },
+    "kiefel-kmd85speed": {
+      "machine_id": "kiefel-kmd85speed",
+      "manufacturer": "Kiefel",
+      "source_url": "https://www.kiefel.com/en/solutions/by-machine-solution/speedformer-kmd?variant=kmd85speed",
+      "source_type": "manufacturer_product_page",
+      "candidate_image_url": null,
+      "holder": null,
+      "permission": {
+        "status": "not_granted",
+        "basis": "Kiefel imprint requires written consent for distribution; downloads/copies are allowed only for private non-commercial use.",
+        "notice_url": "https://www.kiefel.com/en/imprint"
+      },
+      "verified_at": "2026-10-18T03:29:35.178621+00:00",
+      "source_http_status": 200,
+      "identity_review": "No photograph with both exact variant identity and an explicit public redistribution licence established. Series imagery is not assigned to individual variants.",
+      "local_path": null,
+      "sha256": null,
+      "alt_es": "Kiefel SPEEDFORMER KMD 85 Speed",
+      "alt_en": "Kiefel SPEEDFORMER KMD 85 Speed",
+      "fallback": "image_unavailable"
+    }
+  },
+  "notices": [
+    {
+      "url": "https://www.collin-solutions.com/en/imprint/",
+      "http_status": "200",
+      "excerpts": []
+    },
+    {
+      "url": "https://www.kiefel.com/en/imprint",
+      "http_status": "200",
+      "excerpts": [
+        "and works on these websites created by the site operators are subject to German copyright law. The reproduction, processing, distribution and any kind of exploitation beyond the limits of copyright require the written consent of the respective author or creator. Downloads and copies of th",
+        "websites created by the site operators are subject to German copyright law. The reproduction, processing, distribution and any kind of exploitation beyond the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are permitted ",
+        "ion, processing, distribution and any kind of exploitation beyond the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are permitted for private, non-commercial use only. Wherever contents on this site were not created ",
+        "herever contents on this site were not created by the operator, the third party copyrights are respected. In particular, third party content is marked as such. Should you become aware of  a copyright infringement, please inform us. Upon notification of violations, we will remove such cont",
+        "articular, third party content is marked as such. Should you become aware of  a copyright infringement, please inform us. Upon notification of violations, we will remove such content immediately. Solutions By industry & application By packaging material By machine solution By technologies"
+      ]
+    },
+    {
+      "url": "https://www.kautex-group.com/en/legal-notice/",
+      "http_status": "200",
+      "excerpts": []
+    }
+  ]
+}

@@ -36,7 +36,10 @@ export function renderMaterialFeedback(root, materialState, module, values, leve
   feedback.innerHTML = mismatch ? `<p class="warning">El proceso activo no está indicado en la ficha; confirma su compatibilidad antes de aplicar propiedades.</p>` : '';
 
 }
-export function renderMaterials(root, { library, loadStatus, materialState, filters, module, values, level, onChange, detailsOpen = false, onDetailsToggle = () => {} }) {
+export function renderMaterials(root, { library, loadStatus, materialState, filters, module, values, level, onChange, detailsOpen = false, onDetailsToggle = () => {}, customEditor, customMaterialCount = 0 }) {
+  // Preserve the editor node, its listeners and unsaved fields across catalog redraws.
+  const editorFocus=customEditor?.contains(document.activeElement)?document.activeElement:null;
+  customEditor?.remove();
   root.onMaterialReference = field => onChange('reference', field);
   const grade = materialState.grade_snapshot;
   const available = !!library;
@@ -100,8 +103,8 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
     <div class="material-selectors fields">
       <div><label for="material-family">Familia</label><select id="material-family" ${available?'':'disabled'}>${options(familyOptions,selectedVisible?family:'',drying?'Selecciona material con datos de secado':'Material personalizado / sin ficha')}</select></div>
       <div><label for="material-manufacturer">Fabricante</label><select id="material-manufacturer" ${family&&available?'':'disabled'}>${options(manufacturerOptions,selectedVisible?manufacturer:'','Selecciona fabricante')}</select></div>
-      <div><label for="material-grade">Grado comercial</label><select id="material-grade" ${manufacturer&&available?'':'disabled'}><option value="">${drying?'Selecciona un grado con secado documentado':'Material personalizado / sin ficha'}</option>${gradeOptions.map(m=>`<option value="${safe(m.id)}" ${m.id===grade?.id?'selected':''}>${safe(m.grade)}</option>`).join('')}</select></div>
-    </div><p id="material-load-status" class="muted">${safe(loadStatus)}</p>
+      <div><label for="material-grade">Grado comercial</label><select id="material-grade" ${manufacturer&&available?'':'disabled'}><option value="">${drying?'Selecciona un grado con secado documentado':'Material personalizado / sin ficha'}</option>${gradeOptions.map(m=>`<option value="${safe(m.id)}" ${m.id===grade?.id?'selected':''}>${safe(m.grade)}</option>`).join('')}</select>${customEditor?`<button type="button" id="custom-material-toggle" aria-controls="custom-panel" aria-expanded="${!!customEditor.querySelector('#custom-panel')?.open}"><span aria-hidden="true">+</span> <span>${safe(t('Agregar / editar material propio'))}</span> <span id="custom-material-count" data-i18n-ignore>(${customMaterialCount})</span></button>`:''}</div>
+    </div><div id="material-editor-host"></div><p id="material-load-status" class="muted">${safe(loadStatus)}</p>
     ${selectedVisible ? `<p class="material-compact">${safe(compactText)}</p>` : ''}
     ${drying ? `<div id="drying-status">${activeFormulation(materialState)?'<p>La guía del componente virgen no se aplica a esta formulación. El secado de mezclas requiere evidencia específica y permanece pendiente.</p>':!selectedVisible || !grade ? `<p>El material anterior no tiene tiempo/temperatura de secado en ficha. Elige otro grado o usa datos manuales documentados.</p><button type="button" id="drying-manual">Usar datos manuales documentados</button>` : `<p><b>Recomendación de secado de ficha:</b> ${safe(dryText(grade.properties.drying_temperature))} · ${safe(dryText(grade.properties.drying_time))}</p><p class="muted">${en
       ? (grade.properties.drying_time?.range ? `Initial nominal residence: ${safe(grade.properties.drying_time.range[1])} h (editable upper bound of manufacturer range, NOT a measured final moisture result).` : 'Nominal datasheet residence is editable.') + ' Verify initial moisture, dew point, dryer and storage; residual moisture is not predicted.'
@@ -115,6 +118,14 @@ export function renderMaterials(root, { library, loadStatus, materialState, filt
     ${Object.values(materialState.provenance).some(e=>e.origin==='user_override') ? `<details class="manual-justification"><summary>Justificación de los cambios manuales</summary><label for="material-conditionsNote">Condiciones y justificación del caso / cambios manuales</label><textarea id="material-conditionsNote" data-material-context="conditionsNote" rows="2">${safe(materialState.context.conditionsNote)}</textarea></details>` : ''}
     <div id="material-feedback" aria-live="polite"></div>`;
 
+  if(customEditor){
+    root.querySelector('#material-editor-host').append(customEditor);
+    editorFocus?.focus({preventScroll:true});
+    root.querySelector('#custom-material-toggle').addEventListener('click',event=>{
+      const panel=customEditor.querySelector('#custom-panel');
+      panel.open=!panel.open;event.currentTarget.setAttribute('aria-expanded',String(panel.open));
+    });
+  }
   renderMaterialSearch(root,library,id=>onChange("grade",id));
   root.querySelector('#drying-manual')?.addEventListener('click',()=>onChange('context',{key:'dryingManualMode',value:true}));
   root.querySelector('#material-details')?.addEventListener('toggle', e => onDetailsToggle(e.target.open));

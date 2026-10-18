@@ -10,6 +10,7 @@ const words = {
  'Confirmo que deseo reemplazar este cálculo.':'I confirm that I want to replace this calculation.',
  'Cancelar':'Cancel','Confirmar guardado':'Confirm save','Mostrar más':'Show more','Exportar':'Export','Renombrar':'Rename',
  'Eliminar':'Delete','Recuperar':'Restore','Seleccionar cálculo':'Select calculation',
+ 'Ficha actual de maquinaria':'Current equipment datasheet',
  'Cálculo guardado.':'Calculation saved.','Cálculo eliminado.':'Calculation deleted.','Nombre actualizado.':'Name updated.',
  'Generando archivo…':'Generating file…','Archivo generado.':'File generated.','No se pudo generar el archivo.':'The file could not be generated.',
  'El historial está dañado. No se modificaron sus datos.':'History is corrupt. Its data has not been modified.',
@@ -27,7 +28,7 @@ const errorText = error => tr(({corrupt:'El historial está dañado. No se modif
 const title = item => item.name || t(modules.find(m => m.id === item.module)?.name || item.module);
 const detail = item => [title(item),t(modules.find(m => m.id === item.module)?.name || item.module),item.material?.formulation?.name||item.material?.grade_snapshot?.grade,new Date(item.updated_at || item.date).toLocaleString(getLanguage() === 'en' ? 'en-US' : 'es-DO')].filter(Boolean).join(' · ');
 
-export function mountHistory({root,comparison,getSnapshot,onRestore,onChange=()=>{}}) {
+export function mountHistory({root,comparison,getSnapshot,onRestore,onMachine,onChange=()=>{}}) {
  let recoveredId = null, count = 15, pending = null;
  const status = document.createElement('p');status.id='history-status';status.role='status';status.setAttribute('data-i18n-ignore','');root.before(status);
  const dialog = document.createElement('dialog');dialog.id='save-dialog';dialog.className='save-dialog';dialog.setAttribute('aria-labelledby','save-title');dialog.setAttribute('data-i18n-ignore','');document.body.append(dialog);
@@ -49,6 +50,11 @@ export function mountHistory({root,comparison,getSnapshot,onRestore,onChange=()=
    if(error)report(errorText(error));
    root.innerHTML=items.length?items.slice(0,count).map(item=>`<div class="historyRow"><span data-i18n-ignore>${safe(detail(item))}</span><div class="history-actions"><button type="button" data-history="${safe(item.id)}">${tr('Recuperar')}</button><button type="button" data-history-rename="${safe(item.id)}">${tr('Renombrar')}</button><button type="button" data-history-delete="${safe(item.id)}">${tr('Eliminar')}</button><label>${tr('Exportar')}<select data-history-export="${safe(item.id)}"><option value="">${tr('Seleccionar formato')}</option><option value="json">JSON</option><option value="xlsx">Excel (.xlsx)</option><option value="pdf">PDF</option></select></label></div></div>`).join(''):`<p>${tr('Aún no hay cálculos guardados en este navegador.')}</p>`;
    if(items.length>count)root.insertAdjacentHTML('beforeend',`<button type="button" id="history-more">${tr('Mostrar más')}</button>`);
+   if(onMachine)for(const item of items.filter(x=>x.machine?.id).slice(0,count)){
+     const row=[...root.querySelectorAll('[data-history]')].find(button=>button.dataset.history===item.id)?.closest('.history-actions');if(!row)continue;
+     const link=document.createElement('a');link.textContent=tr('Ficha actual de maquinaria');link.href='?view=machines&machine='+encodeURIComponent(item.machine.id);link.dataset.historyMachine=item.machine.id;
+     link.onclick=event=>{if(event.ctrlKey||event.metaKey||event.shiftKey)return;event.preventDefault();onMachine(item.machine.id);};row.append(link);
+   }
    root.querySelector('#history-more')?.addEventListener('click',()=>{count+=15;render();});
    root.querySelectorAll('[data-history]').forEach(button=>button.onclick=()=>{const item=items.find(x=>x.id===button.dataset.history);recoveredId=item.id;onRestore(structuredClone(item));});
    root.querySelectorAll('[data-history-rename]').forEach(button=>button.onclick=()=>{

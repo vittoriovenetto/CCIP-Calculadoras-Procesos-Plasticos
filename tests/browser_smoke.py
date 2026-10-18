@@ -39,7 +39,12 @@ class BrowserSmoke(unittest.TestCase):
         cls.url = f"http://127.0.0.1:{cls.server.server_port}/{ROOT.name}/"
         cls.pw = sync_playwright().start()
         chromium = os.environ.get("CCIP_CHROMIUM") or shutil.which("chromium") or shutil.which("chromium-browser")
-        cls.browser = cls.pw.chromium.launch(executable_path=chromium)
+        engine=os.environ.get('CCIP_BROWSER','chromium')
+        if engine not in ('chromium','firefox','webkit'):raise ValueError('Unsupported CCIP_BROWSER')
+        launch_options={'executable_path':chromium} if engine=='chromium' else {}
+        if engine=='firefox' and os.environ.get('CCIP_FIREFOX_CONTAINER')=='1':
+            launch_options['firefox_user_prefs']={'security.sandbox.content.level':0,'gfx.webrender.software':True}
+        cls.browser = getattr(cls.pw,engine).launch(**launch_options)
         cls.matrix_count = 0
         cls.material_count = 0
         cls.catalog_count = 0
@@ -371,7 +376,8 @@ class BrowserSmoke(unittest.TestCase):
     def open_custom_property(self, key):
         for selector in ['#custom-panel', '#custom-properties', f'#custom-property-{key}']:
             if not self.page.locator(selector).evaluate('el=>el.open'):
-                self.page.locator(selector+' > summary').click()
+                trigger = '#custom-material-toggle' if selector == '#custom-panel' and self.page.locator('#custom-material-toggle').is_visible() else selector+' > summary'
+                self.page.locator(trigger).click()
 
     def english_ui_is_complete(self):
         self.page.wait_for_function("document.documentElement.lang==='en' && !document.body.innerText.includes('⚠ Datos típicos')")
@@ -485,7 +491,7 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_G29_invalid_import_and_corrupt_storage_do_not_break_calculation(self):
         self.page.locator('#language').select_option('en')
-        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-material-toggle').click()
         self.page.locator('#custom-import').set_input_files({'name':'invalid.json','mimeType':'application/json','buffer':b'{bad'})
         self.page.wait_for_function("document.querySelector('#custom-feedback').textContent==='Invalid materials JSON.'")
         self.page.locator('#language').select_option('es')
@@ -776,7 +782,7 @@ class BrowserSmoke(unittest.TestCase):
         grade_id=saved[0]['id']
         self.page.locator('#material-details > summary').click()
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'0.8')
-        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-material-toggle').click()
         with self.page.expect_download() as info:self.page.locator('#custom-export').click()
         payload=Path(info.value.path()).read_bytes()
         exported=json.loads(payload)
@@ -791,12 +797,12 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.locator('[data-personal-edit]').count(),1)
         self.select_grade({**saved[0],'id':grade_id})
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'0.75')
-        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-material-toggle').click()
         self.page.on('dialog',lambda dialog:dialog.accept())
         self.page.locator('[data-personal-delete]').click()
         self.assertEqual(self.page.locator('[data-personal-edit]').count(),0)
         self.assertEqual(self.page.locator('[data-field="meltDensity"]').input_value(),'')
-        self.page.locator('#custom-panel > summary').click()
+        self.page.locator('#custom-material-toggle').click()
         self.page.locator('#custom-import').set_input_files({'name':'propios.json','mimeType':'application/json','buffer':payload})
         self.page.wait_for_function("JSON.parse(localStorage.getItem('ccip-user-materials-v1')).length===1")
         self.assertEqual(self.page.locator('[data-personal-edit]').count(),1)

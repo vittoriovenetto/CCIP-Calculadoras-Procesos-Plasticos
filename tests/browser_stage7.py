@@ -92,7 +92,7 @@ class Stage7(Stage6):
         self.page.locator('#language').select_option('en');self.assert_layout()
         self.page.locator('#learn-page').click();self.page.locator('#guide-inyeccion > summary').click();self.page.locator('#inyeccion-1 > summary').click();self.assert_layout()
         self.page.screenshot(path=str(ARTIFACTS/'etapa7-aprendizaje-en-360.png'),full_page=True)
-        self.page.locator('#calculator-page').click();self.assertEqual(self.page.locator('#field-partMass').input_value(),'47.125')
+        self.page.locator('#learning-back').click();self.assertEqual(self.page.locator('#field-partMass').input_value(),'47.125')
         self.page.locator('#field-partMass').focus();self.assertEqual(self.page.evaluate('document.activeElement.id'),'field-partMass')
         self.page.locator('#language').select_option('es');self.assertEqual(self.page.locator('#field-partMass').input_value(),'47.125')
 

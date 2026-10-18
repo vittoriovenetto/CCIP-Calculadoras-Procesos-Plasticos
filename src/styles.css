@@ -17,6 +17,13 @@ header{background:#fff;border-bottom:4px solid var(--red)}
 .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start}
 aside,.panel,.work>.bar{background:#fff;border:1px solid var(--border);border-radius:12px}
 aside{padding:16px;position:sticky;top:12px;min-width:0}aside h2{font-size:13px;text-transform:uppercase;margin:0 0 12px}
+@media(min-width:801px){
+ aside{max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable;scrollbar-color:#63758b #edf1f5}
+ aside::-webkit-scrollbar{width:12px}
+ aside::-webkit-scrollbar-track{background:#edf1f5;border-radius:8px}
+ aside::-webkit-scrollbar-thumb{background:#63758b;border:3px solid #edf1f5;border-radius:8px}
+ aside::-webkit-scrollbar-thumb:hover{background:#243f63}
+}
 aside nav{display:grid;gap:6px}nav button{text-align:left;font-size:13px;min-height:44px}
 button,select,input,textarea{font:inherit}
 button{border:1px solid #cbd0d8;border-radius:8px;background:#fff;cursor:pointer;padding:10px 12px;color:#27313e;min-height:44px}
@@ -206,3 +213,98 @@ aside .learning-nav{display:block;overflow:visible;margin-top:16px;padding-top:1
 #machine-panel .machine-check > *{min-width:0;overflow-wrap:anywhere}
 /* La explicación térmica debe conservar contraste dentro de la ayuda azul. */
 #hint-specificHeat .muted{color:#e2ebf7}#hint-specificHeat summary{color:#fff}
+
+/* Compact case controls: editor remains full width while its action belongs to the grade. */
+#custom-material-toggle{display:flex;align-items:center;gap:4px;text-align:left;border:0;background:transparent;color:var(--navy);font-size:12px;font-weight:650;padding:6px 0;margin-top:4px;min-height:44px;flex-wrap:wrap}
+#custom-material-toggle:hover{text-decoration:underline;text-underline-offset:3px}
+#materials #custom-material-editor{border:0;border-radius:0;background:transparent;padding:0}
+#materials #custom-panel{margin:0;padding:0}
+#materials #custom-panel>summary{display:none}
+#materials #custom-panel[open]{border-top:1px solid var(--border);margin-top:12px;padding-top:12px;padding-bottom:12px}
+#machine-panel{gap:8px;padding:12px 16px}
+#machine-panel>h2{font-size:16px;margin:0}
+#machine-panel>h3{font-size:14px;margin:4px 0 0}
+#machine-panel>p{margin:0}
+.machine-selectors{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.machine-selectors label{display:block;font-size:12px;font-weight:700;margin-bottom:5px}
+.machine-selectors select{font-size:12px}
+#machine-panel>details{margin:0}
+#machine-panel>details>summary{padding:6px 0}
+#machine-assessment:empty{display:none}
+@media(max-width:540px){
+ .machine-selectors{grid-template-columns:minmax(0,1fr);gap:8px}
+ #machine-panel{padding:12px 14px}
+ aside .learning-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+}
+
+/* Independent equipment library, sharing the calculator's documentary catalog. */
+.machine-reference-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.machine-reference-actions a,.machine-reference-actions button{font-size:12px;padding:6px 8px;min-height:44px;display:inline-flex;align-items:center}
+#machines-view{min-width:0;display:grid;gap:14px}
+.machine-library-header h1{font-size:26px;color:var(--navy);margin:16px 0 8px}
+.machine-library-header p{font-size:14px;margin:0;color:#526071}
+.machine-library-controls>label{display:block;font-size:13px;font-weight:750;margin-bottom:6px}
+.machine-library-controls #machine-library-status:empty{display:none}
+.machine-filter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.machine-filter-grid label{display:grid;gap:5px;font-size:12px;font-weight:700;min-width:0}
+.machine-filter-grid select{font-size:12px}
+.machine-library-actions,.machine-export-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.machine-library-actions button,.machine-export-actions button{font-size:12px}
+.machine-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px}
+.machine-card{border:1px solid var(--border);background:#fff;border-radius:12px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.machine-image{aspect-ratio:8/5;background:#edf1f5;display:flex;align-items:center;justify-content:center;overflow:hidden;min-width:0;color:#748397}
+.machine-image img{width:100%;height:100%;object-fit:contain;display:block}
+.machine-image-placeholder{display:grid;justify-items:center;gap:8px;font-size:12px;padding:16px;text-align:center}
+.machine-image-placeholder svg{width:80px;height:52px;opacity:.65}
+.machine-card-content{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+.machine-card h2{font-size:16px;line-height:1.45;margin:0;overflow-wrap:anywhere}
+.machine-card h2 a{text-underline-offset:3px}
+.machine-card p{margin:0;font-size:12px;overflow-wrap:anywhere}
+.machine-card-process{font-size:11px;font-weight:750;color:#8e1230;text-transform:uppercase;letter-spacing:.04em}
+.machine-card-variant{line-height:1.5}
+.machine-card dl{display:grid;gap:7px;margin:8px 0;min-width:0}
+.machine-card dl>div{display:flex;justify-content:space-between;gap:10px;font-size:12px;border-bottom:1px solid #edf0f3;padding-bottom:7px}
+.machine-card dt{min-width:0;max-width:65%;color:#526071}
+.machine-card dd{margin:0;font-weight:700;text-align:right;overflow-wrap:anywhere}
+.machine-documentation{font-size:11px;color:#526071;line-height:1.5}
+.machine-current{font-size:11px;color:#8e1230;font-weight:700}
+.machine-card-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto}
+.machine-card-actions a,.machine-card-actions button{font-size:12px;min-height:44px;display:inline-flex;align-items:center;padding:7px 8px;overflow-wrap:anywhere}
+.machine-compare-check{display:flex;align-items:center;gap:7px;min-height:44px;font-size:12px}
+.machine-compare-check input{width:20px;min-width:20px;min-height:20px;height:20px;margin:0;accent-color:var(--red)}
+.machine-detail-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px;align-items:start}
+.machine-detail-heading h2{margin:6px 0;font-size:22px;color:var(--navy);overflow-wrap:anywhere}
+.machine-detail-heading p{font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+.machine-detail-heading>.machine-image{width:100%;border-radius:8px}
+.machine-spec-group{margin-top:20px;border-top:1px solid var(--border);padding-top:8px}
+.machine-spec-group h3{font-size:15px;color:var(--navy)}
+.machine-spec-group dl{display:grid;gap:12px}
+.machine-spec-group dl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;border-bottom:1px solid #edf0f3;padding-bottom:12px}
+.machine-spec-group dt{font-size:12px;font-weight:650;overflow-wrap:anywhere}
+.machine-spec-group dd{margin:0;min-width:0;overflow-wrap:anywhere;font-size:13px}
+.machine-spec-group small,.machine-table-wrap small{display:block;font-size:11px;color:#526071;line-height:1.5;margin-top:6px;overflow-wrap:anywhere}
+.machine-sources{margin-top:20px;border-top:1px solid var(--border);padding-top:8px;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.machine-sources h3{font-size:15px;color:var(--navy)}
+.machine-comparison-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.machine-comparison-heading h2{font-size:18px;color:var(--navy);margin:0}
+.machine-comparison-heading button{font-size:12px}
+.machine-table-wrap{overflow-x:auto;max-width:100%;margin:12px 0}
+.machine-table-wrap table{border-collapse:collapse;width:100%;font-size:12px}
+.machine-table-wrap th,.machine-table-wrap td{text-align:left;vertical-align:top;border:1px solid var(--border);padding:10px;min-width:125px;overflow-wrap:anywhere}
+.machine-table-wrap caption{text-align:left;font-size:12px;padding-bottom:8px;font-weight:700}
+.machine-pair{border-top:1px solid var(--border)}
+.machine-result-count{margin:0;font-size:13px;font-weight:700;color:#526071}
+@media(max-width:800px){.machine-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.machine-detail-heading{grid-template-columns:minmax(0,1fr)}.machine-detail-heading>.machine-image{max-width:420px}}
+@media(max-width:540px){
+ .material-selectors{grid-template-columns:minmax(0,1fr)}
+ .material-selectors>div:last-child{grid-column:auto}
+ aside .learning-nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+ aside .learning-nav a{display:flex;flex-direction:column;align-items:flex-start;gap:4px;font-size:12px;padding:10px 8px}
+ aside .learning-nav a>b{font-size:12px}
+ aside .learning-nav a>span{font-size:10px;margin:0}
+ .machine-filter-grid{grid-template-columns:minmax(0,1fr)}
+ .machine-spec-group dl>div{grid-template-columns:minmax(0,1fr);gap:5px}
+ .machine-cards{grid-template-columns:minmax(0,1fr)}
+}
+
+.history-actions a{display:inline-flex;align-items:center;min-height:44px;padding:8px;font-size:12px}

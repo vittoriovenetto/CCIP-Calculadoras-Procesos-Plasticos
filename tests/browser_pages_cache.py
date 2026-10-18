@@ -2,6 +2,7 @@
 Ejecutar después de npm run build:pages: python3 tests/browser_pages_cache.py
 """
 import functools
+import json
 import os
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -82,6 +83,22 @@ try:
             assert Path(download.value.path()).read_bytes().startswith(b'PK')
             page.locator('#materials-back').click()
             assert page.locator('#blend-ratio').input_value() == '80/20'
+            # The new library and its lazy exporters must use the same versioned tree.
+            page.locator('#machines-page').click()
+            page.locator('#machine-query').fill('XH430B25')
+            page.locator('[data-machine-card="xihua-xh-430b-25"] [data-machine-route]').first.click()
+            page.locator('[data-machine-detail="xihua-xh-430b-25"]').wait_for()
+            for fmt,magic in [('json',None),('pdf',b'%PDF')]:
+                with page.expect_download(timeout=90000) as download:
+                    page.locator(f'[data-machine-export=datasheet][data-format={fmt}]').click()
+                content=Path(download.value.path()).read_bytes()
+                if magic:assert content.startswith(magic)
+                else:
+                    record=json.loads(content)
+                    assert record['schema']=='ccip-machine-report/1'
+                    assert record['machines'][0]['id']=='xihua-xh-430b-25'
+            page.locator('#machines-back').click()
+            assert page.locator('#blend-ratio').input_value() == '80/20'
             picker=page.locator('#process-select')
             if picker.is_visible():picker.select_option('secado')
             else:page.locator('[data-module="secado"]').click()
@@ -99,9 +116,9 @@ try:
             else:page.locator('[data-module="inyeccion"]').click()
             page.locator('#reset').click();page.locator('#level').select_option('technical')
             page.locator('#machine-select option[value="moiron-m2-i"]').wait_for(state='attached')
-            page.locator('#machine-select').select_option('moiron-m2-i');page.locator('#machine-confirm').check()
+            page.locator('#machine-select').select_option('moiron-m2-i')
             assert page.locator('#field-screwD').input_value()=='20'
-            page.locator('#machine-select').select_option('moiron-page104-16mm-100kn');page.locator('#machine-confirm').check()
+            page.locator('#machine-select').select_option('moiron-page104-16mm-100kn')
             assert page.locator('#field-screwD').input_value()=='16'
             assert page.locator('#field-screwMaxStroke').input_value()==''
             assert page.locator('#machine-select option[value="kiefel-kmd642speed"]').count()==0
@@ -125,7 +142,7 @@ try:
             assert not errors,errors
             context.close()
         browser.close()
-    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, evidencia de Etapa 3, biblioteca y exportación de fichas diferidas válidas, formulación sin herencia, secado con caudal manual/Cp pendiente, variantes Moiron Ø20/Ø16 separadas y sin mezclar recursos antiguos.')
+    print('OK: selector visible, HDPE, tres niveles, aprendizaje y diseño en 390/768/1440 px; XLSX/PDF, bibliotecas y fichas diferidas, maquinaria JSON/PDF con identidad XH, formulación sin herencia, secado con caudal manual/Cp pendiente, variantes Moiron Ø20/Ø16 separadas y sin mezclar recursos antiguos.')
 finally:
     server.shutdown()
     server.server_close()

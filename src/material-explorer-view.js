@@ -26,7 +26,7 @@ export function createExplorer(root,{getShared,getSharedAvailable=()=>true,getCa
  const entries=()=>buildExplorer({...datasets,catalog:getCatalog(),shared:getShared(),locals:listUserMaterials(),formulations:getFormulations()}).entries;
  const records=()=>{const all=entries();return compared.map(key=>all.find(x=>x.key===key)).filter(Boolean);};
  function act(callback){try{callback();}catch(error){root.querySelector('#explorer-status').textContent=tr('No se pudo completar la operación local: ','The local operation could not be completed: ')+t(error.message);}}
- function moveEditorBack(){if(root.contains(editor))document.getElementById('calculation-grid').before(editor);}
+ function moveEditorBack(){if(root.contains(editor))document.getElementById('material-editor-host').append(editor);}
  function options(values,current,display=x=>x){return `<option value="">${tr('Todos','All')}</option>`+[...new Set(values.filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b))).map(x=>`<option value="${safe(x)}" ${current===x?'selected':''}>${safe(display(x))}</option>`).join('');}
  function field(key,title,values,display){return `<label>${title}<select data-filter="${key}">${options(values,filters[key],display)}</select></label>`;}
  function exports(kind){return `<span class="actions">${['xlsx','pdf','json'].map(format=>`<button type="button" data-export="${kind}" data-format="${format}">${tr('Exportar','Export')} ${format.toUpperCase()}</button>`).join('')}</span>`;}
