@@ -72,6 +72,7 @@ export function selectMachine(selection,catalog,id,process,values,origins) {
   const machine=machineFor(catalog,id);
   selection.id=(machine?.process===process || process==='costos'&&!!machine)?machine.id:'';
   selection.profile=(machine?.process===process || process==='costos'&&!!machine)?clone(machine):null;
+  if(selection.profile&&selection.manufacturer&&selection.manufacturer!==machine.manufacturer)selection.manufacturer=machine.manufacturer;
   selection.confirmed=false;selection.operation={};if(process!=='costos')selection.reused_from=null;
   // A concrete selection activates only the existing, documented prefill rules.
   // Costs keep their explicit saved-calculation reuse flow and never prefill ratings.

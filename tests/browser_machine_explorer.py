@@ -203,6 +203,7 @@ class MachineExplorerUX(Stage6):
         self.page.locator('#machine-clear-comparison').click();self.assertEqual(self.page.locator('[data-machine-compare]:checked').count(),0)
 
     def test_UX18_use_opens_correct_process_preserves_manual_inputs_and_returns_to_ficha(self):
+        self.page.locator('#machine-manufacturer').select_option('Arburg')
         self.page.locator('#field-screwD').fill('17');self.page.locator('#language').select_option('en')
         self.library('xihua-xh-430b-25');self.page.locator('#machine-ficha [data-machine-use]').click()
         self.assertEqual(self.page.locator('#process-select').input_value(),'pelicula')
@@ -214,6 +215,7 @@ class MachineExplorerUX(Stage6):
         self.assertEqual(self.page.locator('#process-select').input_value(),'inyeccion')
         self.assertEqual(self.page.locator('#field-screwD').input_value(),'17')
         self.assertEqual(self.page.locator('#machine-select').input_value(),'moiron-m2-i')
+        self.assertEqual(self.page.locator('#machine-manufacturer').input_value(),'Moiron')
 
     def test_UX19_images_without_permission_are_not_requested_and_fallback_is_functional(self):
         remote=[];self.page.on('request',lambda request:remote.append(request.url) if request.resource_type=='image' and not request.url.startswith(self.url) else None)

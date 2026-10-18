@@ -90,7 +90,7 @@ try:
             page.locator('[data-machine-detail="xihua-xh-430b-25"]').wait_for()
             for fmt,magic in [('json',None),('pdf',b'%PDF')]:
                 with page.expect_download(timeout=90000) as download:
-                    page.locator(f'[data-machine-export=ficha][data-format={fmt}]').click()
+                    page.locator(f'[data-machine-export=datasheet][data-format={fmt}]').click()
                 content=Path(download.value.path()).read_bytes()
                 if magic:assert content.startswith(magic)
                 else:
