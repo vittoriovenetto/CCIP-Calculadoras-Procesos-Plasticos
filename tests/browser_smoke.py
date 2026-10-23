@@ -633,7 +633,11 @@ class BrowserSmoke(unittest.TestCase):
                 self.assertEqual(self.page.locator('#manual-message').count(),0)
                 self.assertEqual(self.page.locator('#manual-frame').get_attribute('src'),'./downloads/Manual_Visual_CCIP_Interactivo.html')
                 self.assertTrue(self.page.locator('#manual-title').is_visible())
-                self.assertTrue(self.page.frame_locator('#manual-frame').locator('#nav-select').is_visible())
+                self.assertEqual(self.page.frame_locator('#manual-frame').locator('.chapter').count(),19)
+                if width<=760:
+                    self.assertTrue(self.page.frame_locator('#manual-frame').locator('#nav-select').is_visible())
+                else:
+                    self.assertTrue(self.page.frame_locator('#manual-frame').locator('.sidebar [data-open="7"]').is_visible())
                 self.page.keyboard.press('Tab')
                 self.assertTrue(self.page.evaluate("document.querySelector('#user-manual').contains(document.activeElement)"))
                 self.page.keyboard.press('Escape')

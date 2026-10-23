@@ -34,7 +34,10 @@ class TestManual(unittest.TestCase):
                 frame=page.frame_locator('#manual-frame')
                 frame.locator('#nav-select').wait_for()
                 self.assertEqual(frame.locator('.chapter').count(),19)
-                frame.locator('#nav-select').select_option('7')
+                if width<=760:
+                    frame.locator('#nav-select').select_option('7')
+                else:
+                    frame.locator('.sidebar [data-open="7"]').click()
                 self.assertTrue(frame.locator('#cap-7').is_visible())
                 src=frame.locator('#cap-7 img[src]').first.get_attribute('src')
                 self.assertTrue(src.startswith('./manual-images/'),src)
@@ -43,7 +46,7 @@ class TestManual(unittest.TestCase):
                 page.locator('#manual-close').click()
                 self.assertFalse(page.locator('#user-manual').is_visible())
                 page.locator('#manual-open').click()
-                frame.locator('#nav-select').focus()
+                page.locator('#manual-close').focus()
                 page.keyboard.press('Escape')
                 self.assertFalse(page.locator('#user-manual').is_visible())
                 self.assertEqual(errors,[])
