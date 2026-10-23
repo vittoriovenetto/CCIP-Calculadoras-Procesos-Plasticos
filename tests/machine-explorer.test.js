@@ -103,10 +103,17 @@ test('La selección automática registra referencia documental, sin certificar l
  const snapshot=machineSnapshot(s,v,o);assert.equal(snapshot.selection_kind,'documentary_reference');assert.equal(snapshot.physical_configuration_verified,false);
  const assessment=assessMachine(s,'inyeccion',{metrics:[]},v);assert.equal(assessment.reference_selected,true);assert.equal(assessment.configuration_confirmed,false);assert.equal(assessment.physical_configuration_verified,false);assert.equal(assessment.industrial_approval,false);
 });
-test('Workflow de la rama de revisión valida push/PR sin job, permiso ni comando de publicación',()=>{
+test('Workflow mantiene CI read-only y despliegue seguro autorizado solo tras GO',()=>{
  const workflow=readFileSync(new URL('../.github/workflows/validate-web.yml',import.meta.url),'utf8');
  assert.match(workflow,/feature\/ux-bibliotecas-materiales-maquinaria/);assert.match(workflow,/pull_request:/);assert.match(workflow,/browser_machine_explorer\.py/);
- assert.doesNotMatch(workflow,/publish-verified-pages|deploy:pages|publish-pages\.mjs|pages:\s*write|contents:\s*write|deploy-pages/);
+  assert.match(workflow,/feature\/manual-visual-ccip-integracion/);
+  const parts=workflow.split('  publish-verified-pages:');assert.equal(parts.length,2);
+  assert.doesNotMatch(parts[0],/deploy:pages|pages:\s*write|contents:\s*write/);
+  assert.match(parts[1],/needs:\s*\[unit, browser\]/);
+  assert.match(parts[1],/github\.event_name == 'push'.*feature\/manual-visual-ccip-integracion/);
+  assert.match(parts[1],/release-stage7-actions\.mjs preflight/);
+  assert.match(parts[1],/deploy:pages/);
+  assert.match(parts[1],/release-stage7-actions\.mjs verify-public/);
  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8'),app=readFileSync(new URL('../src/app.js',import.meta.url),'utf8');
  assert.ok(!html.includes('calculator-page'));assert.ok(!app.includes('calculator-page'));
 });

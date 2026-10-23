@@ -11,4 +11,9 @@ trigger?.addEventListener('click',()=>{
 });
 close?.addEventListener('click',()=>dialog?.close());
 dialog?.addEventListener('close',()=>trigger?.focus({preventScroll:true}));
-// Native dialog handles Escape, backdrop and keyboard focus within the modal.
+// Escape from the sandboxed manual iframe cannot close the parent native dialog alone.
+window.addEventListener('message',event=>{
+  if(event.source!==frame?.contentWindow||event.data?.type!=='ccip:manual:escape')return;
+  if(dialog?.open)dialog.close();
+});
+// Native dialog already handles Escape while focus remains in the parent document.

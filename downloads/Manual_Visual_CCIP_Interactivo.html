@@ -97,6 +97,11 @@
    window.print();
    document.querySelectorAll('details.deep').forEach(d=>d.open=opened.includes(d));
  };
+ addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&window.parent!==window&&!document.querySelector('#photo-modal')?.open){
+       window.parent.postMessage({type:'ccip:manual:escape'},'*');
+    }
+ },true);
  addEventListener('popstate',()=>go(location.hash.replace(/^#cap-/,'')||'home',true));
  go(location.hash.replace(/^#cap-/,'')||'home',true);
 })();</script></body></html>

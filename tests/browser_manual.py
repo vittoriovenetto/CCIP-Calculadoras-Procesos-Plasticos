@@ -43,6 +43,7 @@ class TestManual(unittest.TestCase):
                 page.locator('#manual-close').click()
                 self.assertFalse(page.locator('#user-manual').is_visible())
                 page.locator('#manual-open').click()
+                frame.locator('#nav-select').focus()
                 page.keyboard.press('Escape')
                 self.assertFalse(page.locator('#user-manual').is_visible())
                 self.assertEqual(errors,[])
