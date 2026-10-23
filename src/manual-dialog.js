@@ -10,6 +10,23 @@ trigger?.addEventListener('click',()=>{
   close?.focus({preventScroll:true});
 });
 close?.addEventListener('click',()=>dialog?.close());
+// Explicit focus cycle in dialog header: browsers may otherwise move focus outside via iframe.
+dialog?.addEventListener('keydown',event=>{
+  if(event.key!=='Tab')return;
+  const link=dialog.querySelector('.visual-manual-actions a');
+  if(document.activeElement===close && !event.shiftKey && link){
+    event.preventDefault();
+    link.focus({preventScroll:true});
+  }else if(document.activeElement===link && event.shiftKey){
+    event.preventDefault();
+    close?.focus({preventScroll:true});
+  }
+});
+document.addEventListener('focusin',event=>{
+  if(dialog?.open && !dialog.contains(event.target) && event.target!==dialog){
+    close?.focus({preventScroll:true});
+  }
+});
 dialog?.addEventListener('close',()=>trigger?.focus({preventScroll:true}));
 // Escape from the sandboxed manual iframe cannot close the parent native dialog alone.
 window.addEventListener('message',event=>{
