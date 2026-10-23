@@ -75,7 +75,7 @@ function ciEvidence(run,jobs,sha){
 }
 async function preflight(){
  need(process.env.GITHUB_EVENT_NAME==='push' &&
-   process.env.GITHUB_REF==='refs/heads/feature/etapa-7-auditoria-publicacion',
+   process.env.GITHUB_REF==='refs/heads/feature/manual-visual-ccip-integracion',
    'Publishing is allowed only from an approved Stage7 branch push.');
  const sha=current();
  need(shaPattern.test(sha)&&sha===process.env.GITHUB_SHA,'Checkout differs from GitHub event head commit.');
@@ -183,7 +183,11 @@ async function verifyPublic(){
   'assets/'+sha+'/src/data/machines.v1.json',
   'versions/v1/index.html',
   'versions/antes-etapa-7-2026-10-17/index.html',
-  'downloads/CCIP-Web-antes-etapa-7-2026-10-17.zip'
+  'downloads/CCIP-Web-antes-etapa-7-2026-10-17.zip',
+  'downloads/Manual_Visual_CCIP_Interactivo.html',
+  'downloads/manual-images/ux-machinery-library-es-1440.png',
+  'downloads/manual-images/ux-material-editor-es-1440.png',
+  'downloads/manual-images/ux-moiron-ficha-es-1440.png'
  ];
  for(const path of essential){
   const expected=path==='artifact-integrity.json' ? digest(readFileSync(join(site,path))) : artifact.files[path];
