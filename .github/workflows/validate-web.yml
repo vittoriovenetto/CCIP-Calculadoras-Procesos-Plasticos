@@ -1,9 +1,9 @@
 name: Validate CCIP web
 on:
   push:
-    branches: ["feature/ux-bibliotecas-materiales-maquinaria"]
+    branches: ["feature/manual-visual-ccip-integracion"]
   pull_request:
-    branches: ["feature/etapa-7-auditoria-publicacion"]
+    branches: ["feature/ux-bibliotecas-materiales-maquinaria"]
 permissions:
   contents: read
 jobs:
@@ -42,6 +42,8 @@ jobs:
         run: |
           mkdir -p test-artifacts
           python tests/browser_smoke.py 2>&1 | tee test-artifacts/browser.log
+      - name: Validate 19-chapter manual inside CCIP and on mobile
+        run: python tests/browser_manual.py
       - name: Validate history operations and real XLSX/PDF files
         env:
           CCIP_TEST_ARTIFACTS: test-artifacts/etapa-2

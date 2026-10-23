@@ -308,3 +308,27 @@ aside .learning-nav{display:block;overflow:visible;margin-top:16px;padding-top:1
 }
 
 .history-actions a{display:inline-flex;align-items:center;min-height:44px;padding:8px;font-size:12px}
+
+/* Visual manual dialog: internal chapter browsing stays inside its iframe. */
+#user-manual.visual-manual-dialog{box-sizing:border-box;display:none;flex-direction:column;
+ width:min(1180px,calc(100vw - 32px));height:min(94dvh,960px);
+ max-width:none;max-height:calc(100dvh - 16px);margin:auto;padding:0;overflow:hidden;
+ border:1px solid var(--border);border-top:4px solid var(--red);border-radius:14px;
+ background:#fff;color:var(--navy)}
+#user-manual.visual-manual-dialog[open]{display:flex}
+#user-manual .visual-manual-header{display:flex;gap:14px;align-items:center;
+ justify-content:space-between;flex:0 0 auto;padding:10px 16px;
+ background:#fff;border-bottom:1px solid #e0e6ee}
+#user-manual.visual-manual-dialog h2{margin:0;font-size:17px;line-height:1.3}
+#user-manual .visual-manual-actions{display:flex;gap:10px;align-items:center}
+#user-manual .visual-manual-actions a{font-size:13px;white-space:nowrap}
+#user-manual #manual-close{min-width:72px;min-height:40px}
+#user-manual #manual-frame{display:block;width:100%;flex:1;min-height:0;border:0;background:#f4f6f9}
+@media(max-width:600px){
+ #user-manual.visual-manual-dialog{width:100vw;max-width:100vw;height:100dvh;
+ max-height:100dvh;border-radius:0;border-left:0;border-right:0;margin:0}
+ #user-manual .visual-manual-header{padding:8px 12px;gap:8px}
+ #user-manual.visual-manual-dialog h2{font-size:14px}
+ #user-manual .visual-manual-actions{gap:8px}
+ #user-manual .visual-manual-actions a{font-size:11px}
+}
