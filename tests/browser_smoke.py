@@ -630,7 +630,18 @@ class BrowserSmoke(unittest.TestCase):
                 self.page.locator('#manual-open').focus()
                 self.page.keyboard.press('Enter')
                 self.assertTrue(self.page.locator('#user-manual').evaluate('el=>el.open'))
-                self.assertEqual(self.page.locator('#manual-message').inner_text(),'Manual de uso en preparación' if language=='es' else 'User manual in preparation')
+                self.assertEqual(self.page.locator('#manual-message').count(),0)
+                self.assertEqual(self.page.locator('#manual-frame').get_attribute('src'),'./downloads/Manual_Visual_CCIP_Interactivo.html')
+                self.assertTrue(self.page.locator('#manual-title').is_visible())
+                self.assertEqual(self.page.frame_locator('#manual-frame').locator('.chapter').count(),19)
+                # The manual lives inside a dialog iframe. Responsive breakpoints
+                # apply to its own viewport, not to the outer browser window.
+                manual_frame = self.page.frame_locator('#manual-frame')
+                inner_width = manual_frame.locator('html').evaluate('element => element.clientWidth')
+                if inner_width <= 760:
+                    self.assertTrue(manual_frame.locator('#nav-select').is_visible())
+                else:
+                    self.assertTrue(manual_frame.locator('.sidebar [data-open="7"]').is_visible())
                 self.page.keyboard.press('Tab')
                 self.assertTrue(self.page.evaluate("document.querySelector('#user-manual').contains(document.activeElement)"))
                 self.page.keyboard.press('Escape')

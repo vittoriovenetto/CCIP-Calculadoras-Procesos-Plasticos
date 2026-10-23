@@ -29,7 +29,16 @@
     </div>
     <footer><p>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</p><hr class="credits-divider"><ul class="academic-credits" aria-label="Créditos académicos"><li data-i18n-ignore>Danaee María López Ortiz</li><li data-i18n-ignore>Omar Antonio Valenzuela Ventura</li><li data-i18n-ignore>Reymildo Jiménez Acosta</li><li data-i18n-ignore>Montserrat Benavides Hernández</li><li data-i18n-ignore>Euris Andrés Guerrero Pen</li><li data-i18n-ignore>Emil Rdriguez Tejada</li></ul></footer>
   </main>
-  <dialog id="user-manual" aria-labelledby="manual-title" aria-describedby="manual-message"><h2 id="manual-title">Manual de uso</h2><p id="manual-message">Manual de uso en preparación</p><form method="dialog"><button autofocus type="submit">Cerrar</button></form></dialog>
+  <dialog id="user-manual" class="visual-manual-dialog" aria-labelledby="manual-title">
+    <div class="visual-manual-header">
+      <h2 id="manual-title">Manual de uso · CCIP</h2>
+      <div class="visual-manual-actions">
+        <a href="./downloads/Manual_Visual_CCIP_Interactivo.html" target="_blank" rel="noopener noreferrer">Abrir en otra pestaña</a>
+        <button id="manual-close" type="button" autofocus>Cerrar</button>
+      </div>
+    </div>
+    <iframe id="manual-frame" title="Manual visual e interactivo de CCIP" data-src="./downloads/Manual_Visual_CCIP_Interactivo.html" loading="lazy" sandbox="allow-scripts allow-modals allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe>
+  </dialog>
   <script type="module" src="./src/app.js?v=20261015-inyeccion-perfil"></script>
   <script type="module" src="./src/manual-dialog.js"></script>
 </body>
