@@ -32,7 +32,9 @@ class TestManual(unittest.TestCase):
                 page.locator('#manual-open').click()
                 self.assertTrue(page.locator('#user-manual').is_visible())
                 frame=page.frame_locator('#manual-frame')
-                frame.locator('#nav-select').wait_for()
+                # Navigation is a dropdown on mobile and a sidebar on desktop.
+                # The dropdown stays in the DOM but is intentionally hidden on desktop.
+                frame.locator('#nav-select').wait_for(state='attached')
                 self.assertEqual(frame.locator('.chapter').count(),19)
                 if width<=760:
                     frame.locator('#nav-select').select_option('7')
