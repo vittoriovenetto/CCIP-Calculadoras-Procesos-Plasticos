@@ -1,0 +1,25 @@
+import { safe } from './materials-view.js';
+import { t } from './i18n.js';
+
+export function renderInjectionProfile(root, { moduleId, level, settings, result, onSettings }) {
+  root.hidden = moduleId !== 'inyeccion' || level !== 'advanced';
+  if (root.hidden) {root.replaceChildren();return;}
+  const number = value => value===null ? t('Pendiente') : Number(value).toLocaleString(document.documentElement.lang==='en'?'en-US':'es-DO',{maximumFractionDigits:3});
+  const cell = (value,estimated) => `${safe(number(value))}${estimated?`<small class="density-estimate">${safe(t('Estimación'))}</small>`:''}`;
+  root.innerHTML = `<details id="profile-details" ${settings.enabled?'open':''}><summary>${safe(t('Perfil geométrico L1/L2/L3 (opcional)'))}</summary><p class="muted">${safe(t('Reparto del volumen sin margen ni colchón. Los porcentajes 30/50/20 son ilustrativos y editables; no son ajustes recomendados de máquina.'))}</p><div class="fields">${settings.fractions.map((value,i)=>`<label for="profile-fraction-${i}">L${i+1} (%)<input id="profile-fraction-${i}" data-profile-fraction="${i}" type="number" step="any" min="0" max="100" value="${safe(Number.isFinite(value)?value:'')}"></label>`).join('')}</div>
+    <div class="fields profile-position-controls"><label for="profile-initial">${safe(t('Posición inicial (mm), opcional'))}<input id="profile-initial" type="number" step="any" value="${safe(settings.initial_position_mm ?? '')}"></label><label for="profile-direction">${safe(t('Sentido del desplazamiento'))}<select id="profile-direction"><option value="">${safe(t('Sin definir'))}</option><option value="increasing" ${settings.direction==='increasing'?'selected':''}>${safe(t('Coordenada creciente (+)'))}</option><option value="decreasing" ${settings.direction==='decreasing'?'selected':''}>${safe(t('Coordenada decreciente (−)'))}</option></select></label></div><p class="muted">${safe(t('Las coordenadas absolutas requieren posición inicial y sentido. El acumulado desde cero no es una consigna de máquina.'))}</p>
+    <div class="profile-output">${result ? result.valid ? `<figure class="profile-chart"><figcaption>${safe(t('Distribución porcentual ilustrativa; no representa velocidades ni presiones.'))}</figcaption><div class="profile-bars" role="img" aria-label="${safe(result.stages.map(s=>`${s.label}: ${s.fraction}%`).join(', '))}">${result.stages.map((s,i)=>`<span style="width:${s.fraction}%;background:${['#c8102e','#870e25','#626b77'][i]}">${s.fraction>=10?s.label:''}</span>`).join('')}</div><div class="profile-legend">${result.stages.map(s=>`<span>${s.label}: ${safe(s.fraction)} %</span>`).join('')}</div></figure><div class="pvt-table-wrap"><table><thead><tr><th>${safe(t('Tramo'))}</th><th>%</th><th>cm³</th><th>g</th><th>${safe(t('Recorrido (mm)'))}</th><th>${safe(t('Acumulado (mm)'))}</th>${result.absolute_machine_positions?`<th>${safe(t('Inicio (mm)'))}</th><th>${safe(t('Fin (mm)'))}</th>`:''}</tr></thead><tbody>${result.stages.map(s=>`<tr><th>${s.label}</th><td>${safe(s.fraction)}</td><td>${cell(s.volume_cm3,s.volume_estimate)}</td><td>${cell(s.mass_g,s.mass_estimate)}</td><td>${cell(s.stroke_mm,s.stroke_estimate)}</td><td>${cell(s.cumulative_mm,s.stroke_estimate)}</td>${result.absolute_machine_positions?`<td>${cell(s.start_position_mm,s.start_position_estimate)}</td><td>${cell(s.end_position_mm,s.stroke_estimate)}</td>`:''}</tr>`).join('')}</tbody></table></div><details><summary>${safe(t('Fórmulas del perfil'))}</summary><p>A = π D² / 4 [mm²]; Vᵢ = V × fᵢ / 100 [cm³]; Δsᵢ = 1000 Vᵢ / A [mm]; sᵢ = Σ Δsᵢ.</p><p>${safe(t('Solo con origen y sentido definidos'))}: xᵢ = x₀ ± sᵢ.</p></details><p class="note">${safe(t(result.note))}</p>` : `<p class="warning">${safe(t(result.error))}</p>` : `<p class="muted">${safe(t('Pulsa Calcular para actualizar el perfil.'))}</p>`}</div></details>`;
+  root.querySelector('details').addEventListener('toggle',e=>{if(root.contains(e.target)){settings.enabled=e.target.open;onSettings({...settings,enabled:e.target.open},false);}});
+  for (const input of root.querySelectorAll('[data-profile-fraction]')) input.addEventListener('input',()=>{
+    const fractions = [...settings.fractions];fractions[Number(input.dataset.profileFraction)] = input.value === '' ? NaN : Number(input.value);
+    settings.fractions = fractions;root.querySelector('.profile-output').innerHTML = `<p class="muted">${safe(t('Pulsa Calcular para actualizar el perfil.'))}</p>`;onSettings({...settings,fractions},true);
+  });
+  const changed = () => {
+    settings.initial_position_mm=root.querySelector('#profile-initial').validity.badInput?'invalid':root.querySelector('#profile-initial').value;
+    settings.direction=root.querySelector('#profile-direction').value;
+    root.querySelector('.profile-output').innerHTML=`<p class="muted">${safe(t('Pulsa Calcular para actualizar el perfil.'))}</p>`;
+    onSettings({...settings},true);
+  };
+  root.querySelector('#profile-initial').addEventListener('input',changed);
+  root.querySelector('#profile-direction').addEventListener('change',changed);
+}

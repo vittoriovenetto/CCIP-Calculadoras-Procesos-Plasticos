@@ -1,0 +1,9 @@
+{
+  "schema": "ccip-shared-user-materials/1",
+  "revision": 1,
+  "materials": [],
+  "activation": {
+    "issue_automation": "pending_default_branch_activation",
+    "catalog_delivery": "bundled_reviewed_release_only"
+  }
+}

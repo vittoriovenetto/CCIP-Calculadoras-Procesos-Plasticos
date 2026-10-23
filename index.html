@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c8102e">
   <title>CCIP | Calculadora de procesos de transformación termoplásticos</title>
-  <link rel="icon" href="./assets/4d8810e19aa1f8327fbeac66a3c713e49611831f/src/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/4d8810e19aa1f8327fbeac66a3c713e49611831f/src/styles.css?v=20261015-inyeccion-perfil">
+  <link rel="icon" href="./assets/8667fdc522e2d54290591047e467b04c30ace607/src/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/8667fdc522e2d54290591047e467b04c30ace607/src/styles.css?v=20261015-inyeccion-perfil">
 </head>
 <body>
   <header><div class="shell top">
-    <div class="institutional-identity" aria-label="Identidad institucional CCIP e INTEC"><a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./assets/4d8810e19aa1f8327fbeac66a3c713e49611831f/src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a><span class="institutional-divider" aria-hidden="true"></span><div class="intec-brand"><img class="intec-logo" src="./assets/4d8810e19aa1f8327fbeac66a3c713e49611831f/src/assets/logo-intec-comercial.png" width="801" height="900" alt="Logo comercial del Instituto Tecnológico de Santo Domingo (INTEC)"><span class="institution-name" data-i18n-ignore>Instituto Tecnológico de Santo Domingo (INTEC)</span></div></div>
+    <div class="institutional-identity" aria-label="Identidad institucional CCIP e INTEC"><a class="brand" href="./" aria-label="Inicio CCIP"><img class="ccip-logo" src="./assets/8667fdc522e2d54290591047e467b04c30ace607/src/assets/logo-ccip.png" width="504" height="160" alt="Centro de Capacitación e Investigación del Plástico"></a><span class="institutional-divider" aria-hidden="true"></span><div class="intec-brand"><img class="intec-logo" src="./assets/8667fdc522e2d54290591047e467b04c30ace607/src/assets/logo-intec-comercial.png" width="801" height="900" alt="Logo comercial del Instituto Tecnológico de Santo Domingo (INTEC)"><span class="institution-name" data-i18n-ignore>Instituto Tecnológico de Santo Domingo (INTEC)</span></div></div>
     <div class="version-links"><label for="language">🌐 Idioma <select id="language" aria-label="Idioma"><option value="es">Español</option><option value="en">English</option></select></label><span class="version">WEB · EXPERIMENTAL</span></div>
   </div></header>
   <main class="shell">
@@ -29,8 +29,17 @@
     </div>
     <footer><p>CCIP · Proyecto académico — INTEC · Versión experimental; resultados pendientes de validación técnica.</p><hr class="credits-divider"><ul class="academic-credits" aria-label="Créditos académicos"><li data-i18n-ignore>Danaee María López Ortiz</li><li data-i18n-ignore>Omar Antonio Valenzuela Ventura</li><li data-i18n-ignore>Reymildo Jiménez Acosta</li><li data-i18n-ignore>Montserrat Benavides Hernández</li><li data-i18n-ignore>Euris Andrés Guerrero Pen</li><li data-i18n-ignore>Emil Rdriguez Tejada</li></ul></footer>
   </main>
-  <dialog id="user-manual" aria-labelledby="manual-title" aria-describedby="manual-message"><h2 id="manual-title">Manual de uso</h2><p id="manual-message">Manual de uso en preparación</p><form method="dialog"><button autofocus type="submit">Cerrar</button></form></dialog>
-  <script type="module" src="./assets/4d8810e19aa1f8327fbeac66a3c713e49611831f/src/app.js?v=20261015-inyeccion-perfil"></script>
-  <script type="module" src="./assets/4d8810e19aa1f8327fbeac66a3c713e49611831f/src/manual-dialog.js"></script>
+  <dialog id="user-manual" class="visual-manual-dialog" aria-labelledby="manual-title">
+    <div class="visual-manual-header">
+      <h2 id="manual-title">Manual de uso · CCIP</h2>
+      <div class="visual-manual-actions">
+        <a href="./downloads/Manual_Visual_CCIP_Interactivo.html" target="_blank" rel="noopener noreferrer">Abrir en otra pestaña</a>
+        <button id="manual-close" type="button" autofocus>Cerrar</button>
+      </div>
+    </div>
+    <iframe id="manual-frame" title="Manual visual e interactivo de CCIP" data-src="./downloads/Manual_Visual_CCIP_Interactivo.html" loading="lazy" sandbox="allow-scripts allow-modals allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe>
+  </dialog>
+  <script type="module" src="./assets/8667fdc522e2d54290591047e467b04c30ace607/src/app.js?v=20261015-inyeccion-perfil"></script>
+  <script type="module" src="./assets/8667fdc522e2d54290591047e467b04c30ace607/src/manual-dialog.js"></script>
 </body>
 </html>
